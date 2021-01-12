@@ -7,6 +7,6 @@
 <title>아이디어스 - 고객센터</title>
 </head>
 <body>
-	<p>왜 안되는걸까요??</p>
+	<p>왜 안되는걸까요??lklk</p>
 </body>
 </html>
