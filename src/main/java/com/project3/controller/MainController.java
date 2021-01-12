@@ -11,4 +11,9 @@ public class MainController {
 	public String index() {
 		return "index";
 	}
+	
+	@RequestMapping(value = "cs.do", method = RequestMethod.GET)
+	public String cs() {
+		return "cs";
+	}
 }
