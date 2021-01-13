@@ -5,11 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class MainController {
+public class AdminController {
 	
-	@RequestMapping(value = "index.do", method = RequestMethod.GET)
-	public String index() {
-		return "index";
+	@RequestMapping(value="/admin.do", method=RequestMethod.GET)
+	public String admin() {
+		return "admin";
 	}
-	
 }
