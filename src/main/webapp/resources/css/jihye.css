@@ -62,3 +62,42 @@ table#cs_content_table td a>button {margin:0 5px;}
 **/
 table#cs_delete_table {margin-top:100px; height:400px; width:500px;}
 table#cs_delete_table td #delete_img {width:200px; height:210px; }
+
+/**
+*	Admin : admin.jsp (지혜)
+*/
+aside.admin_info {width:200px; height:600px; background-color:#FBFAFA; float:left;}
+aside.admin_info div.admin_profile img {height:100px; width:100px; margin:20px 50px 5px 50px; border-radius:50%;}
+aside.admin_info div.admin_profile p {text-align:center; font-weight:700;}
+aside.admin_info p.am {background-color:#F87E35; font-size:17px; color:white; text-align:center; padding:8px; font-weight:400;}
+aside.admin_info span {display:block; text-indent:15px; margin-bottom:7px;}
+aside.admin_info a {text-decoration:none; color:#4F4F4F; font-size:13.5px; font-weight:400; margin-left:15px; font-weight:300;}
+aside.admin_info hr.h {color:#B4B4B4; width:90%;}
+
+/**
+*	회원관리 : user_mng_list.jsp (지혜)
+*/
+body.admin {width:1000px; margin:auto; }
+body.admin a.h2_user {text-decoration:none; color:#333;}
+table#user_list {width:750px; text-align:center;}
+table#user_list button#user_select_delete {border-radius:0px; padding:7px 12px; margin-right:5px;}
+table#user_list button#user_all_delete {background-color:tomato; border-radius:0px; padding:7px 12px;}
+table#user_list tr:first-child td {text-align:right; border:1px solid white; padding-bottom:10px;}
+table#user_list tr:nth-child(2) {border-top:2px solid lightgray; border-bottom:2px solid lightgray;}
+table#user_list tr:last-child td {border-bottom:1px solid white; border-top:2px solid lightgray;}
+table#user_list tr th, table#user_list tr td {height:35px;}
+
+/**
+*	회원관리 : user_mng_content.jsp (지혜)
+*/
+table#admin_user_table {border-top:2px solid #B4B4B4; border-bottom:2px solid #B4B4B4; border-collapse:collapse; width:700px; margin:auto;}
+table#admin_user_table th, table#admin_user_table td {border-top:2px solid #B4B4B4; border-bottom:2px solid #B4B4B4; height:40px;}
+table#admin_user_table button {border-radius:0px; padding:7px 15px; margin-top:80px;}
+table#admin_user_table tr:last-child td{text-align:center; border:2px solid white;}
+table#admin_user_table th {color:#F87E35; text-align:left; text-indent:10px;}
+table#admin_user_table tr:nth-child(5) th{text-align:center;}
+table#admin_user_table td {text-align:center; text-indent:10px;}
+table#admin_user_table img {width:230px; height:225px; margin-left:-10px;}
+
+
+

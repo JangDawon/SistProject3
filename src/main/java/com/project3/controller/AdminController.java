@@ -9,6 +9,26 @@ public class AdminController {
 	
 	@RequestMapping(value="/admin.do", method=RequestMethod.GET)
 	public String admin() {
-		return "admin";
+		return "/admin/admin";
 	}
+	
+	@RequestMapping(value="/user_mng_list.do", method=RequestMethod.GET)
+	public String user_mng_list() {
+		return "/admin/user/user_mng_list";
+	}
+	
+	@RequestMapping(value="/user_mng_content.do", method=RequestMethod.GET)
+	public String user_mng_content() {
+		return "/admin/user/user_mng_content";
+	}
+	
+	
+	/*
+	 * @RequestMapping(value="/product_mng_list.do", method=RequestMethod.GET)
+	 * public String product_mng_list() { return "/admin/product/product_mng_list";
+	 * }
+	 * 
+	 * @RequestMapping(value="/user_mng_list.do", method=RequestMethod.GET) public
+	 * String review_mng_list() { return "/admin/review/review_mng_list"; }
+	 */
 }
