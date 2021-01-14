@@ -60,10 +60,10 @@
 					<a href="">
 						<div class="prod_img">
 							<div>
-								<img src="/resource/images/content1.jsp">
+								<button class="favorite_btn">즐겨찾기 아이콘</button>
 							</div>
 							<div>
-								<button class="favorite_btn">아이콘</button>
+								<img src="http://localhost:9000/sistproject3/images/content1.jpg">
 							</div>
 						</div>
 						<div class="prod_info">
@@ -71,8 +71,8 @@
 							<div class="prod_info_title">시즌 한정 생딸기망개떡</div>
 							<div class="prod_info_price">15,000원</div>
 							<div class="prod_info_review">
-								<div>후기</div>
-								<div>이야,,, 정말 좋네요.. 흠 뭐랄까...</div>
+								<div class="rv">후기</div>
+								<div class="rv2">이야,,, 정말 좋네요.. 흠 뭐랄까...</div>
 							</div>
 						</div>
 					</a>
@@ -82,10 +82,10 @@
 					<a href="">
 						<div class="prod_img">
 							<div>
-								<img src="/resource/images/content1.jsp">
+								<button class="favorite_btn">즐겨찾기 아이콘</button>
 							</div>
 							<div>
-								<button class="favorite_btn">아이콘</button>
+								<img src="http://localhost:9000/sistproject3/images/content2.jpg">
 							</div>
 						</div>
 						<div class="prod_info">
@@ -93,8 +93,8 @@
 							<div class="prod_info_title">시즌 한정 생딸기망개떡</div>
 							<div class="prod_info_price">15,000원</div>
 							<div class="prod_info_review">
-								<div>후기</div>
-								<div>이야,,, 정말 좋네요.. 흠 뭐랄까...</div>
+								<div class="rv">후기</div>
+								<div class="rv2">이야,,, 정말 좋네요.. 흠 뭐랄까...</div>
 							</div>
 						</div>
 					</a>
@@ -104,10 +104,10 @@
 					<a href="">
 						<div class="prod_img">
 							<div>
-								<img src="/resource/images/content1.jsp">
+								<button class="favorite_btn">즐겨찾기 아이콘</button>
 							</div>
 							<div>
-								<button class="favorite_btn">아이콘</button>
+								<img src="http://localhost:9000/sistproject3/images/content1.jpg">
 							</div>
 						</div>
 						<div class="prod_info">
@@ -115,8 +115,8 @@
 							<div class="prod_info_title">시즌 한정 생딸기망개떡</div>
 							<div class="prod_info_price">15,000원</div>
 							<div class="prod_info_review">
-								<div>후기</div>
-								<div>이야,,, 정말 좋네요.. 흠 뭐랄까...</div>
+								<div class="rv">후기</div>
+								<div class="rv2">이야,,, 정말 좋네요.. 흠 뭐랄까...</div>
 							</div>
 						</div>
 					</a>
@@ -126,10 +126,10 @@
 					<a href="">
 						<div class="prod_img">
 							<div>
-								<img src="/resource/images/content1.jsp">
+								<button class="favorite_btn">즐겨찾기 아이콘</button>
 							</div>
 							<div>
-								<button class="favorite_btn">아이콘</button>
+								<img src="http://localhost:9000/sistproject3/images/content2.jpg">
 							</div>
 						</div>
 						<div class="prod_info">
@@ -137,8 +137,8 @@
 							<div class="prod_info_title">시즌 한정 생딸기망개떡</div>
 							<div class="prod_info_price">15,000원</div>
 							<div class="prod_info_review">
-								<div>후기</div>
-								<div>이야,,, 정말 좋네요.. 흠 뭐랄까...</div>
+								<div class="rv">후기</div>
+								<div class="rv2">이야,,, 정말 좋네요.. 흠 뭐랄까...</div>
 							</div>
 						</div>
 					</a>
@@ -148,10 +148,10 @@
 					<a href="">
 						<div class="prod_img">
 							<div>
-								<img src="/resource/images/content1.jsp">
+								<button class="favorite_btn">즐겨찾기 아이콘</button>
 							</div>
 							<div>
-								<button class="favorite_btn">아이콘</button>
+								<img src="http://localhost:9000/sistproject3/images/content1.jpg">
 							</div>
 						</div>
 						<div class="prod_info">
@@ -159,8 +159,8 @@
 							<div class="prod_info_title">시즌 한정 생딸기망개떡</div>
 							<div class="prod_info_price">15,000원</div>
 							<div class="prod_info_review">
-								<div>후기</div>
-								<div>이야,,, 정말 좋네요.. 흠 뭐랄까...</div>
+								<div class="rv">후기</div>
+								<div class="rv2">이야,,, 정말 좋네요.. 흠 뭐랄까...</div>
 							</div>
 						</div>
 					</a>
@@ -170,10 +170,10 @@
 					<a href="">
 						<div class="prod_img">
 							<div>
-								<img src="/resource/images/content1.jsp">
+								<button class="favorite_btn">즐겨찾기 아이콘</button>
 							</div>
 							<div>
-								<button class="favorite_btn">아이콘</button>
+								<img src="http://localhost:9000/sistproject3/images/content2.jpg">
 							</div>
 						</div>
 						<div class="prod_info">
@@ -181,8 +181,8 @@
 							<div class="prod_info_title">시즌 한정 생딸기망개떡</div>
 							<div class="prod_info_price">15,000원</div>
 							<div class="prod_info_review">
-								<div>후기</div>
-								<div>이야,,, 정말 좋네요.. 흠 뭐랄까...</div>
+								<div class="rv">후기</div>
+								<div class="rv2">이야,,, 정말 좋네요.. 흠 뭐랄까...</div>
 							</div>
 						</div>
 					</a>
