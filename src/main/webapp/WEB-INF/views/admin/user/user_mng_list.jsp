@@ -12,32 +12,8 @@
 <body id="user_mng_list" class="admin">
 
 	<!-- aside -->
-	<aside class="admin_info">
-		<div class="admin_menu">
-			<div class="admin_profile">
-				<img src="http://localhost:9000/sistproject3/images/logo.jpg">
-				<p>관리자</p>
-			</div>
-			<p class="am">Admin Menu</p>
-			<nav>
-				<b>
-					<span>회원</span>
-				</b>
-				<a href="user_mng_list.do">회원 관리</a>
-				<hr class="h">
-				<b>
-					<span>상품</span>
-				</b>
-				<a href="product_mng_list.do">상품 관리</a>
-				<hr class="h">
-				<b>
-					<span>리뷰</span>
-				</b>
-				<a href="review_mng_list.do">리뷰 관리</a>
-				<hr class="h">
-			</nav>
-		</div>
-	</aside>
+	<jsp:include page="../admin.jsp"></jsp:include>
+	
 	
 	<a href="user_mng_list.do" class="h2_user"><h2 class="txt">회원 관리</h2></a>
 	<table class="cs_table" id="user_list">
