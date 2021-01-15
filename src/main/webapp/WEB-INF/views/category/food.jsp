@@ -151,6 +151,30 @@
 						</div>
 					</a>
 				</div>
+				
+				<div class="product">
+					<a href="">
+						<div class="prod_img">
+							<div>
+								<button class="favorite_btn">
+									<img src="http://localhost:9000/sistproject3/images/favorite.png">
+								</button>
+							</div>
+							<div>
+								<img src="http://localhost:9000/sistproject3/images/content2.jpg">
+							</div>
+						</div>
+						<div class="prod_info">
+							<div class="prod_info_name">2대가 함께하는 창원생과방</div>
+							<div class="prod_info_title">시즌 한정 생딸기망개떡</div>
+							<div class="prod_info_price">15,000원</div>
+							<div class="prod_info_review">
+								<div class="rv">후기</div>
+								<div class="rv2">이야,,, 정말 좋네요.. 흠 뭐랄까...</div>
+							</div>
+						</div>
+					</a>
+				</div>
 			</div>
 			
 		</section>

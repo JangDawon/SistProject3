@@ -51,13 +51,31 @@ public class CategoryController {
 	}
 	
 	
+	/**
+	 * 인기작품 카테고리
+	 */
+	@RequestMapping(value = "/product_best.do", method = RequestMethod.GET)
+	public String product_best() {
+		return "/category/product_best";
+	}
 	
 	
+	/**
+	 * 인기작품 카테고리
+	 */
+	@RequestMapping(value = "/product_new.do", method = RequestMethod.GET)
+	public String product_new() {
+		return "/category/product_new";
+	}
 	
 	
-	
-	
-	
+	/**
+	 * 인기작가 카테고리
+	 */
+	@RequestMapping(value = "/artist_best.do", method = RequestMethod.GET)
+	public String artist_best() {
+		return "/category/artist_best";
+	}
 	
 	
 	
