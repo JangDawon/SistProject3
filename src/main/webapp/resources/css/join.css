@@ -1,0 +1,133 @@
+/**
+	join_choice.jsp
+**/
+section#join_choice_section1{
+	height:350px;
+}
+section.join_choice_section{
+	margin:auto;
+	width:500px;
+}
+section.join_choice_section ul,
+section.join_section ul
+{
+	list-style:none;
+	padding:0px;
+	text-align:center;
+	font-weight:bold;
+}
+section.join_choice_section ul li{
+	padding:10px 0;
+}
+section.join_choice_section hr,
+section.join_section hr{
+	vertical-align:middle;
+	display:inline-block;
+	border:none;
+	height:0.5px;
+	background-color:black;
+}
+
+section.join_choice_section li:first-child hr{
+	width:120px;
+}
+section.join_choice_section li:nth-child(2) hr,
+section.join_section li:nth-child(2) hr{
+	width:50px;
+}
+section.join_choice_section>div>ul>li img{
+	width:45px;
+	height:45px;	
+}
+section.join_choice_section>div>ul>li:first-child{
+	font-size:14px;
+	padding:0 0 35px 0;
+}
+section.join_choice_section>div>ul>li:nth-child(3){
+	margin-bottom:10px;
+}
+section.join_choice_section>div>ul>li:nth-child(2)>div:first-child,
+section.join_choice_section>div>ul>li:nth-child(2)>div:last-child,
+section.join_section ul>li:nth-child(2)>div:first-child,
+section.join_section ul>li:nth-child(2)>div:last-child{
+	display:inline-block;
+	width:35px;
+	height:35px;
+	border-radius:75px;
+	text-align:center;
+	margin:0 auto;
+	font-size:14px;
+	vertical-align:middle;
+	line-height:38px;
+	color:white;
+}
+section.join_choice_section>div>ul>li:nth-child(2)>div:first-child,
+section.join_section ul>li:nth-child(2)>div:last-child{
+	background-color:#FA9354;
+	color:white;
+}
+
+section.join_choice_section>div>ul>li:nth-child(2)>div:last-child,
+section.join_section ul>li:nth-child(2)>div:first-child{
+	background-color:white;
+	color:gray;
+	border:1px solid gray;
+}
+section.join_choice_section button{
+	margin:auto;
+	width:400px;
+	height:60px;
+	border-radius:3px;
+	font-size:16px;
+	font-weight:bold;
+	outline:none;
+}
+section.join_choice_section button#btnKakaoJoin{
+	border:none;
+	background-color:#FEE500;
+}
+section.join_choice_section button#btnKakaoJoin img{
+	width:45px;
+	height:45px;
+	float:left;
+}
+section.join_choice_section button#btnKakaoJoin label{
+	display:inline-block;
+	padding:15px 45px 12px 0;
+	cursor:pointer;
+}
+section.join_choice_section button#btnEmailJoin{
+	border:1px solid lightgray;
+	background-color:white;
+}
+section.join_choice_section ul li:last-child{
+	margin-top:20px;
+}
+section.join_choice_section ul li:last-child label,
+section.join_choice_section ul li:last-child a:visited,
+section.join_choice_section ul li:last-child a:link{
+	color:gray;
+}
+section.join_choice_section ul li:last-child a{
+	text-decoration:underline;
+}
+/**
+	join.jsp
+**/
+section#join_section1{
+	height:200px;
+	border:solid 1px red;
+}
+section.join_section{
+	border:solid 1px blue;
+	margin:auto;
+	width:500px;
+}
+section.join_section ul li:first-child hr{
+	width:100px;
+}
+section.join_section div.join_form_block{
+	width:400px;
+	margin:auto;
+	border:solid 1px green;
+}
