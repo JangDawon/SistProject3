@@ -19,7 +19,6 @@
 		<tr>
 			<td colspan="6">
 				<a href="product_mng_regist.do"><button type="button" class="btn_style" id="product_regist">등록</button></a>
-				<a href="product_mng_update.do"><button type="button" class="btn_style" id="product_regist">수정</button></a>
 				<button type="button" class="btn_style" id="product_select_delete">선택 삭제</button>
 				<button type="button" class="btn_style" id="product_all_delete">전체 삭제</button>
 			</td>
@@ -32,7 +31,7 @@
 			<th>이미지</th>
 			<th>가격</th>
 		</tr>
-		<tr>
+		<tr onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'">
 			<td><input type="checkbox"></td>
 			<td><div>321팩토리 321factory</div></td>
 			<td>패션&잡화</td>
@@ -40,7 +39,7 @@
 			<td><img src="http://localhost:9000/sistproject3/images/content2.jpg" style="height:100px; height:100px;"></td>
 			<td>17,800원</td>
 		</tr>
-		<tr>
+		<tr onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'">
 			<td><input type="checkbox"></td>
 			<td><div>321팩토리 321factory</div></td>
 			<td>패션&잡화</td>
@@ -48,7 +47,7 @@
 			<td><img src="http://localhost:9000/sistproject3/images/content2.jpg" style="height:100px; height:100px;"></td>
 			<td>17,800원</td>
 		</tr>
-		<tr>
+		<tr onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'">
 			<td><input type="checkbox"></td>
 			<td><div>321팩토리 321factory</div></td>
 			<td>패션&잡화</td>

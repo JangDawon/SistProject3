@@ -42,6 +42,11 @@ public class AdminController {
 		return "/admin/product/product_mng_regist";
 	}
 	
+	@RequestMapping(value="/product_mng_content.do", method=RequestMethod.GET)
+	public String product_mng_content() { 
+		return "/admin/product/product_mng_content";
+	}
+	
 	@RequestMapping(value="/product_mng_update.do", method=RequestMethod.GET)
 	public String product_mng_udpate() { 
 		return "/admin/product/product_mng_update";
