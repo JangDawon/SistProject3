@@ -4,8 +4,8 @@
 **/
 aside.mypage_menu nav {float: left;height: 1200px;width: 225px;padding-left:330px;}
 aside.mypage_menu img.profile_img {width: 100px;height: 100px;}
-aside.mypage_menu li {padding: 9px 20px;background-color: rgb(251, 250, 250);}
 aside.mypage_menu ul {display: inline-block;list-style-type: none;font-size: 14px;margin:0;}
+aside.mypage_menu li {padding: 9px 20px;background-color: rgb(251, 250, 250);}
 aside.mypage_menu li.bold {font-size: 15px;font-weight: bold;padding-top: 10px;border-top: 1px solid lightgrey;}
 aside.mypage_menu li:nth-child(4) {background-color: rgb(255, 123, 48);color: white;}
 aside.mypage_menu li:nth-child(1), li:nth-child(2), li:nth-child(3) {text-align: center;padding: 10px 0;}
@@ -33,10 +33,10 @@ table.my_order tr:nth-child(2) td button{background-color: rgb(255, 255, 255);bo
 /**
 *	내 정보
 **/
-table.myinfo tr th {text-align: left;text-indent: 10px;font-size: 20px;background-color: rgb(245, 245, 245);}
 table.myinfo{width:700px;}
-table.myinfo tr td {border: 1px solid lightgrey;text-indent: 12px;}
 table.myinfo tr:nth-child(2) td{height:130px;}
+table.myinfo tr th {text-align: left;text-indent: 10px;font-size: 20px;background-color: rgb(245, 245, 245);}
+table.myinfo tr td {border: 1px solid lightgrey;text-indent: 12px;}
 /**
 *	즐겨찾기
 **/
@@ -54,8 +54,8 @@ table.bookmark_writer tr:nth-child(2) td{background-color: rgb(245, 245, 245);}
 *	회원주소
 **/
 table.my_address{width:750px;border-collapse:collapse;border:1px solid rgb(217,217,217)}
-table.my_address tr td {padding: 8px;}
 table.my_address tr:first-child td {background-color: rgb(245, 245, 245);}
+table.my_address tr td {padding: 8px;}
 table.my_address tr td span.red {color: rgb(255, 75, 80);}
 table.my_address button.change {background-color: rgb(255, 255, 255);border:1px solid rgb(204, 204, 204);padding: 5px 12px;}
 table.my_address input[type='text']{border:none;font-size:15px;width:500px;}
@@ -83,12 +83,18 @@ table.grade_info tr td{height:5px;}
 table.grade_info div.hand{text-align:center;}
 table.grade_info div.orange{color:rgb(255,123,75)}
 table.grade_info tr td{border-top:1px solid  rgb(217,217,217);}
+/**
+*	리뷰 쓰기
+**/
+table.review_write {border:1px solid  rgb(217,217,217);}
+table.review_write img{width:100px;height:100px;}
+table.review_write textarea{width:340px;height:50px;}table.review_write button{padding:16px 10px;}
 
 /**
 * 내가 쓴 리뷰
 **/
-table.review_menu td>a {text-decoration: none;color: #333;display: inline-block;width: 100%;padding: 10px 0;font-size: 17px;font-weight: bold;text-align: center;background-color: rgb(231, 231, 231);}
 table.review_menu tr td {width:425px;}
+table.review_menu td>a {text-decoration: none;color: #333;display: inline-block;width: 100%;padding: 10px 0;font-size: 17px;font-weight: bold;text-align: center;background-color: rgb(231, 231, 231);}
 table.review_menu td>a:hover {	color: white;	background-color: rgb(255, 123, 48);}
 table.review_content tr:first-child>td:first-child {width: 20px;}
 table.review_content tr:first-child span.title {font-weight: bold;display: inline-block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 350px;}

@@ -6,11 +6,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-table.my_review td:first-child{
-border-top:2px solid black;
-border-right:2px solid black;
-border:left:2px solid black;
-}
+	table.review_write {
+	border:1px solid  rgb(217,217,217);
+	}
+	table.review_write img{
+	width:100px;
+	height:100px;
+	}
+	table.review_write textarea{
+	width:340px;
+	height:50px;
+	}
+	table.review_write button{
+	padding:16px 10px;
+	}
 </style>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/woohyun.css">
 </head>
@@ -31,6 +40,32 @@ border:left:2px solid black;
 			<td><a href="my_review.do">내가 쓴 구매 후기</a></td>
 		</tr>
 	</table>
+	<form name = "review_write_form "action  ="review_write_proc" method="post">
+	<input type="hidden" name="bid" value="">
+	<table class = "review_write">
+		<tr>
+			<td rowspan =2><img src = "http://localhost:9000/sistproject3/images/item_img.PNG">
+			<td colspan =2>
+				<b>[입점할인]뚠뚠이 캐릭터 그림 일러스트 초상화</b><br>
+				<span>2021-01-01</span>
+				<select name="star" class="star">
+					<option value="평점입력">평점입력</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					</select>
+			</td>
+
+		</tr>
+		
+		<tr>
+			<td><textarea></textarea></td>
+			<td><button type = "button">등록하기</button></td>
+		</tr>
+	</table>
+	</form>
 <body>
 
 </body>
