@@ -2,14 +2,14 @@
 /**
 *	마이페이지 aside
 **/
-aside.mypage_menu nav {float: left;height: 1200px;width: 225px;padding-left:330px;}
+aside.mypage_menu nav {float: left;height: 1200px;width: 225px;padding-left:350px;}
 aside.mypage_menu img.profile_img {width: 100px;height: 100px;}
 aside.mypage_menu ul {display: inline-block;list-style-type: none;font-size: 14px;margin:0;}
 aside.mypage_menu li {padding: 9px 20px;background-color: rgb(251, 250, 250);}
 aside.mypage_menu li.bold {font-size: 15px;font-weight: bold;padding-top: 10px;border-top: 1px solid lightgrey;}
 aside.mypage_menu li:nth-child(4) {background-color: rgb(255, 123, 48);color: white;}
 aside.mypage_menu li:nth-child(1), li:nth-child(2), li:nth-child(3) {text-align: center;padding: 10px 0;}
-aside.mypage_menu a {text-decoration: none;}
+aside.mypage_menu a {text-decoration: none;color:black;}
 aside.mypage_menu a:hover {color: rgb(255, 123, 48);
 }
 /**
@@ -48,7 +48,12 @@ dl.bookmark_list:hover{box-shadow:1px 1px 20px #ddd;};
 *	좋아하는 작가
 **/
 table.bookmark_writer{width:750px;}
+table.bookmark_writer{border-bottom:1px solid rgb(217,217,217);}
 table.bookmark_writer tr:nth-child(2) td{background-color: rgb(245, 245, 245);}
+table.bookmark_writer tr td button.bookmark_button{border:1px solid rgb(255, 123, 48);background-color:rgb(255, 123, 48);color:rgb(255,255,255);margin-bottom:10px;}
+table.bookmark_writer tr td button.home{background-color:white;border:1px solid rgb(204, 204, 204);padding: 0px 12px;}
+table.bookmark_writer tr td button.message{background-color:white;border:1px solid rgb(204, 204, 204);padding: 5px 65px;}
+}
 
 /**
 *	회원주소
@@ -58,13 +63,16 @@ table.my_address tr:first-child td {background-color: rgb(245, 245, 245);}
 table.my_address tr td {padding: 8px;}
 table.my_address tr td span.red {color: rgb(255, 75, 80);}
 table.my_address button.change {background-color: rgb(255, 255, 255);border:1px solid rgb(204, 204, 204);padding: 5px 12px;}
-table.my_address input[type='text']{border:none;font-size:15px;width:500px;}
+table.my_address input[type='text']{border:none;font-size:15px;width:500px;height:30px;}
 
 /**
 *	회원정보
 **/
 table.member_info{width:750px;}
+table.member_info input[type='text']{border:none;font-size:15px;height:30px;text-indent:5px;}
 table.member_info td {padding: 13px 0;text-indent: 7px;border-top: 1px solid rgb(217, 217, 217);}
+table.member_info td small{padding-left:10px;}
+table.member_info td.alram{text-indent:12px;}
 table.member_info td.grey {background-color: rgb(245, 245, 245);}
 table.member_info button.change {background-color: rgb(255, 255, 255);border: 1px solid rgb(204, 204, 204);margin-left: 10px;padding: 5px 5px;}
 table.member_info tr:nth-child(7) td {text-align: right;}
@@ -78,6 +86,7 @@ table.my_grade{border-collapse:collapse;border:1px solid RGB(217,217,217);}
 table.my_grade tr td{padding:10px;}
 table.my_grade div:first-child{font-weight:bold;font-size:25px;}
 table.my_grade div:last-child{font-size:13px;padding-top:5px;}
+table.grade_info img{border:width:100px;height:100px;}
 table.grade_info tr:last-child td{border-bottom:1px solid rgb(217,217,217);}
 table.grade_info tr td{height:5px;}
 table.grade_info div.hand{text-align:center;}

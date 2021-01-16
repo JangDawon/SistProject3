@@ -10,6 +10,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+
+table.bookmark_writer tr td button.bookmark_button{
+border:1px solid red;
+background-color:rgb()	
+}
+</style>
 </head>
 <body>
 
@@ -17,14 +24,15 @@
 	<jsp:include page="mypage_aside.jsp" />
 	
 	<h2>좋아하는 작가(♥)</h2>
+	<div>
 			<table class="bookmark_writer">
 			<tr>
 				<td><img src="http://localhost:9000/sistproject3/images/bookmark_write.PNG"></td>
 				<td width="250"><a href = "#">룬룬</a><br><span class ="star">★★★★★</span><br><span>고퀄리티 자제제작 기프트샵, 룬룬
 					소중한 여러분의 일상에 특별함을 선물해드리고 싶어요.</span> <br>
-					<button type="button">좋아하는 작가</button>
-					<button type="button">작가홈</button>
-					<button type="button">메시지</button>
+					<button type="button" class="bookmark_button">좋아하는 작가</button>
+					<button type="button" class ="home">작가홈</button><br>
+					<button type="button" class ="message">메시지</button>
 				</td>
 				<td width="300">
 					<!-- 캐러셀 start -->
@@ -62,5 +70,6 @@
 
 			</tr>
 		</table>
+		</div>
 </body>
 </html>
