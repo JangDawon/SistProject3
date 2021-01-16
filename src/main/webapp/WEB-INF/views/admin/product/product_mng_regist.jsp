@@ -35,7 +35,16 @@
 	      </tr>
 	      <tr>
 	         <td>
-	            <span><span class="red">*</span>상품명</span>
+	            <span><span class="red">*</span>작가 정보</span>
+	         </td>
+	         <td>    
+	            <input type="text" name="sname" placeholder="작가명" id="sname">
+	            <input type="text" name="sid" placeholder="작가 아이디" id="sid">
+	         </td>
+	      </tr>
+	      <tr>
+	         <td>
+	            <span><span class="red">*</span>제목</span>
 	         </td>
 	         <td>    
 	            <input type="text" name="ptitle" placeholder="제목을 입력해주세요 :)" id="ptitle">

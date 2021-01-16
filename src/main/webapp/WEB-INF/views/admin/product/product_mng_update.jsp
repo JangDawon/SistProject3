@@ -15,7 +15,7 @@
 	<jsp:include page="../admin.jsp"></jsp:include>
 	
 	<a href="product_mng_list.do" class="h2_user"><h2 class="txt">상품 관리</h2></a>
-	<p>상품등록</p>
+	<p>상품수정</p>
 	<form name="product_update_form" action="#" method="GET">
 		<table class="cs_table" id="admin_product_update">
 	      <tr>
@@ -35,7 +35,16 @@
 	      </tr>
 	      <tr>
 	         <td>
-	            <span><span class="red">*</span>상품명</span>
+	            <span><span class="red">*</span>작가 정보</span>
+	         </td>
+	         <td>    
+	            <input type="text" name="sname" placeholder="작가명" id="sname" value="321팩토리 321factory">
+	            <input type="text" name="sid" placeholder="작가 아이디" id="sid" value="321factory">
+	         </td>
+	      </tr>
+	      <tr>
+	         <td>
+	            <span><span class="red">*</span>제목</span>
 	         </td>
 	         <td>    
 	            <input type="text" name="ptitle" placeholder="제목을 입력해주세요 :)" id="ptitle" value="1+1🔥블랙아이보리 클로버 나비 마스크스트랩/목걸이">
