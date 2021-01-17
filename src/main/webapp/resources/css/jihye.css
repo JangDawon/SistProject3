@@ -67,7 +67,8 @@ table#cs_delete_table td #delete_img {width:200px; height:210px; }
 /**
 *	Admin : admin.jsp (지혜)
 */
-aside.admin_info {width:200px; height:600px; background-color:#FBFAFA; float:left;}
+body>div.content {width:1000px; margin:auto; margin-bottom:100px;}
+aside.admin_info {width:200px; height:600px; background-color:#FBFAFA; float:left; margin:auto; }
 aside.admin_info div.admin_profile img {height:100px; width:100px; margin:20px 50px 5px 50px; border-radius:50%;}
 aside.admin_info div.admin_profile p {text-align:center; font-weight:700;}
 aside.admin_info p.am {background-color:#F87E35; font-size:17px; color:white; text-align:center; padding:8px; font-weight:400;}
@@ -78,7 +79,7 @@ aside.admin_info hr.h {color:#B4B4B4; width:90%;}
 /**
 *	회원관리 : user_mng_list.jsp (지혜)
 */
-body.admin {width:1000px; margin:auto; }
+body.admin {/* width:1000px; */ margin:auto; }
 body.admin a.h2_user {text-decoration:none; color:#333;}
 table#user_list {width:750px; text-align:center;}
 table#user_list button#user_select_delete {padding:7px 12px; margin-right:5px;}
