@@ -12,7 +12,7 @@
 	<div class = login_content>
 		<section class = login_section1 id = join_choice_section1>
 			<div>
-				<a href="#"><img class="login_logo" src="http://localhost:9000/sistproject3/images/login_images/login_logo.png"></a>
+				<a href="http://localhost:9000/sistproject3/index.do"><img class="login_logo" src="http://localhost:9000/sistproject3/images/login_images/login_logo.png"></a>
 				<img class="login_coupon" src="http://localhost:9000/sistproject3/images/login_images/login_coupon.png">
 			</div>
 		</section>

@@ -8,6 +8,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class JoinController {
 	/**
+	 * 회원가입 성공
+	 * @return
+	 */
+	@RequestMapping(value="/join_success.do", method=RequestMethod.GET)
+	public ModelAndView join_success() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("join/join_success");
+		
+		return mv;
+	}
+	/**
 	 * 회원가입 
 	 * @return
 	 */

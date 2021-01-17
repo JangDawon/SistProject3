@@ -12,7 +12,7 @@
 	<div class = login_content>
 		<section class = login_section1 id=join_section1>
 			<div>
-				<a href="#"><img class="login_logo" src="http://localhost:9000/sistproject3/images/login_images/login_logo.png"></a>
+				<a href="http://localhost:9000/sistproject3/index.do"><img class="login_logo" src="http://localhost:9000/sistproject3/images/login_images/login_logo.png"></a>
 			</div>
 		</section>
 			
@@ -51,7 +51,7 @@
 						<hr>
 					</div>
 					<div class="join_form_block" id="block_button">
-						<button type="button" class="join">회원가입하기</button>
+						<a href="http://localhost:9000/sistproject3/join_success.do"><button type="button" class="join">회원가입하기</button></a>
 						<label>단, 14세 미만은 회원가입할 수 없습니다.</label>
 					</div>				
 				</form>

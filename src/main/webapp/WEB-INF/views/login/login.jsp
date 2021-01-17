@@ -13,7 +13,7 @@
 	<div class = login_content>
 		<section class = login_section1>
 			<div>
-				<a href="#"><img class="login_logo" src="http://localhost:9000/sistproject3/images/login_images/login_logo.png"></a>
+				<a href="http://localhost:9000/sistproject3/index.do"><img class="login_logo" src="http://localhost:9000/sistproject3/images/login_images/login_logo.png"></a>
 				<img class="login_coupon" src="http://localhost:9000/sistproject3/images/login_images/login_coupon.png">
 			</div>
 			<div>
@@ -38,7 +38,7 @@
 						<li><input type="text" name="id" placeholder="이메일" id="id"></li>
 						<li><input type="password" name="pass" placeholder="비밀번호" id="pass"></li>
 						<li><a href="#"><span>아이디 / 비밀번호를 잊어버리셨나요?</span></a></li>
-						<li><a href="#"><button type=button id=btnLogin>로그인</button></a></li>
+						<li><a href="http://localhost:9000/sistproject3/index.do"><button type=button id=btnLogin>로그인</button></a></li>
 					</ul>	
 				</form>	
 			</div>
