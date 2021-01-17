@@ -12,12 +12,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+<style>
+	div.mypage_menu {height:1200px; border:1px solid red;}
+</style>
 <body>
-	<!-- header -->
-	 <jsp:include page="../header.jsp" />
-
-	<!-- aside -->
-	<jsp:include page="mypage_aside.jsp" />
+<jsp:include page="../header.jsp" />
+	<div class = "mypage">
+<div  class="mypage_menu">
+				<div><img class="profile_img"src="http://localhost:9000/sistproject3/images/profile.PNG"></div>
+				<div>등급</div>
+				<div>닉네임</div>
+				<div>MY MENU</div>
+				<div class="bold">주문배송</div>
+				<div><a href="my_order.do">주문내역</a></div>
+				<div><a href="my_cancel.do">취소/환불 내역</a></div>
+				<div class="bold">나의 구매후기</div>
+				<div><a href="my_review_write.do">후기 쓰기</a></div>
+				<div><a href="my_review.do">내가 쓴 후기</a></div>
+				<div class="bold">관심리스트</div>
+				<div><a href="my_bookmark_item.do">즐겨찾기(★)</a></div>
+				<div><a href="my_bookmark_writer.do">좋아하는 작가(♥)</a></div>
+				<div class="bold">내 정보</div>
+				<div><a href="my_grade.do">회원 등급</a></div>
+				<div><a href="my_info.do">회원 정보 관리</a></div>
+				<div><a href=" my_address.do">주소(배송지) 관리</a></div>
+				</div>
+				
 			<table class="myinfo">
 			<tr>
 				<th colspan=4>내 정보</th>
@@ -109,7 +129,8 @@
 
 			</tr>
 		</table>
-		<h2>dddddddddddddddddddddddddddddddddddd</h2>
+									</div>
+
 		
 	<!-- footer -->
 	<jsp:include page="../footer.jsp" />
