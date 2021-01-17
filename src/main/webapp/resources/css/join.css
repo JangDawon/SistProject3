@@ -16,7 +16,8 @@ section.join_section ul
 	text-align:center;
 	font-weight:bold;
 }
-section.join_choice_section ul li{
+section.join_choice_section ul li,
+section.join_section ul li{
 	padding:10px 0;
 }
 section.join_choice_section hr,
@@ -39,7 +40,8 @@ section.join_choice_section>div>ul>li img{
 	width:45px;
 	height:45px;	
 }
-section.join_choice_section>div>ul>li:first-child{
+section.join_choice_section>div>ul>li:first-child,
+section.join_section>div ul>li:first-child{
 	font-size:14px;
 	padding:0 0 35px 0;
 }
@@ -114,20 +116,102 @@ section.join_choice_section ul li:last-child a{
 /**
 	join.jsp
 **/
+em.asterisk_red{
+	color:red;
+	margin-right:5px;
+}
 section#join_section1{
-	height:200px;
-	border:solid 1px red;
+	height:100px;
 }
 section.join_section{
-	border:solid 1px blue;
 	margin:auto;
 	width:500px;
 }
 section.join_section ul li:first-child hr{
-	width:100px;
+	width:105px;
 }
 section.join_section div.join_form_block{
 	width:400px;
 	margin:auto;
-	border:solid 1px green;
+	padding:10px 0;
+}
+section.join_section div.join_form_block_body{
+ 	margin:auto;
+	padding:10px 0;
+}
+section.join_section div#join_form_block_body{
+	text-align:center;
+}
+
+section.join_section div.join_form_block_body input{
+	text-indent:5px;
+	font-weight:bold;
+}
+section.join_section div.join_form_block_body input::placeholder,
+section.join_section div.join_form_block_body input.phonenum_certify{
+	color:#C0C0C0;
+	font-weight:bold;
+}
+section.join_section div.join_form_block_body input#email,
+section.join_section div.join_form_block_body input#pass,
+section.join_section div.join_form_block_body input#cpass,
+section.join_section div.join_form_block_body input#name{
+	width:350px;
+	height:40px;
+}
+section.join_section div.join_form_block_body input#phonenum{
+	width:255px;
+	height:40px;
+	vertical-align: middle;
+	margin-right:5px;
+}
+section.join_section div.join_form_block_body input.phonenum_certify{
+	width:90px;
+	height:46px;
+	vertical-align: middle;
+	border:1px solid lightgray;
+	font-size:16px;
+}
+section.join_section label.join_form_block_head{
+	font-size:12px;
+	font-weight:bold;
+	padding:10px 0 10px 20px;
+}
+section.join_section div#join_form_block_body_check{
+	padding:5px 20px;
+	font-size:14px;
+	font-weight:bold;
+}
+
+section.join_section div#join_form_block_body_check label{
+	padding-left:5px;
+}
+section.join_section div#join_form_block_body_check label.etc{
+	color:#C0C0C0;
+	padding-left:25px;
+}
+section.join_section div.join_form_block hr{
+	vertical-align:middle;
+	display:inline-block;
+	border:none;
+	height:0.5px;
+	background-color:black;
+	width:355px;
+	margin:0px 25px;
+}
+section.join_section div.join_form_block button.join{
+	width:360px;
+	margin:auto;
+	border:none;
+	background-color:#FA9354;
+	color:white;
+}
+section.join_section div#block_button{
+	text-align:center;
+}
+section.join_section div#block_button label{
+	font-size:12px;
+	font-weight:bold;
+	display:inline-block;
+	padding: 20px 0;
 }
