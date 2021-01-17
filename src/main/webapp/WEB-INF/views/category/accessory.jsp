@@ -5,9 +5,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>악세사리 | 아이디어스</title>
+		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/dw.css">
 	</head>
 	<body class="category">
+		<!-- header -->
+		<jsp:include page="../header.jsp" />
+	 
 		<section class="category_menu">
 			<div class="category_top_menu">
 				<h2>악세사리</h2>
@@ -151,7 +155,9 @@
 						</div>
 					</a>
 				</div>
-			
 		</section>
+		
+		<!-- footer -->
+		<jsp:include page="../footer.jsp" />
 	</body>
 </html>

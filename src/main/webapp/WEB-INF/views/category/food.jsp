@@ -4,13 +4,17 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>디저트, 베이커리 | 아이디어스</title>
+		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>음식 | 아이디어스</title>
+		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/dw.css">
 	</head>
 	<body class="category">
+		<!-- header -->
+		<jsp:include page="../header.jsp" />
+	 
 		<section class="category_menu">
 			<div class="category_top_menu">
-				<h2>디저트, 베이커리</h2>
+				<h2>음식</h2>
 				<div class="filter_top">
 					<ul>
 						<li>
@@ -176,7 +180,9 @@
 					</a>
 				</div>
 			</div>
-			
 		</section>
+		
+		<!-- footer -->
+		<jsp:include page="../footer.jsp" />
 	</body>
 </html>

@@ -30,7 +30,7 @@
 			</div>
 			<div class="navbar2">
 				<div class="navbar_logo">
-					<a href="">
+					<a href="http://localhost:9000/sistproject3/index.do">
 					<img src="http://localhost:9000/sistproject3/images/logo.png"></a>
 				</div>
 				<div class="navbar_search">
@@ -41,7 +41,7 @@
 				<ul class="navbar_icons">
 					<li><a href="">
 					<img src="http://localhost:9000/sistproject3/images/user.png"></a></li>
-					<li><a href="">
+					<li><a href="http://localhost:9000/sistproject3/cart.do">
 					<img src="http://localhost:9000/sistproject3/images/cart.png"></a></li>
 				</ul>
 			</div>
@@ -50,9 +50,9 @@
 					<li><a href="">카테고리</a></li>
 					<li><a href="">홈</a></li>
 					<li><a href="">오늘의 발견</a></li>
-					<li><a href="">인기 작품</a></li>
-					<li><a href="">최신 작품</a></li>
-					<li><a href="">인기 작가</a></li>
+					<li><a href="http://localhost:9000/sistproject3/product_best.do">인기 작품</a></li>
+					<li><a href="http://localhost:9000/sistproject3/product_new.do">최신 작품</a></li>
+					<li><a href="http://localhost:9000/sistproject3/artist_best.do">인기 작가</a></li>
 				</ul>
 			</div>
 		</nav>

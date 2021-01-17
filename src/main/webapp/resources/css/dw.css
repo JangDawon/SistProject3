@@ -210,8 +210,49 @@
 		margin-bottom:5px;
 	}
 	
+	/** 인기작가 **/
+	div.best_artist {
+		border:1px solid black;
+		height:250px;
+	}
+	div.best_artist div.artist_img {
+		border:1px solid green;
+		display:inline-block;
+		
+		text-align:center;
+	}
+	div.best_artist div.artist_img img {
+		width:100px;
+		height:100px;
+	}
+	div.artist_intro {
+		border:1px solid red;
+		display:inline-block;
+		width:21%;
+		padding:0 10px;
+	}
 	
-	
+	/** 장바구니 **/
+	body.category>section.cart {
+		width:800px; margin:auto;
+	}
+	.clf .fr, [data-page=couponlist] .coupon-item-list .fr, [data-page="video"] .section-video .fr {
+	    display:block;
+	    float:right;
+	}
+	.page-location {
+	    font-size:16px;
+	    font-weight:bold;
+	    color:#d9d9d9;
+	    margin-top:4px;
+	}
+	ol, ul {
+	    list-style: none;
+	}
+		
+	.page-location li {
+    display: inline-block;
+    margin-left: 8px;
 	
 	
 	
