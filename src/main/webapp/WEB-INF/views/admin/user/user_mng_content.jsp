@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 고객센터</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 회원관리</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
@@ -12,32 +12,7 @@
 <body id="user_mng_content" class="admin">
 
 	<!-- aside -->
-	<aside class="admin_info">
-		<div class="admin_menu">
-			<div class="admin_profile">
-				<img src="http://localhost:9000/sistproject3/images/logo.jpg">
-				<p>관리자</p>
-			</div>
-			<p class="am">Admin Menu</p>
-			<nav>
-				<b>
-					<span>회원</span>
-				</b>
-				<a href="user_mng_list.do">회원 관리</a>
-				<hr class="h">
-				<b>
-					<span>상품</span>
-				</b>
-				<a href="product_mng_list.do">상품 관리</a>
-				<hr class="h">
-				<b>
-					<span>리뷰</span>
-				</b>
-				<a href="review_mng_list.do">리뷰 관리</a>
-				<hr class="h">
-			</nav>
-		</div>
-	</aside>
+	<jsp:include page="../admin.jsp"></jsp:include>
 	
 	<a href="user_mng_list.do" class="h2_user"><h2 class="txt">회원 관리</h2></a>
 	<table id="admin_user_table">
@@ -74,6 +49,7 @@
 		<tr>
 			<td colspan="5">
 				<a href="user_mng_list.do"><button type="button" class="btn_style" id="user_delete_btn">삭제</button></a>
+				<a href="user_mng_list.do"><button type="button" class="btn_style" id="user_cancel_btn">취소</button></a>
 			</td>
 		</tr>
 	</table>
