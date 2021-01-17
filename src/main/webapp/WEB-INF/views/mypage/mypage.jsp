@@ -6,12 +6,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/woohyun.css">
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/carousel.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+	<!-- header -->
+	 <jsp:include page="../header.jsp" />
 
 	<!-- aside -->
 	<jsp:include page="mypage_aside.jsp" />
@@ -107,5 +110,8 @@
 			</tr>
 		</table>
 		<h2>dddddddddddddddddddddddddddddddddddd</h2>
+		
+	<!-- footer -->
+	<jsp:include page="../footer.jsp" />
 </body>
 </html>
