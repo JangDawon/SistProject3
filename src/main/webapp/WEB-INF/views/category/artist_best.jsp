@@ -7,6 +7,10 @@
 		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>인기작가 | 아이디어스</title>
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/dw.css">
+		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/carousel.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	</head>
 	<body class="category">
 		<!-- header -->
@@ -23,28 +27,61 @@
 			</div>
 			
 			<div class="best_artist">
-				<a href="">
-					<div>
-						<div class="artist_img">
-							<img src="http://localhost:9000/sistproject3/images/artist_img.png">
-						</div>
-						<div class="artist_intro">
-							<div class="artist_info">
-								<div class="artist_info_title">소유템♥ 폰케이스</div>
-								<div class="artist_info_star">★★★★★</div>
-								<div class="artist_info_cont">
-									<p>real handmade item - 소유하고 싶은 아이템 작가의 아이디어가 폭팔했어요😉 직접 디자인하고 만드는 감각적인 쇼핑몰 폰케이스/에어팟</p>
-								</div>
+				<table class="artist_info">
+					<tr>
+						<td class="artist_img">
+							<a href=""><img src="http://localhost:9000/sistproject3/images/artist_img.png"></a>
+						</td>
+						<td>
+							<a href=""><div class="artist_info_title">소유템♥ 폰케이스</div></a>
+							<div class="ui_rating">
+								<img src="images/star.png">
+								<img src="images/star.png">
+								<img src="images/star.png">
+								<img src="images/star.png">
+								<img src="images/star.png">
+							</div>
+							<div class="artist_info_cont">
+								<p>real handmade item - 소유하고 싶은 아이템 작가의 아이디어가 폭팔했어요😉 직접 디자인하고 만드는 감각적인 쇼핑몰 폰케이스/에어팟</p>
 							</div>
 							<div class="artist_fav">
-								<div>♡작가로 추가</div>
-								<div>작가 홈</div>
-								<div>메시지 보내기</div>
+								<button type="button" class="fav_artist">♡작가로 추가</button>
+								<button type="button" class="home_artist">작가 홈</button>
+								<button type="button" class="msg_artist">메시지 보내기</button>
 							</div>
-						</div>
-					</div>
-				</a>	
-			</div>	
+						</td>
+						<td>
+							<div id="demo" class="carousel slide" data-ride="carousel">
+								<ul class="carousel-indicators">
+									<li data-target="#demo" data-slide-to="0" class="active"></li>
+									<li data-target="#demo" data-slide-to="1"></li>
+								</ul>
+								<div class="carousel-inner">
+									<ul>
+										<li class="carousel-item active">
+											<img src="http://localhost:9000/sistproject3/images/artist1.jpg">
+											<img src="http://localhost:9000/sistproject3/images/artist2.jpg">
+											<img src="http://localhost:9000/sistproject3/images/artist3.jpg">
+										</li>
+										<li class="carousel-item">
+											<img src="http://localhost:9000/sistproject3/images/artist4.jpg">
+											<img src="http://localhost:9000/sistproject3/images/artist5.jpg">
+											<img src="http://localhost:9000/sistproject3/images/artist6.jpg">
+										</li>
+									</ul>
+								</div>
+								<a class="carousel-control-prev" href="#demo" data-slide="prev">
+									<span class="carousel-control-prev-icon"></span>
+								</a>
+								<a class="carousel-control-next" href="#demo" data-slide="next">
+									<span class="carousel-control-next-icon"></span>
+								</a>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
 		</section>
 	 	
 		<!-- footer -->

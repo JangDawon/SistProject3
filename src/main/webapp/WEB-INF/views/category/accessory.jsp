@@ -72,7 +72,7 @@
 								<img src="http://localhost:9000/sistproject3/images/accessory1.jpg">
 							</div>
 						</div>
-						<div class="prod_info">
+						<div class="product_info">
 							<div class="prod_info_name">투링❤️커플각인반지샵</div>
 							<div class="prod_info_title">[무료배송] 각인 써지컬 3mm반지 커플 우정 선물</div>
 							<div class="prod_info_price">7,900원</div>
@@ -96,7 +96,7 @@
 								<img src="http://localhost:9000/sistproject3/images/accessory2.jpg">
 							</div>
 						</div>
-						<div class="prod_info">
+						<div class="product_info">
 							<div class="prod_info_name">투링❤️커플각인반지샵</div>
 							<div class="prod_info_title">[무료배송] 각인 써지컬 3mm반지 커플 우정 선물</div>
 							<div class="prod_info_price">7,900원</div>
@@ -120,7 +120,7 @@
 								<img src="http://localhost:9000/sistproject3/images/accessory1.jpg">
 							</div>
 						</div>
-						<div class="prod_info">
+						<div class="product_info">
 							<div class="prod_info_name">투링❤️커플각인반지샵</div>
 							<div class="prod_info_title">[무료배송] 각인 써지컬 3mm반지 커플 우정 선물</div>
 							<div class="prod_info_price">7,900원</div>
@@ -144,7 +144,7 @@
 								<img src="http://localhost:9000/sistproject3/images/accessory2.jpg">
 							</div>
 						</div>
-						<div class="prod_info">
+						<div class="product_info">
 							<div class="prod_info_name">투링❤️커플각인반지샵</div>
 							<div class="prod_info_title">[무료배송] 각인 써지컬 3mm반지 커플 우정 선물</div>
 							<div class="prod_info_price">7,900원</div>
