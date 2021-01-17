@@ -11,8 +11,7 @@
 </head>
 <body id="product_mng_content">	
 	
-	<!-- aside -->
-	<jsp:include page="../admin.jsp"></jsp:include>
+
 	
 	<a href="product_mng_list.do" class="h2_user"><h2 class="txt">상품 관리</h2></a>
 	<table class="cs_table" id="admin_product_content">

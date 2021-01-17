@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>header</title>
-<!-- <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">  -->
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 
 </head>
 <body class="header_body">

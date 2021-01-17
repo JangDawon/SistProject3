@@ -6,14 +6,31 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/woohyun.css">
-<style>
-
-</style>
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 </head>
 <body>
-
-	<!-- aside -->
-	<jsp:include page="mypage_aside.jsp" />
+<jsp:include page="../header.jsp" />
+<div class = "mypage">
+<div  class="mypage_menu">
+				<div><img class="profile_img"
+					src="http://localhost:9000/sistproject3/images/profile.PNG"></div>
+				<div>등급</div>
+				<div>닉네임</div>
+				<div>MY MENU</div>
+				<div class="bold">주문배송</div>
+				<div><a href="my_order.do">주문내역</a></div>
+				<div><a href="my_cancel.do">취소/환불 내역</a></div>
+				<div class="bold">나의 구매후기</div>
+				<div><a href="my_review_write.do">후기 쓰기</a></div>
+				<div><a href="my_review.do">내가 쓴 후기</a></div>
+				<div class="bold">관심리스트</div>
+				<div><a href="my_bookmark_item.do">즐겨찾기(★)</a></div>
+				<div><a href="my_bookmark_writer.do">좋아하는 작가(♥)</a></div>
+				<div class="bold">내 정보</div>
+				<div><a href="my_grade.do">회원 등급</a></div>
+				<div><a href="my_info.do">회원 정보 관리</a></div>
+				<div><a href=" my_address.do">주소(배송지) 관리</a></div>
+				</div>
 	<h2>회원 정보 관리</h2>
 	<table class="member_info">
 		<tr>
@@ -59,5 +76,8 @@
 			<td colspan=2><button type="button">회원 정보 수정하기</button></td>
 		</tr>
 	</table>
+			</div>
+
+		<jsp:include page="../footer.jsp" />
 </body>
 </html>

@@ -105,9 +105,9 @@
 .footer_body {
 	margin: 0;
 	width:100%;
-	
 }
 .footer{
+	clear:both;
 	display:flex;
 	flex-flow: column nowrap;
 	/* flex-direction: column; */
