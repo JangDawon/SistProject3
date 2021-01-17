@@ -105,14 +105,13 @@
 .footer_body {
 	margin: 0;
 	width:100%;
-	
 }
 .footer{
-	display:flex;
-	flex-flow: column nowrap;
-	/* flex-direction: column; */
+	display: block;
+    margin: 0px auto;
 	border-top: 3px solid #ff7b30;
 	font-size:12px;
+	clear:both;
 }
 .footer_nav {
 	display:flex;
