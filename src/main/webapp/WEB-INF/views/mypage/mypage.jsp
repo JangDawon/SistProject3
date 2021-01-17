@@ -12,6 +12,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+<style>
+	div.mypage_menu {height:1200px; border:1px solid red;}
+</style>
 <body>
 <jsp:include page="../header.jsp" />
 	<div class = "mypage">
@@ -128,6 +131,8 @@
 		</table>
 									</div>
 
-		<jsp:include page="../footer.jsp" />
+		
+	<!-- footer -->
+	<jsp:include page="../footer.jsp" />
 </body>
 </html>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인페이지</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>메인페이지</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/carousel.css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --> 

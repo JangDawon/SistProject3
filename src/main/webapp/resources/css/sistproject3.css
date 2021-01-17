@@ -111,6 +111,8 @@
 	display:flex;
 	flex-flow: column nowrap;
 	/* flex-direction: column; */
+	display: block;
+    margin: 0px auto;
 	border-top: 3px solid #ff7b30;
 	font-size:12px;
 }
