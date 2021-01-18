@@ -10,7 +10,7 @@
 	</head>
 	<body class="category">
 		<!-- header -->
-		<jsp:include page="header.jsp" />
+		<jsp:include page="../header.jsp" />
 	 
 		<section class="cart">
 			<div class="cart_title">
@@ -106,16 +106,18 @@
 						<button type="button" name="del">선택 삭제</button>
 					</div>
 					<div class="all_price">
-						<table>
+						<table class="price_sum">
 							<tr>
-								<td>작품금액</td>
-								<td>배송비</td>
-								<td>결제 예정금액</td>
+								<td class="price">작품금액</td>
+								<th rowspan="2">+</th>
+								<td class="del">배송비</td>
+								<th rowspan="2">=</th>
+								<td class="sum">결제 예정금액</td>
 							</tr>
 							<tr>
-								<td>9,400원</td>
-								<td>2,600원</td>
-								<td>12,000원</td>
+								<td class="price2">9,400원</td>
+								<td class="del2">2,600원</td>
+								<td class="sum2">12,000원</td>
 							</tr>
 						</table>
 					</div>
@@ -127,6 +129,6 @@
 		</section>
 		
 		<!-- footer -->
-		<jsp:include page="footer.jsp" />
+		<jsp:include page="../footer.jsp" />
 	</body>
 </html>

@@ -319,10 +319,10 @@
 		height:70px;
 	}
 	tr.cart_product>td:first-child {
-		border:1px solid red;
+		/* border:1px solid red; */
 	}
 	tr.cart_product>td:last-child {
-		border:1px solid blue;
+		/* border:1px solid blue; */
 		width:100%;
 	}
 	div.cart_text>a {
@@ -381,7 +381,7 @@
 	}
 	div.title, div.content {
 		display:inline-block;
-		border:1px solid red;
+		/* border:1px solid red; */
 		color:gray;
 		font-size:14px;
 	}
@@ -409,18 +409,36 @@
 		font-size:12px;
 	}
 	div.order_btn {
-	float:center;
+		float:center;
 		text-align:center;
 		background-color:#F87E35;
 		width:60%; color:white;
 		font-size:13px;
 		padding:8px 0;
-		margin:10px 0;
+		margin:20px 0;
 	}
-
-	
-	
-	
+	div.all_price>table.price_sum {
+		border:1px solid black;
+		border-radius:3px;
+		width:100%;
+		text-align:center;
+		padding:10px 0;
+		margin-top:30px;
+	}
+	tr:first-child>td.price, tr:first-child>td.del, tr:first-child>td.sum {
+		/* border:1px solid blue; */
+		font-size:14px;
+		color:gray;	width:30%;
+		padding:5px 0 20px 0;
+	}
+	tr:last-child>td.price2, tr:last-child>td.del2, tr:last-child>td.sum2 {
+		/* border:1px solid green; */
+		font-size:18px;
+		padding:5px 0;
+	}
+	tr:last-child>td.sum2 {
+		color:#F87E35;
+	}
 	
 	
 	

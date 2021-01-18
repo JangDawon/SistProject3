@@ -83,7 +83,7 @@ public class CategoryController {
 	 */
 	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
 	public String cart() {
-		return "cart";
+		return "/cart/cart";
 	}
 	
 	
