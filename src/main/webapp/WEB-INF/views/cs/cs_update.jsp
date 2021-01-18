@@ -14,6 +14,7 @@
 	<!-- header -->
 	<jsp:include page="../header.jsp"></jsp:include>
 
+	<div class="content">
 	<!-- content -->
 	<h2 class="txt">공지사항 및 1:1문의</h2>
 	<form name="cs_update_form" action="cs_update_proc.do" method="post">
@@ -46,6 +47,7 @@
 			</tr>
 		</table>
 	</form>
+	</div>
 	
 	<!-- footer -->
 	<jsp:include page="../footer.jsp"></jsp:include>

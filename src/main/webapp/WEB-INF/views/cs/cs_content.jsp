@@ -14,18 +14,24 @@
 	<!-- header -->
 	<jsp:include page="../header.jsp"></jsp:include>
 
+	<div class="content">
 	<!-- content -->
 	<h2 class="txt">공지사항 및 1:1문의</h2>
 	<section id="cs_content">
 		<table class="cs_table" id="cs_content_table">
-			<tr><th colspan="3">로그인 오류</th></tr>
 			<tr>
-				<td>작성자 : 최지혜</td>
-				<td>작성일 : 20201.01.13</td>
-				<td>조회수 : 1</td>
+				<td colspan="6">로그인 오류</td>
 			</tr>
 			<tr>
-				<td colspan="3" id="content">
+				<th>작성자</th> 
+				<td> 최지혜</td>
+				<th>작성일</th> 
+				<td>20201.01.13</td>
+				<th>조회수</th>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td colspan="5" id="content">
 					해결해주세요
 					<%-- <% if(vo.getBcontent() != null){ %>
 					<%= vo.getBcontent().replace("\r\n", "<br>") %><br>
@@ -36,7 +42,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="3">
+				<td colspan="5">
 					<a href="cs_update.do"><button type="button" class="btn_style">수정</button></a>
 					<a href="cs.do"><button type="button" class="btn_style">목록</button></a>
 					<a href="cs_delete.do"><button type="button" class="btn_style">삭제</button></a>
@@ -50,7 +56,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="3" id="last">
+				<td colspan="5" id="last">
 					<img src="http://localhost:9000/sistproject3/images/logo.jpg" id="user_img">
 					<textarea id="r_content" placeholder="댓글을 남겨주세요.(200자)"></textarea>
 					<button type="button" id="btn_send" class="btn_style">작성</button>
@@ -78,6 +84,7 @@
 			</tr>
 		</table>
 	</section>
+	</div>
 	
 	<!-- footer -->
 	<jsp:include page="../footer.jsp"></jsp:include>

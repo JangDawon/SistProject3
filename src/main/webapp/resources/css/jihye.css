@@ -1,22 +1,24 @@
 @charset "UTF-8";
 
 /**
-*	버튼 공통 (지혜)
+*	공통 (지혜)
 **/
 button.btn_style {background-color:#F87E35; color:white; font-weight:600; border:none; border-radius:2px; padding:5px 13px;}
+body>div.content {width:1100px; margin:auto; margin-top:30px; margin-bottom:100px; /*border:1px solid purple;*/ }
 
 /**
 *	공지사항 및 1:1문의 게시판 : cs.jsp (지혜)
 **/
 h2.txt {text-align:center; margin-bottom:50px;}
 
-body#cs_board>div {text-align:center; margin:60px;}
-body#cs_board>div select {width:90px; height:30px; border-radius:6px; margin-right:5px; font-size:14px; text-indent:22px; background-color:rgb(245,245,245); border:1px solid rgb(245,245,245);}
-body#cs_board>div input {width:300px; height:27px; border-radius:6px; 
+body#cs_board div#cs_search {text-align:center; margin:60px;}
+body#cs_board div#cs_search select {width:90px; height:35px; border-radius:6px; margin-right:5px; font-size:14px; text-indent:22px; background-color:rgb(245,245,245); border:1px solid rgb(245,245,245);}
+body#cs_board div#cs_search input {width:300px; height:32px; border-radius:6px; 
 	text-indent:15px; font-size:15px; background-color:rgb(245,245,245); border:1px solid rgb(245,245,245);}
-body#cs_board>div button {width:70px; height:31px; border-radius:4px; font-size:14px;}
+body#cs_board div#cs_search button {width:70px; height:31px; border-radius:4px; font-size:14px;}
+body#cs_board button#search_btn {height:34px;}
 
-table.cs_table {border-collapse:collapse; width:750px; font-size:16px; margin:auto;}
+table.cs_table {border-collapse:collapse; width:800px; font-size:16px; margin:auto;}
 table#cs_list_table, table#cs_content_table {width:800px;}
 table.cs_table th, table.cs_table td{border-top:1px solid lightgray; border-bottom:1px solid lightgray; text-align:center; border-left:1px solid none; border-right:1px solid none;}
 table#cs_list_table tr:first-child td {border-top:1px solid white;}
@@ -67,7 +69,6 @@ table#cs_delete_table td #delete_img {width:200px; height:210px; }
 /**
 *	Admin : admin.jsp (지혜)
 */
-body>div.content {width:1000px; margin:auto; margin-bottom:100px;}
 aside.admin_info {width:200px; height:600px; background-color:#FBFAFA; float:left; margin:auto; }
 aside.admin_info div.admin_profile img {height:100px; width:100px; margin:20px 50px 5px 50px; border-radius:50%;}
 aside.admin_info div.admin_profile p {text-align:center; font-weight:700;}
@@ -81,7 +82,7 @@ aside.admin_info hr.h {color:#B4B4B4; width:90%;}
 */
 body.admin {/* width:1000px; */ margin:auto; }
 body.admin a.h2_user {text-decoration:none; color:#333;}
-table#user_list {width:750px; text-align:center;}
+table#user_list {text-align:center;}
 table#user_list button#user_select_delete {padding:7px 12px; margin-right:5px;}
 table#user_list button#user_all_delete {background-color:tomato; padding:7px 12px;}
 table#user_list tr:first-child td {text-align:right; border:1px solid white; padding-bottom:10px;}
@@ -112,15 +113,15 @@ table#admin_review_list tr:first-child td button{padding:7px 12px; margin-right:
 table#admin_review_list tr:first-child td button#review_all_delete{background-color:tomato;}
 table#admin_review_list tr:last-child td {border:1px solid white; border-top:2px solid lightgray;}
 table#admin_review_list td>img {height:100px; height:100px;}
-table#admin_review_list th:first-child, table#admin_review_list td:first-child {padding-left:10px;}
+table#admin_review_list td:nth-child(1) {width:40px;}
 table#admin_review_list td:nth-child(2) {width:70px;}
 table#admin_review_list td:nth-child(2) div {width:70px;overflow:hidden; text-overflow: ellipsis;  white-space: nowrap;}
 table#admin_review_list td:nth-child(3) {width:100px;}
 table#admin_review_list td:nth-child(4) {width:150px;}
 table#admin_review_list td:nth-child(4) div {width:150px; overflow:hidden; text-overflow: ellipsis;  white-space: nowrap;}
-table#admin_review_list td:nth-child(5) {width:250px;}
-table#admin_review_list td:nth-child(5) div {width:250px; overflow:hidden; text-overflow: ellipsis;  white-space: nowrap;}
-table#admin_review_list td:last-child {width:100px;}
+table#admin_review_list td:nth-child(5) {width:280px;}
+table#admin_review_list td:nth-child(5) div {width:280px; overflow:hidden; text-overflow: ellipsis;  white-space: nowrap;}
+table#admin_review_list td:last-child {width:120px;}
 
 /**
 *	리뷰 관리 : review_mng_content.jsp (지혜)
@@ -165,7 +166,7 @@ table#admin_product_regist tr:nth-child(8), table#admin_product_update tr:nth-ch
 table#admin_product_regist tr:nth-child(8) input, table#admin_product_update tr:nth-child(8) input{padding-left:0px; position: absolute; width: 0;
   height: 0px; padding:0px; overflow: hidden; border: 0;}
 table#admin_product_regist tr:nth-child(8) label, table#admin_product_update tr:nth-child(8) label{float:left; margin:5px; padding: 6px 20px; border:2px solid #F87E35; border-radius: 4px; font-weight:600; color:#F87E35; cursor: pointer;}
-table#admin_product_regist tr:last-child td, table#admin_product_update tr:last-child td{text-align:center;}
+table#admin_product_regist tr:last-child td, table#admin_product_update tr:last-child td{text-align:center; text-indent:-20px;}
 table#admin_product_regist button, table#admin_product_update button {padding:8px 20px; margin:0px 5px;}
 
 /**
@@ -175,4 +176,4 @@ table#admin_product_content {margin-bottom:100px;}
 table#admin_product_content th, table#admin_product_content td {text-align:left; text-indent:30px; height:40px;}
 table#admin_product_content tr:nth-child(4) td div {width:650px; margin:auto; padding:20px 0px 30px 0px;}
 table#admin_product_content tr:nth-child(5) td {padding:10px 0px;}
-table#admin_product_content tr:last-child td{text-align:center; border:none; padding-top:80px;}
+table#admin_product_content tr:last-child td{text-align:center; border:none; padding-top:80px; text-indent:-25px;}

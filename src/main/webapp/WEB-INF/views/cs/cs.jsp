@@ -7,16 +7,17 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 고객센터</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 </head>
 <body id="cs_board">
 	<!-- header -->
 	<jsp:include page="../header.jsp"></jsp:include>
 
+	<div class="content">
 	<!-- content -->
 	<h2 class="txt">공지사항 및 1:1문의</h2>
-	<div>
+	<div id="cs_search">
 		<select id="sname">
 			<option value="all">전체</option>
 			<option value="btitle">제목</option>
@@ -71,6 +72,7 @@
 			<td colspan="5"><< 1 2 3 4 5 >><div id="ampaginationsm"></div></td>
 		</tr>
 	</table>
+	</div>
 	
 	<!-- footer -->
 	<jsp:include page="../footer.jsp"></jsp:include>
