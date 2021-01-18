@@ -364,3 +364,415 @@
     background: #fff;
     width:49%;
 }
+
+
+	/** 카테고리, 장바구니 **/
+	body.category {
+		margin:0px; padding:0px; font-family:"나눔바른고딕";
+	}
+	body.category>section {
+		width:1100px; margin:auto;
+	}
+	
+	/** 카테고리(음식, 악세서사리, 생활소품, 인테리어소품, 기타) **/
+	section.category_menu div.filter_top {
+		margin:0px;
+	}
+	section.category_menu div.filter_top>ul {
+		list-style:none;
+		padding-left:0px;
+		border:1px solid lightgray;
+		margin-bottom:30px;
+	}
+	section.category_menu div.filter_top>ul>li:first-child {
+		border-bottom:1px solid lightgray;
+		padding:10px 10px;
+		font-size:13px;
+	}
+	section.category_menu div.filter_top>ul>li:last-child {
+		padding:10px 10px;
+		font-size:13px;
+	}
+	section.category_menu div.filter_top li>label {
+		display:inline-block;
+		width:10%;
+		color:gray;
+	}
+	div.filter_bottom>div.check_images {
+		display:inline-block;
+		clear:left;
+	}
+	div.check_images>button.img_btn {
+		border:1px solid gray;
+		background-color:white;
+		padding:5px 7px 5px 3px;
+	}
+	div.check_images>button.img_btn span.rchk {
+		font-size:12px;
+		color:#333;
+		font-weight:700;
+	}
+	div.filter_bottom>div.selector {
+		display:inline-block;
+		float:right;
+	}
+	select#selector {
+		width:150px;
+		padding:4px 4px;
+	}
+	
+	section.category_content {
+		/* border:1px solid blue; */
+		padding:15px 0 50px 0;
+	}
+	div.category_content>div.product {
+		display:inline-block;
+		/* border:1px solid red; */
+		width:23.6%;
+		margin:5px 5px;
+	}
+	div.prod_img>div>button.favorite_btn>img {
+		width:25px;
+		height:25px;
+		margin-top:5px;
+	}
+	div.product div.prod_img img {
+		text-align:center;
+		width:258px;
+		height:258px;
+	}
+	div.product>a {
+		text-decoration:none;
+		text-align:left;
+		color:black;
+	}
+	div.product>a>div.product_info {
+		padding:8px 10px 5px 10px;
+	}
+	div.product_info>div.prod_info_name {
+		font-size:12px;
+		color:gray;
+		margin-bottom:3px;
+	}
+	div.product_info>div.prod_info_title {
+		font-size:16px;
+		margin-bottom:20px;
+	}
+	div.product_info>div.prod_info_price {
+		font-size:16px;
+		margin-bottom:10px;
+		font-weight:bold;
+	}
+	div.product_info>div.prod_info_review>div.rv {
+		font-size:10px;
+		margin-bottom:20px;
+		display:inline-block;
+		clear:left;
+		padding:2px 2px;
+		border-radius:3px;
+		color:gray;
+		background-color:lightgray;
+	}
+	div.product_info>div.prod_info_review>div.rv2 {
+		font-size:12px;
+		margin-bottom:15px;
+		display:inline-block;
+	}
+	div.prod_img button {
+		position:absolute;
+		background-color:rgba(0, 0, 0, 0);
+		border:1px solid rgba(0, 0, 0, 0);
+	}
+	div.category_content>div.product:hover {
+		box-shadow:1px 1px 20px #ddd;
+	}
+	
+	
+	/** 인기작품, 최신작품 **/
+	div.banner_title {
+		text-align:center;
+		padding:30px 0;
+		background-color:#F87E35;
+		color:white;
+	}
+	section.product_content {
+		padding:30px 0;
+	}
+	div.best_prod_title {
+		background-color:rgb(231,231,231);
+		border:1px solid lightgray;
+		border-radius:3px;
+		padding:15px 15px;
+		margin-bottom:20px;
+	}
+	div.best_prod_title>a:first-child {
+		display:inline-block;
+		clear:left;
+		text-decoration:none;
+		font-weight:bold;
+		color:black;
+	}
+	div.best_prod_title>a:last-child {
+		display:inline-block;
+		float:right;
+		text-decoration:none;
+		color:black;
+		font-size:15px;
+	}
+	div.best_prod_img>div>button.favorite_btn>img,
+	div.new_prod_img>div>button.favorite_btn>img {
+		width:25px;
+		height:25px;
+		margin-top:5px;
+	}
+	div.best_prod_img button, div.new_prod_img button {
+		position:absolute;
+		background-color:rgba(0, 0, 0, 0);
+		border:1px solid rgba(0, 0, 0, 0);
+	}
+	div.best_prod div.best_prod_img img,
+	div.new_prod div.new_prod_img img {
+		text-align:center;
+		width:205px;
+		height:205px;
+	}
+	section.product_content>div.best_prod, 
+	section.product_content>div.new_prod {
+		background-color:rgb(250,250,250);
+		border:1px solid lightgray;
+		display:inline-block;
+		width:18.3%;
+		margin:10px 5px;
+		border-radius:5px;
+	}
+	div.best_prod>a, div.new_prod>a {
+		text-decoration:none;
+		text-align:left;
+		color:black;
+	}
+	div.best_prod div.best_prod_info, div.best_prod div.best_prod_info_review,
+	div.new_prod div.new_prod_info {
+		padding:5px 8px;
+	}
+	div.best_prod_info>div.prod_info_name,
+	div.new_prod_info>div.prod_info_name {
+		font-size:12px;
+		color:gray;
+		margin-bottom:3px;
+	}
+	div.best_prod_info>div.prod_info_title,
+	div.new_prod_info>div.prod_info_title {
+		font-size:15px;
+		margin-bottom:20px;
+	}
+	div.best_prod_info_review {
+		border-top:1px solid lightgray;
+	}
+	div.best_prod_info_review>div.rv {
+		font-size:14px;
+		margin:5px 0;
+	}
+	div.best_prod_info_review>div.rv2 {
+		font-size:12px;
+		margin-bottom:5px;
+	}
+	
+	/** 인기작가 **/
+	div.best_artist {
+		border-bottom:1px solid lightgray;
+		height:260px;
+	}
+	table.artist_info td.artist_img img {
+		width:90px;
+		height:90px;
+	}
+	table.artist_info td:first-child {
+		width:12%;
+		text-align:center;
+		margin-top:-50px;
+	}
+	table.artist_info td:nth-child(2) {
+		width:22%;
+		height:260px;
+		padding:0 20px 0 5px;
+	}
+	table.artist_info td:nth-child(2)>a {
+		text-decoration:none;
+		color:black;
+	}
+	div.artist_info_title {
+		font-size:15px;
+		padding-bottom:3px;
+	}
+	div.artist_info_star {
+		margin-bottom:10px;
+	}
+	div.artist_info_cont {
+		font-size:14px;
+		color:gray;
+	}
+	div.artist_fav {
+		padding-right:5px;
+	}
+	div.artist_fav>button.fav_artist, div.artist_fav>button.home_artist {
+		border:1px solid lightgray;
+		background-color:white;
+		display:inline-block;
+		text-align:center;
+		padding:7px 0;
+		width:48.5%;
+		font-size:11px;
+	}
+	div.artist_fav>button.fav_artist {
+		color:#F87E35;
+	}
+	div.artist_fav>button.msg_artist {
+		border:1px solid lightgray;
+		background-color:white;
+		text-align:center;
+		padding:7px 0;
+		font-size:11px;
+		width:100%;
+		margin-top:5px;
+	}
+	table.artist_info td:last-child {
+		text-align:center;
+	}
+	div.carousel-inner {
+		margin-left:-18px;
+		margin-top:-15px;
+	}
+	
+	
+	/** 장바구니 **/
+	body.category>section.cart {
+		width:800px; margin:auto;
+	}
+	div.cart_title {
+		margin-bottom:15px;
+	}
+	div.cart_title>h2 {
+		display:inline-block;
+	}
+	ul.page_location {
+	    list-style: none;
+	    font-size:16px;
+	    font-weight:bold;
+	    color:lightgray;
+		display:block;
+		float:right;
+		margin-top:25px;
+	}
+	ul.page_location li {
+    	display:inline-block;
+    	margin-left:8px;
+	}
+	
+	div.cart_content>table {
+		border:1px solid lightgray;
+		margin-bottom:10px;
+	}
+	div.cart_content div.cart_artist {
+		padding:15px 10px;
+		font-size:14px;
+		background-color:rgb(240,240,240);
+	}
+	div.cart_artist>span.rchk {
+		padding-left:5px;
+	} 
+	div.cart_img>img {
+		width:70px;
+		height:70px;
+	}
+	tr.cart_product>td:first-child {
+		/* border:1px solid red; */
+	}
+	tr.cart_product>td:last-child {
+		/* border:1px solid blue; */
+		width:100%;
+	}
+	div.cart_text>a {
+		text-decoration:none;
+		font-size:14px;
+		color:black;
+		padding-left:10px;
+	}
+	tr.cart_textfield textarea {
+		width:99%;
+		height:50px;
+	}
+	tr.cart_textfield td {
+	    list-style:none;
+	    padding-left:100px;
+	}
+	tr.cart_explain {
+		border:1px solid red;
+	}
+	div.content {
+		float:right;
+	}
+	div.cart_content>table>tr {
+		border-bottom:1px solid gray;
+	}*/
+	div.cart_product {
+		margin:10px 0 50px 0;
+	}
+	div.prod_choice {
+		margin:5px 0;
+	}
+	div.prod_choice span.rchk {
+		font-size:14px;	
+	}
+	div.prod_choice>button {
+		float:right;
+		background-color:white;
+		padding:5px 8px;
+		border:1px solid gray;
+		border-radius:3px;
+		font-size:12px;
+	}
+	div.order {
+		text-align:center;
+	}
+	div.order_btn {
+		float:center;
+		text-align:center;
+		background-color:#F87E35;
+		width:60%; color:white;
+		font-size:13px;
+		padding:8px 0;
+		margin:20px 0;
+	}
+	div.all_price>table.price_sum {
+		border:1px solid black;
+		border-radius:3px;
+		width:100%;
+		text-align:center;
+		padding:10px 0;
+		margin-top:30px;
+	}
+	tr:first-child>td.price, tr:first-child>td.del, tr:first-child>td.sum {
+		/* border:1px solid blue; */
+		font-size:14px;
+		color:gray;	width:30%;
+		padding:10px 0 20px 0;
+	}
+	tr:last-child>td.price2, tr:last-child>td.del2, tr:last-child>td.sum2 {
+		/* border:1px solid green; */
+		font-size:18px;
+		padding:10px 0;
+	}
+	tr:last-child>td.sum2 {
+		color:#F87E35;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
