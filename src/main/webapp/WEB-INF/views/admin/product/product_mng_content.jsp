@@ -16,7 +16,7 @@
 	<jsp:include page="../../header.jsp"></jsp:include>
 	
 
-	<div class="content">
+	<div class="jihye_content">
 	<!-- aside -->
 	<jsp:include page="../admin.jsp"></jsp:include>
 	
