@@ -16,7 +16,7 @@
 	<jsp:include page="../../header.jsp"></jsp:include>
 	
 
-	<div class="content">
+	<div class="jihye_content">
 	<!-- aside -->
 	<jsp:include page="../admin.jsp"></jsp:include>
 	
@@ -33,8 +33,10 @@
 			<td>2021.01.16</td>
 		</tr>
 		<tr>
+			<th>카테고리</th>
+			<td>패션&잡화</td>
 			<th>배송</th>
-			<td colspan="3">40000원 이상 구매시 무료배송</td>
+			<td>40000원 이상 구매시 무료배송</td>
 		</tr>
 		<tr>
 			<td colspan="4"><div>🔥포장안내 필독!!🔥
