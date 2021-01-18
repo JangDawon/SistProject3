@@ -32,7 +32,7 @@
 			<div class="cart_content">
 				<table>
 					<tr>
-						<td colspan="2">
+						<td colspan="5">
 							<div class="cart_artist">
 								<input type="checkbox" name="artist_name"><span class="rchk">호러블리 horror_vely 작가님</span>
 							</div>
@@ -45,7 +45,7 @@
 								<img src="http://localhost:9000/sistproject3/images/cart_img.jpg">
 							</div>
 						</td>
-						<td>
+						<td colspan="4">
 							<div class="cart_text">
 								<a href="">
 									<label>블랙소이7oz캔들/소이캔들</label>
@@ -55,47 +55,37 @@
 					</tr>
 					<tr class="cart_explain">
 						<td colspan="2">
-							<ul>
-								<li>
-									<div class="cart_option">
-										<div class="cart_opt">향 : 헤스페리데스 / 쇼핑백 : 쇼핑백추가 : 1,000원</div>
-										<div class="cart_num">
-											<button type="button" class="decre">-</button>
-											<div>1</div>
-											<button type="button" class="incre">+</button>
-										</div>
-									</div>
-									<div class="cart_price">
-										<span>9,400원</span>
-										<div class="cart_update">
-											<div>수정</div>
-											<div>삭제</div>
-										</div>
-									</div>
-								</li>
-							</ul>
+							<div class="cart_opt">향 : 헤스페리데스 / 쇼핑백 : 쇼핑백추가 : 1,000원</div>
+						</td>
+						<td>
+							<div class="cart_num">
+								<button type="button" class="decre">-</button>
+								<div>1</div>
+								<button type="button" class="incre">+</button>
+							</div>
+						</td>
+						<td>
+							<div class="cart_price"><span>9,400원</span></div>
+						</td>
+						<td>
+							<div class="cart_update">
+								<div>수정</div>
+								<div>삭제</div>
+							</div>
 						</td>
 					</tr>
 					<tr class="cart_textfield">
-						<td colspan="2">
+						<td colspan="5">
 							<textarea placeholder="주문 요청사항을 입력해주세요."></textarea>
 						</td>
 					</tr>
-					<tr class="cart_prod_price">
-						<td colspan="2">
-							<div class="price_name">
-								<div class="title">작품 가격</div>
-								<div class="content"><span>9,400원</span></div>
-							</div>
-						</td>
+					<tr class="cart_price_name">
+						<td colspan="2"><div class="price_title">작품 가격</div></td>
+						<td colspan="3"><div class="price_content"><span>9,400원</span></div></td>
 					</tr>
-					<tr class="cart_prod_del">
-						<td colspan="2">
-							<div class="price_del">
-								<div class="title">배송비</div>
-								<div class="content"><span>2,600원</span></div>
-							</div>
-						</td>
+					<tr class="cart_price_del">
+						<td colspan="2"><div class="price_title">배송비</div></td>
+						<td colspan="3"><div class="price_content"><span>2,600원</span></div></td>
 					</tr>
 				</table>
 				
@@ -120,8 +110,10 @@
 							</tr>
 						</table>
 					</div>
-					<div class="order_btn">
-						<div>주문하기</div>
+					<div class="order">
+						<div class="order_btn">
+							<div>주문하기</div>
+						</div>
 					</div>
 				</div>
 			</div>
