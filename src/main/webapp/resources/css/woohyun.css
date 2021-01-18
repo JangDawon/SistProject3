@@ -2,22 +2,16 @@
 /**
 *	마이페이지 aside
 **/
-div.mypage_menu {float: left;font-size: 14px;display: inline-block;margin-right:30px;}
-div.mypage_menu img.profile_img {width: 100px;height: 100px;}
-div.mypage_menu {padding: 9px 20px;background-color: rgb(251, 250, 250);}
-div.mypage_menu div.bold {font-size: 15px;font-weight: bold;padding-bottom:5px;border-top: 1px solid lightgrey;}
-div.mypage_menu div:nth-child(4) {background-color: rgb(255, 123, 48);color: white;}
-div.mypage_menu div:nth-child(1), div:nth-child(2), div:nth-child(3) {text-align: center;padding: 10px 0;}
-div.mypage_menu a {text-decoration: none;color:black;}
-div.mypage_menu a:hover {color: rgb(255, 123, 48);
+body>div.content {width:1100px; margin:auto; margin-bottom:100px;}
+aside.mypage_info {width:200px; height:850px; background-color:#FBFAFA; float:left; margin:auto;margin-right:50px; }
+aside.mypage_info div.admin_profile img {height:100px; width:100px; margin:20px 50px 5px 50px; border-radius:50%;}
+aside.mypage_info div.admin_profile p {text-align:center; font-weight:700;}
+aside.mypage_info p.am {background-color:#F87E35; font-size:17px; color:white; text-align:center; padding:8px; font-weight:400;}
+aside.mypage_info span {display:block; text-indent:15px; margin-bottom:7px;}
+aside.mypage_info a {text-decoration:none; color:#4F4F4F; font-size:13.5px; font-weight:400; margin-left:15px; font-weight:300;}
+aside.mypage_info hr.h {color:#B4B4B4; width:90%;}
 }
-/**
-* 마이페이지 공통
-*/
-div.mypage {
-	width:1100px;
-	margin:auto;
-}
+
 
 /**
 *	주문내역
@@ -56,60 +50,25 @@ table.bookmark_writer tr td button.message{background-color:white;border:1px sol
 }
 
 /**
-*	회원주소
-**/
-table.my_address{width:750px;border-collapse:collapse;border:1px solid rgb(217,217,217)}
-table.my_address tr:first-child td {background-color: rgb(245, 245, 245);}
-table.my_address tr td {padding: 8px;}
-table.my_address tr td span.red {color: rgb(255, 75, 80);}
-table.my_address button.change {background-color: rgb(255, 255, 255);border:1px solid rgb(204, 204, 204);padding: 5px 12px;}
-table.my_address input[type='text']{border:none;font-size:15px;width:500px;height:30px;}
-
-/**
 *	회원정보
 **/
-table.member_info{width:750px;}
-table.member_info input[type='text']{border:none;font-size:15px;height:30px;text-indent:5px;}
+table.member_info {width:750px;}
+table.member_info input[type='text']{width:500px;border:none;font-size:15px;height:30px;text-indent:5px;}
 table.member_info td {padding: 13px 0;text-indent: 7px;border-top: 1px solid rgb(217, 217, 217);}
 table.member_info td small{padding-left:10px;}
+table.member_info tr:nth-child(4) td, table.member_info tr:nth-child(5) td{border:none;}
 table.member_info td.alram{text-indent:12px;}
-table.member_info td.grey {background-color: rgb(245, 245, 245);}
+table.member_info td.grey {background-color: rgb(245, 245, 245);padding:0 10px;}
 table.member_info button.change {background-color: rgb(255, 255, 255);border: 1px solid rgb(204, 204, 204);margin-left: 10px;padding: 5px 5px;}
-table.member_info tr:nth-child(7) td {text-align: right;}
-table.member_info tr:nth-child(8) td {border-top: 1px solid rgb(255, 255, 255);text-align: center;}
-table.member_info tr:nth-child(8) button {background-color: rgb(255, 123, 48);padding: 8px 8px;border: 1px solid rgb(255, 123, 48);color: rgb(255, 255, 255);}
-
-/**
-* 회원등급
-**/
-table.my_grade{border-collapse:collapse;border:1px solid RGB(217,217,217);}
-table.my_grade tr td{padding:10px;}
-table.my_grade div:first-child{font-weight:bold;font-size:25px;}
-table.my_grade div:last-child{font-size:13px;padding-top:5px;}
-table.grade_info img{border:width:100px;height:100px;}
-table.grade_info tr:last-child td{border-bottom:1px solid rgb(217,217,217);}
-table.grade_info tr td{height:5px;}
-table.grade_info div.hand{text-align:center;}
-table.grade_info div.orange{color:rgb(255,123,75)}
-table.grade_info tr td{border-top:1px solid  rgb(217,217,217);}
-/**
-*	리뷰 쓰기
-**/
-table.review_write {border:1px solid  rgb(217,217,217);}
-table.review_write img{width:100px;height:100px;}
-table.review_write textarea{width:340px;height:50px;}
-table.review_write button{padding:16px 10px;}
-
+table.member_info tr:last-child button {background-color: rgb(255, 123, 48);padding: 8px 8px;border: 1px solid rgb(255, 123, 48);color: rgb(255, 255, 255);}
+table.member_info tr:last-child td {text-align:center;border:none;}
+table.member_info tr:nth-child(10) td {text-align:right;}
 /**
 * 내가 쓴 리뷰
 **/
-table.review_menu tr td {width:425px;}
-table.review_menu td>a {text-decoration: none;color: #333;display: inline-block;width: 100%;padding: 10px 0;font-size: 17px;font-weight: bold;text-align: center;background-color: rgb(231, 231, 231);}
-table.review_menu td>a:hover {	color: white;	background-color: rgb(255, 123, 48);}
 table.review_content tr:first-child>td:first-child {width: 20px;}
 table.review_content tr:first-child span.title {font-weight: bold;display: inline-block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 350px;}
 table.review_content tr:first-child span.star {color: rgb(255, 200, 1);}
 table.review_content tr:last-child td {width: 220px;}
-table.review_content {	width: 400px;}
 div.border {border: 1px solid rgb(217, 217, 217);display: inline-block;}
-div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-size: 12px;margin-bottom:30px;height:100px;padding-top:25px;}
+div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-size: 12px;margin-bottom:30px;height:60px;padding:10px 10px;}
