@@ -9,7 +9,7 @@ public class AdminController {
 	
 	@RequestMapping(value="/admin.do", method=RequestMethod.GET)
 	public String admin() {
-		return "/admin/admin";
+		return "/admin/user/user_mng_list";
 	}
 	
 	@RequestMapping(value="/user_mng_list.do", method=RequestMethod.GET)
