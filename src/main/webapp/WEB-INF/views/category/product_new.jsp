@@ -5,9 +5,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>최신작품 | 아이디어스</title>
+		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/dw.css">
 	</head>
 	<body class="category">
+		<!-- header -->
+		<jsp:include page="../header.jsp" />
+	 
 		<div class="banner_title">
 			<h1>최신 작품</h1>
 			<p>지금 새로 등록된 작품들이에요</p>
@@ -118,7 +122,9 @@
 					</div>
 				</a>
 			</div>
-			
 		</section>
+		
+		<!-- footer -->
+		<jsp:include page="../footer.jsp" />
 	</body>
 </html>

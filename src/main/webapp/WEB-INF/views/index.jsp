@@ -517,7 +517,7 @@
 						
 					</div>
 				</div>
-				 <a href="" class="ui_btn-large">인기작품  더보기</a>
+				 <a href="http://localhost:9000/sistproject3/product_best.do" class="ui_btn-large">인기작품  더보기</a>
 		</section>	
 		
 		<section id="new_product" class="indexpage_section">
@@ -640,7 +640,7 @@
 						</div>
 					</div>
 				</div>
-				 <a href="" class="ui_btn-large">최신작품  더보기</a>
+				 <a href="http://localhost:9000/sistproject3/product_new.do" class="ui_btn-large">최신작품  더보기</a>
 		
 		</section>	
 		
@@ -793,7 +793,7 @@
 						
 					</div>
 			</div>
-	       	<a href="" class="ui_btn-large">인기작가  더보기</a>
+	       	<a href="http://localhost:9000/sistproject3/artist_best.do" class="ui_btn-large">인기작가  더보기</a>
 		</section>	
 		
 		<section id="all_category" class="indexpage_section">
@@ -805,7 +805,7 @@
 	        <div class="outer_frame">
 		        	<div class="ui_category_cols5" style="margin-top: 40px;">
 			        	<div class="ui_category_item">
-							<a href="">
+							<a href="http://localhost:9000/sistproject3/food.do">
 								<div class="category_img">
 										<img src="http://localhost:9000/sistproject3/images/음식.jpg">
 								</div>
@@ -815,7 +815,7 @@
 							</a>
 						</div>
 						<div class="ui_category_item">
-							<a href="">
+							<a href="http://localhost:9000/sistproject3/accessory.do">
 								<div class="category_img">
 										<img src="http://localhost:9000/sistproject3/images/악세사리.jpg">
 								</div>
@@ -825,7 +825,7 @@
 							</a>
 						</div>
 						<div class="ui_category_item">
-							<a href="">
+							<a href="http://localhost:9000/sistproject3/living.do">
 								<div class="category_img">
 										<img src="http://localhost:9000/sistproject3/images/패션.jpg">
 								</div>
@@ -835,7 +835,7 @@
 							</a>
 						</div>
 						<div class="ui_category_item">
-							<a href="">
+							<a href="http://localhost:9000/sistproject3/interior.do">
 								<div class="category_img">
 										<img src="http://localhost:9000/sistproject3/images/인테리어소품.png">
 								</div>
@@ -845,7 +845,7 @@
 							</a>
 						</div>
 						<div class="ui_category_item">
-							<a href="">
+							<a href="http://localhost:9000/sistproject3/etc.do">
 								<div class="category_img">
 										<img src="http://localhost:9000/sistproject3/images/기타공예.jpg">
 								</div>

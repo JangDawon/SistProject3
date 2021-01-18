@@ -4,13 +4,17 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>디저트, 베이커리 | 아이디어스</title>
+		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>음식 | 아이디어스</title>
+		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/dw.css">
 	</head>
 	<body class="category">
+		<!-- header -->
+		<jsp:include page="../header.jsp" />
+	 
 		<section class="category_menu">
 			<div class="category_top_menu">
-				<h2>디저트, 베이커리</h2>
+				<h2>음식</h2>
 				<div class="filter_top">
 					<ul>
 						<li>
@@ -68,7 +72,7 @@
 								<img src="http://localhost:9000/sistproject3/images/content1.jpg">
 							</div>
 						</div>
-						<div class="prod_info">
+						<div class="product_info">
 							<div class="prod_info_name">2대가 함께하는 창원생과방</div>
 							<div class="prod_info_title">시즌 한정 생딸기망개떡</div>
 							<div class="prod_info_price">15,000원</div>
@@ -92,7 +96,7 @@
 								<img src="http://localhost:9000/sistproject3/images/content2.jpg">
 							</div>
 						</div>
-						<div class="prod_info">
+						<div class="product_info">
 							<div class="prod_info_name">2대가 함께하는 창원생과방</div>
 							<div class="prod_info_title">시즌 한정 생딸기망개떡</div>
 							<div class="prod_info_price">15,000원</div>
@@ -116,7 +120,7 @@
 								<img src="http://localhost:9000/sistproject3/images/content1.jpg">
 							</div>
 						</div>
-						<div class="prod_info">
+						<div class="product_info">
 							<div class="prod_info_name">2대가 함께하는 창원생과방</div>
 							<div class="prod_info_title">시즌 한정 생딸기망개떡</div>
 							<div class="prod_info_price">15,000원</div>
@@ -140,31 +144,7 @@
 								<img src="http://localhost:9000/sistproject3/images/content2.jpg">
 							</div>
 						</div>
-						<div class="prod_info">
-							<div class="prod_info_name">2대가 함께하는 창원생과방</div>
-							<div class="prod_info_title">시즌 한정 생딸기망개떡</div>
-							<div class="prod_info_price">15,000원</div>
-							<div class="prod_info_review">
-								<div class="rv">후기</div>
-								<div class="rv2">이야,,, 정말 좋네요.. 흠 뭐랄까...</div>
-							</div>
-						</div>
-					</a>
-				</div>
-				
-				<div class="product">
-					<a href="">
-						<div class="prod_img">
-							<div>
-								<button class="favorite_btn">
-									<img src="http://localhost:9000/sistproject3/images/favorite.png">
-								</button>
-							</div>
-							<div>
-								<img src="http://localhost:9000/sistproject3/images/content2.jpg">
-							</div>
-						</div>
-						<div class="prod_info">
+						<div class="product_info">
 							<div class="prod_info_name">2대가 함께하는 창원생과방</div>
 							<div class="prod_info_title">시즌 한정 생딸기망개떡</div>
 							<div class="prod_info_price">15,000원</div>
@@ -176,7 +156,9 @@
 					</a>
 				</div>
 			</div>
-			
 		</section>
+		
+		<!-- footer -->
+		<jsp:include page="../footer.jsp" />
 	</body>
 </html>
