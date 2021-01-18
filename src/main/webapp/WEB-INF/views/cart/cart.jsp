@@ -30,7 +30,7 @@
 			</div>
 			
 			<div class="cart_content">
-				<table>
+				<table border=1>
 					<tr>
 						<td colspan="5">
 							<div class="cart_artist">
@@ -39,7 +39,7 @@
 						</td>
 					</tr>
 					<tr class="cart_product">
-						<td>
+						<td rowspan="2">
 							<div class="cart_img">
 								<input type="checkbox" name="product">
 								<img src="http://localhost:9000/sistproject3/images/cart_img.jpg">
@@ -54,7 +54,7 @@
 						</td>
 					</tr>
 					<tr class="cart_explain">
-						<td colspan="2">
+						<td>
 							<div class="cart_opt">향 : 헤스페리데스 / 쇼핑백 : 쇼핑백추가 : 1,000원</div>
 						</td>
 						<td>
@@ -69,8 +69,7 @@
 						</td>
 						<td>
 							<div class="cart_update">
-								<div>수정</div>
-								<div>삭제</div>
+								<div>수정</div><div>삭제</div>
 							</div>
 						</td>
 					</tr>
@@ -80,12 +79,12 @@
 						</td>
 					</tr>
 					<tr class="cart_price_name">
-						<td colspan="2"><div class="price_title">작품 가격</div></td>
-						<td colspan="3"><div class="price_content"><span>9,400원</span></div></td>
+						<td><div class="price_title">작품 가격</div></td>
+						<td colspan="4"><div class="price_content"><span>9,400원</span></div></td>
 					</tr>
 					<tr class="cart_price_del">
-						<td colspan="2"><div class="price_title">배송비</div></td>
-						<td colspan="3"><div class="price_content"><span>2,600원</span></div></td>
+						<td><div class="price_title">배송비</div></td>
+						<td colspan="4"><div class="price_content"><span>2,600원</span></div></td>
 					</tr>
 				</table>
 				
