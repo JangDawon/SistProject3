@@ -6,6 +6,7 @@
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>인기작가 | 아이디어스</title>
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
+		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/dw.css">
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/carousel.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
