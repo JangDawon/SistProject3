@@ -61,7 +61,7 @@ public class CategoryController {
 	
 	
 	/**
-	 * 인기작품 카테고리
+	 * 최신작품 카테고리
 	 */
 	@RequestMapping(value = "/product_new.do", method = RequestMethod.GET)
 	public String product_new() {
@@ -78,19 +78,13 @@ public class CategoryController {
 	}
 	
 	
+	/**
+	 * 장바구니
+	 */
+	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
+	public String cart() {
+		return "/cart/cart";
+	}
 	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
