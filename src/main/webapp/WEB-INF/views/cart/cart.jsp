@@ -6,6 +6,7 @@
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>장바구니 | 아이디어스</title>
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
+		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/dw.css">
 	</head>
 	<body class="category">
 		<!-- header -->
@@ -54,20 +55,20 @@
 						</td>
 					</tr>
 					<tr class="cart_explain">
-						<td>
-							<div class="cart_opt">향 : 헤스페리데스 / 쇼핑백 : 쇼핑백추가 : 1,000원</div>
+						<td width=62%>
+							<div class="cart_option">향 : 헤스페리데스 / 쇼핑백 : 쇼핑백추가 : 1,000원</div>
 						</td>
 						<td>
 							<div class="cart_num">
 								<button type="button" class="decre">-</button>
-								<div>1</div>
+								<div class="num">1</div>
 								<button type="button" class="incre">+</button>
 							</div>
 						</td>
-						<td>
+						<td width=12%>
 							<div class="cart_price"><span>9,400원</span></div>
 						</td>
-						<td>
+						<td width=12%>
 							<div class="cart_update">
 								<div>수정</div><div>삭제</div>
 							</div>
