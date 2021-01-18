@@ -11,6 +11,12 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<style>
+			div.carousel-inner {
+				margin-left:-18px;
+				margin-top:-15px;
+			}
+		</style>
 	</head>
 	<body class="category">
 		<!-- header -->
@@ -56,17 +62,17 @@
 									<li data-target="#demo" data-slide-to="0" class="active"></li>
 									<li data-target="#demo" data-slide-to="1"></li>
 								</ul>
-								<div class="carousel-inner">
+								<div class="carousel-inner" >
 									<ul>
 										<li class="carousel-item active">
-											<img src="http://localhost:9000/sistproject3/images/artist1.jpg">
-											<img src="http://localhost:9000/sistproject3/images/artist2.jpg">
-											<img src="http://localhost:9000/sistproject3/images/artist3.jpg">
+											<img src="http://localhost:9000/sistproject3/images/artist1.jpg" width=210px, height=210px>
+											<img src="http://localhost:9000/sistproject3/images/artist2.jpg" width=210px, height=210px>
+											<img src="http://localhost:9000/sistproject3/images/artist3.jpg" width=210px, height=210px>
 										</li>
 										<li class="carousel-item">
-											<img src="http://localhost:9000/sistproject3/images/artist4.jpg">
-											<img src="http://localhost:9000/sistproject3/images/artist5.jpg">
-											<img src="http://localhost:9000/sistproject3/images/artist6.jpg">
+											<img src="http://localhost:9000/sistproject3/images/artist4.jpg" width=210px, height=210px>
+											<img src="http://localhost:9000/sistproject3/images/artist5.jpg" width=210px, height=210px>
+											<img src="http://localhost:9000/sistproject3/images/artist6.jpg" width=210px, height=210px>
 										</li>
 									</ul>
 								</div>

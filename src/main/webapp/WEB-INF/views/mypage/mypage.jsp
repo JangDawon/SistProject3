@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/woohyun.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/carousel.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
