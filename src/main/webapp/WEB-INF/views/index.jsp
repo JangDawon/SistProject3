@@ -59,10 +59,10 @@
 				  </div>
 				  
 				  <!-- Left and right controls -->
-				  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+				  <a class="carousel-control-prev-index" href="#demo" data-slide="prev">
 				    <span class="carousel-control-prev-icon"></span>
 				  </a>
-				  <a class="carousel-control-next" href="#demo" data-slide="next">
+				  <a class="carousel-control-next-index" href="#demo" data-slide="next">
 				    <span class="carousel-control-next-icon"></span>
 				  </a>
 				</div>	
@@ -463,7 +463,7 @@
 										</div>
 										<div class="area-btns">
 											<div class="col">
-												<a href="" class="a_btn" style="color: #ff7b30;">작가로 추가</a>
+												<a href="" class="a_btn" style="color: #ff7b30;">♡ 작가로 추가</a>
 											</div>
 											<div class="col">
 												<a href="" class="a_btn">작가 홈</a>
@@ -509,7 +509,7 @@
 										</div>
 										<div class="area-btns">
 											<div class="col">
-												<a href="" class="a_btn" style="color: #ff7b30;">작가로 추가</a>
+												<a href="" class="a_btn" style="color: #ff7b30;">♡ 작가로 추가</a>
 											</div>
 											<div class="col">
 												<a href="" class="a_btn">작가 홈</a>
@@ -555,7 +555,7 @@
 										</div>
 										<div class="area-btns">
 											<div class="col">
-												<a href="" class="a_btn" style="color: #ff7b30;">작가로 추가</a>
+												<a href="" class="a_btn" style="color: #ff7b30;">♡ 작가로 추가</a>
 											</div>
 											<div class="col">
 												<a href="" class="a_btn">작가 홈</a>
