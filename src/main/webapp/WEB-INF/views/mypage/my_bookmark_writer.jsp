@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 페이페이지</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 마이페이지</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/woohyun.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/carousel.css">
@@ -21,7 +21,7 @@
 		<jsp:include page="mypage_aside.jsp"></jsp:include>
 	
 	
-	<h2>좋아하는 작가</h2>
+	<h2>좋아하는 작가(♥)</h2>
 			<table class="bookmark_writer">
 			<tr>
 				<td><img src="http://localhost:9000/sistproject3/images/bookmark_write.PNG"></td>

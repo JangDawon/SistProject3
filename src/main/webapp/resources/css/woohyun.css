@@ -3,7 +3,7 @@
 *	마이페이지 aside
 **/
 body>div.content {width:1100px; margin:auto; margin-bottom:100px;}
-aside.mypage_info {width:200px; height:850px; background-color:#FBFAFA; float:left; margin:auto;margin-right:50px; }
+aside.mypage_info {width:200px; height:800px; background-color:#FBFAFA; float:left; margin:auto;margin-right:50px; }
 aside.mypage_info div.admin_profile img {height:100px; width:100px; margin:20px 50px 5px 50px; border-radius:50%;}
 aside.mypage_info div.admin_profile p {text-align:center; font-weight:700;}
 aside.mypage_info p.am {background-color:#F87E35; font-size:17px; color:white; text-align:center; padding:8px; font-weight:400;}
@@ -27,6 +27,7 @@ table.my_order tr:nth-child(2) td button{background-color: rgb(255, 255, 255);bo
 /**
 *	내 정보
 **/
+table.myinfo{padding-top:20px;}
 table.myinfo{width:700px;}
 table.myinfo tr:nth-child(2) td{height:130px;}
 table.myinfo tr th {text-align: left;text-indent: 10px;font-size: 20px;background-color: rgb(245, 245, 245);}
