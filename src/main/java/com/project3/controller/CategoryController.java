@@ -87,4 +87,11 @@ public class CategoryController {
 	}
 	
 	
+	/**
+	 * 바로구매
+	 */
+	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
+	public String purchase() {
+		return "/cart/purchase";
+	}
 }
