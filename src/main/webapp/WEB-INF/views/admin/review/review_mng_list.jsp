@@ -15,13 +15,13 @@
 	<!-- header -->
 	<jsp:include page="../../header.jsp"></jsp:include>
 	
-	<div class="content">
+	<div class="jihye_content">
 	
 	<!-- aside -->
 	<jsp:include page="../admin.jsp"></jsp:include>
 	
 	<a href="review_mng_list.do" class="h2_user"><h2 class="txt">리뷰 관리</h2></a>
-	<table class="cs_table" id="admin_review_list">
+	<table class="cs_table" id="admin_review_list" >
 		<tr>
 			<td colspan="6">
 				<button type="button" class="btn_style" id="review_select_delete">선택 삭제</button>

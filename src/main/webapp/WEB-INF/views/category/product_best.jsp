@@ -6,7 +6,6 @@
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>인기작품 | 아이디어스</title>
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/dw.css">
 	</head>
 	<body class="category">
 		<!-- header -->
