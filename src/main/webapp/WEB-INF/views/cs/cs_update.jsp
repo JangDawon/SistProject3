@@ -9,6 +9,16 @@
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#cs_update_btn").click(function(){
+			if($("#btitle").val() == ""){
+				alert("제목을 입력해주세요:) ");
+				return false;
+			}
+		});
+	});
+</script>
 </head>
 <body id="cs_update">
 	<!-- header -->
@@ -24,25 +34,25 @@
 			<tr>
 				<td>
 					<span class="board_title">제목</span>
-					<input type="text" name="btitle" placeholder="제목을 입력해주세요 :)" value="로그인 오류">
+					<input type="text" name="btitle" id="btitle" placeholder="제목을 입력해주세요 :)" value="로그인 오류">
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<span class="board_title">내용</span>
-					<textarea name="bcontent">해결해주세요</textarea>
+					<textarea name="bcontent" id="bcontent">해결해주세요</textarea>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<span class="board_title">파일</span>
-					<input name="bfile" type="file"><span id="bfile">선택된 파일 없음</span>
+					<input name="bfile" type="file" id="bfile"><span id="bfile">선택된 파일 없음</span>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<button type="submit" class="btn_style">수정</button>
-					<a href="cs.do"><button type="button" class="btn_style">취소</button></a>
+					<button type="submit" id="cs_update_btn" class="btn_style">수정</button>
+					<a href="cs.do"><button type="button" id="cs_cancel_btn" class="btn_style">취소</button></a>
 				</td>
 			</tr>
 		</table>
