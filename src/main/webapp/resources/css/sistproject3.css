@@ -192,7 +192,7 @@
  	display: block;
     margin: 0px auto;
     padding: 0px;
-    font-family: "³ª´®¹Ù¸¥°íµñ";
+    font-family: "ï¿½ï¿½ï¿½ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½";
     width:1100px;
 }
 
@@ -365,16 +365,14 @@
 }
 
 
-@charset "UTF-8";
-
 /**
-*	°øÅë (ÁöÇý)
+*	ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 **/
 button.btn_style {background-color:#F87E35; color:white; font-weight:600; border:none; border-radius:2px; padding:5px 13px;}
 body>div.jihye_content {width:1100px; margin:auto; margin-top:30px; margin-bottom:100px; /*border:1px solid purple;*/ }
 
 /**
-*	°øÁö»çÇ× ¹× 1:1¹®ÀÇ °Ô½ÃÆÇ : cs.jsp (ÁöÇý)
+*	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 1:1ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½ : cs.jsp (ï¿½ï¿½ï¿½ï¿½)
 **/
 h2.txt {text-align:center; margin-bottom:50px;}
 
@@ -398,7 +396,7 @@ table#cs_list_table tr.cs_row:hover {background-color:#FA9354; height:35px; colo
 table#cs_list_table tr {height:30px;}
 
 /**
-*	CS°Ô½ÃÆÇ ±Û¾²±â & ¼öÁ¤ : cs_write.jsp & cs_update.jsp (ÁöÇý)
+*	CSï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ & ï¿½ï¿½ï¿½ï¿½ : cs_write.jsp & cs_update.jsp (ï¿½ï¿½ï¿½ï¿½)
 **/
 table#cs_write_table tr *, table#cs_update_table tr * {margin:15px 5px;}
 table#cs_write_table, table#cs_update_table {text-align:center; width: 700px;}
@@ -412,7 +410,7 @@ table.cs_table input[type='file'] {padding-left:40px; }
 table#cs_update_table span#bfile {display:inline-block; width:200px; margin-left:-183px; background-color:white; text-indent:7px; font-size:13.5px; }
 
 /**
-*	CS°Ô½ÃÆÇ ³»¿ë : cs_content.jsp (ÁöÇý)
+*	CSï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : cs_content.jsp (ï¿½ï¿½ï¿½ï¿½)
 **/
 table#cs_content_table {height:700px; }
 table#cs_content_table td#content {height:400px;}
@@ -428,13 +426,13 @@ table#cs_content_table td a>button {margin:0 5px;}
 #reply_table textarea {width:450px;}
 
 /**
-*	CS°Ô½ÃÆÇ ±Û »èÁ¦ : cs_delete.jsp (ÁöÇý)
+*	CSï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : cs_delete.jsp (ï¿½ï¿½ï¿½ï¿½)
 **/
 table#cs_delete_table {margin-top:100px; height:400px; width:500px;}
 table#cs_delete_table td #delete_img {width:200px; height:210px; }
 
 /**
-*	Admin : admin.jsp (ÁöÇý)
+*	Admin : admin.jsp (ï¿½ï¿½ï¿½ï¿½)
 */
 aside.admin_info {width:200px; height:600px; background-color:#FBFAFA; float:left; margin:auto; }
 aside.admin_info div.admin_profile img {height:100px; width:100px; margin:20px 50px 5px 50px; border-radius:50%;}
@@ -445,7 +443,7 @@ aside.admin_info a {text-decoration:none; color:#4F4F4F; font-size:13.5px; font-
 aside.admin_info hr.h {color:#B4B4B4; width:90%;}
 
 /**
-*	È¸¿ø°ü¸® : user_mng_list.jsp (ÁöÇý)
+*	È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : user_mng_list.jsp (ï¿½ï¿½ï¿½ï¿½)
 */
 body.admin {/* width:1000px; */ margin:auto; }
 body.admin a.h2_user {text-decoration:none; color:#333;}
@@ -458,7 +456,7 @@ table#user_list tr:last-child td {border-bottom:1px solid white; border-top:2px 
 table#user_list tr th, table#user_list tr td {height:35px;}
 
 /**
-*	È¸¿ø°ü¸® : user_mng_content.jsp (ÁöÇý)
+*	È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : user_mng_content.jsp (ï¿½ï¿½ï¿½ï¿½)
 */
 table#admin_user_table {border-top:2px solid #B4B4B4; border-bottom:2px solid #B4B4B4; border-collapse:collapse; width:750px; margin:auto;}
 table#admin_user_table th, table#admin_user_table td {border-top:2px solid #B4B4B4; border-bottom:2px solid #B4B4B4; height:40px;}
@@ -470,7 +468,7 @@ table#admin_user_table td {text-align:center; text-indent:10px;}
 table#admin_user_table img {width:230px; height:225px; margin-left:-10px;}
 
 /**
-*	¸®ºä °ü¸® : review_mng_list.jsp (ÁöÇý)
+*	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : review_mng_list.jsp (ï¿½ï¿½ï¿½ï¿½)
 */
 table#admin_review_list {text-align:center; border:none;}
 table#admin_review_list tr.review_row {height:100px;}
@@ -491,7 +489,7 @@ table#admin_review_list td:nth-child(5) div {width:280px; overflow:hidden; text-
 table#admin_review_list td:last-child {width:120px;}
 
 /**
-*	¸®ºä °ü¸® : review_mng_content.jsp (ÁöÇý)
+*	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : review_mng_content.jsp (ï¿½ï¿½ï¿½ï¿½)
 */
 table#admin_review_content_table {text-align:center;}
 table#admin_review_content_table td>div{width:500px; margin:auto;}
@@ -499,7 +497,7 @@ table#admin_review_content_table tr:last-child td{border:1px solid white;}
 table#admin_review_content_table tr:last-child td button{margin-top:80px;}
 
 /**
-*	»óÇ° °ü¸® : product_mng_list.jsp (ÁöÇý)
+*	ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ : product_mng_list.jsp (ï¿½ï¿½ï¿½ï¿½)
 */
 table#admin_product_list {text-align:center;}
 table#admin_product_list tr:first-child td{text-align:right; border-top:none; border-bottom:2px solid lightgray; padding-bottom:10px;}
@@ -509,7 +507,7 @@ table#admin_product_list td:nth-child(2) {width:100px;}
 table#admin_product_list td:nth-child(4) {width:300px;}
 
 /**
-*	»óÇ° µî·Ï&¼öÁ¤ : product_mng_regist.jsp&product_mng_update.jsp (ÁöÇý)
+*	ï¿½ï¿½Ç° ï¿½ï¿½ï¿½&ï¿½ï¿½ï¿½ï¿½ : product_mng_regist.jsp&product_mng_update.jsp (ï¿½ï¿½ï¿½ï¿½)
 */
 body#product_mng_regist>p, body#product_mng_update>p {font-size:20px; font-weight:530; color:#635B5E; text-indent:30px;}
 table#admin_product_regist, table#admin_product_update {margin-bottom:80px;}
@@ -537,7 +535,7 @@ table#admin_product_regist tr:last-child td, table#admin_product_update tr:last-
 table#admin_product_regist button, table#admin_product_update button {padding:8px 20px; margin:0px 5px;}
 
 /**
-*	»óÇ°°ü¸® : product_mng_content.jsp (ÁöÇý)
+*	ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ : product_mng_content.jsp (ï¿½ï¿½ï¿½ï¿½)
 */
 table#admin_product_content {margin-bottom:100px;}
 table#admin_product_content th, table#admin_product_content td {text-align:left; text-indent:30px; height:40px;}
@@ -546,7 +544,7 @@ table#admin_product_content tr:nth-child(5) td {padding:10px 0px;}
 table#admin_product_content tr:last-child td{text-align:center; border:none; padding-top:80px; text-indent:-25px;}	
 	
 /**
-*	¸¶ÀÌÆäÀÌÁö aside
+*	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ aside
 **/
 body>div.content {width:1100px; margin:auto; margin-bottom:100px;}
 aside.mypage_info {width:200px; height:800px; background-color:#FBFAFA; float:left; margin:auto;margin-right:50px; }
@@ -556,11 +554,11 @@ aside.mypage_info p.am {background-color:#F87E35; font-size:17px; color:white; t
 aside.mypage_info span {display:block; text-indent:15px; margin-bottom:7px;}
 aside.mypage_info a {text-decoration:none; color:#4F4F4F; font-size:13.5px; font-weight:400; margin-left:15px; font-weight:300;}
 aside.mypage_info hr.h {color:#B4B4B4; width:90%;}
-}
+
 
 
 /**
-*	ÁÖ¹®³»¿ª
+*	ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½
 **/
 table.my_order {border-collpase: collapse;width: 750px;height: 120px;}
 table.my_order tr:first-child {background-color: rgb(245, 245, 245);text-indent:10px;}
@@ -571,7 +569,7 @@ table.my_order tr:nth-child(2) td {border: 1px solid lightgrey;}
 table.my_order tr:nth-child(2) td button{background-color: rgb(255, 255, 255);border:1px solid rgb(204, 204, 204);padding: 5px 12px;}
 
 /**
-*	³» Á¤º¸
+*	ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 **/
 table.myinfo{padding-top:20px;}
 table.myinfo{width:700px;}
@@ -579,14 +577,14 @@ table.myinfo tr:nth-child(2) td{height:130px;}
 table.myinfo tr th {text-align: left;text-indent: 10px;font-size: 20px;background-color: rgb(245, 245, 245);}
 table.myinfo tr td {border: 1px solid lightgrey;text-indent: 12px;}
 /**
-*	Áñ°ÜÃ£±â
+*	ï¿½ï¿½ï¿½Ã£ï¿½ï¿½
 **/
 span.star{color: rgb(255, 200, 1);}
 dl.bookmark_list img{width: 200px;heigth: 500px;}
 dl.bookmark_list {border: 1px solid lightgrey;display: inline-block;background-color: rgb(248, 249, 251);}
 dl.bookmark_list:hover{box-shadow:1px 1px 20px #ddd;};
 /**
-*	ÁÁ¾ÆÇÏ´Â ÀÛ°¡
+*	ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Û°ï¿½
 **/
 table.bookmark_writer{width:750px;}
 table.bookmark_writer{border-bottom:1px solid rgb(217,217,217);}
@@ -594,10 +592,10 @@ table.bookmark_writer tr:nth-child(2) td{background-color: rgb(245, 245, 245);}
 table.bookmark_writer tr td button.bookmark_button{border:1px solid rgb(255, 123, 48);background-color:rgb(255, 123, 48);color:rgb(255,255,255);margin-bottom:10px;}
 table.bookmark_writer tr td button.home{background-color:white;border:1px solid rgb(204, 204, 204);padding: 0px 12px;}
 table.bookmark_writer tr td button.message{background-color:white;border:1px solid rgb(204, 204, 204);padding: 5px 65px;}
-}
+
 
 /**
-*	È¸¿øÁ¤º¸
+*	È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 **/
 table.member_info {width:750px;}
 table.member_info input[type='text']{width:500px;border:none;font-size:15px;height:30px;text-indent:5px;}
@@ -611,7 +609,7 @@ table.member_info tr:last-child button {background-color: rgb(255, 123, 48);padd
 table.member_info tr:last-child td {text-align:center;border:none;}
 table.member_info tr:nth-child(10) td {text-align:right;}
 /**
-* ³»°¡ ¾´ ¸®ºä
+* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 **/
 table.review_content tr:first-child>td:first-child {width: 20px;}
 table.review_content tr:first-child span.title {font-weight: bold;display: inline-block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 350px;}
@@ -619,9 +617,393 @@ table.review_content tr:first-child span.star {color: rgb(255, 200, 1);}
 table.review_content tr:last-child td {width: 220px;}
 div.border {border: 1px solid rgb(217, 217, 217);display: inline-block;}
 div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-size: 12px;margin-bottom:30px;height:60px;padding:10px 10px;}
+
+
+	/*
+		login.jsp
+	*/
 	
+	*{	
+		font-family:ë‚˜ëˆ”ë°”ë¥¸ê³ ë”• UltraLight;
+	}
+	div.login_content{
+		width:1200px;
+		margin:auto;
+	}
+	div.login_content a{
+		text-decoration:none;
+	}
 	
+	div.login_content button{
+		display:block;
+		width:400px;
+		height:60px;
+		border-radius:3px;
+		font-size:16px;
+		font-weight:bold;
+		outline:none;
+	}
+	div.login_content button:hover,
+	div.login_content>section.login_section2 label{
+		cursor:pointer;
+	}	
+	div.login_content>section.login_section1,
+	div.login_content>section.login_section2,
+	div.login_content>section.login_section3{
+		margin:auto;
+		width:500px;
+	}
+	div.login_content>section.login_section1{
+		height:410px;
+	}
+	div.login_content>section.login_section2{
+		height:250px;
+	}
+	div.login_content>section.login_section3{
+		height:400px;
+	}
+	div.login_content>section.login_section1 img{
+		display:block;
+		margin:auto;
+	}
+	div.login_content>section.login_section1 img.login_logo{
+		width:100px;
+		height:40px;
+		padding:30px 0 50px 0;
+	}
+	div.login_content>section.login_section1 img.login_coupon{
+		width:400px;
+		height:200px;
+		padding:0 0 30px 0;
+	}
+	div.login_content>section.login_section1 button{
+		border:1px solid #FA9354;
+		color:#FA9354;
+		background-color:white;
+		margin:auto;
+	}
+	div.login_content>section.login_section2 ul{
+		padding:0 0 0 0px;
+		text-align:center;	
+		list-style:none;
+	}
+	div.login_content>section.login_section2 ul li,
+	div.login_content>section.login_section3 ul li{
+		display:inline-block;
+		padding:5px 0;
+	}
+	div.login_content>section.login_section2 ul li:first-child,
+	div.login_content>section.login_section3 ul li:first-child{
+		width:400px;
+		padding:20px 0;
+		font-size:14px;
+	}
+	div.login_content>section.login_section2 ul li:first-child hr,
+	div.login_content>section.login_section3 hr{
+		vertical-align:middle;
+		display:inline-block;
+		border:none;
+		height:0.5px;
+		background-color:black;
+	}
+	div.login_content>section.login_section2 ul li:first-child hr{
+		width:175px;
+	}
 	
+	div.login_content>section.login_section2 button#btnKakaoLogin{
+		border:none;
+		background-color:#FEE500;
+	}
+	div.login_content>section.login_section2 button#btnKakaoLogin img{
+		width:45px;
+		height:45px;
+		float:left;
+	}
+	div.login_content>section.login_section2 button#btnKakaoLogin label{
+		display:inline-block;
+		padding:15px 45px 12px 0;
+	}
+	div.login_content>section.login_section2 button#btnEmailLogin{
+		border:1px solid lightgray;
+		background-color:white;
+	}
+	div.login_content>section.login_section3{
+		display:none;
+	}
+	div.login_content>section.login_section3 hr{
+		width:153px;
+	}
+	div.login_content>section.login_section3 input{
+		width:390px;
+		height:45px;
+		text-indent:7px;
+	}
+	div.login_content>section.login_section3 ul{
+		list-style:none;
+		padding:0 0 0 0px;
+		text-align:center;
+	}
+	div.login_content>section.login_section3 ul li:nth-child(4){
+		width:400px;
+	}
+	div.login_content>section.login_section3 ul li:nth-child(4) span{
+		float:right;
+		font-size:12px;
+		color:black;
+	}
+	div.login_content>section.login_section3 button#btnLogin{
+		border:none;
+		background-color:#FA9354;
+		color:white;
+	}
 	
+	/**
+	join_choice.jsp
+**/
+section#join_choice_section1{
+	height:350px;
+}
+section.join_choice_section{
+	margin:auto;
+	width:500px;
+}
+section.join_choice_section ul,
+section.join_section ul
+{
+	list-style:none;
+	padding:0px;
+	text-align:center;
+	font-weight:bold;
+}
+section.join_choice_section ul li,
+section.join_section ul li{
+	padding:10px 0;
+}
+section.join_choice_section hr,
+section.join_section hr{
+	vertical-align:middle;
+	display:inline-block;
+	border:none;
+	height:0.5px;
+	background-color:black;
+}
+
+section.join_choice_section li:first-child hr{
+	width:120px;
+}
+section.join_choice_section li:nth-child(2) hr,
+section.join_section li:nth-child(2) hr{
+	width:50px;
+}
+section.join_choice_section>div>ul>li img{
+	width:45px;
+	height:45px;	
+}
+section.join_choice_section>div>ul>li:first-child,
+section.join_section>div ul>li:first-child{
+	font-size:14px;
+	padding:0 0 35px 0;
+}
+section.join_choice_section>div>ul>li:nth-child(3){
+	margin-bottom:10px;
+}
+section.join_choice_section>div>ul>li:nth-child(2)>div:first-child,
+section.join_choice_section>div>ul>li:nth-child(2)>div:last-child,
+section.join_section ul>li:nth-child(2)>div:first-child,
+section.join_section ul>li:nth-child(2)>div:last-child{
+	display:inline-block;
+	width:35px;
+	height:35px;
+	border-radius:75px;
+	text-align:center;
+	margin:0 auto;
+	font-size:14px;
+	vertical-align:middle;
+	line-height:38px;
+	color:white;
+}
+section.join_choice_section>div>ul>li:nth-child(2)>div:first-child,
+section.join_section ul>li:nth-child(2)>div:last-child{
+	background-color:#FA9354;
+	color:white;
+}
+
+section.join_choice_section>div>ul>li:nth-child(2)>div:last-child,
+section.join_section ul>li:nth-child(2)>div:first-child{
+	background-color:white;
+	color:gray;
+	border:1px solid gray;
+}
+section.join_choice_section button{
+	margin:auto;
+	width:400px;
+	height:60px;
+	border-radius:3px;
+	font-size:16px;
+	font-weight:bold;
+	outline:none;
+}
+section.join_choice_section button#btnKakaoJoin{
+	border:none;
+	background-color:#FEE500;
+}
+section.join_choice_section button#btnKakaoJoin img{
+	width:45px;
+	height:45px;
+	float:left;
+}
+section.join_choice_section button#btnKakaoJoin label{
+	display:inline-block;
+	padding:15px 45px 12px 0;
+	cursor:pointer;
+}
+section.join_choice_section button#btnEmailJoin{
+	border:1px solid lightgray;
+	background-color:white;
+}
+section.join_choice_section ul li:last-child{
+	margin-top:20px;
+}
+section.join_choice_section ul li:last-child label,
+section.join_choice_section ul li:last-child a:visited,
+section.join_choice_section ul li:last-child a:link{
+	color:gray;
+}
+section.join_choice_section ul li:last-child a{
+	text-decoration:underline;
+}
+/**
+	join.jsp
+**/
+em.asterisk_red{
+	color:red;
+	margin-right:5px;
+}
+section#join_section1{
+	height:100px;
+}
+section.join_section{
+	margin:auto;
+	width:500px;
+}
+section.join_section ul li:first-child hr{
+	width:105px;
+}
+section.join_section div.join_form_block{
+	width:400px;
+	margin:auto;
+	padding:10px 0;
+}
+section.join_section div.join_form_block_body{
+ 	margin:auto;
+	padding:10px 0;
+}
+section.join_section div#join_form_block_body{
+	text-align:center;
+}
+
+section.join_section div.join_form_block_body input{
+	text-indent:5px;
+	font-weight:bold;
+}
+section.join_section div.join_form_block_body input::placeholder,
+section.join_section div.join_form_block_body input.phonenum_certify{
+	color:#C0C0C0;
+	font-weight:bold;
+}
+section.join_section div.join_form_block_body input#email,
+section.join_section div.join_form_block_body input#pass,
+section.join_section div.join_form_block_body input#cpass,
+section.join_section div.join_form_block_body input#name{
+	width:350px;
+	height:40px;
+}
+section.join_section div.join_form_block_body input#phonenum{
+	width:255px;
+	height:40px;
+	vertical-align: middle;
+	margin-right:5px;
+}
+section.join_section div.join_form_block_body input.phonenum_certify{
+	width:90px;
+	height:46px;
+	vertical-align: middle;
+	border:1px solid lightgray;
+	font-size:16px;
+}
+section.join_section label.join_form_block_head{
+	font-size:12px;
+	font-weight:bold;
+	padding:10px 0 10px 20px;
+}
+section.join_section div#join_form_block_body_check{
+	padding:5px 20px;
+	font-size:14px;
+	font-weight:bold;
+}
+
+section.join_section div#join_form_block_body_check label{
+	padding-left:5px;
+}
+section.join_section div#join_form_block_body_check label.etc{
+	color:#C0C0C0;
+	padding-left:25px;
+}
+section.join_section div.join_form_block hr{
+	vertical-align:middle;
+	display:inline-block;
+	border:none;
+	height:0.5px;
+	background-color:black;
+	width:355px;
+	margin:0px 25px;
+}
+section.join_section div.join_form_block button.join{
+	width:360px;
+	margin:auto;
+	border:none;
+	background-color:#FA9354;
+	color:white;
+}
+section.join_section div#block_button{
+	text-align:center;
+}
+section.join_section div#block_button label{
+	font-size:12px;
+	font-weight:bold;
+	display:inline-block;
+	padding: 20px 0;
+}
+/**
+	join_success.jsp
+**/
+section#join_success_section1{
+	height:350px;
+}
+section.join_success_section{
+	width:500px;
+	height:240px;
+	margin:auto;
+}
+section.join_success_section div.join_success{
+	text-align:center;
+	padding:10px 0;
+}
+section.join_success_section div.join_success:last-child{
+	padding-top:40px;
+}
+section.join_success_section div.join_success label{
+	font-size:26px;
+	font-weight:bold;
+}
+section.join_success_section button{
+	display:inline-block;
+	width:120px;
+	margin:20px;
+	border:none;
+	background-color:#FA9354;
+	color:white;
+	height:40px;
+}
 	
 	
