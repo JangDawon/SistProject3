@@ -31,7 +31,7 @@
 			</div>
 			
 			<div class="cart_content">
-				<table border=1>
+				<table>
 					<tr>
 						<td colspan="5">
 							<div class="cart_artist">
