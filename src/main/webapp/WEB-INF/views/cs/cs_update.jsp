@@ -7,18 +7,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 고객센터</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
-<script>
-	$(document).ready(function(){
-		$("#cs_update_btn").click(function(){
-			if($("#btitle").val() == ""){
-				alert("제목을 입력해주세요:) ");
-				return false;
-			}
-		});
-	});
-</script>
+<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 </head>
 <body id="cs_update">
 	<!-- header -->
