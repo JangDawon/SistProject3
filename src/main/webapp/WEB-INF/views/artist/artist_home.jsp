@@ -25,14 +25,28 @@
 						<a href=""><img src="http://localhost:9000/sistproject3/images/artist3.jpg"></a>
 						<a href=""><img src="http://localhost:9000/sistproject3/images/artist4.jpg"></a>
 						<a href=""><img src="http://localhost:9000/sistproject3/images/artist5.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist6.jpg"></a>
 					</div>
-					<div class="content_img2">
+					<div class="content_img">
 						<a href=""><img src="http://localhost:9000/sistproject3/images/artist1.jpg"></a>
 						<a href=""><img src="http://localhost:9000/sistproject3/images/artist2.jpg"></a>
 						<a href=""><img src="http://localhost:9000/sistproject3/images/artist3.jpg"></a>
 						<a href=""><img src="http://localhost:9000/sistproject3/images/artist4.jpg"></a>
 						<a href=""><img src="http://localhost:9000/sistproject3/images/artist5.jpg"></a>
 						<a href=""><img src="http://localhost:9000/sistproject3/images/artist6.jpg"></a>
+					</div>
+					<div class="content_img">
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist1.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist2.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist3.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist4.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist5.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist6.jpg"></a>
+					</div>
+					<div class="prod_more">
+						<a href="http://localhost:9000/sistproject3/artist_product.do">
+							<div class="more_btn">더보기</div>
+						</a>
 					</div>
 				</div>
 			</div>

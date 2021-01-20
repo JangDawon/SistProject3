@@ -67,49 +67,4 @@ public class CategoryController {
 	public String product_new() {
 		return "/category/product_new";
 	}
-	
-	
-	/**
-	 * 인기작가 카테고리
-	 */
-	@RequestMapping(value = "/artist_best.do", method = RequestMethod.GET)
-	public String artist_best() {
-		return "/artist/artist_best";
-	}
-	
-	
-	/**
-	 * 작가 홈 메뉴
-	 */
-	@RequestMapping(value = "/artist_menu.do", method = RequestMethod.GET)
-	public String artist_menu() {
-		return "/artist/artist_menu";
-	}
-	
-	
-	/**
-	 * 작가 홈
-	 */
-	@RequestMapping(value = "/artist_home.do", method = RequestMethod.GET)
-	public String artist_home() {
-		return "/artist/artist_home";
-	}
-	
-	
-	/**
-	 * 장바구니
-	 */
-	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
-	public String cart() {
-		return "/cart/cart";
-	}
-	
-	
-	/**
-	 * 바로구매
-	 */
-	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
-	public String purchase() {
-		return "/cart/purchase";
-	}
 }

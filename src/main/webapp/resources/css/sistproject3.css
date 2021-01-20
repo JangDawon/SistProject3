@@ -798,14 +798,16 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	div.best_prod div.best_prod_img img,
 	div.new_prod div.new_prod_img img {
 		text-align:center;
-		width:205px;
-		height:205px;
+		border-radius:3px;
+		width:203px;
+		height:203px;
+		margin-left:-0.5px;
 	}
 	section.product_content>div.best_prod, section.product_content>div.new_prod {
 		background-color:rgb(250,250,250);
 		border:1px solid lightgray;
 		display:inline-block;
-		width:18.3%;
+		width:18.4%;
 		margin:10px 5px;
 		border-radius:5px;
 	}
@@ -975,8 +977,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		width:99.5%;
 	}
 	div.sales_prod {
-		margin:20px 0 0 25px;
-		border:1px solid red;
+		margin:20px 0 50px 25px;
 	}
 	div.sales_prod>div.title {
 		font-weight:bold;
@@ -985,14 +986,21 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		margin-bottom:15px;
 	}
 	div.sales_prod>div.content_img img {
-		width:19.45%;
-		height:170px;
-	}
-	div.sales_prod>div.content_img2 img {
 		width:16.1%;
 		height:150px;
 	}
-	
+	div.prod_more {
+		text-align:center;
+	}
+	div.prod_more div.more_btn {
+		border:1px solid lightgray;
+		background-color:white;
+		display:inline-block;
+		text-align:center;
+		padding:10px 0;
+		margin:20px 0;
+		width:20%;
+	}
 	
 	/** 장바구니 **/
 	div.cart_content>table {
