@@ -20,7 +20,7 @@
 	<jsp:include page="../admin.jsp"></jsp:include>
 	
 	<a href="product_mng_list.do" class="h2_user"><h2 class="txt">상품 관리</h2></a>
-	<p>상품등록</p>
+	<p class="mtitle">상품등록 ></p>
 	<form name="product_regist_form" action="#" method="GET">
 		<table class="cs_table" id="admin_product_regist">
 	      <tr>

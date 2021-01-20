@@ -9,56 +9,6 @@
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
-<script>
-	$(document).ready(function(){
-		/* $("#product_update_btn").click(function(){
-			if($("#pcat").val() == "선택"){
-				alert("카테고리를 선택해주세요");
-				$("#pcat").focus();
-				return false;
-			}else if($("#sname").val() == ""){
-				alert("작가명을 입력해주세요");
-				$("#sname").focus();
-				return false;
-			}else if($("#sid").val() == ""){
-				alert("아이디를 입력해주세요");
-				$("#sid").focus();
-				return false;
-			}else if($("#ptitle").val() == ""){
-				alert("제목을 입력해주세요");
-				$("#ptitle").focus();
-				return false;
-			}else if($("#pcontent").val() == ""){
-				alert("내용을 입력해주세요");
-				$("#pcontent").focus();
-				return false;
-			}else if($("#pprice").val() == ""){
-				alert("상품가격을 입력해주세요");
-				$("#pprice").focus();
-				return false;
-			}else if($("#pdelivery").val() == ""){
-				alert("배송비 기준을 입력해주세요");
-				$("#pdelivery").focus();
-				return false;
-			}else if($("#opt1").val() == ""){
-				alert("옵션명을 입력해주세요");
-				$("#opt1").focus();
-				return false;
-			}else if($("#opt1_price").val() == ""){
-				alert("옵션 가격을 입력해주세요");
-				$("#opt1_price").focus();
-				return false;
-			}else if($("#bfile1").val() == ""){
-				alert("이미지를 선택해주세요");
-				$("#bfile1").focus();
-				return false;
-			}else{
-				alert("성공적으로 수정되었습니다:)");
-				product_update_form.submit();
-			}
-		}); */
-	});
-</script>
 </head>
 <body class="admin" id="product_mng_update">
 	<!-- header -->
@@ -70,7 +20,7 @@
 	<jsp:include page="../admin.jsp"></jsp:include>
 	
 	<a href="product_mng_list.do" class="h2_user"><h2 class="txt">상품 관리</h2></a>
-	<p>상품수정</p>
+	<p class="mtitle">상품수정 ></p>
 	<form name="product_update_form" action="#" method="GET">
 		<table class="cs_table" id="admin_product_update">
 	      <tr>

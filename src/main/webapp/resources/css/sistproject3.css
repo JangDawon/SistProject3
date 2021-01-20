@@ -446,7 +446,8 @@ table#cs_delete_table td #delete_img {width:200px; height:210px; }
 /**
 *	Admin : admin.jsp (ÁöÇý)
 */
-aside.admin_info {width:200px; height:600px; background-color:#FBFAFA; float:left; margin:auto; }
+aside.admin_info {position: sticky; 
+top: 0; width:200px; height:600px; background-color:#FBFAFA; float:left; margin:auto; margin-top:-30px;}
 aside.admin_info div.admin_profile img {height:100px; width:100px; margin:20px 50px 5px 50px; border-radius:50%;}
 aside.admin_info div.admin_profile p {text-align:center; font-weight:700;}
 aside.admin_info p.am {background-color:#F87E35; font-size:17px; color:white; text-align:center; padding:8px; font-weight:400;}
@@ -524,7 +525,7 @@ table#admin_product_list td:nth-child(4) {width:300px;}
 /**
 *	»óÇ° µî·Ï&¼öÁ¤ : product_mng_regist.jsp&product_mng_update.jsp (ÁöÇý)
 */
-body#product_mng_regist>p, body#product_mng_update>p {font-size:20px; font-weight:530; color:#635B5E; text-indent:30px;}
+body#product_mng_regist p.mtitle, body#product_mng_update p.mtitle {font-size:18px; font-weight:550; color:#333; text-indent:50px; }
 table#admin_product_regist, table#admin_product_update {margin-bottom:80px;}
 table#admin_product_regist td, table#admin_product_update td {height:80px; text-align:left; border-top:1.5px solid #D4D2D3; border-bottom:none;}
 table#admin_product_regist td span, table#admin_product_update td span {color:#635B5E; font-weight:600;}
