@@ -10,13 +10,31 @@
 	<body class="artist">
 		<!-- header -->
 		<jsp:include page="../header.jsp" />
-	 	
-	 	<!-- aside -->
-	 	<jsp:include page="artist_menu.jsp" />
 		
 		<section class="artist_home">
+			<!-- aside -->
+		 	<jsp:include page="artist_menu.jsp" />
+	 	
 			<div class="artist_main">
 				<img src="http://localhost:9000/sistproject3/images/artist_home.JPG">
+				<div class="sales_prod">
+					<div class="title">판매작품</div>
+					<div class="content_img">
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist1.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist2.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist3.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist4.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist5.jpg"></a>
+					</div>
+					<div class="content_img2">
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist1.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist2.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist3.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist4.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist5.jpg"></a>
+						<a href=""><img src="http://localhost:9000/sistproject3/images/artist6.jpg"></a>
+					</div>
+				</div>
 			</div>
 		</section>
 		

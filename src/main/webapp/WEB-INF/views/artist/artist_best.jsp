@@ -42,11 +42,11 @@
 						<td>
 							<a href="http://localhost:9000/sistproject3/artist_home.do"><div class="artist_info_title">소유템💛폰케이스</div></a>
 							<div class="artist_info_star">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
+								<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
 							</div>
 							<div class="artist_info_cont">
 								<p>real handmade item - 소유하고 싶은 아이템 작가의 아이디어가 폭팔했어요😉 직접 디자인하고 만드는 감각적인 쇼핑몰 폰케이스/에어팟</p>

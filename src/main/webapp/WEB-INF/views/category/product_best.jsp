@@ -41,11 +41,11 @@
 						</div>
 						<div class="best_prod_info_review">
 							<div class="ui_rating">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
+								<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
 							</div>
 							<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
 						</div>
@@ -72,11 +72,11 @@
 						</div>
 						<div class="best_prod_info_review">
 							<div class="ui_rating">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
+								<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
 							</div>
 							<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
 						</div>
@@ -103,11 +103,11 @@
 						</div>
 						<div class="best_prod_info_review">
 							<div class="ui_rating">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
+								<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
 							</div>
 							<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
 						</div>
@@ -134,11 +134,11 @@
 						</div>
 						<div class="best_prod_info_review">
 							<div class="ui_rating">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
+								<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
 							</div>
 							<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
 						</div>
@@ -165,11 +165,11 @@
 						</div>
 						<div class="best_prod_info_review">
 							<div class="ui_rating">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
+								<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
 							</div>
 							<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
 						</div>

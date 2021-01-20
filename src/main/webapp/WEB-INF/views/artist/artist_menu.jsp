@@ -9,7 +9,6 @@
 	</head>
 	<body class="artist">
 	 	<!-- aside -->
-	 	<section>
 	 	<aside class="artist_menu">
 	 		<div class="artist_menu">
 	 			<div class="artist_profile">
@@ -28,12 +27,13 @@
 					<button type="button" class="artist_addr">공유하기</button>
 				</div>
 				<div class="artist_sub">
-					<a href="#"><img src="images/star.png"><span>홈</span></a>
-					<a href="#"><img src="images/star.png"><span>스토리</span></a>
-					<a href="#"><img src="images/star.png"><span>판매작품</span></a>
-					<a href="#"><img src="images/star.png"><span>구매후기</span></a>
-					<a href="#"><img src="images/star.png"><span>프로필</span></a>
+					<a href="#"><img src="http://localhost:9000/sistproject3/images/star2.png"><span>홈</span></a>
+					<a href="#"><img src="http://localhost:9000/sistproject3/images/star2.png"><span>스토리</span></a>
+					<a href="#"><img src="http://localhost:9000/sistproject3/images/star2.png"><span>판매작품</span></a>
+					<a href="#"><img src="http://localhost:9000/sistproject3/images/star2.png"><span>구매후기</span></a>
+					<a href="#"><img src="http://localhost:9000/sistproject3/images/star2.png"><span>프로필</span></a>
 				</div>
+				
 				<div class="artist_etc">
 					<div class="title">활동정보</div>
 					<table class="content">
@@ -57,6 +57,5 @@
 				</div>
 	 		</div>
 	 	</aside>
-	 	</section>
 	</body>
 </html>
