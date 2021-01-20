@@ -60,7 +60,7 @@
 		<section class="category_content">
 			<div class="category_content">
 				<div class="product">
-					<a href="">
+					<a href="http://localhost:9000/sistproject3/product.do">
 						<div class="prod_img">
 							<div>
 								<button class="favorite_btn">

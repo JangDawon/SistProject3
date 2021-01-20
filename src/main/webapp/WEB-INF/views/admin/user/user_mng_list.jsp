@@ -7,8 +7,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 고객센터</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 </head>
 <body id="user_mng_list" class="admin">
 
@@ -29,36 +29,36 @@
 			</td>
 		</tr>
 		<tr>
-			<th><input type="checkbox"></th>
+			<th><input type="checkbox" id="user_all_delete_chk"></th>
 			<th>번호</th>
 			<th>아이디</th>
 			<th>이름</th>
 			<th>생년월일</th>
 			<th>가입일자</th>
 		</tr>
-		<tr class="cs_row" onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">
-			<td><input type="checkbox"></tdh>
-			<td>1</td>
-			<td>jihye</td>
-			<td>최지혜</td>
-			<td>2021.01.14</td>
-			<td>2021.01.14</td>
+		<tr class="cs_row">
+			<td><input type="checkbox" class="user_chk" value=1></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">1</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">jihye</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">최지혜</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2021.01.14</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2021.01.14</td>
 		</tr>
-		<tr class="cs_row" onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">
-			<td><input type="checkbox"></tdh>
-			<td>2</td>
-			<td>jihye</td>
-			<td>최지혜</td>
-			<td>2021.01.14</td>
-			<td>2021.01.14</td>
+		<tr class="cs_row">
+			<td><input type="checkbox" class="user_chk" value=2></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">jihye</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">최지혜</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2021.01.14</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2021.01.14</td>
 		</tr>
-		<tr class="cs_row" onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">
-			<td><input type="checkbox"></tdh>
-			<td>3</td>
-			<td>jihye</td>
-			<td>최지혜</td>
-			<td>2021.01.14</td>
-			<td>2021.01.14</td>
+		<tr class="cs_row">
+			<td><input type="checkbox" class="user_chk"  value=3></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">3</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">jihye</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">최지혜</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2021.01.14</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2021.01.14</td>
 		</tr>
 		<tr>
 			<td colspan="6" id="ampaginationsm"><< 1 2 3 4 5 >></td>

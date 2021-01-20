@@ -7,8 +7,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 관리자</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 </head>
 <body class="admin" id="product_mng_list">
 	
@@ -29,36 +29,36 @@
 			</td>
 		</tr>
 		<tr>
-			<th><input type="checkbox"></th>
+			<th><input type="checkbox" id="product_all_delete_chk"></th>
 			<th>작가명</th>
 			<th>카테고리</th>
 			<th>상품명</th>
 			<th>이미지</th>
 			<th>가격</th>
 		</tr>
-		<tr onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'">
-			<td><input type="checkbox"></td>
-			<td><div>321팩토리 321factory</div></td>
-			<td>패션&잡화</td>
-			<td><div>1+1🔥블랙아이보리 클로버 나비 마스크스트랩/목걸이</div></td>
-			<td><img src="http://localhost:9000/sistproject3/images/content2.jpg" style="height:100px; height:100px;"></td>
-			<td>17,800원</td>
+		<tr>
+			<td><input type="checkbox" class="product_chk" value=1></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'"><div>321팩토리 321factory</div></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'">패션&잡화</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'"><div>1+1🔥블랙아이보리 클로버 나비 마스크스트랩/목걸이</div></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'"><img src="http://localhost:9000/sistproject3/images/content2.jpg" style="height:100px; height:100px;"></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'">17,800원</td>
 		</tr>
-		<tr onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'">
-			<td><input type="checkbox"></td>
-			<td><div>321팩토리 321factory</div></td>
-			<td>패션&잡화</td>
-			<td><div>1+1🔥블랙아이보리 클로버 나비 마스크스트랩/목걸이</div></td>
-			<td><img src="http://localhost:9000/sistproject3/images/content2.jpg" style="height:100px; height:100px;"></td>
-			<td>17,800원</td>
+		<tr>
+			<td><input type="checkbox" class="product_chk" value=2></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'"><div>321팩토리 321factory</div></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'">패션&잡화</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'"><div>1+1🔥블랙아이보리 클로버 나비 마스크스트랩/목걸이</div></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'"><img src="http://localhost:9000/sistproject3/images/content2.jpg" style="height:100px; height:100px;"></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'">17,800원</td>
 		</tr>
-		<tr onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'">
-			<td><input type="checkbox"></td>
-			<td><div>321팩토리 321factory</div></td>
-			<td>패션&잡화</td>
-			<td><div>1+1🔥블랙아이보리 클로버 나비 마스크스트랩/목걸이</div></td>
-			<td><img src="http://localhost:9000/sistproject3/images/content2.jpg" style="height:100px; height:100px;"></td>
-			<td>17,800원</td>
+		<tr>
+			<td><input type="checkbox" class="product_chk" value=3></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'"><div>321팩토리 321factory</div></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'">패션&잡화</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'"><div>1+1🔥블랙아이보리 클로버 나비 마스크스트랩/목걸이</div></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'"><img src="http://localhost:9000/sistproject3/images/content2.jpg" style="height:100px; height:100px;"></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do'">17,800원</td>
 		</tr>
 		<tr>
 			<td colspan="6" id="ampaginationsm"><< 1 2 3 4 5 >></td>
