@@ -7,8 +7,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 관리자</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 </head>
 <body class="admin" id="product_mng_update">
 	<!-- header -->
@@ -20,7 +20,7 @@
 	<jsp:include page="../admin.jsp"></jsp:include>
 	
 	<a href="product_mng_list.do" class="h2_user"><h2 class="txt">상품 관리</h2></a>
-	<p>상품수정</p>
+	<p class="mtitle">상품수정 ></p>
 	<form name="product_update_form" action="#" method="GET">
 		<table class="cs_table" id="admin_product_update">
 	      <tr>
@@ -60,7 +60,7 @@
 	            <span><span class="red">*</span>내용</span>
 	         </td>
 	         <td>    
-	            <textarea name="bcontent" placeholder="내용을 입력해주세요(최대 1000자)">🔥포장안내 필독!!🔥
+	            <textarea name="pcontent" id="pcontent" placeholder="내용을 입력해주세요(최대 1000자)">🔥포장안내 필독!!🔥
 	기본포장은 제품 6개까지 오목상자 하나에 다 넣어서 포장됩니다.
 	개별포장을 원하시는 분들은 꼭
 	요청사항에 적어주세요
@@ -88,7 +88,7 @@
 	            <span><span class="red">*</span>가격</span>
 	         </td>
 	         <td>    
-	            <input type="text" name="ptitle" placeholder="가격을 입력해주세요 :)" id="ptitle" value="17800">
+	            <input type="text" name="pprice" placeholder="가격을 입력해주세요 :)" id="pprice" value="17800">
 	         </td>
 	      </tr>
 	      <tr>
@@ -96,7 +96,7 @@
 	            <span><span class="red">*</span>배송비 무료</span>
 	         </td>
 	         <td>    
-	            <input type="text" name="dprice" id="dprice" placeholder="가격을 입력해주세요 :)" value="40000">
+	            <input type="text" name="pdelivery" id="pdelivery" placeholder="가격을 입력해주세요 :)" value="40000">
 	         </td>
 	      </tr>
 	      <tr>
@@ -157,7 +157,7 @@
 	      </tr>
 	      <tr>
 	         <td colspan="2">
-	            <a href="product_mng_list.do"><button type="submit" class="btn_style">수정</button></a>
+	            <button type="button" id="product_update_btn" class="btn_style">수정</button>
 	            <a href="product_mng_list.do"><button type="button" class="btn_style">취소</button></a>
 	         </td>
 	      </tr>
