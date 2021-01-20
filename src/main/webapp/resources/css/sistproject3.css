@@ -509,6 +509,8 @@ table#admin_review_content_table tr:last-child td button{margin-top:80px;}
 *	상품 관리 : product_mng_list.jsp (지혜)
 */
 table#admin_product_list {text-align:center;}
+table#admin_product_list tr:first-child button{padding:7px 10px; margin:0px 2px;}
+table#admin_product_list tr:first-child button#product_all_delete{background-color:tomato;}
 table#admin_product_list tr:first-child td{text-align:right; border-top:none; border-bottom:2px solid lightgray; padding-bottom:10px;}
 table#admin_product_list tr:nth-child(2) th {border-bottom:2px solid lightgray; height:35px;}
 table#admin_product_list tr:last-child td{border-bottom:none; border-top:2px solid lightgray;}

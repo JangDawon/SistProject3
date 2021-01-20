@@ -7,8 +7,58 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 관리자</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
+<script>
+	$(document).ready(function(){
+		/* $("#product_update_btn").click(function(){
+			if($("#pcat").val() == "선택"){
+				alert("카테고리를 선택해주세요");
+				$("#pcat").focus();
+				return false;
+			}else if($("#sname").val() == ""){
+				alert("작가명을 입력해주세요");
+				$("#sname").focus();
+				return false;
+			}else if($("#sid").val() == ""){
+				alert("아이디를 입력해주세요");
+				$("#sid").focus();
+				return false;
+			}else if($("#ptitle").val() == ""){
+				alert("제목을 입력해주세요");
+				$("#ptitle").focus();
+				return false;
+			}else if($("#pcontent").val() == ""){
+				alert("내용을 입력해주세요");
+				$("#pcontent").focus();
+				return false;
+			}else if($("#pprice").val() == ""){
+				alert("상품가격을 입력해주세요");
+				$("#pprice").focus();
+				return false;
+			}else if($("#pdelivery").val() == ""){
+				alert("배송비 기준을 입력해주세요");
+				$("#pdelivery").focus();
+				return false;
+			}else if($("#opt1").val() == ""){
+				alert("옵션명을 입력해주세요");
+				$("#opt1").focus();
+				return false;
+			}else if($("#opt1_price").val() == ""){
+				alert("옵션 가격을 입력해주세요");
+				$("#opt1_price").focus();
+				return false;
+			}else if($("#bfile1").val() == ""){
+				alert("이미지를 선택해주세요");
+				$("#bfile1").focus();
+				return false;
+			}else{
+				alert("성공적으로 수정되었습니다:)");
+				product_update_form.submit();
+			}
+		}); */
+	});
+</script>
 </head>
 <body class="admin" id="product_mng_update">
 	<!-- header -->
@@ -60,7 +110,7 @@
 	            <span><span class="red">*</span>내용</span>
 	         </td>
 	         <td>    
-	            <textarea name="bcontent" placeholder="내용을 입력해주세요(최대 1000자)">🔥포장안내 필독!!🔥
+	            <textarea name="pcontent" id="pcontent" placeholder="내용을 입력해주세요(최대 1000자)">🔥포장안내 필독!!🔥
 	기본포장은 제품 6개까지 오목상자 하나에 다 넣어서 포장됩니다.
 	개별포장을 원하시는 분들은 꼭
 	요청사항에 적어주세요
@@ -88,7 +138,7 @@
 	            <span><span class="red">*</span>가격</span>
 	         </td>
 	         <td>    
-	            <input type="text" name="ptitle" placeholder="가격을 입력해주세요 :)" id="ptitle" value="17800">
+	            <input type="text" name="pprice" placeholder="가격을 입력해주세요 :)" id="pprice" value="17800">
 	         </td>
 	      </tr>
 	      <tr>
@@ -96,7 +146,7 @@
 	            <span><span class="red">*</span>배송비 무료</span>
 	         </td>
 	         <td>    
-	            <input type="text" name="dprice" id="dprice" placeholder="가격을 입력해주세요 :)" value="40000">
+	            <input type="text" name="pdelivery" id="pdelivery" placeholder="가격을 입력해주세요 :)" value="40000">
 	         </td>
 	      </tr>
 	      <tr>
@@ -157,7 +207,7 @@
 	      </tr>
 	      <tr>
 	         <td colspan="2">
-	            <a href="product_mng_list.do"><button type="submit" class="btn_style">수정</button></a>
+	            <button type="button" id="product_update_btn" class="btn_style">수정</button>
 	            <a href="product_mng_list.do"><button type="button" class="btn_style">취소</button></a>
 	         </td>
 	      </tr>

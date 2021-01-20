@@ -7,8 +7,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 관리자</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 </head>
 <body class="admin" id="product_mng_regist">
 	<!-- header -->
@@ -60,7 +60,7 @@
 	            <span><span class="red">*</span>내용</span>
 	         </td>
 	         <td>    
-	            <textarea name="bcontent" placeholder="내용을 입력해주세요(최대 1000자)"></textarea>
+	            <textarea name="pcontent" id="pcontent" placeholder="내용을 입력해주세요(최대 1000자)"></textarea>
 	         </td>
 	      </tr>
 	      <tr>
@@ -68,7 +68,7 @@
 	            <span><span class="red">*</span>가격</span>
 	         </td>
 	         <td>    
-	            <input type="text" name="ptitle" placeholder="가격을 입력해주세요 :)" id="ptitle">
+	            <input type="text" name="pprice" placeholder="가격을 입력해주세요 :)" id="pprice">
 	         </td>
 	      </tr>
 	      <tr>
@@ -76,7 +76,7 @@
 	            <span><span class="red">*</span>배송비 무료</span>
 	         </td>
 	         <td>    
-	            <input type="text" name="dprice" id="dprice" placeholder="가격을 입력해주세요 :)">
+	            <input type="text" name="pdelivery" id="pdelivery" placeholder="가격을 입력해주세요 :)">
 	         </td>
 	      </tr>
 	      <tr>
@@ -137,7 +137,7 @@
 	      </tr>
 	      <tr>
 	         <td colspan="2">
-	            <a href="product_mng_list.do"><button type="submit" class="btn_style">작성</button></a>
+	            <button type="button" id="product_regist_btn" class="btn_style">작성</button>
 	            <a href="product_mng_list.do"><button type="button" class="btn_style">취소</button></a>
 	         </td>
 	      </tr>

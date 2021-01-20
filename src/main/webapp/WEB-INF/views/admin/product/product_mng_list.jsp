@@ -7,45 +7,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 관리자</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
-<script>
-	$(document).ready(function(){
-		$("#product_all_delete_chk").click(function(){
-			if($("#product_all_delete_chk").is(":checked")){
-				$(".product_chk").prop("checked", true);
-			}else{
-				$(".product_chk").prop("checked", false);
-			}
-			
-		});
-		
-		$("#product_all_delete").click(function(){
-			var del_list = "";
-			
-			$("input[class='product_chk']").each(function(index){
-				del_list += $(this).attr("value") + ", ";
-			});
-			
-			confirm(del_list + "정말 삭제하시겠습니까?");
-			
-		});
-		
-		$("#product_select_delete").click(function(){
-			var del_list = "";
-			
-			$("input[class='product_chk']:checked").each(function(index){
-				del_list += $(this).attr("value") + ", ";
-			});
-			
-			if(del_list == ""){
-				alert("선택된 리뷰가 없습니다");
-			}else{
-				confirm(del_list + "정말 삭제하시겠습니까?");
-			}
-		});
-	});
-</script>
+<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 </head>
 <body class="admin" id="product_mng_list">
 	
