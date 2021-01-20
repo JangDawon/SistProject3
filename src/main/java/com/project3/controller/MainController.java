@@ -12,4 +12,8 @@ public class MainController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/product.do", method = RequestMethod.GET)
+	public String product_detail() {
+		return "/product_detail/product_detail";
+	}
 }
