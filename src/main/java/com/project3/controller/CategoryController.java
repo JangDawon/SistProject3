@@ -74,7 +74,25 @@ public class CategoryController {
 	 */
 	@RequestMapping(value = "/artist_best.do", method = RequestMethod.GET)
 	public String artist_best() {
-		return "/category/artist_best";
+		return "/artist/artist_best";
+	}
+	
+	
+	/**
+	 * 작가 홈 메뉴
+	 */
+	@RequestMapping(value = "/artist_menu.do", method = RequestMethod.GET)
+	public String artist_menu() {
+		return "/artist/artist_menu";
+	}
+	
+	
+	/**
+	 * 작가 홈
+	 */
+	@RequestMapping(value = "/artist_home.do", method = RequestMethod.GET)
+	public String artist_home() {
+		return "/artist/artist_home";
 	}
 	
 	

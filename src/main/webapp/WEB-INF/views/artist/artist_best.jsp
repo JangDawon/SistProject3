@@ -27,19 +27,21 @@
 		</div>
 	 	
 	 	<section class="product_content">
-			<div class="best_artist_title">
+			<!-- <div class="best_artist_title">
 				<a href="">인기작가</a>
-			</div>
+			</div> -->
 			
 			<div class="best_artist">
 				<table class="artist_info">
 					<tr>
 						<td class="artist_img">
-							<a href=""><img src="http://localhost:9000/sistproject3/images/artist_img.png"></a>
+							<a href="http://localhost:9000/sistproject3/artist_home.do">
+								<img src="http://localhost:9000/sistproject3/images/artist_img.png">
+							</a>
 						</td>
 						<td>
-							<a href=""><div class="artist_info_title">소유템♥ 폰케이스</div></a>
-							<div class="ui_rating">
+							<a href="http://localhost:9000/sistproject3/artist_home.do"><div class="artist_info_title">소유템💛폰케이스</div></a>
+							<div class="artist_info_star">
 								<img src="images/star.png">
 								<img src="images/star.png">
 								<img src="images/star.png">
@@ -86,7 +88,6 @@
 					</tr>
 				</table>
 			</div>
-			
 		</section>
 	 	
 		<!-- footer -->
