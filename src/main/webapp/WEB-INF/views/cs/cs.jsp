@@ -9,8 +9,27 @@
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
+<script>
+	$(document).ready(function(){
+		$(".cs_row").click(function(){
+			var output = "";
+			output += "<tr>";
+			output += "<td>비밀번호를 입력해주세요</td>";
+			output += "<td colspan='3'><input type='password'></td>";
+			output += "<td><button type='button'>확인</button></td>";
+			output += "</tr>";
+			
+			$(this).next("#cs_row1").toggleClass("hide");
+
+			$("#cs_row1").after("");
+			$("#cs_row1").after(output);
+		});
+		
+		
+	});
+</script>
 </head>
-<body id="cs_board">
+<body id="cs_board"> 
 	<!-- header -->
 	<jsp:include page="../header.jsp"></jsp:include>
 
@@ -40,7 +59,7 @@
 			<th>작성일</th>
 			<th>조회수</th>
 		</tr>
-		<tr class="cs_row" onclick="location.href='http://localhost:9000/sistproject3/cs_content.do'">
+		<tr class="cs_row" id="cs_row1"> <!-- onclick="location.href='http://localhost:9000/sistproject3/cs_content.do'" -->
 			<th>1</th>
 			<th>[오늘만 할인] 딱 24시간만 할인! 확인해보세요⏰</th>
 			<th>관리자</th>
