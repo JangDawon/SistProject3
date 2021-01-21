@@ -390,7 +390,7 @@ body#cs_board div#cs_search button {width:70px; height:31px; border-radius:4px; 
 body#cs_board button#search_btn {height:34px;}
 
 table.cs_table {border-collapse:collapse; width:800px; font-size:16px; margin:auto;}
-table#cs_list_table, table#cs_content_table {width:800px;}
+table#cs_list_table {width:900px;}
 table.cs_table th, table.cs_table td{border-top:1px solid lightgray; border-bottom:1px solid lightgray; text-align:center; border-left:1px solid none; border-right:1px solid none;}
 table#cs_list_table tr:first-child td {border-top:1px solid white;}
 table#cs_list_table tr:first-child td:first-child {text-align:left; font-size:14px; font-weight:600;}
@@ -399,7 +399,7 @@ table#cs_list_table tr:nth-child(2) {border-top:2px solid lightgray; border-bott
 table#cs_list_table tr:last-child td{border-bottom:1px solid white;}
 table#cs_list_table td {padding:0 15px 0 15px;}
 table#cs_list_table tr.cs_row:hover {background-color:#FA9354; /* height:35px; */ color:white; font-weight:600;}
-table#cs_list_table tr {height:30px;}
+table#cs_list_table tr {height:35px;}
 
 /**
 *	CS게시판 글쓰기 & 수정 : cs_write.jsp & cs_update.jsp (지혜)
@@ -433,7 +433,7 @@ table#cs_content_table tr:last-child td table {width:800px; border-collapse:coll
 #cs_reply_table td:nth-child(4),#cs_reply_table td:nth-child(5) {width:70px;}
 #cs_reply_table td:nth-child(4) button, #cs_reply_table td:nth-child(5) button {color:#454545; border-radius:4px; border:2px solid #F87E35; background-color:white; font-size:12px;}
 #cs_reply_table td:last-child {font-size:13px; width:110px; } 
-#cs_reply_table tr:last-child td div {padding-bottom:20px; width:700px; font-size:15px; margin:auto; white-space:normal; table-layout:fixed; word-break:break-all; }
+#cs_reply_table tr:last-child td div {padding-top:20px; padding-bottom:20px; width:700px; font-size:15px; margin:auto; white-space:normal; table-layout:fixed; word-break:break-all; }
 #board_content table#cs_reply_table, #board_content table#cs_reply_table th, #board_content table#cs_reply_table td {margin:20px;}
 #cs_reply_table textarea {width:450px;}
 div#here {clear:both;}
