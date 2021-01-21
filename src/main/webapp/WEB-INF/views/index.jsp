@@ -15,7 +15,7 @@
 </head>
 <body>
 	<!-- header -->
-	<!-- dsfasdf --> 
+	<!-- 지혜 --> 
 	<jsp:include page="header.jsp" />
 	 
 	<!-- content -->
