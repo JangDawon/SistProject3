@@ -41,7 +41,7 @@
 			<td rowspan=2><img
 				src="http://localhost:9000/sistproject3/images/item_img.PNG"></td>
 			<td rowspan=2>♥[입점할인]뚠뚠이 캐릭터 그림 일러스트 초상화<br> <span>인원
-					1명/그림게시 : 인스타/아이디어스 가능해요/매후기이벤트 : 후기 쓸께요/상세설명을 필독하였습니다.</span></td>
+					1명/그림게시 : 인스타/아이디어스 가능해요/매후기이벤트 : 후기 쓸께요/상세설명을 필독하였습니다</span></td>
 			<td width="100" rowspan=2>리을이네
 				<button type="button">문의하기</button>
 			</td>
