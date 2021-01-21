@@ -27,24 +27,26 @@
 		</div>
 	 	
 	 	<section class="product_content">
-			<div class="best_artist_title">
+			<!-- <div class="best_artist_title">
 				<a href="">인기작가</a>
-			</div>
+			</div> -->
 			
 			<div class="best_artist">
 				<table class="artist_info">
 					<tr>
 						<td class="artist_img">
-							<a href=""><img src="http://localhost:9000/sistproject3/images/artist_img.png"></a>
+							<a href="http://localhost:9000/sistproject3/artist_home.do">
+								<img src="http://localhost:9000/sistproject3/images/artist_img.png">
+							</a>
 						</td>
 						<td>
-							<a href=""><div class="artist_info_title">소유템♥ 폰케이스</div></a>
-							<div class="ui_rating">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
-								<img src="images/star.png">
+							<a href="http://localhost:9000/sistproject3/artist_home.do"><div class="artist_info_title">소유템💛폰케이스</div></a>
+							<div class="artist_info_star">
+								<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
 							</div>
 							<div class="artist_info_cont">
 								<p>real handmade item - 소유하고 싶은 아이템 작가의 아이디어가 폭팔했어요😉 직접 디자인하고 만드는 감각적인 쇼핑몰 폰케이스/에어팟</p>
@@ -86,7 +88,6 @@
 					</tr>
 				</table>
 			</div>
-			
 		</section>
 	 	
 		<!-- footer -->

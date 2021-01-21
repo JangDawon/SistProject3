@@ -633,14 +633,13 @@ table.review_content tr:first-child span.star {color: rgb(255, 200, 1);}
 table.review_content tr:last-child td {width: 220px;}
 div.border {border: 1px solid rgb(217, 217, 217);display: inline-block;}
 div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-size: 12px;margin-bottom:30px;height:60px;padding:10px 10px;}
-	
-	
 
-	/** 카테고리, 장바구니 **/
-	body.category {
+
+	/** 카테고리, 장바구니, 작가 **/
+	body.category, body.artist {
 		margin:0px; padding:0px; font-family:"나눔바른고딕";
 	}
-	body.category>section {
+	body.category>section, body.artist>section {
 		width:1100px; margin:auto;
 	}
 	
@@ -690,14 +689,11 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		width:150px;
 		padding:4px 4px;
 	}
-	
 	section.category_content {
-		/* border:1px solid blue; */
 		padding:15px 0 50px 0;
 	}
 	div.category_content>div.product {
 		display:inline-block;
-		/* border:1px solid red; */
 		width:23.6%;
 		margin:5px 5px;
 	}
@@ -757,7 +753,6 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		box-shadow:1px 1px 20px #ddd;
 	}
 	
-	
 	/** 인기작품, 최신작품 **/
 	div.banner_title {
 		text-align:center;
@@ -790,12 +785,13 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		font-size:15px;
 	}
 	div.best_prod_img>div>button.favorite_btn>img,
-	div.new_prod_img>div>button.favorite_btn>img {
+	div.new_prod_img>div>button.favorite_btn>img,
+	div.artist_prod_img>div>button.favorite_btn>img {
 		width:25px;
 		height:25px;
 		margin-top:5px;
 	}
-	div.best_prod_img button, div.new_prod_img button {
+	div.best_prod_img button, div.new_prod_img button, div.artist_prod_img button {
 		position:absolute;
 		background-color:rgba(0, 0, 0, 0);
 		border:1px solid rgba(0, 0, 0, 0);
@@ -803,35 +799,52 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	div.best_prod div.best_prod_img img,
 	div.new_prod div.new_prod_img img {
 		text-align:center;
-		width:205px;
-		height:205px;
+		border-radius:3px;
+		width:203px;
+		height:203px;
+		margin-left:-0.5px;
 	}
-	section.product_content>div.best_prod, 
-	section.product_content>div.new_prod {
+	div.artist_prod div.artist_prod_img img {
+		text-align:center;
+		border-radius:3px;
+		width:202px;
+		height:202px;
+		margin-left:-0.5px;
+		margin-top:-0.5px;
+	}
+	section.product_content>div.best_prod, section.product_content>div.new_prod {
 		background-color:rgb(250,250,250);
 		border:1px solid lightgray;
 		display:inline-block;
-		width:18.3%;
+		width:18.4%;
 		margin:10px 5px;
 		border-radius:5px;
 	}
-	div.best_prod>a, div.new_prod>a {
+	div.artist_product>div.artist_prod {
+		background-color:rgb(250,250,250);
+		border:1px solid lightgray;
+		display:inline-block;
+		width:23.1%;
+		margin:10px 5px;
+		border-radius:5px;
+	}
+	div.best_prod>a, div.new_prod>a, div.artist_prod>a {
 		text-decoration:none;
 		text-align:left;
 		color:black;
 	}
 	div.best_prod div.best_prod_info, div.best_prod div.best_prod_info_review,
-	div.new_prod div.new_prod_info {
+	div.new_prod div.new_prod_info, div.artist_prod div.artist_prod_info {
 		padding:5px 8px;
 	}
-	div.best_prod_info>div.prod_info_name,
-	div.new_prod_info>div.prod_info_name {
+	div.best_prod_info>div.prod_info_name, div.new_prod_info>div.prod_info_name,
+	div.artist_prod_info>div.prod_info_name {
 		font-size:12px;
 		color:gray;
 		margin-bottom:3px;
 	}
-	div.best_prod_info>div.prod_info_title,
-	div.new_prod_info>div.prod_info_title {
+	div.best_prod_info>div.prod_info_title,	div.new_prod_info>div.prod_info_title,
+	div.artist_prod_info>div.prod_info_title {
 		font-size:15px;
 		margin-bottom:20px;
 	}
@@ -849,21 +862,22 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	
 	/** 인기작가 **/
 	div.best_artist {
+		border-top:1px solid lightgray;
 		border-bottom:1px solid lightgray;
-		height:260px;
+		height:270px;
 	}
 	table.artist_info td.artist_img img {
-		width:90px;
-		height:90px;
+		width:100px;
+		height:100px;
+		margin-top:-100px;
 	}
 	table.artist_info td:first-child {
 		width:12%;
 		text-align:center;
-		margin-top:-50px;
 	}
 	table.artist_info td:nth-child(2) {
 		width:22%;
-		height:260px;
+		height:270px;
 		padding:0 20px 0 5px;
 	}
 	table.artist_info td:nth-child(2)>a {
@@ -872,14 +886,12 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	}
 	div.artist_info_title {
 		font-size:15px;
-		padding-bottom:3px;
-	}
-	div.artist_info_star {
-		margin-bottom:10px;
+		margin-bottom:4px;
 	}
 	div.artist_info_cont {
 		font-size:14px;
 		color:gray;
+		margin:3px 0;
 	}
 	div.artist_fav {
 		padding-right:5px;
@@ -909,13 +921,135 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		text-align:center;
 	}
 	
+	/** 작가 메뉴 **/
+	aside.artist_menu {
+		width:150px;
+		height:740px;
+		border:1px solid lightgray;
+		border-top:1px solid white;
+		margin:auto;	float:left;
+		text-align:center;
+		padding:10px 20px;
+	}
+	div.artist_profile>img {
+		width:100px;	height:100px;
+		margin:30px 0 20px 0;
+		font-size:15px;
+	}
+	div.artist_info>p {
+		font-size:12px;
+		margin:15px 5px 30px 5px;
+		color:gray;
+	}
+	button.artist_fav, button.artist_msg, button.artist_spt, button.artist_addr {
+		border:1px solid lightgray;
+		background-color:white;
+		text-align:center;
+		font-size:13px;
+		padding:7px 0;
+		width:100%;
+		margin:5px 0;
+	}
+	button.artist_fav {
+		color:#F87E35;
+	}
+	div.artist_sub {
+		border:1px solid lightgray;
+		margin:10px 0 20px 0;
+		text-align:left;
+		padding:10px 10px;
+	}
+	div.artist_sub>a {
+		display:inline-block;
+		width:100%;
+		color:#333;
+		text-decoration:none;
+		font-size:12px;
+	}
+	div.artist_sub img {
+		width:13px;		weight:13px;
+		padding-right:5px;
+	}
+	div.artist_etc {
+		text-align:left;
+	}
+	div.artist_etc>div.title {
+		font-size:12px;
+		font-weight:600;
+		margin:10px 0 0 3px;
+	}
+	div.artist_etc>table.content {
+		font-size:11px;
+		margin-top:5px;
+		width:100%;
+		color:#333;
+	}
+	table.content td:last-child {
+		text-align:right;
+		padding:1px 0;
+	}
+	
+	/** 작가 홈, 작품 **/
+	div.artist_main {
+		margin-left:190px;
+		border:1px solid red;
+	}
+	div.artist_main>img {
+		width:99.5%;
+	}
+	div.sales_prod {
+		margin:20px 0 50px 25px;
+	}
+	div.sales_prod>div.title {
+		font-weight:bold;
+		border-bottom:1px solid lightgray;
+		padding-bottom:15px;
+		margin-bottom:15px;
+	}
+	div.sales_prod>div.content_img img {
+		width:16.1%;
+		height:150px;
+	}
+	div.prod_more {
+		text-align:center;
+	}
+	div.prod_more div.more_btn {
+		border:1px solid lightgray;
+		background-color:white;
+		display:inline-block;
+		text-align:center;
+		padding:10px 0;
+		margin:20px 0;
+		width:20%;
+	}
+	div.artist_main>h3, div.artist_product {
+		margin:20px 20px 10px 20px;
+	}
+	div.artist_main>h3 {
+		display:inline-block;
+	}
+	div.prod_search {
+		display:inline-block;
+		float:right;
+		margin:20px 20px 0 0;
+	}
+	div.prod_search>input.prod_search {
+		padding:5px 5px;
+		margin-top:-1px;
+	}
+	div.prod_search>button.prod_search_btn {
+		padding:5px 7px;
+		color:white;
+		border:1px solid #F87E35;
+		background-color:#F87E35;
+	}
 	
 	/** 장바구니 **/
 	div.cart_content>table {
-		width:100%;
 		border-collapse:collapse;
 		border:1px solid lightgray;
 		margin-bottom:15px;
+		width:100%;
 	}
 	body.category>section.cart {
 		width:800px; margin:auto;
@@ -927,7 +1061,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		display:inline-block;
 	}
 	ul.page_location {
-	    list-style: none;
+	    list-style:none;
 	    font-size:16px;
 	    font-weight:bold;
 	    color:lightgray;
