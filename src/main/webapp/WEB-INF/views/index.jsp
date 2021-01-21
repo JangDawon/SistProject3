@@ -15,8 +15,7 @@
 </head>
 <body>
 	<!-- header --> 
-	<!--  -->
-	 <jsp:include page="header.jsp" />
+	<jsp:include page="header.jsp" />
 	 
 	<!-- content -->
 	<div class="index_content">
