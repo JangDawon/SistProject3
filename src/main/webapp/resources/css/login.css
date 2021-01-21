@@ -1,0 +1,137 @@
+	/*
+		login.jsp
+	*/
+	
+	*{	
+		font-family:나눔바른고딕 UltraLight;
+	}
+	div.login_content{
+		width:1200px;
+		margin:auto;
+	}
+	div.login_content a{
+		text-decoration:none;
+	}
+	
+	div.login_content button{
+		display:block;
+		width:400px;
+		height:60px;
+		border-radius:3px;
+		font-size:16px;
+		font-weight:bold;
+		outline:none;
+	}
+	div.login_content button:hover,
+	div.login_content>section.login_section2 label{
+		cursor:pointer;
+	}	
+	div.login_content>section.login_section1,
+	div.login_content>section.login_section2,
+	div.login_content>section.login_section3{
+		margin:auto;
+		width:500px;
+	}
+	div.login_content>section.login_section1{
+		height:410px;
+	}
+	div.login_content>section.login_section2{
+		height:250px;
+	}
+	div.login_content>section.login_section3{
+		height:400px;
+	}
+	div.login_content>section.login_section1 img{
+		display:block;
+		margin:auto;
+	}
+	div.login_content>section.login_section1 img.login_logo{
+		width:100px;
+		height:40px;
+		padding:30px 0 50px 0;
+	}
+	div.login_content>section.login_section1 img.login_coupon{
+		width:400px;
+		height:200px;
+		padding:0 0 30px 0;
+	}
+	div.login_content>section.login_section1 button{
+		border:1px solid #FA9354;
+		color:#FA9354;
+		background-color:white;
+		margin:auto;
+	}
+	div.login_content>section.login_section2 ul{
+		padding:0 0 0 0px;
+		text-align:center;	
+		list-style:none;
+	}
+	div.login_content>section.login_section2 ul li,
+	div.login_content>section.login_section3 ul li{
+		display:inline-block;
+		padding:5px 0;
+	}
+	div.login_content>section.login_section2 ul li:first-child,
+	div.login_content>section.login_section3 ul li:first-child{
+		width:400px;
+		padding:20px 0;
+		font-size:14px;
+	}
+	div.login_content>section.login_section2 ul li:first-child hr,
+	div.login_content>section.login_section3 hr{
+		vertical-align:middle;
+		display:inline-block;
+		border:none;
+		height:0.5px;
+		background-color:black;
+	}
+	div.login_content>section.login_section2 ul li:first-child hr{
+		width:175px;
+	}
+	
+	div.login_content>section.login_section2 button#btnKakaoLogin{
+		border:none;
+		background-color:#FEE500;
+	}
+	div.login_content>section.login_section2 button#btnKakaoLogin img{
+		width:45px;
+		height:45px;
+		float:left;
+	}
+	div.login_content>section.login_section2 button#btnKakaoLogin label{
+		display:inline-block;
+		padding:15px 45px 12px 0;
+	}
+	div.login_content>section.login_section2 button#btnEmailLogin{
+		border:1px solid lightgray;
+		background-color:white;
+	}
+	div.login_content>section.login_section3{
+		display:none;
+	}
+	div.login_content>section.login_section3 hr{
+		width:153px;
+	}
+	div.login_content>section.login_section3 input{
+		width:390px;
+		height:45px;
+		text-indent:7px;
+	}
+	div.login_content>section.login_section3 ul{
+		list-style:none;
+		padding:0 0 0 0px;
+		text-align:center;
+	}
+	div.login_content>section.login_section3 ul li:nth-child(4){
+		width:400px;
+	}
+	div.login_content>section.login_section3 ul li:nth-child(4) span{
+		float:right;
+		font-size:12px;
+		color:black;
+	}
+	div.login_content>section.login_section3 button#btnLogin{
+		border:none;
+		background-color:#FA9354;
+		color:white;
+	}

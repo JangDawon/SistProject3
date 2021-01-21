@@ -1,11 +1,14 @@
 @charset "UTF-8";
 
+	/** 카테고리, 장바구니 **/
 	body.category {
 		margin:0px; padding:0px; font-family:"나눔바른고딕";
 	}
-	section {
+	body.category>section {
 		width:1100px; margin:auto;
 	}
+	
+	/** 카테고리(음식, 악세서사리, 생활소품, 인테리어소품, 기타) **/
 	section.category_menu div.filter_top {
 		margin:0px;
 	}
@@ -54,17 +57,18 @@
 	
 	section.category_content {
 		/* border:1px solid blue; */
-		margin-top:15px;
-		margin-bottom:200px;
-	}
-	div.category_content {
-		text-align:center;
+		padding:15px 0 50px 0;
 	}
 	div.category_content>div.product {
 		display:inline-block;
 		/* border:1px solid red; */
-		width:23.5%;
+		width:23.6%;
 		margin:5px 5px;
+	}
+	div.prod_img>div>button.favorite_btn>img {
+		width:25px;
+		height:25px;
+		margin-top:5px;
 	}
 	div.product div.prod_img img {
 		text-align:center;
@@ -76,24 +80,24 @@
 		text-align:left;
 		color:black;
 	}
-	div.product>a>div.prod_info {
+	div.product>a>div.product_info {
 		padding:8px 10px 5px 10px;
 	}
-	div.prod_info>div.prod_info_name {
+	div.product_info>div.prod_info_name {
 		font-size:12px;
 		color:gray;
 		margin-bottom:3px;
 	}
-	div.prod_info>div.prod_info_title {
+	div.product_info>div.prod_info_title {
 		font-size:16px;
 		margin-bottom:20px;
 	}
-	div.prod_info>div.prod_info_price {
+	div.product_info>div.prod_info_price {
 		font-size:16px;
 		margin-bottom:10px;
 		font-weight:bold;
 	}
-	div.prod_info>div.prod_info_review>div.rv {
+	div.product_info>div.prod_info_review>div.rv {
 		font-size:10px;
 		margin-bottom:20px;
 		display:inline-block;
@@ -103,9 +107,9 @@
 		color:gray;
 		background-color:lightgray;
 	}
-	div.prod_info>div.prod_info_review>div.rv2 {
+	div.product_info>div.prod_info_review>div.rv2 {
 		font-size:12px;
-		margin-bottom:20px;
+		margin-bottom:15px;
 		display:inline-block;
 	}
 	div.prod_img button {
@@ -118,18 +122,345 @@
 	}
 	
 	
+	/** 인기작품, 최신작품 **/
+	div.banner_title {
+		text-align:center;
+		padding:30px 0;
+		background-color:#F87E35;
+		color:white;
+	}
+	section.product_content {
+		padding:30px 0;
+	}
+	div.best_prod_title {
+		background-color:rgb(231,231,231);
+		border:1px solid lightgray;
+		border-radius:3px;
+		padding:15px 15px;
+		margin-bottom:20px;
+	}
+	div.best_prod_title>a:first-child {
+		display:inline-block;
+		clear:left;
+		text-decoration:none;
+		font-weight:bold;
+		color:black;
+	}
+	div.best_prod_title>a:last-child {
+		display:inline-block;
+		float:right;
+		text-decoration:none;
+		color:black;
+		font-size:15px;
+	}
+	div.best_prod_img>div>button.favorite_btn>img,
+	div.new_prod_img>div>button.favorite_btn>img {
+		width:25px;
+		height:25px;
+		margin-top:5px;
+	}
+	div.best_prod_img button, div.new_prod_img button {
+		position:absolute;
+		background-color:rgba(0, 0, 0, 0);
+		border:1px solid rgba(0, 0, 0, 0);
+	}
+	div.best_prod div.best_prod_img img,
+	div.new_prod div.new_prod_img img {
+		text-align:center;
+		width:205px;
+		height:205px;
+	}
+	section.product_content>div.best_prod, 
+	section.product_content>div.new_prod {
+		background-color:rgb(250,250,250);
+		border:1px solid lightgray;
+		display:inline-block;
+		width:18.3%;
+		margin:10px 5px;
+		border-radius:5px;
+	}
+	div.best_prod>a, div.new_prod>a {
+		text-decoration:none;
+		text-align:left;
+		color:black;
+	}
+	div.best_prod div.best_prod_info, div.best_prod div.best_prod_info_review,
+	div.new_prod div.new_prod_info {
+		padding:5px 8px;
+	}
+	div.best_prod_info>div.prod_info_name,
+	div.new_prod_info>div.prod_info_name {
+		font-size:12px;
+		color:gray;
+		margin-bottom:3px;
+	}
+	div.best_prod_info>div.prod_info_title,
+	div.new_prod_info>div.prod_info_title {
+		font-size:15px;
+		margin-bottom:20px;
+	}
+	div.best_prod_info_review {
+		border-top:1px solid lightgray;
+	}
+	div.best_prod_info_review>div.rv {
+		font-size:14px;
+		margin:5px 0;
+	}
+	div.best_prod_info_review>div.rv2 {
+		font-size:12px;
+		margin-bottom:5px;
+	}
+	
+	/** 인기작가 **/
+	div.best_artist {
+		border-bottom:1px solid lightgray;
+		height:260px;
+	}
+	table.artist_info td.artist_img img {
+		width:90px;
+		height:90px;
+	}
+	table.artist_info td:first-child {
+		width:12%;
+		text-align:center;
+		margin-top:-50px;
+	}
+	table.artist_info td:nth-child(2) {
+		width:22%;
+		height:260px;
+		padding:0 20px 0 5px;
+	}
+	table.artist_info td:nth-child(2)>a {
+		text-decoration:none;
+		color:black;
+	}
+	div.artist_info_title {
+		font-size:15px;
+		padding-bottom:3px;
+	}
+	div.artist_info_star {
+		margin-bottom:10px;
+	}
+	div.artist_info_cont {
+		font-size:14px;
+		color:gray;
+	}
+	div.artist_fav {
+		padding-right:5px;
+	}
+	div.artist_fav>button.fav_artist, div.artist_fav>button.home_artist {
+		border:1px solid lightgray;
+		background-color:white;
+		display:inline-block;
+		text-align:center;
+		padding:7px 0;
+		width:49%;
+		font-size:11px;
+	}
+	div.artist_fav>button.fav_artist {
+		color:#F87E35;
+	}
+	div.artist_fav>button.msg_artist {
+		border:1px solid lightgray;
+		background-color:white;
+		text-align:center;
+		padding:7px 0;
+		font-size:11px;
+		width:100%;
+		margin-top:5px;
+	}
+	table.artist_info td:last-child {
+		text-align:center;
+	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/** 장바구니 **/
+	div.cart_content>table {
+		width:100%;
+		border-collapse:collapse;
+		border:1px solid lightgray;
+		margin-bottom:15px;
+	}
+	body.category>section.cart {
+		width:800px; margin:auto;
+	}
+	div.cart_title {
+		margin-bottom:15px;
+	}
+	div.cart_title>h2 {
+		display:inline-block;
+	}
+	ul.page_location {
+	    list-style: none;
+	    font-size:16px;
+	    font-weight:bold;
+	    color:lightgray;
+		display:block;
+		float:right;
+		margin-top:25px;
+	}
+	ul.page_location li {
+    	display:inline-block;
+    	margin-left:8px;
+	}
+	ul.page_location li:first-child {
+		color:black;
+	}
+	div.cart_content div.cart_artist {
+		padding:15px 10px;
+		font-size:14px;
+		background-color:rgb(240,240,240);
+	}
+	div.cart_artist>span.rchk {
+		padding-left:5px;
+	} 
+	div.cart_img>img {
+		width:70px;
+		height:70px;
+	}
+	tr.cart_product>td:last-child {
+		width:100%;
+	}
+	div.cart_text>a {
+		text-decoration:none;
+		font-size:14px;
+		color:black;
+		padding-left:10px;
+	}
+	tr.cart_textfield textarea {
+		width:97%;
+		height:70px;
+		margin:5px 10px 5px 0;
+		padding:5px 0 0 5px;
+		border:1px solid lightgray;
+	}
+	tr.cart_price_name  {
+		border-bottom:1px solid lightgray;
+		border-top:1px solid lightgray;
+	}
+	tr.cart_textfield td {
+	    list-style:none;
+	    padding-left:115px;
+	}
+	tr.cart_product div.cart_text {
+		padding:20px 0;
+	}
+	tr.cart_explain {
+		font-size:13px;
+	}
+	tr.cart_explain div {
+		display:inline-block;
+	}
+	tr.cart_explain>td:nth-child(2), tr.cart_explain>td:last-child {
+		text-align:center;
+	}
+	tr.cart_explain>td:nth-child(3) {
+		text-align:right;
+		padding-right:5px;
+		color:#333;
+	}
+	div.cart_option {
+		padding-left:10px;
+		color:#333;
+	}
+	div.cart_num {
+		border:1px solid lightgray;
+		padding:3px 2px;
+	}
+	div.cart_num>button.decre, div.cart_num>button.incre {
+		border:1px solid white;
+		background-color:white;
+	}
+	div.cart_num>div.num {
+		padding:0 5px;
+		border-left:1px solid lightgray;
+		border-right:1px solid lightgray;
+	}
+	div.cart_update>button {
+		display:inline-block;
+		border:1px solid #F87E35;
+		background-color:white;
+		font-size:12px;
+		color:#F87E35;
+		padding:3px 3px;
+	}
+	div.cart_update>div:first-child {
+		border-right:1px solid #F87E35;
+	}
+	div.content {
+		float:right;
+	}
+	div.cart_content>table>tr {
+		border-bottom:1px solid gray;
+	}
+	tr.cart_price_name>td, tr.cart_price_del>td {
+		padding:20px 5px;
+	}
+	div.price_title {
+		text-align:center;
+		color:gray;
+		font-size:13px;
+	}
+	div.price_content {
+		text-align:right;
+		font-size:14px;
+		font-weight:bold;
+		padding-right:10px;
+	}
+	div.cart_product {
+		margin:10px 0 50px 0;
+	}
+	div.prod_choice {
+		margin:5px 0;
+	}
+	div.prod_choice span.rchk {
+		font-size:14px;	
+	}
+	div.prod_choice>button {
+		float:right;
+		background-color:white;
+		padding:5px 8px;
+		border:1px solid gray;
+		border-radius:3px;
+		font-size:12px;
+	}
+	div.order {
+		text-align:center;
+	}
+	div.order_btn>button {
+		display:inline-block;
+		float:center;
+		text-align:center;
+		border:1px solid #F87E35;
+		background-color:#F87E35;
+		width:60%; color:white;
+		font-size:13px;
+		padding:10px 0;
+		margin:20px 0;
+	}
+	div.all_price>table.price_sum {
+		border:1px solid black;
+		border-radius:3px;
+		width:100%;
+		text-align:center;
+		padding:10px 0;
+		margin-top:30px;
+	}
+	tr:first-child>td.price, tr:first-child>td.del, tr:first-child>td.sum {
+		font-size:13px;
+		color:gray;	width:30%;
+		padding:20px 0;
+	}
+	tr:last-child>td.price2, tr:last-child>td.del2, tr:last-child>td.sum2 {
+		font-size:22px;
+		font-weight:bold;
+		padding-bottom:20px;
+	}
+	tr:last-child>td.sum2 {
+		color:#F87E35;
+	}
+	table.price_sum>tr>th {
+		font-weight:bold;
+		font-size:18px;
+	}
 	

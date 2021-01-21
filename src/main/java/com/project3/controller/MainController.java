@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MainController {
 	
-	@RequestMapping(value = "index.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/index.do", method = RequestMethod.GET)
 	public String index() {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/product.do", method = RequestMethod.GET)
+	public String product_detail() {
+		return "/product_detail/product_detail";
+	}
 }
