@@ -16,6 +16,7 @@
 <body>
 	<!-- header -->
 	<!-- 지혜 --> 
+	<!-- 준성 -->
 	<jsp:include page="header.jsp" />
 	 
 	<!-- content -->
