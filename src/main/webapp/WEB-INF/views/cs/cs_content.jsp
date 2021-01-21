@@ -7,8 +7,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 고객센터</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 </head>
 <body>
 	<!-- header -->
@@ -31,7 +31,7 @@
 				<td>1</td>
 			</tr>
 			<tr>
-				<td colspan="5" id="content">
+				<td colspan="6" id="content">
 					해결해주세요
 					<%-- <% if(vo.getBcontent() != null){ %>
 					<%= vo.getBcontent().replace("\r\n", "<br>") %><br>
@@ -42,7 +42,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="5">
+				<td colspan="6">
 					<a href="cs_update.do"><button type="button" class="btn_style">수정</button></a>
 					<a href="cs.do"><button type="button" class="btn_style">목록</button></a>
 					<a href="cs_delete.do"><button type="button" class="btn_style">삭제</button></a>
@@ -56,10 +56,12 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="5" id="last">
+				<td colspan="6" id="last">
+					<div id="reply_form">
 					<img src="http://localhost:9000/sistproject3/images/logo.jpg" id="user_img">
 					<textarea id="r_content" placeholder="댓글을 남겨주세요.(200자)"></textarea>
-					<button type="button" id="btn_send" class="btn_style">작성</button>
+					<button type="button" id="reply_write_btn" class="btn_style">작성</button>
+					</div>
 					<div id="here"></div>
 					
 					<%-- <input type="hidden" id="u_id" value="<%= user_id %>">

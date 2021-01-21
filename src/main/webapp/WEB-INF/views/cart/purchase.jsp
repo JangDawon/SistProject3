@@ -16,7 +16,7 @@
 				<h2>장바구니</h2>
 				<ul class="page_location">
 					<li>
-						<span>1. 장바구니</span>
+						<span>1. 바로구매</span>
 						<span> ></span>
 					</li>
 					<li>
