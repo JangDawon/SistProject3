@@ -223,12 +223,12 @@ $(document).ready(function(){
 			output += "<td><img src='http://localhost:9000/sistproject3/images/logo.jpg' style='height:60px; width:60px;  border-radius:50%'></td>";
 			output += "<td>최지혜</td>";
 			output += "<td></td>";
-			output += "<td><button type='button' class='btn_style' id='r_update_btn'>수정</button></td>";
-			output += "<td><button type='button' class='btn_style' id='r_delete_btn'>삭제</button></td>"
+			output += "<td><button type='button' class='btn_style' name='r_update' id='r_update_btn'>수정</button></td>";
+			output += "<td><button type='button' class='btn_style' name='r_delete' id='r_delete_btn'>삭제</button></td>"
 			output += "<td>2021.01.19. 15:35:34</td>";
 			output += "</tr>";
 			output += "<tr>";
-			output += "<td colspan='6'><div>" + $("#r_content").val() + "</div></td>";
+			output += "<td class='rc_here' colspan='6'><div class='rc'>" + $("#r_content").val() + "</div></td>";
 			output += "</tr>";
 			output += "</table>";
 			$("#r_content").val("");

@@ -9,6 +9,15 @@
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
+<script>
+	$(document).ready(function(){
+		$("input[type='file']").change(function(){
+			var name = $(this).attr("name");
+			$("label[for='"+name+"']").css("width", "70px").css("background-color", "#F87E35").css("color","white");
+			$("label[for='"+name+"']").text("첨부 완료");
+		})
+	});
+</script>
 </head>
 <body class="admin" id="product_mng_update">
 	<!-- header -->
@@ -89,14 +98,6 @@
 	         </td>
 	         <td>    
 	            <input type="text" name="pprice" placeholder="가격을 입력해주세요 :)" id="pprice" value="17800">
-	         </td>
-	      </tr>
-	      <tr>
-	         <td>
-	            <span><span class="red">*</span>배송비 무료</span>
-	         </td>
-	         <td>    
-	            <input type="text" name="pdelivery" id="pdelivery" placeholder="가격을 입력해주세요 :)" value="40000">
 	         </td>
 	      </tr>
 	      <tr>

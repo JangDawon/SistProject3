@@ -9,6 +9,30 @@
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
+<script>
+	$(document).ready(function(){
+		/* $("button").click(function(){
+			var obj_name = $(this).attr("name");
+			var obj_id = $(this).attr("id");
+			alert(obj_name+" : " +obj_id);
+		}); */
+		
+		
+		
+		$(document).on("click","#r_update_btn",function(){
+			var text = $("#r_content").val();
+			$(".rc").remove();
+			$("#r_update_btn").css("display","none");
+			$("#r_delete_btn").css("display","none");
+			$(".rc_here").append("<textarea id='rcon_text' placeholder='댓글을 남겨주세요.(200자)' style='width:700px;'>" + text +"</textarea>");
+			$(".rc_here").append("<button type='button' class='btn_style'>수정</button>")
+		   });
+		
+		$(document).on("click","#r_delete_btn",function(){
+			alert("삭제완료");
+		   });
+	});
+</script>
 </head>
 <body>
 	<!-- header -->
@@ -45,7 +69,7 @@
 				<td colspan="6">
 					<a href="cs_update.do"><button type="button" class="btn_style">수정</button></a>
 					<a href="cs.do"><button type="button" class="btn_style">목록</button></a>
-					<a href="cs_delete.do"><button type="button" class="btn_style">삭제</button></a>
+					<a href="cs_delete.do"><button type="button" name="r_delete" id="rd1"class="btn_style">삭제</button></a>
 					<%-- <% if(vo.getUser_id().equals(user_id)){ %>
 						<a href="board_update.jsp?bid=<%= bid %>"><button type="button" class="btn_style">수정</button></a>
 					<% } %>
