@@ -396,9 +396,11 @@ table#cs_list_table tr:first-child td:last-child {text-align:right; padding-bott
 table#cs_list_table tr:nth-child(2) {border-top:2px solid lightgray; border-bottom:2px solid lightgray;}
 table#cs_list_table tr:last-child td{border-bottom:1px solid white;}
 table#cs_list_table td {padding:0 15px 0 15px;}
+table#cs_list_table td:nth-child(2) {width:500px;}
 table#cs_list_table tr.cs_row:hover {background-color:#FA9354; /* height:35px; */ color:white; font-weight:600;}
 table#cs_list_table tr {height:35px;}
-
+table#cs_list_table tr.cs_hide {display:none; }
+table#cs_list_table tr.cs_hide td div span {margin:0px 20px; }
 /**
 *   CS게시판 글쓰기 & 수정 : cs_write.jsp & cs_update.jsp (지혜)
 **/
@@ -409,7 +411,13 @@ table#cs_write_table input[type='text'], table#cs_update_table tr input[type='te
 table#cs_write_table textarea, table#cs_update_table tr textarea {width:400px; height:200px; border-radius:4px; text-indent:5px; margin-left:-83px;}
 table#cs_write_table td>span.board_title, table#cs_update_table td>span.board_title {font-weight:600; color:#686868; margin-left:70px;}
 table#cs_write_table tr:nth-child(2) td>span, table#cs_update_table tr:nth-child(2) td>span {float:left;}
-table#cs_write_table tr:nth-child(3) td, table#cs_update_table tr:nth-child(3) td {text-align:left;}
+table#cs_write_table tr:nth-child(3) td, table#cs_update_table tr:nth-child(3) td, 
+table#cs_write_table tr:nth-child(4) td, table#cs_update_table tr:nth-child(4) td,
+table#cs_write_table tr:nth-child(5) td, table#cs_update_table tr:nth-child(5) td {text-align:left;}
+table#cs_write_table tr:nth-child(4) td span , table#cs_update_table tr:nth-child(4) td span {margin-right:30px;}
+table#cs_write_table tr:nth-child(5) td span , table#cs_update_table tr:nth-child(5) td span {margin-right:15px;}
+table#cs_write_table tr:last-child td, table#cs_update_table tr:last-child td,
+table#cs_delete_table tr:last-child td {border-bottom:1px solid white;}
 table.cs_table input[type='file'] {padding-left:40px; }
 table#cs_update_table span#bfile {display:inline-block; width:200px; margin-left:-183px; background-color:white; text-indent:7px; font-size:13.5px; }
 
@@ -539,12 +547,12 @@ table#admin_product_regist tr:nth-child(2) input, table#admin_product_update tr:
 table#admin_product_regist tr:nth-child(4) textarea, table#admin_product_update tr:nth-child(4) textarea{width:480px; height:380px; margin-top:25px; margin-bottom:25px;}
 table#admin_product_regist tr:nth-child(5) input, table#admin_product_regist tr:nth-child(6) input,
 table#admin_product_update tr:nth-child(5) input, table#admin_product_update tr:nth-child(6) input{width:200px; }
-table#admin_product_regist tr:nth-child(7) input, table#admin_product_update tr:nth-child(7) input {width:400px; margin-top:5px; margin-bottom:5px;}
-table#admin_product_regist tr:nth-child(7) input.add_price, table#admin_product_update tr:nth-child(7) input.add_price {width:100px; margin-top:5px; margin-bottom:5px;}
-table#admin_product_regist tr:nth-child(8), table#admin_product_update tr:nth-child(8) {height:150px;}
-table#admin_product_regist tr:nth-child(8) input, table#admin_product_update tr:nth-child(8) input{padding-left:0px; position: absolute; width: 0;
+table#admin_product_regist tr:nth-child(6) input, table#admin_product_update tr:nth-child(6) input {width:400px; margin-top:5px; margin-bottom:5px;}
+table#admin_product_regist tr:nth-child(6) input.add_price, table#admin_product_update tr:nth-child(6) input.add_price {width:100px; margin-top:5px; margin-bottom:5px;}
+table#admin_product_regist tr:nth-child(7), table#admin_product_update tr:nth-child(7) {height:150px;}
+table#admin_product_regist tr:nth-child(7) input, table#admin_product_update tr:nth-child(7) input{padding-left:0px; position: absolute; width: 0;
   height: 0px; padding:0px; overflow: hidden; border: 0;}
-table#admin_product_regist tr:nth-child(8) label, table#admin_product_update tr:nth-child(8) label{float:left; margin:5px; padding: 6px 20px; border:2px solid #F87E35; border-radius: 4px; font-weight:600; color:#F87E35; cursor: pointer;}
+table#admin_product_regist tr:nth-child(7) label, table#admin_product_update tr:nth-child(7) label{float:left; margin:5px; padding: 6px 20px; border:2px solid #F87E35; border-radius: 4px; font-weight:600; color:#F87E35; cursor: pointer;}
 table#admin_product_regist tr:last-child td, table#admin_product_update tr:last-child td{text-align:center; text-indent:-20px;}
 table#admin_product_regist button, table#admin_product_update button {padding:8px 20px; margin:0px 5px;}
 
