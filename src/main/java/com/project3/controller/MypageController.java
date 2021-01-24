@@ -14,10 +14,6 @@ public class MypageController {
 	public String mypage() {
 		return "/mypage/mypage";
 	}
-	@RequestMapping(value = "/my_address.do", method = RequestMethod.GET)
-	public String my_address() {
-		return "/mypage/my_address";
-	}
 	@RequestMapping(value = "/my_bookmark_writer.do", method = RequestMethod.GET)
 	public String my_bookmark_writer() {
 		return "/mypage/my_bookmark_writer";
@@ -38,16 +34,13 @@ public class MypageController {
 	public String my_order() {
 		return "/mypage/my_order";
 	}
-	@RequestMapping(value = "/my_review_write.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/review_write.do", method = RequestMethod.GET)
 	public String my_review_write() {
-		return "/mypage/my_review_write";
+		return "/mypage/review_write";
 	}
 	@RequestMapping(value = "/my_review.do", method = RequestMethod.GET)
 	public String my_review() {
 		return "/mypage/my_review";
 	}
-	@RequestMapping(value = "/my_grade.do", method = RequestMethod.GET)
-	public String my_grade() {
-		return "/mypage/my_grade";
-	}
+
 }
