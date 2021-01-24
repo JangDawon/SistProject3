@@ -1,5 +1,7 @@
 package com.project3.controller;
 
+import java.util.Random;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,5 +41,24 @@ public class JoinController {
 		mv.setViewName("join/join_choice");
 		
 		return mv;
+	}
+	/**
+	 * 회원가입 성공
+	 * @return
+	 */
+	@RequestMapping(value="/certify.do", method=RequestMethod.POST)
+	public String certify(String hp) {
+		Random rd  = new Random();
+        String numStr = "";
+        for(int i=0; i<4; i++) {
+            String random = Integer.toString(rd.nextInt(10));
+            numStr+=random;
+        }
+
+        System.out.println("수신자 번호 : " + hp);
+        System.out.println("인증번호 : " + numStr);
+//        certificationService.certifiedPhoneNumber(hp,numStr);
+        return numStr;
+
 	}
 }

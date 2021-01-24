@@ -148,7 +148,7 @@ section.join_section div.join_form_block_body input{
 	font-weight:bold;
 }
 section.join_section div.join_form_block_body input::placeholder,
-section.join_section div.join_form_block_body input.phonenum_certify{
+section.join_section div.join_form_block_body input.hp_certify{
 	color:#C0C0C0;
 	font-weight:bold;
 }
@@ -159,13 +159,13 @@ section.join_section div.join_form_block_body input#name{
 	width:350px;
 	height:40px;
 }
-section.join_section div.join_form_block_body input#phonenum{
+section.join_section div.join_form_block_body input#hp{
 	width:255px;
 	height:40px;
 	vertical-align: middle;
 	margin-right:5px;
 }
-section.join_section div.join_form_block_body input.phonenum_certify{
+section.join_section div.join_form_block_body input.hp_certify{
 	width:90px;
 	height:46px;
 	vertical-align: middle;
@@ -214,6 +214,10 @@ section.join_section div#block_button label{
 	font-weight:bold;
 	display:inline-block;
 	padding: 20px 0;
+}
+section.join_section div.msg{
+	text-indent:22px;
+	font-size:12px;
 }
 /**
 	join_success.jsp
