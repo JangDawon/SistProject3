@@ -6,6 +6,40 @@
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>장바구니 | 아이디어스</title>
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
+		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#cart_order").click(function(){
+					var order_list = "";
+					
+					$("input[class='cart_prod_chk']").each(function(index){
+						order_list += $(this).attr("value")+",";
+					});
+					
+					if(order_list == "") {
+						alert("선택된 상품이 없습니다.");
+					}else {
+						confirm(order_list + "선택 상품을 주문합니다.");
+					}
+				});
+				
+				/* $("#cart_select_del").click(function(){
+					var del_list = "";
+					
+					$("input[class='cart_prod_chk']").each(function(index){
+						del_list += $(this).attr("value") + ", ";
+					});
+					
+					confirm(del_list + "정말 삭제하시겠습니까?");
+					
+				}); */
+				
+				/* $("#cart_order").click(function(){
+					alert("ddd");
+				}); */
+				
+			});
+		</script>
 	</head>
 	<body class="category">
 		<!-- header -->
@@ -34,14 +68,14 @@
 					<tr>
 						<td colspan="5">
 							<div class="cart_artist">
-								<input type="checkbox" name="artist_name"><span class="rchk">호러블리 horror_vely 작가님</span>
+								<input type="checkbox" class="artist_name_chk"><span class="rchk">호러블리 horror_vely 작가님</span>
 							</div>
 						</td>
 					</tr>
 					<tr class="cart_product">
 						<td rowspan="2" width=13%>
 							<div class="cart_img">
-								<input type="checkbox" name="product">
+								<input type="checkbox" class="cart_prod_chk" value="1">
 								<img src="http://localhost:9000/sistproject3/images/cart_img.jpg">
 							</div>
 						</td>
@@ -70,7 +104,7 @@
 						<td>
 							<div class="cart_update">
 								<button type="button">수정</button>
-								<button type="button">삭제</button>
+								<button type="button" class="cart_prod_del">삭제</button>
 							</div>
 						</td>
 					</tr>
@@ -91,8 +125,8 @@
 				
 				<div class="cart_product">
 					<div class="prod_choice">
-						<input type="checkbox" name="all"><span class="rchk">전체선택</span>
-						<button type="button" name="del">선택 삭제</button>
+						<input type="checkbox" id="cart_all"><span class="rchk">전체선택</span>
+						<button type="button" id="cart_select_del">선택 삭제</button>
 					</div>
 					<div class="all_price">
 						<table class="price_sum">
@@ -113,7 +147,7 @@
 					<div class="order">
 						<div>
 							<div class="order_btn">
-								<button type="button">주문하기</button>
+								<button type="button" id="cart_order">주문하기</button>
 							</div>
 						</div>
 					</div>
