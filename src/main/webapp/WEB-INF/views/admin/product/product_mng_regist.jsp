@@ -9,6 +9,15 @@
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
+<script>
+	$(document).ready(function(){
+		$("input[type='file']").change(function(){
+			var name = $(this).attr("name");
+			$("label[for='"+name+"']").css("width", "70px").css("background-color", "#F87E35").css("color","white");
+			$("label[for='"+name+"']").text("첨부 완료");
+		})
+	});
+</script>
 </head>
 <body class="admin" id="product_mng_regist">
 	<!-- header -->
@@ -73,14 +82,6 @@
 	      </tr>
 	      <tr>
 	         <td>
-	            <span><span class="red">*</span>배송비 무료</span>
-	         </td>
-	         <td>    
-	            <input type="text" name="pdelivery" id="pdelivery" placeholder="가격을 입력해주세요 :)">
-	         </td>
-	      </tr>
-	      <tr>
-	         <td>
 	            <span><span class="red">*</span>옵션</span>
 	         </td>
 	         <td>    
@@ -102,7 +103,7 @@
 	         </td>
 	         <td>
 	         	<div>
-	        		<label for="bfile1" class='btn_style'>파일 선택</label>   
+	        		<label for="bfile1" id="label_bfile1" class='btn_style'>파일 선택</label>   
 	            	<input name="bfile1" type="file" id="bfile1">
 	            </div>
 	            <div>

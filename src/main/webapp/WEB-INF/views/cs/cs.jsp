@@ -12,19 +12,39 @@
 <script>
 	$(document).ready(function(){
 		$(".cs_row").click(function(){
-			var output = "";
-			output += "<tr>";
-			output += "<td>비밀번호를 입력해주세요</td>";
-			output += "<td colspan='3'><input type='password'></td>";
-			output += "<td><button type='button'>확인</button></td>";
-			output += "</tr>";
 			
-			$(this).next("#cs_row1").toggleClass("hide");
+			var sub_menu = $(this).next("tr.cs_hide");
+			
+			$("tr.cs_hide").css("background", "#F5F5F5").css("height", "250px");
+			$("div.cs_hide_content").css("margin-left", "-50px");
+			$("span.cs_hide_title").css("font-size", "16px").css("weight", "800");
+			$("span.red").css("color", "red").css("margin-right", "5px");
+			$("input.cs_hide_pw").css("width", "250px").css("height", "30px").css("margin", "0px 30px").css("border", "none").css("text-indent", "10px");
+			$("button.cs_hide_btn").css("height", "30px").css("background-color", "#F87E35").css("border-radius","2px");
+			$("button.cs_hide_btn").css("color", "white").css("border","none").css("width","70px");
+			
+			/* $(this).next("tr").toggleClass("cs_hide"); */
+			
+			if( sub_menu.is(":visible") ){
+                sub_menu.slideUp();
+            }else{
+                sub_menu.slideDown();
+            }
 
-			$("#cs_row1").after("");
-			$("#cs_row1").after(output);
 		});
 		
+		$(".cs_hide_btn").click(function(){
+			var now = $(this).attr("id");
+			var pw_id = "#cs_hide_pw"+now;
+			
+			if($(pw_id).val() == ""){
+				alert("비밀번호를 입력해주세요:) ");
+				$(".cs_hide_pw").focus();
+				return false;
+			}else{
+				location.href="http://localhost:9000/sistproject3/cs_content.do";
+			}
+		});
 		
 	});
 </script>
@@ -59,33 +79,69 @@
 			<th>작성일</th>
 			<th>조회수</th>
 		</tr>
-		<tr class="cs_row" id="cs_row1"> <!-- onclick="location.href='http://localhost:9000/sistproject3/cs_content.do'" -->
+		<tr class="cs_row" id="cs_row1">
 			<th>1</th>
 			<th>[오늘만 할인] 딱 24시간만 할인! 확인해보세요⏰</th>
 			<th>관리자</th>
 			<th>2021.01.13</th>
 			<th>5</th>
 		</tr>
-		<tr class="cs_row" onclick="location.href='http://localhost:9000/sistproject3/cs_content.do'">
+		<tr class="cs_hide">
+			<td colspan='5'>
+				<div class="cs_hide_content" id="cs_hide_content">
+					<span class="cs_hide_title"><span class="red">*</span>비밀번호</span>
+					<input type='password' id="cs_hide_pw1" class="cs_hide_pw" placeholder="비밀번호를 입력해주세요:)">
+					<button type='button' id="1" class="cs_hide_btn">확인</button>
+				</div>
+			</td>
+		</tr>
+		<tr class="cs_row">
 			<td>2</td>
 			<td>로그인 오류</td>
 			<td>최지혜</td>
 			<td>2021.01.13</td>
 			<td>1</td>
 		</tr>
-		<tr class="cs_row" onclick="location.href='http://localhost:9000/sistproject3/cs_content.do'">
+		<tr class="cs_hide">
+			<td colspan='5'>
+				<div class="cs_hide_content">
+					<span class="cs_hide_title"><span class="red">*</span>비밀번호</span>
+					<input type='password' id="cs_hide_pw2" class="cs_hide_pw" placeholder="비밀번호를 입력해주세요:)">
+					<button type='button' id="2" class="cs_hide_btn">확인</button>
+				</div>
+			</td>
+		</tr>
+		<tr class="cs_row">
 			<td>3</td>
 			<td>로그인 오류</td>
 			<td>최지혜</td>
 			<td>2021.01.13</td>
 			<td>1</td>
 		</tr>
-		<tr class="cs_row" onclick="location.href='http://localhost:9000/sistproject3/cs_content.do'">
+		<tr class="cs_hide">
+			<td colspan='5'>
+				<div class="cs_hide_content">
+					<span class="cs_hide_title"><span class="red">*</span>비밀번호</span>
+					<input type='password' id="cs_hide_pw3" class="cs_hide_pw" placeholder="비밀번호를 입력해주세요:)">
+					<button type='button' id="3" class="cs_hide_btn">확인</button>
+				</div>
+			</td>
+		</tr>
+		<tr class="cs_row">
 			<td>4</td>
 			<td>로그인 오류</td>
 			<td>최지혜</td>
 			<td>2021.01.13</td>
 			<td>1</td>
+		</tr>
+		<tr class="cs_hide">
+			<td colspan='5'>
+				<div class="cs_hide_content">
+					<span class="cs_hide_title"><span class="red">*</span>비밀번호</span>
+					<input type='password' id="cs_hide_pw4" class="cs_hide_pw" placeholder="비밀번호를 입력해주세요:)">
+					<button type='button' id="4" class="cs_hide_btn">확인</button>
+				</div>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="5"><< 1 2 3 4 5 >><div id="ampaginationsm"></div></td>

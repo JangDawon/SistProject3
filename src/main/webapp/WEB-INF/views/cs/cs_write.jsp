@@ -20,7 +20,7 @@
 	<form name="cs_wirte_form" action="cs_write_proc.do" method="post">
 		<input type="hidden" name="user_id">
 		<input type="hidden" name="name">
-		<table class="cs_table" id="cs_write_table">
+		<table class="cs_table" id="cs_write_table" >
 			<tr>
 				<td>
 					<span class="board_title">제목</span>
@@ -37,6 +37,19 @@
 				<td>
 					<span class="board_title">파일</span>
 					<input name="bfile" type="file" id="bfile">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="board_title">비밀글</span>
+					<input type="checkbox" name="bsecret">
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="board_title">비밀번호</span>
+					<input type="password" name="bpass" >
 				</td>
 			</tr>
 			<tr>

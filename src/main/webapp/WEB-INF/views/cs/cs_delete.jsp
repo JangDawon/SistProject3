@@ -10,11 +10,11 @@
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 </head>
-<body>
+<body id="cs_delete">
 	<!-- header -->
 	<jsp:include page="../header.jsp"></jsp:include>
 	
-	<div class="content">
+	<div class="jihye_content">
 	<!-- content -->
 	<h2 class="txt">공지사항 및 1:1문의</h2>
 	<table class="cs_table" id="cs_delete_table">
