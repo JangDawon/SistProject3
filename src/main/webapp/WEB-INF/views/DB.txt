@@ -11,11 +11,12 @@ CREATE TABLE idus_board(
   bdate     DATE,
   bhits     NUMBER(10),
   uemail    VARCHAR2(50) not null,
-  uname     VARCHAR2(30) not null
+  uname     VARCHAR2(30) not null,
+  bsecret VARCHAR2(15)
 );
 
 /* 아이디어스 상품 테이블 생성(지혜) 
-*  수정일 : 2021.01.25
+*  수정일 : 2021.01.26
 */
 CREATE TABLE idus_product(
   pid       VARCHAR2(20) primary key,
@@ -25,6 +26,16 @@ CREATE TABLE idus_product(
   ptitle    VARCHAR2(100) not null,
   pcontent  VARCHAR2(1000) NOT NULL,
   PPRICE    NUMBER(30) NOT NULL,
+  opt1      varchar2(150) not null,
+  opt1_price number(10) not null,
+  opt2      varchar2(150),
+  opt2_price number(10),
+  opt3      varchar2(150),
+  opt3_price number(10),
+  opt4      varchar2(150),
+  opt4_price number(10),
+  opt5      varchar2(150),
+  opt5_price number(10),
   pfile1     VARCHAR2(100) NOT NULL,
   psfile1    VARCHAR2(100) NOT NULL,
   pfile2     VARCHAR2(100),
@@ -47,3 +58,15 @@ CREATE TABLE idus_product(
   PRODUCT_TOTAL NUMBER(10),
   SELLER_TOTAL NUMBER(10)
 );
+
+/*  아이디어스 공지사항 & 1대1문의 게시판 테이블 컬럼 추가(지혜)  
+*	수정일 : 2021.01.26
+*/
+ALTER TABLE idus_board ADD(bsecret VARCHAR2(15));
+
+/*  아이디어스 공지사항 & 1대1문의 게시판 테이블 Sequence(지혜)  
+*	수정일 : 2021.01.26
+*/
+CREATE SEQUENCE IDUS_SEQ
+  START WITH 1
+  INCREMENT BY 1;

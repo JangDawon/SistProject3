@@ -47,7 +47,7 @@ public class IdusBoardDAO extends DBConn{
 		boolean result = false;
 		
 		try {
-			String sql = "insert into idus_board values('n_'||sequ_myprnotice.nextval, ?, ?, ?, ?, ?, sysdate, ?, ?, ?, ?)";
+			String sql = "insert into idus_board values('b_'||idus_board_seq.nextval, ?, ?, ?, ?, ?, sysdate, ?, ?, ?, ?)";
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getBtitle());
 			pstmt.setString(2, vo.getBcontent());

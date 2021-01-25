@@ -40,7 +40,7 @@ public class BoardServiceImpl implements BoardService {
 			
 			if(result) {
 				try {
-					File file = new File(bvo.getSavePath()+bvo.getBsecret());
+					File file = new File(bvo.getSavePath()+bvo.getBsfile());
 					bvo.getFile1().transferTo(file);
 				} catch (Exception e) {
 					e.printStackTrace();
