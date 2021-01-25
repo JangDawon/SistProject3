@@ -2,15 +2,15 @@
 /**
 *	마이페이지 aside
 **/
-body>div.content {width:1100px; margin:auto; margin-bottom:100px;}
+div.mypage_content {width:1100px; margin:auto;margin-bottom:100px;}
 aside.mypage_info {width:200px; height:800px; background-color:#FBFAFA; float:left; margin:auto;margin-right:50px; }
-aside.mypage_info div.admin_profile img {height:100px; width:100px; margin:20px 50px 5px 50px; border-radius:50%;}
-aside.mypage_info div.admin_profile p {text-align:center; font-weight:700;}
+aside.mypage_info div img {height:100px; width:100px; margin:20px 50px 5px 50px; border-radius:50%;}
+aside.mypage_info div p {text-align:center; font-weight:700;}
 aside.mypage_info p.am {background-color:#F87E35; font-size:17px; color:white; text-align:center; padding:8px; font-weight:400;}
 aside.mypage_info span {display:block; text-indent:15px; margin-bottom:7px;}
 aside.mypage_info a {text-decoration:none; color:#4F4F4F; font-size:13.5px; font-weight:400; margin-left:15px; font-weight:300;}
 aside.mypage_info hr.h {color:#B4B4B4; width:90%;}
-}
+
 
 
 /**
@@ -54,7 +54,7 @@ table.bookmark_writer tr td button.message{background-color:white;border:1px sol
 *	회원정보
 **/
 table.member_info {width:750px;}
-table.member_info input[type='text']{width:500px;border:none;font-size:15px;height:30px;text-indent:5px;}
+table.member_info input[type='text']{border:none;font-size:15px;height:30px;text-indent:5px;}
 table.member_info td {padding: 13px 0;text-indent: 7px;border-top: 1px solid rgb(217, 217, 217);}
 table.member_info td small{padding-left:10px;}
 table.member_info tr:nth-child(4) td, table.member_info tr:nth-child(5) td{border:none;}
@@ -63,7 +63,7 @@ table.member_info td.grey {background-color: rgb(245, 245, 245);padding:0 10px;}
 table.member_info button.change {background-color: rgb(255, 255, 255);border: 1px solid rgb(204, 204, 204);margin-left: 10px;padding: 5px 5px;}
 table.member_info tr:last-child button {background-color: rgb(255, 123, 48);padding: 8px 8px;border: 1px solid rgb(255, 123, 48);color: rgb(255, 255, 255);}
 table.member_info tr:last-child td {text-align:center;border:none;}
-table.member_info tr:nth-child(10) td {text-align:right;}
+table.member_info tr:nth-child(9) td {text-align:right;}
 /**
 * 내가 쓴 리뷰
 **/
@@ -73,3 +73,14 @@ table.review_content tr:first-child span.star {color: rgb(255, 200, 1);}
 table.review_content tr:last-child td {width: 220px;}
 div.border {border: 1px solid rgb(217, 217, 217);display: inline-block;}
 div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-size: 12px;margin-bottom:30px;height:60px;padding:10px 10px;}
+/**
+* 리뷰 작성
+**/
+table.review_write tr td select.rstar{height:30px;font-size:15px;}
+table.review_write {border-collapse: collapse;}
+table.review_write tr td {padding: 5px 0;}
+table.review_write tr:first-child td {border-bottom: 3px solid rgb(215, 215, 215);}
+table.review_write tr:nth-child(2) td, table.review_write tr:nth-child(4) td{font-size: 24px;font-weight: 900;}
+table.review_write tr:nth-child(4) td {border-bottom: 1px solid rgb(235, 235, 235);}
+table.review_write tr td.td_center {text-align: center;}
+table.review_write tr td button.writeBtn{height: 35px;padding: 5px 60px;background-color: rgb(255, 255, 255);border: 1px solid rgb(204, 204, 204);
