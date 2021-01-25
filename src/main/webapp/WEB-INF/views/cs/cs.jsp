@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,14 +36,19 @@
 		
 		$(".cs_hide_btn").click(function(){
 			var now = $(this).attr("id");
-			var pw_id = "#cs_hide_pw"+now;
+			var pw_id = "#cs_hide_"+now;
+			var pass = "#cs_pw_"+now;
 			
 			if($(pw_id).val() == ""){
 				alert("비밀번호를 입력해주세요:) ");
-				$(".cs_hide_pw").focus();
+				$(pw_id).focus();
+				return false;
+			}else if($(pass).val() != $(pw_id).val()){
+				alert("비밀번호가 일치하지 않습니다 :( ");
+				$(pw_id).focus();
 				return false;
 			}else{
-				location.href="http://localhost:9000/sistproject3/cs_content.do";
+				location.href="http://localhost:9000/sistproject3/cs_content.do?id="+now;
 			}
 		});
 		
@@ -79,23 +85,26 @@
 			<th>작성일</th>
 			<th>조회수</th>
 		</tr>
+		<c:forEach var="vo" items="${list }">
 		<tr class="cs_row" id="cs_row1">
-			<th>1</th>
-			<th>[오늘만 할인] 딱 24시간만 할인! 확인해보세요⏰</th>
-			<th>관리자</th>
-			<th>2021.01.13</th>
-			<th>5</th>
+			<td>${vo.rno }</td>
+			<td>${vo.btitle }</td>
+			<td>${vo.uname }</td>
+			<td>${vo.bdate }</td>
+			<td>${vo.bhits }</td>
 		</tr>
 		<tr class="cs_hide">
 			<td colspan='5'>
 				<div class="cs_hide_content" id="cs_hide_content">
 					<span class="cs_hide_title"><span class="red">*</span>비밀번호</span>
-					<input type='password' id="cs_hide_pw1" class="cs_hide_pw" placeholder="비밀번호를 입력해주세요:)">
-					<button type='button' id="1" class="cs_hide_btn">확인</button>
+					<input type='password' id="cs_hide_${vo.bid}" class="cs_hide_pw" placeholder="비밀번호를 입력해주세요:)">
+					<input type="hidden" id="cs_pw_${vo.bid}" value="${vo.bpass }">
+					<button type='button' class="cs_hide_btn" id="${vo.bid }">확인</button>
 				</div>
 			</td>
 		</tr>
-		<tr class="cs_row">
+		</c:forEach>
+		<!-- <tr class="cs_row">
 			<td>2</td>
 			<td>로그인 오류</td>
 			<td>최지혜</td>
@@ -142,7 +151,7 @@
 					<button type='button' id="4" class="cs_hide_btn">확인</button>
 				</div>
 			</td>
-		</tr>
+		</tr> -->
 		<tr>
 			<td colspan="5"><< 1 2 3 4 5 >><div id="ampaginationsm"></div></td>
 		</tr>

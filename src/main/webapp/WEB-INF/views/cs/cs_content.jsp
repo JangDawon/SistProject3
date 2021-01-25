@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,19 +45,23 @@
 	<section id="cs_content">
 		<table class="cs_table" id="cs_content_table">
 			<tr>
-				<td colspan="6">로그인 오류</td>
+				<td colspan="6">${vo.btitle }</td>
 			</tr>
 			<tr>
 				<th>작성자</th> 
-				<td> 최지혜</td>
+				<td>${vo.uname }</td>
 				<th>작성일</th> 
-				<td>20201.01.13</td>
+				<td>${vo.bdate }</td>
 				<th>조회수</th>
-				<td>1</td>
+				<td>${vo.bhits+1 }</td>
 			</tr>
 			<tr>
 				<td colspan="6" id="content">
-					해결해주세요
+					${vo.bcontent }
+					<c:if test="${vo.bsfile ne null }">	
+						<img src="http://localhost:9000/sistproject3/resources/upload/${vo.bsfile }" style="width:300px; height:500px;">
+					</c:if>
+					
 					<%-- <% if(vo.getBcontent() != null){ %>
 					<%= vo.getBcontent().replace("\r\n", "<br>") %><br>
 					<% } %>
@@ -67,9 +72,9 @@
 			</tr>
 			<tr>
 				<td colspan="6">
-					<a href="cs_update.do"><button type="button" class="btn_style">수정</button></a>
+					<a href="cs_update.do?id=${vo.bid }"><button type="button" class="btn_style">수정</button></a>
 					<a href="cs.do"><button type="button" class="btn_style">목록</button></a>
-					<a href="cs_delete.do"><button type="button" name="r_delete" id="rd1"class="btn_style">삭제</button></a>
+					<a href="cs_delete.do?id=${vo.bid }"><button type="button" name="r_delete" id="rd1"class="btn_style">삭제</button></a>
 					<%-- <% if(vo.getUser_id().equals(user_id)){ %>
 						<a href="board_update.jsp?bid=<%= bid %>"><button type="button" class="btn_style">수정</button></a>
 					<% } %>

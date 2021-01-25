@@ -3,11 +3,29 @@ package com.project3.vo;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class IdusBoardVO {
-	String bid, btitle, bcontent, bfile, bsfile, bpass, bdate, uemail, uname;
-	int bhits;
+	String bid, btitle, bcontent, bfile, bsfile, bpass, bdate, uemail, uname, bsecret, savePath;
+	int rno, bhits;
 	CommonsMultipartFile file1;
 	
 	
+	public int getRno() {
+		return rno;
+	}
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
+	public String getSavePath() {
+		return savePath;
+	}
+	public void setSavePath(String savePath) {
+		this.savePath = savePath;
+	}
+	public String getBsecret() {
+		return bsecret;
+	}
+	public void setBsecret(String bsecret) {
+		this.bsecret = bsecret;
+	}
 	public CommonsMultipartFile getFile1() {
 		return file1;
 	}
