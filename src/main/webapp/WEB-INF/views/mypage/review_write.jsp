@@ -33,6 +33,8 @@
 				alert("리뷰사진을 입력해주세요,");
 				$("#rfile1").focus();
 				return false;
+			}else{
+				review_write_form.submit();
 			}
 		});
 	});
