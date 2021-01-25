@@ -4,17 +4,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 페이페이지</title>
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/woohyun.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/carousel.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+<body>
 <!-- aside -->
 	<jsp:include page="../header.jsp" />
 	
 
-	<div class="content">
+	<div class="mypage_content">
 		<!-- aside -->
 		<jsp:include page="mypage_aside.jsp"></jsp:include>
 				
@@ -45,7 +47,7 @@
 			<td width="100" rowspan=2>리을이네
 				<button type="button">문의하기</button>
 			</td>
-			<td width="100" rowspan=2><button type="button">구매취소</button></td>
+			<td width="100" rowspan=2>		<a href="review_write.do" onclick = "window.open(this.href, '_blank',' width=440,height= 600,  left=800 top =300 resizeable=no'); return false"><span>리뷰쓰기</span></a>
 		</tr>
 	</table>
 	

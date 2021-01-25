@@ -28,19 +28,12 @@
 	          		</ul>
           		</div>
           	 </section>
-          	 <div class="banner-wrapper">
-          			<span>배송비 내지 마세요! 월 2,500원으로
-          				<strong>무제한 무료배송</strong>
-          			</span>
-       				<button type="button">VIP 클럽 알아보기</button>
-          	 </div>
           	 <nav class="detail_nav_style">
-          	 	<a href="">작품정보</a>
-          	 	<a href="">배송/교환/환불</a>
-          	 	<a href="">구매후기</a>
-          	 	<a href="">댓글</a>
+          	 	<a href="#PD_product-info">작품정보</a>
+          	 	<a href="#PD_product_delivery">배송/교환/환불</a>
+          	 	<a href="#PD_product_review">구매후기</a>
           	 </nav>
-          	 <section class="product-info">
+          	 <section class="product-info" id="PD_product-info">
           	 	<p>
           	 		❤️레터링마카롱케이크의 🌟원조🌟맘대롱❤️
 					<br>
@@ -135,37 +128,84 @@
           	 		<div class="tab_split"></div>
           	 	</div>
           	 </section>
-          	 <section class="product_review">
+          	 <section class="product_delivery" id="PD_product_delivery">
+          	 	<div class="title-style-sub-delivery">
+          	 		<h3>배송/교환/환불 안내</h3>
+          	 	</div>
+          	 	<div>
+          	 		<div style="display:flex;">
+          	 			<div class="product_delivery_th">
+          	 				<p>배송비</p>
+          	 			</div>
+          	 			<div class="product_delivery_td">
+          	 				<p>기본료 : 3,000원</p>
+          	 				<p>배송비 무료 조건 : 100,000원</p>
+          	 			</div>
+          	 		</div>
+          	 		<div style="display:flex;">
+          	 			<div class="product_delivery_th">
+          	 				<p>제작 / 배송</p>
+          	 			</div>
+          	 			<div class="product_delivery_td">
+          	 				<p>7일 이내</p>
+          	 				<p>주문 후 제작에 들어가는 작품입니다.</p>
+          	 			</div>
+          	 		</div>
+          	 		<div style="display:flex;">
+          	 			<div class="product_delivery_th">
+          	 				<p>교환 / 환불</p>
+          	 			</div>
+          	 			<div class="product_delivery_td">
+          	 				<p>불가</p>
+          	 				<p>주문 전 판매 작가님과 연락하여 확인해주세요.</p>
+          	 			</div>
+          	 		</div>
+          	 	</div>
+          	 </section>
+          	 <section class="product_review" id="PD_product_review">
           	 	<div class="title-style-sub">
           	 		<h3>구매후기</h3>
-          	 		<a href="">구매후기 작성하기</a>
           	 	</div>
-          	 	<ul>
-          	 		<li></li>
+          	 	<ul class="PD_list-style-review">
+          	 		<li>
+          	 			<div class="PD_review_user">
+          	 				<div>
+          	 					<div class="PD_review_user_img">
+          	 						<img src="http://localhost:9000/sistproject3/images/icon_review_user.jpg">
+          	 					</div>
+          	 					<div class="PD_review_user_txtbox">
+          	 						<p>user</p>
+          	 						<p  style="color: #999;">2021년 1월 24일</p>
+          	 					</div>
+          	 					<div class="PD_review_rating">
+          	 						<span class="span_ui_rating">
+				          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+				          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+				          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+				          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+				          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+									</span>	
+          	 					</div>
+          	 				</div>
+          	 				<span></span>
+          	 			</div>
+          	 			<div class="PD_review_txt_area">
+          	 				<div class="PD_review_cell">
+          	 					<img src="http://localhost:9000/sistproject3/images/제품상세1.jpg">
+          	 				</div>
+          	 				<div class="PD_review_cell_txt">
+          	 					<span>
+          	 					달지 않고 크림치즈는 진짜 맛있고 초코도 달지 않고 진짜 짱이에요. 하나 더 지금 시키려구 해요.
+          	 					예쁘고 깨진곳 없이와서 좋 아요!
+								지정발송일 다음날에 바로와서
+								친구생일에 딱맞춰서 줬어요b
+          	 					</span>
+          	 				</div>
+          	 			</div>
+          	 		</li>
           	 	</ul>
           	 </section>
-          	 <section class="product_comment">
-          	 	<div class="title-style-sub">
-          	 		<h3>댓글</h3>
-          	 	</div>
-          	 	<div class="comment_banner">
-          	 		<div class="comment_banner_icon">
-          	 			<img src="http://localhost:9000/sistproject3/images/icon-chat.png">
-          	 		</div>
-          	 		<p>행운의 첫 댓글을 남겨보세요.</p>
-          	 	</div>
-          	 	<div class="comment_write_banner">
-          	 		<div class="comment_user_icon">
-          	 			<img src="http://localhost:9000/sistproject3/images/user.png">
-          	 		</div>
-          	 		<label class="add_comment">
-          	 			<input type="text" placeholder="댓글을 남겨주세요">
-          	 		</label>
-          	 		<button class="comment_button">등록</button>
-          	 	</div>
-          	 </section>
           </div>
-          
           <div class="product_sidebar">
           	<div class="artist_card">
           		<div class="artist_card_split">
@@ -176,12 +216,6 @@
           				<span class="artist_card_label">맘대롱 스튜디오 ></span>
           			</a>
           		</div>
-          		<div class="artist_card_split">
-          			<a href="" class="ui_btn_mini">
-          				<img src="http://localhost:9000/sistproject3/images/icon-message.png">
-          				<p style="font-size: 11px;">작가문의</p>
-          			</a>
-          		</div>
           	</div>
           	<h2 class="aside_product-title">레터링 마카롱 케이크 ❤️생일선물 기념일 새해</h2>
           	<div class="aside_product-info">
@@ -189,16 +223,16 @@
           			<span class="price_tag_strong">
           				<strong>18,900</strong>원
           			</span>
-          			<div class="aside_mark_btn">
+          			<!-- <div class="aside_mark_btn">
           				<button><img src="http://localhost:9000/sistproject3/images/star_off.png"></button>
           				<button><img src="http://localhost:9000/sistproject3/images/icon-share.png"></button>
-          			</div>
+          			</div> -->
           		</div>
           		<div class="product-define-info">
-          			<div>
+          			<!-- <div>
           				<span class="span-title-txt">적립금</span>
           				<span class="bold-txt">최대 661P</span>
-          			</div>
+          			</div> -->
           			<div>
           				<span class="span-title-txt">구매후기</span>
           				<a href="">
@@ -238,10 +272,10 @@
           		<div class="btn_box">
           			<button class="btn_cart">장바구니</button>
           			<button class="btn_buy">구매하기</button>
-          			<button class="btn_gift">
+          			<!-- <button class="btn_gift">
           				<img src="http://localhost:9000/sistproject3/images/gift-box.png">
           				<span>선물하기</span>
-          			</button>
+          			</button> -->
           		</div>
           	</div>
           </div>
