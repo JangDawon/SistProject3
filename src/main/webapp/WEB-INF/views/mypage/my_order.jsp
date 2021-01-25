@@ -5,14 +5,25 @@
 <head>
 <meta charset="UTF-8">
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 페이페이지</title>
-<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/woohyun.css">
+<style>
+span.write_button{
+border:1px solid rgb(204, 204, 204);padding: 5px 12px;
+text-decoration:none;
+}
+table.my_order a{
+text-decoration:none;
+color:black;}
+
+
+</style>
 </head>
 <body>
 <!-- aside -->
 	<jsp:include page="../header.jsp" />
 	
 
-	<div class="content">
+	<div class="mypage_content">
 		<!-- aside -->
 		<jsp:include page="mypage_aside.jsp"></jsp:include>
 	<h2>주문 내역</h2>
@@ -30,7 +41,7 @@
 			<td width="100" rowspan=2>리을이네
 				<button type="button">문의하기</button>
 			</td>
-			<td width="100" rowspan=2><button type="button">구매취소</button></td>
+			<td width="100" rowspan=2><a href="review_write.do" onclick = "window.open(this.href, '_blank',' width=460,height= 600,  left=800 top =150 resizeable=no'); return false"><span class = "write_button">리뷰쓰기</span></a>
 		</tr>
 	</table>
 			</div>
