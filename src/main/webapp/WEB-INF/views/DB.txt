@@ -59,14 +59,7 @@ CREATE TABLE idus_product(
   SELLER_TOTAL NUMBER(10)
 );
 
-<<<<<<< HEAD
-/**
- * 장바구니 테이블(다원)
- */
- 
- 
- 
-=======
+
 /*  아이디어스 공지사항 & 1대1문의 게시판 테이블 컬럼 추가(지혜)  
 *	수정일 : 2021.01.25 오후 10시 39분
 */
@@ -82,4 +75,4 @@ CREATE SEQUENCE IDUS_SEQ
 CREATE SEQUENCE IDUS_PRODUCT_SEQ
   START WITH 1
   INCREMENT BY 1;  
->>>>>>> refs/heads/master
+
