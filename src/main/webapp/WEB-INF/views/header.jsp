@@ -58,7 +58,6 @@
 						<li><a href="http://localhost:9000/sistproject3/living.do">패션&잡화</a></li>
 						<li><a href="http://localhost:9000/sistproject3/interior.do">인테리어 소품</a></li>
 						<li><a href="http://localhost:9000/sistproject3/etc.do">기타</a></li>
-						<li><a href="http://localhost:9000/sistproject3/index.do">홈</a></li>
 						<li><a href="http://localhost:9000/sistproject3/product_best.do">인기 작품</a></li>
 						<li><a href="http://localhost:9000/sistproject3/product_new.do">최신 작품</a></li>
 						<li><a href="http://localhost:9000/sistproject3/artist_best.do">인기 작가</a></li>
