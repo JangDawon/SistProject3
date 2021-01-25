@@ -30,7 +30,7 @@
 	
 	<a href="product_mng_list.do" class="h2_user"><h2 class="txt">상품 관리</h2></a>
 	<p class="mtitle">상품등록 ></p>
-	<form name="product_regist_form" action="#" method="GET">
+	<form name="product_regist_form" action="product_mng_regist_proc.do" method="POST" enctype="multipart/form-data">
 		<table class="cs_table" id="admin_product_regist">
 	      <tr>
 	         <td>
@@ -53,7 +53,7 @@
 	         </td>
 	         <td>    
 	            <input type="text" name="sname" placeholder="작가명" id="sname">
-	            <input type="text" name="sid" placeholder="작가 아이디" id="sid">
+	            <input type="text" name="semail" placeholder="작가 아이디" id="semail">
 	         </td>
 	      </tr>
 	      <tr>
@@ -103,36 +103,36 @@
 	         </td>
 	         <td>
 	         	<div>
-	        		<label for="bfile1" id="label_bfile1" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile1" type="file" id="bfile1">
+	        		<label for="file1" id="label_bfile1" class='btn_style'>파일 선택</label>   
+	            	<input name="file1" type="file" id="file1">
 	            </div>
 	            <div>
-	        		<label for="bfile2" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile2" type="file" id="bfile2">
+	        		<label for="file2" class='btn_style'>파일 선택</label>   
+	            	<input name="file2" type="file" id="file2">
 	            </div>
 	            <div>
-	        		<label for="bfile3" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile3" type="file" id="bfile3">
+	        		<label for="file3" class='btn_style'>파일 선택</label>   
+	            	<input name="file3" type="file" id="file3">
 	            </div>
 	            <div>
-	        		<label for="bfile4" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile4" type="file" id="bfile4">
+	        		<label for="file4" class='btn_style'>파일 선택</label>   
+	            	<input name="file4" type="file" id="file4">
 	            </div>
 	            <div>
-	        		<label for="bfile5" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile5" type="file" id="bfile5">
+	        		<label for="file5" class='btn_style'>파일 선택</label>   
+	            	<input name="file5" type="file" id="file5">
 	            </div>
 	            <div>
-	        		<label for="bfile6" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile6" type="file" id="bfile6">
+	        		<label for="file6" class='btn_style'>파일 선택</label>   
+	            	<input name="file6" type="file" id="file6">
 	            </div>
 	            <div>
-	        		<label for="bfile7" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile7" type="file" id="bfile7">
+	        		<label for="file7" class='btn_style'>파일 선택</label>   
+	            	<input name="file7" type="file" id="file7">
 	            </div>
 	            <div>
-	        		<label for="bfile8" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile8" type="file" id="bfile8">
+	        		<label for="file8" class='btn_style'>파일 선택</label>   
+	            	<input name="file8" type="file" id="file8">
 	            </div>
 	         </td>
 	      </tr>

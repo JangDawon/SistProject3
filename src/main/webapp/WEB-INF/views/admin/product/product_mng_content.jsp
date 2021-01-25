@@ -34,9 +34,7 @@
 		</tr>
 		<tr>
 			<th>카테고리</th>
-			<td>패션&잡화</td>
-			<th>배송</th>
-			<td>40000원 이상 구매시 무료배송</td>
+			<td colspan="3">패션&잡화</td>
 		</tr>
 		<tr>
 			<td colspan="4"><div>🔥포장안내 필독!!🔥
