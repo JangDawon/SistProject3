@@ -18,6 +18,9 @@
 	<resources mapping="/js/**" location="/resources/js/" />
 	<resources mapping="/images/**" location="/resources/images/" />
 
+	<beans:bean class="com.project3.service.certifyServiceImpl" id="certifyService"></beans:bean>
+	
+	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -26,5 +29,6 @@
 	
 	<context:component-scan base-package="com.spring.sistproject3" />
 	<context:component-scan base-package="com.project3.controller" />
+	<context:component-scan base-package="com.project.service" />
 	
 </beans:beans>

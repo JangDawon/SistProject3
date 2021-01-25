@@ -142,10 +142,16 @@ section.join_section div.join_form_block_body{
 section.join_section div#join_form_block_body{
 	text-align:center;
 }
-
+section.join_section div#join_form_block_body_hpcheck{
+	display:none;
+}
 section.join_section div.join_form_block_body input{
 	text-indent:5px;
 	font-weight:bold;
+	outline:none;
+}
+section.join_section div.join_form_block_body input:focus{
+	box-shadow:0px 0px 2px 0px gray;
 }
 section.join_section div.join_form_block_body input::placeholder,
 section.join_section div.join_form_block_body input.hp_certify{
@@ -159,18 +165,21 @@ section.join_section div.join_form_block_body input#name{
 	width:350px;
 	height:40px;
 }
-section.join_section div.join_form_block_body input#hp{
+section.join_section div.join_form_block_body input#hp,
+section.join_section div.join_form_block_body input#hp_check{
 	width:255px;
 	height:40px;
 	vertical-align: middle;
 	margin-right:5px;
 }
-section.join_section div.join_form_block_body input.hp_certify{
+section.join_section div.join_form_block_body button.hp_certify{
 	width:90px;
 	height:46px;
 	vertical-align: middle;
 	border:1px solid lightgray;
 	font-size:16px;
+	display:inline-block;
+	color:gray;
 }
 section.join_section label.join_form_block_head{
 	font-size:12px;
@@ -218,6 +227,11 @@ section.join_section div#block_button label{
 section.join_section div.msg{
 	text-indent:22px;
 	font-size:12px;
+}
+section.join_section div#hp_msg,
+section.join_section div#hpcheck_msg{
+	text-align:left;
+	padding:8px 0;
 }
 /**
 	join_success.jsp

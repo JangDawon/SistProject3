@@ -78,10 +78,39 @@ $(document).ready(function(){
 		/**
 		 * 인증요청
 		 */
-		$("#hp_certify").click(function(){
-			$("form").attr("action", "certify.do");
-			$("#hp").submit();
+		$("#hp_certify").click(function(){		
+			var hp = {hp:$("#hp").val() } 
+			var regExp = /^[0-9]+$/;
+			
+			if($("#hp").val()=="") {
+				alert("번호가 입력되지 않았습니다.");
+				return false;
+			}else {
+				if(!regExp.test($("#hp").val())){
+					alert("휴대폰 번호를 다시 확인해주세요");
+					return false;
+				}else {
+					alert("인증번호가 전송되었습니다.") 
+					$("#join_form_block_body_hpcheck").show();
+					
+					$.ajax({
+						type : 'GET',
+						url : 'join_certify.do',
+						data : hp,
+						success: function(res){
+							$("#hp_certify").click(function(){
+								if($("#hp_certify_check").val()==$.trim(res)) {
+									System.out.println("12");
+								}
+							});
+						}
+					});
+				}
+			}
 		});
+
+		
+			
 		
 		/** 
 		 *  이메일 체크
@@ -171,6 +200,50 @@ $(document).ready(function(){
 					return false;		
 				}	
 			}
+		}); 
+		
+		/** 
+		 *  전화번호 체크
+		 **/
+		$("#hp").focusout(function(){
+			if($("#hp").val() == ""){	
+				$("#hp_msg").text("휴대폰 번호를 입력해주세요").css("color", "red");
+				$("input[name=hp]").css("border", "1px solid red");
+				return false;
+			}else {
+				var regExp = /^[0-9]+$/;
+				if(regExp.test($("#hp").val())){					
+					$("#hp_msg").text("");
+					$("input[name=hp]").css("border", "1px solid black");
+					return true; 
+				}else{
+					$("#hp_msg").text("휴대폰 번호를 다시 확인해주세요").css("color","red");
+					$("input[name=hp]").css("border", "1px solid red");
+					return false;		
+				}	
+			}
+		}); //focusout
+		
+		/** 
+		 *  인증번호 체크
+		 **/
+		$("#hp_check").focusout(function(){
+			if($("#hp_check").val() == ""){	
+				$("#hpcheck_msg").text("인증번호를 입력해주세요").css("color", "red");
+				$("input[name=hp_check]").css("border", "1px solid red");
+				return false;
+			}else {
+				var regExp = /^[0-9]+$/;
+				if(regExp.test($("#hp").val())){					
+					$("#hp_msg").text("");
+					$("input[name=hp]").css("border", "1px solid black");
+					return true; 
+				}else{
+					$("#hp_msg").text("휴대폰 번호를 다시 확인해주세요").css("color","red");
+					$("input[name=hp]").css("border", "1px solid red");
+					return false;		
+				}	
+			}
 		}); //focusout
 		
 });
@@ -195,3 +268,7 @@ function ruleCheck(obj){
 	}	
 
 }//ruleCheck
+
+function certifyCheck() {
+	
+}

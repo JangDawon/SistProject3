@@ -51,10 +51,15 @@
 						<div class="join_form_block_body" id="join_form_block_body">
 						
 						<input type="text" placeholder="010-1234-5678" id="hp" name="hp">
-						<input type="submit" id="hp_certify" class="hp_certify" value="인증요청">
-					</div>
-						
+						<button type="button" id="hp_certify" class="hp_certify">인증요청</button>
 						<div class="msg" id="hp_msg"></div>
+						
+						<div class="join_form_block_body" id="join_form_block_body_hpcheck">
+						<input type="text" placeholder="인증코드를 입력해주세요." id="hp_check" name="hp">
+						<button type="button" id="hp_certify_check" class="hp_certify">확인</button>
+						</div>
+						<div class="msg" id="hpcheck_msg"></div>
+						</div>
 					</div>
 					<div class="join_form_block">
 						<div class="join_form_block_body" id="join_form_block_body_check"><input type="checkbox"><label>모두 동의합니다.</label></div>
