@@ -30,7 +30,10 @@ public class ProductServiceImpl implements BoardService{
 		if(pvo.getFile1().getSize() != 0) {
 			pvo.setPfile1(pvo.getFile1().getOriginalFilename());
 			pvo.setPsfile1(uuid + "_" + pvo.getFile1().getOriginalFilename());
-			
+			System.out.println(pvo.getFile2().getOriginalFilename());
+			System.out.println(pvo.getFile3().getOriginalFilename());
+			System.out.println(pvo.getFile4().getOriginalFilename());
+			System.out.println(pvo.getFile5().getOriginalFilename());
 			boolean result = productDAO.getInsert(pvo);
 			
 			if(result) {
