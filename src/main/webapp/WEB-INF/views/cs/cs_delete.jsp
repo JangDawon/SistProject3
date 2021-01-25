@@ -26,7 +26,7 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="http://localhost:9000/sistproject3/cs.do"><button type="button" class="btn_style">삭제</button></a>		
+				<a href="cs_delete_proc.do?id=${id }"><button type="button" class="btn_style">삭제</button></a>		
 				<a href="http://localhost:9000/sistproject3/cs_content.do"><button type="button" class="btn_style">취소</button></a>
 			</td>
 		</tr>

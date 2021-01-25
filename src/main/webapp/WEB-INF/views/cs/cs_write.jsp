@@ -17,9 +17,9 @@
 	<div class="jihye_content">
 	<!-- content -->
 	<h2 class="txt">공지사항 및 1:1문의</h2>
-	<form name="cs_wirte_form" action="cs_write_proc.do" method="post">
-		<input type="hidden" name="user_id">
-		<input type="hidden" name="name">
+	<form name="cs_wirte_form" action="cs_write_proc.do" method="post" enctype="multipart/form-data">
+		<!-- <input type="hidden" name="user_id">
+		<input type="hidden" name="name"> -->
 		<table class="cs_table" id="cs_write_table" >
 			<tr>
 				<td>
@@ -36,7 +36,7 @@
 			<tr>
 				<td>
 					<span class="board_title">파일</span>
-					<input name="bfile" type="file" id="bfile">
+					<input name="file1" type="file" id="file1">
 				</td>
 			</tr>
 			<tr>
