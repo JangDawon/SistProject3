@@ -12,7 +12,7 @@
 				$("#cart_order").click(function(){
 					var order_list = "";
 					
-					$("input[class='cart_prod_chk']").each(function(index){
+					$(".cart_prod_chk").each(function(index){
 						order_list += $(this).attr("value")+",";
 					});
 					
@@ -22,6 +22,25 @@
 						confirm(order_list + "선택 상품을 주문합니다.");
 					}
 				});
+				
+				$("#cart_all_chk").click(function(){
+					if($("#cart_all_chk").is(":checked")){
+						$(".artist_name_chk").prop("checked", true);
+						$(".cart_prod_chk").prop("checked", true);
+					}else{
+						$(".artist_name_chk").prop("checked", false);
+						$(".cart_prod_chk").prop("checked", false);
+					}
+				});
+				
+				$(".artist_name_chk").click(function(){
+					if($(".artist_name_chk").is(":checked")){
+						$(".cart_prod_chk").prop("checked", true);
+					}else{
+						$(".cart_prod_chk").prop("checked", false);
+					}
+				});
+				
 				
 				/* $("#cart_select_del").click(function(){
 					var del_list = "";
@@ -125,7 +144,7 @@
 				
 				<div class="cart_product">
 					<div class="prod_choice">
-						<input type="checkbox" id="cart_all"><span class="rchk">전체선택</span>
+						<input type="checkbox" id="cart_all_chk"><span class="rchk">전체선택</span>
 						<button type="button" id="cart_select_del">선택 삭제</button>
 					</div>
 					<div class="all_price">
