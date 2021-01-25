@@ -84,17 +84,26 @@
 			
 			<div class="cart_content">
 				<table>
-					<tr>
+					<tr class="cart_title">
+						<td>
+							<div class="cart_artist_chk">
+								<input type="checkbox" class="artist_name_chk">
+							</div>
+						</td>
 						<td colspan="5">
 							<div class="cart_artist">
-								<input type="checkbox" class="artist_name_chk"><span class="rchk">호러블리 horror_vely 작가님</span>
+								<span class="rchk">호러블리 horror_vely 작가님</span>
 							</div>
 						</td>
 					</tr>
 					<tr class="cart_product">
-						<td rowspan="2" width=13%>
-							<div class="cart_img">
+						<td rowspan="2" width=2%>
+							<div class="cart_chk">
 								<input type="checkbox" class="cart_prod_chk" value="1">
+							</div>
+						</td>
+						<td rowspan="2" width=10%>
+							<div class="cart_img">
 								<img src="http://localhost:9000/sistproject3/images/cart_img.jpg">
 							</div>
 						</td>
@@ -117,7 +126,7 @@
 								<button type="button" class="incre">+</button>
 							</div>
 						</td>
-						<td width=10%>
+						<td width=11%>
 							<div class="cart_price"><span>9,400원</span></div>
 						</td>
 						<td>
@@ -127,22 +136,22 @@
 							</div>
 						</td>
 					</tr>
-					<tr class="cart_textfield">
+					<!-- <tr class="cart_textfield">
 						<td colspan="5">
 							<textarea placeholder="주문 요청사항을 입력해주세요."></textarea>
 						</td>
-					</tr>
+					</tr> -->
 					<tr class="cart_price_name">
-						<td><div class="price_title">작품 가격</div></td>
+						<td colspan="2"><div class="price_title">작품 가격</div></td>
 						<td colspan="4"><div class="price_content"><span>9,400원</span></div></td>
 					</tr>
 					<tr class="cart_price_del">
-						<td><div class="price_title">배송비</div></td>
+						<td colspan="2"><div class="price_title">배송비</div></td>
 						<td colspan="4"><div class="price_content"><span>2,600원</span></div></td>
 					</tr>
 				</table>
 				
-				<div class="cart_product">
+				<div class="cart_prod_order">
 					<div class="prod_choice">
 						<input type="checkbox" id="cart_all_chk"><span class="rchk">전체선택</span>
 						<button type="button" id="cart_select_del">선택 삭제</button>

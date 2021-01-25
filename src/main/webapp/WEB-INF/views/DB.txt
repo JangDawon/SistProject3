@@ -47,3 +47,10 @@ CREATE TABLE idus_product(
   PRODUCT_TOTAL NUMBER(10),
   SELLER_TOTAL NUMBER(10)
 );
+
+/**
+ * 장바구니 테이블(다원)
+ */
+ 
+ 
+ 
