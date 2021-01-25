@@ -1374,22 +1374,6 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
        font-size: 24px;
        color: #333;
    }
-   .aside_mark_btn{
-       float: right;
-       color: #666;
-   }
-   .aside_mark_btn > button{
-       font-size: 14px;
-       background: none;
-       outline: none;
-       border: none;
-       cursor: pointer;
-   }
-   .aside_mark_btn > button > img {
-      width: 22px;
-       height: 100%;
-       
-   }
    .product-define-info > div{
       display:flex;
       margin-bottom: 8px;
@@ -1399,19 +1383,6 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
        justify-content: space-between;
        margin-top: 30px;
        margin-left: -10px;
-   }
-   .btn_gift {
-      display: flex;
-       flex-direction: column;
-       align-items: center;
-       color: #ff7b30;
-       font-size:10px;
-       background: #fff;
-       border: 1px solid #ff7b30;
-       outline:0;
-   }
-   .btn_gift > img{
-      width:22px;
    }
    .btn_cart {
       width: 48%;
@@ -1432,9 +1403,6 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
    }
    .btn_buy:hover, .comment_button:hover {
       background-color: #ff6e30;
-   }
-   .btn_gift:hover {
-      background-color: #f5e9da;
    }
    .btn_buy {
       width: 48%;
@@ -1485,6 +1453,10 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
        font-weight: bold;
        color: #333;
    }
+    #PD_product_review {
+     margin-bottom: 100px;
+    }  
+   
    .PD_list-style-review {
 	list-style: none;
 	padding: 0;
@@ -1548,6 +1520,10 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	
 	.product_detail_content #PD_product-info {
 		margin-top: 64px;
+	}
+	
+	div.PD_table {
+		display:flex;
 	}
 	      
 	   

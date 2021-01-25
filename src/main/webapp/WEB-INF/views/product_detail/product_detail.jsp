@@ -14,7 +14,7 @@
     <!-- content -->
     <div class="product_detail_content"> 
        <div class="detail_wrapper">
-          <div class="content-left">
+          <div class="content-left" id="PD_content-left">
           	<section class="img-section">
           		<div class="productmain_img">
           			<img src="http://localhost:9000/sistproject3/images/제품상세1.jpg">
@@ -133,7 +133,7 @@
           	 		<h3>배송/교환/환불 안내</h3>
           	 	</div>
           	 	<div>
-          	 		<div style="display:flex;">
+          	 		<div class="PD_table">
           	 			<div class="product_delivery_th">
           	 				<p>배송비</p>
           	 			</div>
@@ -142,7 +142,7 @@
           	 				<p>배송비 무료 조건 : 100,000원</p>
           	 			</div>
           	 		</div>
-          	 		<div style="display:flex;">
+          	 		<div class="PD_table">
           	 			<div class="product_delivery_th">
           	 				<p>제작 / 배송</p>
           	 			</div>
@@ -151,7 +151,7 @@
           	 				<p>주문 후 제작에 들어가는 작품입니다.</p>
           	 			</div>
           	 		</div>
-          	 		<div style="display:flex;">
+          	 		<div class="PD_table"  style="border-bottom: 1px solid #d9d9d9;">
           	 			<div class="product_delivery_th">
           	 				<p>교환 / 환불</p>
           	 			</div>
@@ -207,78 +207,66 @@
           	 </section>
           </div>
           <div class="product_sidebar">
-          	<div class="artist_card">
-          		<div class="artist_card_split">
-          			<a href="" class="artist_card_link">
-          				<div class="artist_card_img">
-          					<img src="http://localhost:9000/sistproject3/images/맘대롱.jpg">
-          				</div>
-          				<span class="artist_card_label">맘대롱 스튜디오 ></span>
-          			</a>
-          		</div>
-          	</div>
-          	<h2 class="aside_product-title">레터링 마카롱 케이크 ❤️생일선물 기념일 새해</h2>
-          	<div class="aside_product-info">
-          		<div class="price_tag_detail">
-          			<span class="price_tag_strong">
-          				<strong>18,900</strong>원
-          			</span>
-          			<!-- <div class="aside_mark_btn">
-          				<button><img src="http://localhost:9000/sistproject3/images/star_off.png"></button>
-          				<button><img src="http://localhost:9000/sistproject3/images/icon-share.png"></button>
-          			</div> -->
-          		</div>
-          		<div class="product-define-info">
-          			<!-- <div>
-          				<span class="span-title-txt">적립금</span>
-          				<span class="bold-txt">최대 661P</span>
-          			</div> -->
-          			<div>
-          				<span class="span-title-txt">구매후기</span>
-          				<a href="">
-	          				<span class="span_ui_rating">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-							</span>	
-						</a>
-          			</div>
-          			<div>
-          				<span class="span-title-txt">배송비</span>
-          				<span class="bold-txt">3000원</span>
-          			</div>
-          			<div>
-          				<span class="span-title-txt">배송 시작</span>
-          				<span class="bold-txt">최대 7일 이내</span>
-          			</div>
-          			<div>
-          				<span class="span-title-txt">수량</span>
-          				<span class="bold-txt">주문시 제작</span>
-          			</div>
-          			<div>
-						<select name="product_colors" id="product_colors">
-					  		<option value="선택">[필수] 색상을 선택해주세요</option>
-					  		<option value="pink">핑크</option>
-					  		<option value="blue">하늘</option>
-					  	</select>
-				  	</div>
-          		</div>
-          	</div>
-          	<div class="tab-style">
-          	</div>
-          	<div>
-          		<div class="btn_box">
-          			<button class="btn_cart">장바구니</button>
-          			<button class="btn_buy">구매하기</button>
-          			<!-- <button class="btn_gift">
-          				<img src="http://localhost:9000/sistproject3/images/gift-box.png">
-          				<span>선물하기</span>
-          			</button> -->
-          		</div>
-          	</div>
-          </div>
+	          	<div class="artist_card">
+	          		<div class="artist_card_split">
+	          			<a href="" class="artist_card_link">
+	          				<div class="artist_card_img">
+	          					<img src="http://localhost:9000/sistproject3/images/맘대롱.jpg">
+	          				</div>
+	          				<span class="artist_card_label">맘대롱 스튜디오 ></span>
+	          			</a>
+	          		</div>
+	          	</div>
+	          	<h2 class="aside_product-title">레터링 마카롱 케이크 ❤️생일선물 기념일 새해</h2>
+	          	<div class="aside_product-info">
+	          		<div class="price_tag_detail">
+	          			<span class="price_tag_strong">
+	          				<strong>18,900</strong>원
+	          			</span>
+	          		</div>
+	          		<div class="product-define-info">
+	          			<div>
+	          				<span class="span-title-txt">구매후기</span>
+	          				<a href="">
+		          				<span class="span_ui_rating">
+			          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+			          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+			          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+			          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+			          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+								</span>	
+							</a>
+	          			</div>
+	          			<div>
+	          				<span class="span-title-txt">배송비</span>
+	          				<span class="bold-txt">3000원</span>
+	          			</div>
+	          			<div>
+	          				<span class="span-title-txt">배송 시작</span>
+	          				<span class="bold-txt">최대 7일 이내</span>
+	          			</div>
+	          			<div>
+	          				<span class="span-title-txt">수량</span>
+	          				<span class="bold-txt">주문시 제작</span>
+	          			</div>
+	          			<div>
+							<select name="product_colors" id="product_colors">
+						  		<option value="선택">[필수] 색상을 선택해주세요</option>
+						  		<option value="pink">핑크</option>
+						  		<option value="blue">하늘</option>
+						  	</select>
+					  	</div>
+	          		</div>
+	          	</div>
+	          	<div class="tab-style">
+	          	</div>
+	          	<div>
+	          		<div class="btn_box">
+	          			<button class="btn_cart">장바구니</button>
+	          			<button class="btn_buy">구매하기</button>
+	          		</div>
+	          	</div>
+          </div> 
        </div>
     </div>
     
