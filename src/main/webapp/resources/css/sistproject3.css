@@ -853,80 +853,80 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       margin-bottom:20px;
    }
    div.best_prod_info_review {
-      border-top:1px solid lightgray;
-   }
-   div.best_prod_info_review>div.rv {
-      font-size:14px;
-      margin:5px 0;
-   }
-   div.best_prod_info_review>div.rv2 {
-      font-size:12px;
-      margin-bottom:5px;
-   }
+		border-top:1px solid lightgray;
+   	}
+   	div.best_prod_info_review>div.rv {
+ 	  	padding: 6px 0 4px 0;
+		font-size:14px;
+	}
+	div.best_prod_info_review>div.rv2 {
+      	font-size:12px;
+      	margin-bottom:5px;
+   	}
    
-   /** 인기작가 **/
-   div.best_artist {
-      border-top:1px solid lightgray;
-      border-bottom:1px solid lightgray;
-      height:270px;
-   }
-   table.artist_info td.artist_img img {
-      width:100px;
-      height:100px;
-      margin-top:-100px;
-   }
-   table.artist_info td:first-child {
-      width:12%;
-      text-align:center;
-   }
-   table.artist_info td:nth-child(2) {
-      width:22%;
-      height:270px;
-      padding:0 20px 0 5px;
-   }
-   table.artist_info td:nth-child(2)>a {
-      text-decoration:none;
-      color:black;
-   }
-   div.artist_info_title {
-      font-size:15px;
-      margin-bottom:4px;
-   }
-   div.artist_info_cont {
-      font-size:14px;
-      color:gray;
-      margin:3px 0;
-   }
-   div.artist_fav {
-      padding-right:5px;
-   }
-   div.artist_fav>button.fav_artist, div.artist_fav>button.home_artist {
-      border:1px solid lightgray;
-      background-color:white;
-      display:inline-block;
-      text-align:center;
-      padding:7px 0;
-      width:48.5%;
-      font-size:11px;
-   }
-   div.artist_fav>button.fav_artist {
-      color:#F87E35;
-   }
-   div.artist_fav>button.msg_artist {
-      border:1px solid lightgray;
-      background-color:white;
-      text-align:center;
-      padding:7px 0;
-      font-size:11px;
-      width:100%;
-      margin-top:5px;
-   }
-   table.artist_info td:last-child {
-      text-align:center;
-   }
+   	/** 인기작가 **/
+   	div.best_artist {
+      	border-top:1px solid lightgray;
+      	border-bottom:1px solid lightgray;
+     	height:270px;
+   	}
+   	table.artist_info td.artist_img img {
+      	width:100px;
+		height:100px;
+		margin-top:-100px;
+   	}
+   	table.artist_info td:first-child {
+		width:12%;
+		text-align:center;
+   	}
+   	table.artist_info td:nth-child(2) {
+      	width:22%;
+      	height:270px;
+      	padding:0 20px 0 5px;
+   	}
+   	table.artist_info td:nth-child(2)>a {
+      	text-decoration:none;
+      	color:black;
+   	}
+   	div.artist_info_title {
+      	font-size:15px;
+      	margin-bottom:4px;
+   	}
+   	div.artist_info_cont {
+      	font-size:14px;
+      	color:gray;
+      	margin:3px 0;
+   	}
+  	div.artist_fav {
+		padding-right:5px;
+	}
+	div.artist_fav>button.fav_artist, div.artist_fav>button.home_artist {
+     	border:1px solid lightgray;
+     	background-color:white;
+      	display:inline-block;
+      	text-align:center;
+		padding:7px 0;
+		width:48.5%;
+		font-size:11px;
+   	}
+   	div.artist_fav>button.fav_artist {
+		color:#F87E35;
+   	}
+	div.artist_fav>button.msg_artist {
+      	border:1px solid lightgray;
+      	background-color:white;
+      	text-align:center;
+      	padding:7px 0;
+      	font-size:11px;
+      	width:100%;
+		margin-top:5px;
+	}
+	table.artist_info td:last-child {
+		text-align:center;
+	}
    
-   /** 작가 메뉴 **/
-   aside.artist_menu {
+	/** 작가 메뉴 **/
+	aside.artist_menu {
       width:150px;
       height:740px;
       border:1px solid lightgray;
@@ -1145,13 +1145,15 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	div.cart_option, div.cart_num, div.cart_price, div.cart_update {
 		margin-bottom:8px;
 	}
-	div.cart_num>button.decre, div.cart_num>button.incre {
+	div.cart_num>button#p1 {
 	   	border:1px solid #F87E35;
 	   	background-color:white;
 	   	color:#F87E35;
 	}
-	div.cart_num>div.num {
+	div.cart_num>input#p1_amt {
 	   	padding:0 5px;
+	   	border:1px solid white;
+	   	width:10px;
 	}
 	div.cart_update>button {
 	   	display:inline-block;

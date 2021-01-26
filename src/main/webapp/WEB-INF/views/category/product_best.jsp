@@ -40,12 +40,9 @@
 							<div class="prod_info_title">도자기마사지괄사b</div>
 						</div>
 						<div class="best_prod_info_review">
-							<div class="ui_rating">
+							<div class="rv">
 								<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<span>4.5</span>
 							</div>
 							<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
 						</div>
@@ -78,12 +75,9 @@
 							<div class="prod_info_title">도자기마사지괄사b</div>
 						</div>
 						<div class="best_prod_info_review">
-							<div class="ui_rating">
+							<div class="rv">
 								<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<span>4.5</span>
 							</div>
 							<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
 						</div>
@@ -116,12 +110,9 @@
 							<div class="prod_info_title">도자기마사지괄사b</div>
 						</div>
 						<div class="best_prod_info_review">
-							<div class="ui_rating">
+							<div class="rv">
 								<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<span>4.5</span>
 							</div>
 							<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
 						</div>
@@ -154,12 +145,9 @@
 							<div class="prod_info_title">도자기마사지괄사b</div>
 						</div>
 						<div class="best_prod_info_review">
-							<div class="ui_rating">
+							<div class="rv">
 								<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<span>4.5</span>
 							</div>
 							<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
 						</div>
@@ -192,12 +180,9 @@
 							<div class="prod_info_title">도자기마사지괄사b</div>
 						</div>
 						<div class="best_prod_info_review">
-							<div class="ui_rating">
+							<div class="rv">
 								<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<span>4.5</span>
 							</div>
 							<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
 						</div>
