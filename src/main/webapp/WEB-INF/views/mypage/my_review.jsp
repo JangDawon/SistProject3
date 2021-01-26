@@ -26,7 +26,7 @@
 		<div class="border">
 			<table class="review_content">
 				<tr>
-					<td><img src="http://localhost:9000/sistproject3/images/item_img.PNG"></td>
+					<td rowspan =2><img src="http://localhost:9000/sistproject3/images/item_img.PNG"></td>
 					<td><span class="title">♥[입점할인]뚠뚠이 캐릭터 그림 일러스트 초상화</span><span class="star">★</span> 3</td>
 				</tr>
 
@@ -36,18 +36,6 @@
 			</table>
 		</div>
 
-		<div class="border">
-			<table class="review_content">
-				<tr>
-					<td><img src="http://localhost:9000/sistproject3/images/item_img.PNG"></td>
-					<td><span class="title">♥[입점할인]뚠뚠이 캐릭터 그림 일러스트 초상화</span><span class="star">★</span> 3</td>
-				</tr>
-
-				<tr>
-					<td colspan=3>배송도 빠르고 재구매 의사 있어요</td>
-				</tr>
-			</table>
-		</div>
 </div>
 
 	<jsp:include page="../footer.jsp" />
