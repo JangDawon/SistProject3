@@ -14,7 +14,7 @@ import com.project3.vo.IdusProductVO;
 @Controller
 public class AdminController {
 	@Autowired
-	private ProductServiceImpl boardService;
+	private ProductServiceImpl productService;
 	
 	@RequestMapping(value="/admin.do", method=RequestMethod.GET)
 	public String admin() {
@@ -42,8 +42,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/product_mng_list.do", method=RequestMethod.GET)
-	public String product_mng_list() { 
-		return "/admin/product/product_mng_list";
+	public ModelAndView product_mng_list() { 
+		return (ModelAndView)productService.getList();
 	}
 	
 	@RequestMapping(value="/product_mng_regist.do", method=RequestMethod.GET)
@@ -59,12 +59,12 @@ public class AdminController {
 		
 		vo.setSavePath(path1+path2);
 		
-		return (ModelAndView)boardService.getResultWrite(vo);
+		return (ModelAndView)productService.getResultWrite(vo);
 	}
 	
 	@RequestMapping(value="/product_mng_content.do", method=RequestMethod.GET)
-	public String product_mng_content() { 
-		return "/admin/product/product_mng_content";
+	public ModelAndView product_mng_content(String id) { 
+		return productService.getContent(id);
 	}
 	
 	@RequestMapping(value="/product_mng_update.do", method=RequestMethod.GET)
@@ -75,5 +75,10 @@ public class AdminController {
 	@RequestMapping(value="/product_mng_delete.do", method=RequestMethod.GET)
 	public String product_mng_delete() { 
 		return "/admin/product/product_mng_delete";
+	}
+	
+	@RequestMapping(value="/product_mng_delete_proc.do", method=RequestMethod.GET)
+	public ModelAndView product_mng_delete_proc(String id) { 
+		return productService.getResultDelete(id);
 	}
 }
