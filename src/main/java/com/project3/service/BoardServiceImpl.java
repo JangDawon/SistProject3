@@ -20,8 +20,10 @@ public class BoardServiceImpl implements BoardService {
 		ModelAndView mv = new ModelAndView();
 		
 		ArrayList<IdusBoardVO> list = boardDAO.getList();
+		int total = boardDAO.getCount();
 		
 		mv.addObject("list", list);
+		mv.addObject("total", total);
 		mv.setViewName("/cs/cs");
 		return mv;
 	}

@@ -34,7 +34,7 @@ public class CsController {
 		
 		vo.setSavePath(path1+path2);
 		
-		return boardService.getResultWrite(vo);
+		return (ModelAndView)boardService.getResultWrite(vo);
 	}
 	
 	

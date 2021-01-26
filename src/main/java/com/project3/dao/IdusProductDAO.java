@@ -1,8 +1,27 @@
 package com.project3.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.project3.vo.IdusProductVO;
 
 public class IdusProductDAO extends DBConn{
+	 @Autowired 
+	 private SqlSessionTemplate sqlSession;
+	 
+	 private static String namespace = "mapper.product";
+	 
+	/**
+	 * 상품 전체 리스트
+	 */
+	public ArrayList<IdusProductVO> getList(){
+		List<IdusProductVO> list = sqlSession.selectList(namespace + ".list");
+		return (ArrayList<IdusProductVO>)list;
+	}
+	
 	/**
 	 * 상품 등록
 	 */
@@ -58,6 +77,25 @@ public class IdusProductDAO extends DBConn{
 			e.printStackTrace();
 		}
 		
+		return result;
+	}
+	
+	/**
+	 * 상품 상세 정보
+	 */
+	public IdusProductVO getContent(String id) {
+		IdusProductVO vo =  sqlSession.selectOne(namespace + ".content", id);
+		vo.setPcontent(vo.getPcontent().replace("\r\n", "<br>"));
+		return vo;
+	}
+	
+	/**
+	 * 상품 전체 삭제
+	 */
+	public boolean getDeleteAll() {
+		boolean result = false;
+		int count = sqlSession.delete(namespace +".deleteAll");
+		if(count != 0) result = true;
 		return result;
 	}
 }
