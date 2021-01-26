@@ -1107,17 +1107,6 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	   	color:black;
 	   	padding-left:10px;
 	}
-	/* tr.cart_textfield textarea {
-	   	width:97%;
-	   	height:70px;
-	   	margin:5px 10px 5px 0;
-	   	padding:5px 0 0 5px;
-	   	border:1px solid lightgray;
-	}
-	tr.cart_textfield td {
-	    list-style:none;
-	   	padding-left:115px;
-	} */
 	tr.cart_explain {
 	   	font-size:12px;
 	}
@@ -1145,15 +1134,16 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	div.cart_option, div.cart_num, div.cart_price, div.cart_update {
 		margin-bottom:8px;
 	}
-	div.cart_num>button#p1 {
+	div.cart_num>button.minus, div.cart_num>button.plus {
 	   	border:1px solid #F87E35;
 	   	background-color:white;
 	   	color:#F87E35;
 	}
-	div.cart_num>input#p1_amt {
+	div.cart_num>input.price {
 	   	padding:0 5px;
 	   	border:1px solid white;
-	   	width:10px;
+	   	width:15px;
+	   	text-align:center;
 	}
 	div.cart_update>button {
 	   	display:inline-block;

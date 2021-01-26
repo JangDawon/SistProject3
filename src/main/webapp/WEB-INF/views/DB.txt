@@ -47,7 +47,7 @@ CREATE TABLE idus_product(
   pfile5     VARCHAR2(100),
   psfile5    VARCHAR2(100),
   pfile6     VARCHAR2(100),
-  psfile6    VARCHAR2(100),
+  psfile6    VARCHAR2(100),  
   pfile7     VARCHAR2(100),
   psfile7    VARCHAR2(100),
   pfile8     VARCHAR2(100),
