@@ -15,11 +15,6 @@
 </head>
 <body>
 	<!-- header -->
-	<!-- 지혜 --> 
-	<!-- 준성 -->
-	<!-- 다원 -->
-	<!-- 현주 -->
-	<!-- 우현 -->
 	<jsp:include page="header.jsp" />
 	 
 	<!-- content -->

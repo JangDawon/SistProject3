@@ -41,6 +41,19 @@
 			</tr>
 			<tr>
 				<td>
+					<span class="board_title">비밀글</span>
+					<input type="checkbox" name="bsecret">
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="board_title">비밀번호</span>
+					<input type="password" name="bpass" >
+				</td>
+			</tr>
+			<tr>
+				<td>
 					<button type="submit" id="cs_update_btn" class="btn_style">수정</button>
 					<a href="cs.do"><button type="button" id="cs_cancel_btn" class="btn_style">취소</button></a>
 				</td>
