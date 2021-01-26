@@ -118,13 +118,14 @@ $(document).ready(function(){
 	});
 	
 	$("#product_all_delete").click(function(){
-		var del_list = "";
 		
-		$("input[class='product_chk']").each(function(index){
-			del_list += $(this).attr("value") + ", ";
-		});
+		var result = confirm("정말 삭제하시겠습니까?");
 		
-		confirm(del_list + "정말 삭제하시겠습니까?");
+		if(result){
+			$(location).attr('href', "product_mng_delete_proc.do?id=all");
+		}
+		
+		
 		
 	});
 	

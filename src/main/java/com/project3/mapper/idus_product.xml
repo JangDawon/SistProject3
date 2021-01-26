@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="mapper.product">
+	<select id="list" resultType="com.project3.vo.IdusProductVO">
+		select * from idus_product
+	</select>
+	
+	<delete id="deleteAll">
+		delete from idus_product
+	</delete>
+	
+	<select id="content" parameterType="java.lang.String" resultType="com.project3.vo.IdusProductVO">
+		select * from idus_product where pid=#{id}
+	</select>
+</mapper>
