@@ -63,7 +63,7 @@
 		</tr>
 		<tr>
 			<td colspan="4">
-				<a href="product_mng_update.do"><button type="button" class="btn_style" id="product_update">수정</button></a>
+				<a href="product_mng_update.do?id=${vo.pid}"><button type="button" class="btn_style" id="product_update">수정</button></a>
 				<a href="product_mng_list.do"><button type="button" class="btn_style" id="product_cancel">취소</button></a>
 			</td>
 		</tr>

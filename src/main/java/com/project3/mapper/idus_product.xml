@@ -9,11 +9,20 @@
 		select * from idus_product
 	</select>
 	
+	<select id="plist" parameterType="map" resultType="com.project3.vo.IdusProductVO">
+		select * from (select rownum rno, sname, semail, pid, pcat, ptitle, pcontent, pprice, pfile1, psfile1 from idus_product) 
+		where rno between #{start} and #{end}
+	</select>
+	
 	<delete id="deleteAll">
 		delete from idus_product
 	</delete>
 	
 	<select id="content" parameterType="java.lang.String" resultType="com.project3.vo.IdusProductVO">
 		select * from idus_product where pid=#{id}
+	</select>
+	
+	<select id="count" resultType="java.lang.Integer">
+		select count(*) from idus_product
 	</select>
 </mapper>

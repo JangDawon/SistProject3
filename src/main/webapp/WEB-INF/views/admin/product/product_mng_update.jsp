@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,16 @@
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 <script>
 	$(document).ready(function(){
+		file();
+		function file(){
+			for(var i=1; i<9; i++){
+				if($("label[for=file"+i+"]").attr("id") != ""){
+					$("label[for=file"+i+"]").css("width", "70px").css("background-color", "#F87E35").css("color","white");
+					$("label[for=file"+i+"]").text("첨부 완료");
+				}
+			}
+		}
+		
 		$("input[type='file']").change(function(){
 			var name = $(this).attr("name");
 			$("label[for='"+name+"']").css("width", "70px").css("background-color", "#F87E35").css("color","white");
@@ -30,7 +41,8 @@
 	
 	<a href="product_mng_list.do" class="h2_user"><h2 class="txt">상품 관리</h2></a>
 	<p class="mtitle">상품수정 ></p>
-	<form name="product_update_form" action="#" method="GET">
+	<form name="product_update_form" action="product_mng_update_proc.do" method="POST">
+		<input type="hidden" name="pid" value="${vo.pid }">
 		<table class="cs_table" id="admin_product_update">
 	      <tr>
 	         <td>
@@ -39,11 +51,11 @@
 	         <td>   
 	            <select name="pcat" id="pcat">
 	               <option>선택</option>
-	               <option value="food">음식</option>
-	               <option value="accessory">악세사리</option>
-	               <option value="living">패션&잡화</option>
-	               <option value="interior">인테리어 소품</option>
-	               <option value="etc">기타</option>
+	               <option value="음식" <c:if test="${vo.pcat eq '음식' }"><c:out value="selected" /></c:if>>음식</option>
+	               <option value="악세사리" <c:if test="${vo.pcat eq '악세사리' }"><c:out value="selected" /></c:if>>악세사리</option>
+	               <option value="패션&잡화" <c:if test="${vo.pcat eq '패션&잡화' }"><c:out value="selected" /></c:if>>패션&잡화</option>
+	               <option value="인테리어 소품" <c:if test="${vo.pcat eq '인테리어 소품' }"><c:out value="selected" /></c:if>>인테리어 소품</option>
+	               <option value="기타" <c:if test="${vo.pcat eq '기타' }"><c:out value="selected" /></c:if>>기타</option>
 	            </select>
 	         </td>
 	      </tr>
@@ -52,8 +64,8 @@
 	            <span><span class="red">*</span>작가 정보</span>
 	         </td>
 	         <td>    
-	            <input type="text" name="sname" placeholder="작가명" id="sname" value="321팩토리 321factory">
-	            <input type="text" name="sid" placeholder="작가 아이디" id="sid" value="321factory">
+	            <input type="text" name="sname" placeholder="작가명" id="sname" value="${vo.sname }">
+	            <input type="text" name="sid" placeholder="작가 아이디" id="sid" value="${vo.semail }">
 	         </td>
 	      </tr>
 	      <tr>
@@ -61,7 +73,7 @@
 	            <span><span class="red">*</span>제목</span>
 	         </td>
 	         <td>    
-	            <input type="text" name="ptitle" placeholder="제목을 입력해주세요 :)" id="ptitle" value="1+1🔥블랙아이보리 클로버 나비 마스크스트랩/목걸이">
+	            <input type="text" name="ptitle" placeholder="제목을 입력해주세요 :)" id="ptitle" value="${vo.ptitle }">
 	         </td>
 	      </tr>
 	      <tr>
@@ -69,27 +81,7 @@
 	            <span><span class="red">*</span>내용</span>
 	         </td>
 	         <td>    
-	            <textarea name="pcontent" id="pcontent" placeholder="내용을 입력해주세요(최대 1000자)">🔥포장안내 필독!!🔥
-	기본포장은 제품 6개까지 오목상자 하나에 다 넣어서 포장됩니다.
-	개별포장을 원하시는 분들은 꼭
-	요청사항에 적어주세요
-	요청사항에 안적혀있으면
-	기본포장 합포장으로 발송됩니다.
-	
-	🔥미리블랙프라이데이🔥1+1 9900 특가 이벤트🔥
-	
-	*옵션선택방법*
-	예) 아이보리나비와 블랙클로버 디자인 구매를
-	원할 시
-	디자인1. 옵션에서 아이보리나비를 선택해주시고
-	디자인2. 옵션에서 블랙클로버를 선택해주세요.
-	
-	원래 개별 판매가보다
-	하나 당 950원씩 다운된 가격이기때문에
-	두개에 1900원이 절감됩니다.
-	최저마진 금액이니
-	예쁜 디자인의 마스크스트랩을
-	착한 가격에 두개 득템하세용❤️</textarea>
+	            <textarea name="pcontent" id="pcontent" placeholder="내용을 입력해주세요(최대 1000자)">${vo.pcontent }</textarea>
 	         </td>
 	      </tr>
 	      <tr>
@@ -97,7 +89,7 @@
 	            <span><span class="red">*</span>가격</span>
 	         </td>
 	         <td>    
-	            <input type="text" name="pprice" placeholder="가격을 입력해주세요 :)" id="pprice" value="17800">
+	            <input type="text" name="pprice" placeholder="가격을 입력해주세요 :)" id="pprice" value="${vo.pprice }">
 	         </td>
 	      </tr>
 	      <tr>
@@ -105,16 +97,16 @@
 	            <span><span class="red">*</span>옵션</span>
 	         </td>
 	         <td>    
-	            <input type="text" name="opt1" id="opt1" placeholder="상품명을 입력해주세요 :)" value="블랙심플">
-	            <input type="text" name="opt1_price" id="opt1_price" placeholder="추가 금액" class="add_price" value="0">
-	            <input type="text" name="opt2" id="opt2" placeholder="상품명을 입력해주세요 :)" value="아이보리심플">
-	            <input type="text" name="opt2_price" id="opt2_price" placeholder="추가 금액" class="add_price" value="0">
-	            <input type="text" name="opt3" id="opt3" placeholder="상품명을 입력해주세요 :)" value="블랙클로버">
-	            <input type="text" name="opt3_price" id="opt3_price" placeholder="추가 금액" class="add_price" value="2000">
-	            <input type="text" name="opt4" id="opt4" placeholder="상품명을 입력해주세요 :)" value="아이보리클로버">
-	            <input type="text" name="opt4_price" id="opt4_price" placeholder="추가 금액" class="add_price" value="2000">
-	            <input type="text" name="opt5" id="opt5" placeholder="상품명을 입력해주세요 :)">
-	            <input type="text" name="opt5_price" id="opt5_price" placeholder="추가 금액" class="add_price">
+	            <input type="text" name="opt1" id="opt1" placeholder="상품명을 입력해주세요 :)" value="${vo.opt1 }">
+	            <input type="text" name="opt1_price" id="opt1_price" placeholder="추가 금액" class="add_price" value="${vo.opt1_price }">
+	            <input type="text" name="opt2" id="opt2" placeholder="상품명을 입력해주세요 :)" value="${vo.opt2 }">
+	            <input type="text" name="opt2_price" id="opt2_price" placeholder="추가 금액" class="add_price" value="${vo.opt2_price }">
+	            <input type="text" name="opt3" id="opt3" placeholder="상품명을 입력해주세요 :)" value="${vo.opt3 }">
+	            <input type="text" name="opt3_price" id="opt3_price" placeholder="추가 금액" class="add_price" value="${vo.opt3_price }">
+	            <input type="text" name="opt4" id="opt4" placeholder="상품명을 입력해주세요 :)" value="${vo.opt4 }">
+	            <input type="text" name="opt4_price" id="opt4_price" placeholder="추가 금액" class="add_price" value="${vo.opt4_price }">
+	            <input type="text" name="opt5" id="opt5" placeholder="상품명을 입력해주세요 :)" value="${vo.opt5 }">
+	            <input type="text" name="opt5_price" id="opt5_price" placeholder="추가 금액" class="add_price" value="${vo.opt5_price }">
 	         </td>
 	      </tr>
 	      <tr>
@@ -123,36 +115,36 @@
 	         </td>
 	         <td>
 	         	<div>
-	        		<label for="bfile1" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile1" type="file" id="bfile1">
+	         		<label for="file1" class='btn_style' id="${vo.pfile1 }">파일 선택</label>
+	            	<input name="file1" type="file" id="file1">
 	            </div>
 	            <div>
-	        		<label for="bfile2" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile2" type="file" id="bfile2">
+	        		<label for="file2" class='btn_style' id="${vo.pfile2 }">파일 선택</label>   
+	            	<input name="file2" type="file" id="file2">
 	            </div>
 	            <div>
-	        		<label for="bfile3" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile3" type="file" id="bfile3">
+	        		<label for="file3" class='btn_style' id="${vo.pfile3 }">파일 선택</label>   
+	            	<input name="file3" type="file" id="file3">
 	            </div>
 	            <div>
-	        		<label for="bfile4" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile4" type="file" id="bfile4">
+	        		<label for="file4" class='btn_style' id="${vo.pfile4 }">파일 선택</label>   
+	            	<input name="file4" type="file" id="file4">
 	            </div>
 	            <div>
-	        		<label for="bfile5" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile5" type="file" id="bfile5">
+	        		<label for="file5" class='btn_style' id="${vo.pfile5 }">파일 선택</label>   
+	            	<input name="file5" type="file" id="file5">
 	            </div>
 	            <div>
-	        		<label for="bfile6" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile6" type="file" id="bfile6">
+	        		<label for="file6" class='btn_style' id="${vo.pfile6 }">파일 선택</label>   
+	            	<input name="file6" type="file" id="file6">
 	            </div>
 	            <div>
-	        		<label for="bfile7" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile7" type="file" id="bfile7">
+	        		<label for="file7" class='btn_style' id="${vo.pfile7 }">파일 선택</label>   
+	            	<input name="file7" type="file" id="file7">
 	            </div>
 	            <div>
-	        		<label for="bfile8" class='btn_style'>파일 선택</label>   
-	            	<input name="bfile8" type="file" id="bfile8">
+	        		<label for="file8" class='btn_style' id="${vo.pfile8 }">파일 선택</label>   
+	            	<input name="file8" type="file" id="file8">
 	            </div>
 	         </td>
 	      </tr>

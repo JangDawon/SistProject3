@@ -8,10 +8,34 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 고객센터</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/am-pagination.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
+<script src="http://localhost:9000/sistproject3/js/am-pagination.js"></script>
 <script>
 	$(document).ready(function(){
+		//페이지 번호 및 링크
+		var pager = jQuery("#ampaginationsm").pagination({
+			maxSize : 5,
+			totals : '${dbCount}',
+			pageSize : '${pageSize}',
+			page : '${ reqPage }',
+			
+			lastText : '&raquo;&raquo;',
+			firstText : '&laquo;&laquo;',
+			prevText : '&laquo;',
+			nextText : '&raquo;',
+			
+			btnSize : 'sm'
+		});
+		
+		//
+		jQuery("#ampaginationsm").on('am.pagination.change', function(e){
+			//$(location).attr('href','페이지 이름');	//location.href();
+			$(location).attr('href','http://localhost:9000/sistproject3/cs.do?rpage=' + e.page);
+		});
+		
+		
 		$(".cs_row").click(function(){
 			
 			var sub_menu = $(this).next("tr.cs_hide");
@@ -86,74 +110,39 @@
 			<th>조회수</th>
 		</tr>
 		<c:forEach var="vo" items="${list }">
-		<tr class="cs_row" id="cs_row1">
-			<td>${vo.rno }</td>
-			<td>${vo.btitle }</td>
-			<td>${vo.uname }</td>
-			<td>${vo.bdate }</td>
-			<td>${vo.bhits }</td>
-		</tr>
-		<tr class="cs_hide">
-			<td colspan='5'>
-				<div class="cs_hide_content" id="cs_hide_content">
-					<span class="cs_hide_title"><span class="red">*</span>비밀번호</span>
-					<input type='password' id="cs_hide_${vo.bid}" class="cs_hide_pw" placeholder="비밀번호를 입력해주세요:)">
-					<input type="hidden" id="cs_pw_${vo.bid}" value="${vo.bpass }">
-					<button type='button' class="cs_hide_btn" id="${vo.bid }">확인</button>
-				</div>
-			</td>
-		</tr>
+		<c:choose>
+			<c:when test="${vo.bsecret eq 'on'}">
+				<tr class="cs_row" id="cs_row1">
+					<td>${vo.rno }</td>
+					<td>${vo.btitle }</td>
+					<td>${vo.uname }</td>
+					<td>${vo.bdate }</td>
+					<td>${vo.bhits }</td>
+				</tr>
+				<tr class="cs_hide">
+					<td colspan='5'>
+						<div class="cs_hide_content" id="cs_hide_content">
+							<span class="cs_hide_title"><span class="red">*</span>비밀번호</span>
+							<input type='password' id="cs_hide_${vo.bid}" class="cs_hide_pw" placeholder="비밀번호를 입력해주세요:)">
+							<input type="hidden" id="cs_pw_${vo.bid}" value="${vo.bpass }">
+							<button type='button' class="cs_hide_btn" id="${vo.bid }">확인</button>
+						</div>
+					</td>
+				</tr>
+			</c:when>
+			<c:otherwise>
+				<tr class="cs_row" id="cs_row1" onclick="location.href='http://localhost:9000/sistproject3/cs_content.do?id=${vo.bid}'">
+					<td>${vo.rno }</td>
+					<td>${vo.btitle }</td>
+					<td>${vo.uname }</td>
+					<td>${vo.bdate }</td>
+					<td>${vo.bhits }</td>
+				</tr>
+			</c:otherwise>
+		</c:choose>
 		</c:forEach>
-		<!-- <tr class="cs_row">
-			<td>2</td>
-			<td>로그인 오류</td>
-			<td>최지혜</td>
-			<td>2021.01.13</td>
-			<td>1</td>
-		</tr>
-		<tr class="cs_hide">
-			<td colspan='5'>
-				<div class="cs_hide_content">
-					<span class="cs_hide_title"><span class="red">*</span>비밀번호</span>
-					<input type='password' id="cs_hide_pw2" class="cs_hide_pw" placeholder="비밀번호를 입력해주세요:)">
-					<button type='button' id="2" class="cs_hide_btn">확인</button>
-				</div>
-			</td>
-		</tr>
-		<tr class="cs_row">
-			<td>3</td>
-			<td>로그인 오류</td>
-			<td>최지혜</td>
-			<td>2021.01.13</td>
-			<td>1</td>
-		</tr>
-		<tr class="cs_hide">
-			<td colspan='5'>
-				<div class="cs_hide_content">
-					<span class="cs_hide_title"><span class="red">*</span>비밀번호</span>
-					<input type='password' id="cs_hide_pw3" class="cs_hide_pw" placeholder="비밀번호를 입력해주세요:)">
-					<button type='button' id="3" class="cs_hide_btn">확인</button>
-				</div>
-			</td>
-		</tr>
-		<tr class="cs_row">
-			<td>4</td>
-			<td>로그인 오류</td>
-			<td>최지혜</td>
-			<td>2021.01.13</td>
-			<td>1</td>
-		</tr>
-		<tr class="cs_hide">
-			<td colspan='5'>
-				<div class="cs_hide_content">
-					<span class="cs_hide_title"><span class="red">*</span>비밀번호</span>
-					<input type='password' id="cs_hide_pw4" class="cs_hide_pw" placeholder="비밀번호를 입력해주세요:)">
-					<button type='button' id="4" class="cs_hide_btn">확인</button>
-				</div>
-			</td>
-		</tr> -->
 		<tr>
-			<td colspan="5"><< 1 2 3 4 5 >><div id="ampaginationsm"></div></td>
+			<td colspan="5"><div id="ampaginationsm"></div></td>
 		</tr>
 	</table>
 	</div>
