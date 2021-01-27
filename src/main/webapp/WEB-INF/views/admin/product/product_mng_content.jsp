@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,55 +25,40 @@
 	<table class="cs_table" id="admin_product_content">
 		<tr>
 			<th>제목</th>
-			<td colspan="3">1+1🔥블랙아이보리 클로버 나비 마스크스트랩/목걸이</td>
+			<td colspan="3">${vo.ptitle }</td>
 		</tr>
 		<tr>
 			<th>작가명</th>
-			<td>321팩토리 321factory</td>
+			<td>${vo.sname }</td>
 			<th>등록일</th>
-			<td>2021.01.16</td>
+			<td>${vo.pdate }</td>
 		</tr>
 		<tr>
 			<th>카테고리</th>
-			<td colspan="3">패션&잡화</td>
+			<td colspan="3">${vo.pcat }</td>
 		</tr>
 		<tr>
-			<td colspan="4"><div>🔥포장안내 필독!!🔥
-	기본포장은 제품 6개까지 오목상자 하나에 다 넣어서 포장됩니다.
-	개별포장을 원하시는 분들은 꼭
-	요청사항에 적어주세요
-	요청사항에 안적혀있으면
-	기본포장 합포장으로 발송됩니다.
-	
-	🔥미리블랙프라이데이🔥1+1 9900 특가 이벤트🔥
-	
-	*옵션선택방법*
-	예) 아이보리나비와 블랙클로버 디자인 구매를
-	원할 시
-	디자인1. 옵션에서 아이보리나비를 선택해주시고
-	디자인2. 옵션에서 블랙클로버를 선택해주세요.
-	
-	원래 개별 판매가보다
-	하나 당 950원씩 다운된 가격이기때문에
-	두개에 1900원이 절감됩니다.
-	최저마진 금액이니
-	예쁜 디자인의 마스크스트랩을
-	착한 가격에 두개 득템하세용❤️
-				<br><img src="http://localhost:9000/sistproject3/images/content2.jpg" style="height:100px; height:100px;">
-				<img src="http://localhost:9000/sistproject3/images/content2.jpg" style="height:100px; height:100px;">
-				<img src="http://localhost:9000/sistproject3/images/content2.jpg" style="height:100px; height:100px;">
-				<img src="http://localhost:9000/sistproject3/images/content2.jpg" style="height:100px; height:100px;">
-				<img src="http://localhost:9000/sistproject3/images/content2.jpg" style="height:100px; height:100px;">
+			<td colspan="4"><div>${vo.pcontent }
+				<br><img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }" style="height:100px; height:100px;">
+				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile2 }" style="height:100px; height:100px;">
+				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile3 }" style="height:100px; height:100px;">
+				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile4 }" style="height:100px; height:100px;">
+				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile5 }" style="height:100px; height:100px;">
+				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile6 }" style="height:100px; height:100px;">
+				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile7 }" style="height:100px; height:100px;">
+				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile8 }" style="height:100px; height:100px;">
+				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile9 }" style="height:100px; height:100px;">
 			</div>
 			</td>
 		</tr>
 		<tr>
 			<th>옵션</th>
 			<td colspan="3">
-			<div>블랙심플</div>
-			<div>아이보리심플</div>
-			<div>블랙클로버(+2000)</div>
-			<div>아이보리클로버(+2000)</div>
+			<c:if test="${vo.opt1 ne null }"><div>${vo.opt1}(+${vo.opt1_price}원)</div></c:if>
+			<c:if test="${vo.opt2 ne null }"><div>${vo.opt2}(+${vo.opt2_price}원)</div></c:if>
+			<c:if test="${vo.opt3 ne null }"><div>${vo.opt3}(+${vo.opt3_price}원)</div></c:if>
+			<c:if test="${vo.opt4 ne null }"><div>${vo.opt4}(+${vo.opt4_price}원)</div></c:if>
+			<c:if test="${vo.opt5 ne null }"><div>${vo.opt5}(+${vo.opt5_price}원)</div></c:if>
 			</td>
 		</tr>
 		<tr>
