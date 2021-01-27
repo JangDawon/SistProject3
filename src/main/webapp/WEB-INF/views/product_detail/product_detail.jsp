@@ -3,10 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>제품상세페이지</title>
-<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-</head>
+	<meta charset="UTF-8">
+		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>제품상세페이지</title>
+		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
+		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+		<script src="http://localhost:9000/sistproject3/js/dawon.js"></script>
+	</head>
 <body>
    <!-- header -->
     <jsp:include page="../header.jsp" />
@@ -217,7 +219,7 @@
           			</a>
           		</div>
           	</div>
-          	<h2 class="aside_product-title">레터링 마카롱 케이크 ❤️생일선물 기념일 새해</h2>
+          	<h2 class="aside_product-title" name="prod_name">레터링 마카롱 케이크 ❤️생일선물 기념일 새해</h2>
           	<div class="aside_product-info">
           		<div class="price_tag_detail">
           			<span class="price_tag_strong">
@@ -238,16 +240,13 @@
           				<a href="">
 	          				<span class="span_ui_rating">
 		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+		          				<span>4.5</span>
 							</span>	
 						</a>
           			</div>
           			<div>
           				<span class="span-title-txt">배송비</span>
-          				<span class="bold-txt">3000원</span>
+          				<span class="bold-txt" name="">3000원</span>
           			</div>
           			<div>
           				<span class="span-title-txt">배송 시작</span>
@@ -270,8 +269,8 @@
           	</div>
           	<div>
           		<div class="btn_box">
-          			<button class="btn_cart">장바구니</button>
-          			<button class="btn_buy">구매하기</button>
+          			<button type="submit" class="btn_cart">장바구니</button>
+          			<button type="submit" class="btn_buy">구매하기</button>
           			<!-- <button class="btn_gift">
           				<img src="http://localhost:9000/sistproject3/images/gift-box.png">
           				<span>선물하기</span>
