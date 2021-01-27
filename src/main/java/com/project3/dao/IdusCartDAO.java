@@ -3,19 +3,23 @@ package com.project3.dao;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.project3.vo.IdusCartVO;
 
 public class IdusCartDAO extends DBConn{
-	/* @Autowired
+	@Autowired
 	private SqlSessionTemplate sqlSession; 
 	
-	private static String namespace = "mapper.cart"; */
+	private static String namespace = "mapper.cart";
 	
 	/**
 	 * Insert : 장바구니 넣기
 	 */
 	public boolean getInsert(IdusCartVO vo) {
 		boolean result = false;
+		int value = sqlSession.insert(namespace+".cart", vo);
 		
 		try {
 			String sql = "insert into idus_cart values('c_'||sequ_cart.nextval,?,?,?,?,?,?)";
