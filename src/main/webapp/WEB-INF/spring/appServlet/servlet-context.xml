@@ -17,10 +17,12 @@
 	<resources mapping="/css/**" location="/resources/css/" />
 	<resources mapping="/js/**" location="/resources/js/" />
 	<resources mapping="/images/**" location="/resources/images/" />
+	
 
 	<!-- multipartResolver -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	</beans:bean> 
+
 
 	<!-- DAO Object -->
 	<beans:bean class="com.project3.dao.IdusBoardDAO" id="boardDAO"></beans:bean>
@@ -31,6 +33,8 @@
 	<beans:bean class="com.project3.service.BoardServiceImpl" id="boardService"></beans:bean>
 	<beans:bean class="com.project3.service.ProductServiceImpl" id="productService"></beans:bean>
 	<beans:bean class="com.project3.service.ReviewServiceImpl" id="reviewService"></beans:bean>
+	<beans:bean class="com.project3.service.certifyServiceImpl" id="certifyService"></beans:bean>
+
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -40,5 +44,6 @@
 	
 	<context:component-scan base-package="com.spring.sistproject3" />
 	<context:component-scan base-package="com.project3.controller" />
+	<context:component-scan base-package="com.project.service" />
 	
 </beans:beans>
