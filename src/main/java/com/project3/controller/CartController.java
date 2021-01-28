@@ -7,16 +7,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class CartController {
 	/**
-	 * Àå¹Ù±¸´Ï
+	 * ï¿½ï¿½Ù±ï¿½ï¿½ï¿½
 	 */
 	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
 	public String cart() {
 		return "/cart/cart";
 	}
 	
+	/**
+	 * ì£¼ë¬¸í•˜ê¸°
+	 */
+	@RequestMapping(value = "/cart_order.do", method = RequestMethod.GET)
+	public String cart_order() {
+		return "/cart/cart_order";
+	}
 	
 	/**
-	 * ¹Ù·Î±¸¸Å
+	 * ï¿½Ù·Î±ï¿½ï¿½ï¿½
 	 */
 	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
 	public String purchase() {

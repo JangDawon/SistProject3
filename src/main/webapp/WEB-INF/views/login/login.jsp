@@ -38,7 +38,7 @@
 						<li><hr>&nbsp;&nbsp;이메일 로그인&nbsp;&nbsp;<hr></li>
 						<li><input type="text" name="id" placeholder="이메일" id="id"></li>
 						<li><input type="password" name="pass" placeholder="비밀번호" id="pass"></li>
-						<li><a href="#"><span>아이디 / 비밀번호를 잊어버리셨나요?</span></a></li>
+						<li><a href="login_check.do"><span>아이디 / 비밀번호를 잊어버리셨나요?</span></a></li>
 						<li><a href="http://localhost:9000/sistproject3/index.do"><button type=button id=btnLogin>로그인</button></a></li>
 					</ul>	
 				</form>	

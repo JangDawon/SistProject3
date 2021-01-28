@@ -143,8 +143,17 @@ section.join_section div#join_form_block_body{
 	text-align:center;
 }
 section.join_section div#join_form_block_body_hpcheck{
+	margin:auto;
 	display:none;
+	text-align:center;
 }
+section.join_section div#join_form_block_body_hp,
+section.join_section div#join_form_block_hpcheck,
+section.join_section div#join_form_block_hp,
+section.join_section div#join_form_block_body_hpcheck{
+	padding:0px;
+}
+
 section.join_section div.join_form_block_body input{
 	text-indent:5px;
 	font-weight:bold;
