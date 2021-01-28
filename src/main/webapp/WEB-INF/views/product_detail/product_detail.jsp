@@ -425,7 +425,10 @@ $(document).ready(function(){
 						  		<option value="blue">하늘</option>
 						  	</select>
 					  	</div>
-						<li><hr style="margin:20px 0px;"></li>
+	          		</div>
+	          	</div>
+	          	<div class="tab-style">
+	          		<li><hr style="margin:20px 0px;"></li>
 					  	<li class="add_content" style="display: none;">
 					  		<div class="add">
 					  			<b>[필수]</b>
@@ -448,16 +451,11 @@ $(document).ready(function(){
 						  		총 구매가<span style="float:right;"> 0 원</span>
 					  		</div>
 					  	</li>
-					  	
-					  	
-	          		</div>
-	          	</div>
-	          	<div class="tab-style">
 	          	</div>
 	          	<div>
 	          		<div class="btn_box">
-	          			<button class="btn_cart">장바구니</button>
-	          			<button class="btn_buy">구매하기</button>
+	          			<button class="btn_cart" id="cartBtn">장바구니</button>
+	          			<button class="btn_buy" id="payBtn">구매하기</button>
 	          		</div>
 	          	</div>
           </div> 
