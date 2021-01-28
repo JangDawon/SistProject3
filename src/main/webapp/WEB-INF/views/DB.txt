@@ -15,50 +15,6 @@ CREATE TABLE idus_board(
   bsecret VARCHAR2(15)
 );
 
-/* 아이디어스 상품 테이블 생성(지혜) 
-*  수정일 : 2021.01.25 오후 10시 39분
-*/
-CREATE TABLE idus_product(
-  pid       VARCHAR2(20) primary key,
-  pcat      VARCHAR2(100) NOT NULL,
-  sname     VARCHAR2(30) not null,
-  semail    VARCHAR2(50) not null,
-  ptitle    VARCHAR2(100) not null,
-  pcontent  VARCHAR2(1000) NOT NULL,
-  PPRICE    NUMBER(30) NOT NULL,
-  opt1      varchar2(150) not null,
-  opt1_price number(10) not null,
-  opt2      varchar2(150),
-  opt2_price number(10),
-  opt3      varchar2(150),
-  opt3_price number(10),
-  opt4      varchar2(150),
-  opt4_price number(10),
-  opt5      varchar2(150),
-  opt5_price number(10),
-  pfile1     VARCHAR2(100) NOT NULL,
-  psfile1    VARCHAR2(100) NOT NULL,
-  pfile2     VARCHAR2(100),
-  psfile2    VARCHAR2(100),
-  pfile3     VARCHAR2(100),
-  psfile3    VARCHAR2(100),
-  pfile4     VARCHAR2(100),
-  psfile4    VARCHAR2(100),
-  pfile5     VARCHAR2(100),
-  psfile5    VARCHAR2(100),
-  pfile6     VARCHAR2(100),
-  psfile6    VARCHAR2(100),
-  pfile7     VARCHAR2(100),
-  psfile7    VARCHAR2(100),
-  pfile8     VARCHAR2(100),
-  psfile8    VARCHAR2(100),
-  pfile9     VARCHAR2(100),
-  psfile9    VARCHAR2(100),
-  pdate     DATE,
-  PRODUCT_TOTAL NUMBER(10),
-  SELLER_TOTAL NUMBER(10)
-);
-
 /*  아이디어스 공지사항 & 1대1문의 게시판 테이블 컬럼 추가(지혜)  
 *	수정일 : 2021.01.25 오후 10시 39분
 */
@@ -74,3 +30,30 @@ CREATE SEQUENCE IDUS_SEQ
 CREATE SEQUENCE IDUS_PRODUCT_SEQ
   START WITH 1
   INCREMENT BY 1;  
+  
+/* 아이디어스 상품 테이블 생성(지혜) 
+*  수정일 : 2021.01.28 오후 4시 23분
+*/
+CREATE TABLE idus_product(
+  pid       VARCHAR2(20) primary key,
+  pcat      VARCHAR2(100) NOT NULL,
+  sname     VARCHAR2(30) not null,
+  semail    VARCHAR2(50) not null,
+  ptitle    VARCHAR2(100) not null,
+  pcontent  VARCHAR2(1000) NOT NULL,
+  PPRICE    NUMBER(30) NOT NULL,
+  opt1      varchar2(150) not null,
+  opt1_price number(10) not null,
+  opt2      varchar2(150),
+  opt2_price number(10),
+  opt3      varchar2(150),
+  opt3_price number(10),
+  pfile1     VARCHAR2(100) NOT NULL,
+  psfile1    VARCHAR2(100) NOT NULL,
+  pfile2     VARCHAR2(100),
+  psfile2    VARCHAR2(100),
+  pfile3     VARCHAR2(100),
+  psfile3    VARCHAR2(100),
+  pdate     DATE,
+  PRODUCT_TOTAL NUMBER(10)
+);  

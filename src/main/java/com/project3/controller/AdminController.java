@@ -42,8 +42,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/product_mng_list.do", method=RequestMethod.GET)
-	public ModelAndView product_mng_list() { 
-		return (ModelAndView)productService.getList();
+	public ModelAndView product_mng_list(String rpage) { 
+		return (ModelAndView)productService.getList(rpage, null);
 	}
 	
 	@RequestMapping(value="/product_mng_regist.do", method=RequestMethod.GET)
@@ -68,8 +68,13 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/product_mng_update.do", method=RequestMethod.GET)
-	public String product_mng_udpate() { 
-		return "/admin/product/product_mng_update";
+	public ModelAndView product_mng_udpate(String id) { 
+		return productService.getUpdate(id);
+	}
+	
+	@RequestMapping(value="/product_mng_update_proc.do", method=RequestMethod.POST)
+	public ModelAndView product_mng_udpate_proc(IdusProductVO vo) { 
+		return productService.getResultUpdate(vo);
 	}
 	
 	@RequestMapping(value="/product_mng_delete.do", method=RequestMethod.GET)

@@ -1,7 +1,9 @@
 package com.project3.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,19 @@ public class IdusBoardDAO extends DBConn{
 	public ArrayList<IdusBoardVO> getList() {
 		List<IdusBoardVO> list = sqlSession.selectList(namespace+".list");
 		return (ArrayList<IdusBoardVO>)list;
+	}
+	
+	/**
+	 * CS 전체 리스트(페이지)
+	 */
+	public ArrayList<IdusBoardVO> getList(int start, int end){
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("start", String.valueOf(start));
+		param.put("end", String.valueOf(end));
+		
+		List<IdusBoardVO> list = sqlSession.selectList(namespace + ".plist", param);
+		return (ArrayList<IdusBoardVO>)list;
+		
 	}
 	
 	/**

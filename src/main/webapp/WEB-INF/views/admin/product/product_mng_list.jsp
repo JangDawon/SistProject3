@@ -8,8 +8,31 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 관리자</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/am-pagination.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
+<script src="http://localhost:9000/sistproject3/js/am-pagination.js"></script>
+<script>
+	$(document).ready(function(){
+		var pager = jQuery("#ampaginationsm").pagination({
+			maxSize : 5,
+			totals : '${dbCount}',
+			pageSize : '${pageSize}',
+			page : '${ reqPage }',
+			
+			lastText : '&raquo;&raquo;',
+			firstText : '&laquo;&laquo;',
+			prevText : '&laquo;',
+			nextText : '&raquo;',
+			
+			btnSize : 'sm'
+		});
+		
+		jQuery("#ampaginationsm").on('am.pagination.change', function(e){
+			$(location).attr('href','http://localhost:9000/sistproject3/cs.do?rpage=' + e.page);
+		});
+	});
+</script>
 </head>
 <body class="admin" id="product_mng_list">
 	
@@ -48,7 +71,7 @@
 		</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="6" id="ampaginationsm"><< 1 2 3 4 5 >></td>
+			<td colspan="6"><div id="ampaginationsm"></div></td>
 		</tr>
 	</table>
 	</div>
