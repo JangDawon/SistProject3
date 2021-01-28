@@ -25,4 +25,25 @@
 	<select id="count" resultType="java.lang.Integer">
 		select count(*) from idus_product
 	</select>
+	
+	<insert id="insert" parameterType="com.project3.vo.IdusProductVO">
+		insert into idus_product values('p_'||idus_product_seq.nextval, #{pcat}, #{sname}, #{semail}, #{ptitle}, #{pcontent}, #{pprice}, #{opt1}, #{opt1_price}, #{opt2}
+		, #{opt2_price}, #{opt3}, #{opt3_price}, #{pfile1}, #{psfile1}
+		<choose>
+			<when test="pfile2 != null">
+				<choose>
+					<when test="pfile3 != null">
+						, #{pfile2}, #{psfile2}, #{pfile3}, #{psfile3}
+					</when>
+					<otherwise>
+						, #{pfile2}, #{psfile2}, '', ''
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				,'', '', '', ''
+			</otherwise>
+		</choose>
+		,sysdate, 0)
+	</insert>
 </mapper>

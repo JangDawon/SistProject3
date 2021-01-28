@@ -79,21 +79,37 @@ public class ProductServiceImpl implements BoardService{
 		if(pvo.getFile1().getSize() != 0) {
 			pvo.setPfile1(pvo.getFile1().getOriginalFilename());
 			pvo.setPsfile1(uuid + "_" + pvo.getFile1().getOriginalFilename());
-			boolean result = productDAO.getInsert(pvo);
-			
-			if(result) {
-				try {
-					File file = new File(pvo.getSavePath()+pvo.getPsfile1());
-					pvo.getFile1().transferTo(file);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				
-				mv.setViewName("redirect:/product_mng_list.do");
-			}else {
-				mv.setViewName("errorPage");
-			}
 		}
+		
+		if(pvo.getFile2().getSize() != 0) {
+			pvo.setPfile2(pvo.getFile2().getOriginalFilename());
+			pvo.setPsfile2(uuid + "_" + pvo.getFile2().getOriginalFilename());
+		}
+		
+		if(pvo.getFile3().getSize() != 0) {
+			pvo.setPfile3(pvo.getFile3().getOriginalFilename());
+			pvo.setPsfile3(uuid + "_" + pvo.getFile3().getOriginalFilename());
+		}
+		
+		int result = productDAO.getInsert(pvo);
+		
+		if(result > 0) {
+			try {
+				File file1 = new File(pvo.getSavePath()+pvo.getPsfile1());
+				pvo.getFile1().transferTo(file1);
+				File file2 = new File(pvo.getSavePath()+pvo.getPsfile2());
+				pvo.getFile2().transferTo(file2);
+				File file3 = new File(pvo.getSavePath()+pvo.getPsfile3());
+				pvo.getFile3().transferTo(file3);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			mv.setViewName("redirect:/product_mng_list.do");
+		}else {
+			mv.setViewName("errorPage");
+		}
+		
 		
 		return mv;
 	}

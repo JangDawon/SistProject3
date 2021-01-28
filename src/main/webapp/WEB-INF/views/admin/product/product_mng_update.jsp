@@ -103,10 +103,6 @@
 	            <input type="text" name="opt2_price" id="opt2_price" placeholder="추가 금액" class="add_price" value="${vo.opt2_price }">
 	            <input type="text" name="opt3" id="opt3" placeholder="상품명을 입력해주세요 :)" value="${vo.opt3 }">
 	            <input type="text" name="opt3_price" id="opt3_price" placeholder="추가 금액" class="add_price" value="${vo.opt3_price }">
-	            <input type="text" name="opt4" id="opt4" placeholder="상품명을 입력해주세요 :)" value="${vo.opt4 }">
-	            <input type="text" name="opt4_price" id="opt4_price" placeholder="추가 금액" class="add_price" value="${vo.opt4_price }">
-	            <input type="text" name="opt5" id="opt5" placeholder="상품명을 입력해주세요 :)" value="${vo.opt5 }">
-	            <input type="text" name="opt5_price" id="opt5_price" placeholder="추가 금액" class="add_price" value="${vo.opt5_price }">
 	         </td>
 	      </tr>
 	      <tr>
@@ -125,26 +121,6 @@
 	            <div>
 	        		<label for="file3" class='btn_style' id="${vo.pfile3 }">파일 선택</label>   
 	            	<input name="file3" type="file" id="file3">
-	            </div>
-	            <div>
-	        		<label for="file4" class='btn_style' id="${vo.pfile4 }">파일 선택</label>   
-	            	<input name="file4" type="file" id="file4">
-	            </div>
-	            <div>
-	        		<label for="file5" class='btn_style' id="${vo.pfile5 }">파일 선택</label>   
-	            	<input name="file5" type="file" id="file5">
-	            </div>
-	            <div>
-	        		<label for="file6" class='btn_style' id="${vo.pfile6 }">파일 선택</label>   
-	            	<input name="file6" type="file" id="file6">
-	            </div>
-	            <div>
-	        		<label for="file7" class='btn_style' id="${vo.pfile7 }">파일 선택</label>   
-	            	<input name="file7" type="file" id="file7">
-	            </div>
-	            <div>
-	        		<label for="file8" class='btn_style' id="${vo.pfile8 }">파일 선택</label>   
-	            	<input name="file8" type="file" id="file8">
 	            </div>
 	         </td>
 	      </tr>

@@ -549,8 +549,9 @@ table#admin_product_regist tr:nth-child(4) textarea, table#admin_product_update 
 table#admin_product_regist tr:nth-child(5) input, table#admin_product_regist tr:nth-child(6) input,
 table#admin_product_update tr:nth-child(5) input, table#admin_product_update tr:nth-child(6) input{width:200px; }
 table#admin_product_regist tr:nth-child(6) input, table#admin_product_update tr:nth-child(6) input {width:400px; margin-top:5px; margin-bottom:5px;}
+table#admin_product_regist tr:nth-child(6) td, table#admin_product_update tr:nth-child(6) td{height:170px;}
 table#admin_product_regist tr:nth-child(6) input.add_price, table#admin_product_update tr:nth-child(6) input.add_price {width:100px; margin-top:5px; margin-bottom:5px;}
-table#admin_product_regist tr:nth-child(7), table#admin_product_update tr:nth-child(7) {height:150px;}
+table#admin_product_regist tr:nth-child(7), table#admin_product_update tr:nth-child(7) {height:100px;}
 table#admin_product_regist tr:nth-child(7) input, table#admin_product_update tr:nth-child(7) input{padding-left:0px; position: absolute; width: 0;
   height: 0px; padding:0px; overflow: hidden; border: 0;}
 table#admin_product_regist tr:nth-child(7) label, table#admin_product_update tr:nth-child(7) label{float:left; margin:5px; padding: 6px 20px; border:2px solid #F87E35; border-radius: 4px; font-weight:600; color:#F87E35; cursor: pointer;}
