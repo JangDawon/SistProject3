@@ -566,6 +566,9 @@ table#admin_product_content th, table#admin_product_content td {text-align:left;
 table#admin_product_content tr:nth-child(4) td div {width:650px; margin:auto; padding:20px 0px 30px 0px;}
 table#admin_product_content tr:nth-child(5) td {padding:10px 0px;}
 table#admin_product_content tr:last-child td{text-align:center; border:none; padding-top:80px; text-indent:-25px;}   
+table#admin_product_content th:first-child {width:130px; }
+table#admin_product_content td:nth-child(2) {width:300px; }
+table#admin_product_content th:nth-child(3) {width:130px; }
    
 /**
 *   마이페이지 aside

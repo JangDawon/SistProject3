@@ -47,8 +47,6 @@ public class IdusProductDAO extends DBConn{
 	 * 상품 등록
 	 */
 	public int getInsert(IdusProductVO vo) {
-		System.out.println("파일이름" + vo.getPfile1());
-		System.out.println(vo.getPsfile1());
 		return sqlSession.insert(namespace+".insert", vo);
 	}
 	
@@ -62,9 +60,9 @@ public class IdusProductDAO extends DBConn{
 	/**
 	 * 상품 업데이트
 	 */
-	/*
-	 * public int getUpdate(IdusProductVO vo) { }
-	 */
+	public int getUpdate(IdusProductVO vo) {
+		return sqlSession.update(namespace + ".update", vo);
+	}
 	
 	/**
 	 * 상품 전체 삭제

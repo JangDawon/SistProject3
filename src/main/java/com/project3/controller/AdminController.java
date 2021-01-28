@@ -73,7 +73,12 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/product_mng_update_proc.do", method=RequestMethod.POST)
-	public ModelAndView product_mng_udpate_proc(IdusProductVO vo) { 
+	public ModelAndView product_mng_udpate_proc(IdusProductVO vo, HttpServletRequest request) {
+		String path1 = request.getSession().getServletContext().getRealPath("/");
+		String path2 = "\\resources\\upload\\";
+		
+		vo.setSavePath(path1+path2);
+		
 		return productService.getResultUpdate(vo);
 	}
 	

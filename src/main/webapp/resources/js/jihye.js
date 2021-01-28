@@ -51,7 +51,7 @@ $(document).ready(function(){
 				alert("옵션 가격을 입력해주세요");
 				$("#opt1_price").focus();
 				return false;
-			}else if($("#file1").val() == ""){
+			}else if($("label[for='file1']").attr("id") == ""){
 				alert("이미지를 선택해주세요");
 				$("#file1").focus();
 				return false;

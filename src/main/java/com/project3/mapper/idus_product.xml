@@ -49,4 +49,20 @@
 		</choose>
 		,sysdate, 0)
 	</insert>
+	
+	<update id="update" parameterType="com.project3.vo.IdusProductVO">
+		update idus_product set pcat=#{pcat}, sname=#{sname}, semail=#{semail}, ptitle=#{ptitle}, pcontent=#{pcontent}, 
+		pprice=#{pprice}, opt1=#{opt1}, opt1_price=#{opt1_price}, 
+		opt2=#{opt2}, opt2_price=#{opt2_price}, opt3=#{opt3}, opt3_price=#{opt3_price}
+		<if test="pfile1 != null">
+			,pfile1=#{pfile1}, psfile1=#{psfile1}
+		</if>
+		<if test="pfile2 != null">
+			, pfile2=#{pfile2}, psfile2=#{psfile2}
+		</if>
+		<if test="pfile3 != null">
+			, pfile3=#{pfile3}, psfile3=#{psfile3}
+		</if>
+		where pid=#{pid}
+	</update>
 </mapper>
