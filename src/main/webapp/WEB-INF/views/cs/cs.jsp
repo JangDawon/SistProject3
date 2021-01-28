@@ -75,7 +75,7 @@
 	</div>
 	<table id="cs_list_table" class="cs_table">
 		<tr>
-			<td colspan='2'><span id='cs_count'>게시글 4개</span></td>
+			<td colspan='2'><span id='cs_count'>게시글 ${total }개</span></td>
 			<td colspan='3'><a href="cs_write.do"><button type="button" id="cs_write_btn" class="btn_style">글쓰기</button></a></td>
 		</tr>
 		<tr>

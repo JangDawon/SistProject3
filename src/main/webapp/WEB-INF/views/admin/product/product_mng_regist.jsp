@@ -15,7 +15,9 @@
 			var name = $(this).attr("name");
 			$("label[for='"+name+"']").css("width", "70px").css("background-color", "#F87E35").css("color","white");
 			$("label[for='"+name+"']").text("첨부 완료");
-		})
+		});
+		
+		
 	});
 </script>
 </head>
@@ -39,11 +41,11 @@
 	         <td>   
 	            <select name="pcat" id="pcat">
 	               <option>선택</option>
-	               <option value="food">음식</option>
-	               <option value="accessory">악세사리</option>
-	               <option value="living">패션&잡화</option>
-	               <option value="interior">인테리어 소품</option>
-	               <option value="etc">기타</option>
+	               <option value="음식">음식</option>
+	               <option value="악세사리">악세사리</option>
+	               <option value="패션&잡화">패션&잡화</option>
+	               <option value="인테리어 소품">인테리어 소품</option>
+	               <option value="기타">기타</option>
 	            </select>
 	         </td>
 	      </tr>
@@ -88,13 +90,13 @@
 	            <input type="text" name="opt1" id="opt1" placeholder="상품명을 입력해주세요 :)">
 	            <input type="text" name="opt1_price" id="opt1_price" placeholder="추가 금액" class="add_price">
 	            <input type="text" name="opt2" id="opt2" placeholder="상품명을 입력해주세요 :)">
-	            <input type="text" name="opt2_price" id="opt2_price" placeholder="추가 금액" class="add_price">
+	            <input type="text" name="opt2_price" id="opt2_price" placeholder="추가 금액" class="add_price" value=0>
 	            <input type="text" name="opt3" id="opt3" placeholder="상품명을 입력해주세요 :)">
-	            <input type="text" name="opt3_price" id="opt3_price" placeholder="추가 금액" class="add_price">
+	            <input type="text" name="opt3_price" id="opt3_price" placeholder="추가 금액" class="add_price" value=0>
 	            <input type="text" name="opt4" id="opt4" placeholder="상품명을 입력해주세요 :)">
-	            <input type="text" name="opt4_price" id="opt4_price" placeholder="추가 금액" class="add_price">
+	            <input type="text" name="opt4_price" id="opt4_price" placeholder="추가 금액" class="add_price" value=0>
 	            <input type="text" name="opt5" id="opt5" placeholder="상품명을 입력해주세요 :)">
-	            <input type="text" name="opt5_price" id="opt5_price" placeholder="추가 금액" class="add_price">
+	            <input type="text" name="opt5_price" id="opt5_price" placeholder="추가 금액" class="add_price" value=0>
 	         </td>
 	      </tr>
 	      <tr>

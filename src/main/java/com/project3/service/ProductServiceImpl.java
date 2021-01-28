@@ -1,6 +1,7 @@
 package com.project3.service;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,12 @@ public class ProductServiceImpl implements BoardService{
 	
 	public ModelAndView getList() {
 		ModelAndView mv = new ModelAndView();
+		
+		ArrayList<IdusProductVO> list = productDAO.getList();
+		
+		mv.addObject("list", list);
+		mv.setViewName("/admin/product/product_mng_list");
+		
 		return mv;
 	}
 	
@@ -24,16 +31,12 @@ public class ProductServiceImpl implements BoardService{
 		ModelAndView mv = new ModelAndView();
 		
 		IdusProductVO pvo = (IdusProductVO)vo;
-	 	
+		
 		UUID uuid = UUID.randomUUID();
 		
 		if(pvo.getFile1().getSize() != 0) {
 			pvo.setPfile1(pvo.getFile1().getOriginalFilename());
 			pvo.setPsfile1(uuid + "_" + pvo.getFile1().getOriginalFilename());
-			System.out.println(pvo.getFile2().getOriginalFilename());
-			System.out.println(pvo.getFile3().getOriginalFilename());
-			System.out.println(pvo.getFile4().getOriginalFilename());
-			System.out.println(pvo.getFile5().getOriginalFilename());
 			boolean result = productDAO.getInsert(pvo);
 			
 			if(result) {
@@ -55,6 +58,12 @@ public class ProductServiceImpl implements BoardService{
 	
 	public ModelAndView getContent(String id) {
 		ModelAndView mv = new ModelAndView();
+		
+		IdusProductVO vo = productDAO.getContent(id);
+		
+		mv.addObject("vo", vo);
+		mv.setViewName("/admin/product/product_mng_content");
+		
 		return mv;
 	}
 	
@@ -70,6 +79,16 @@ public class ProductServiceImpl implements BoardService{
 	
 	public ModelAndView getResultDelete(String id) {
 		ModelAndView mv = new ModelAndView();
+		boolean result = false;
+		
+		if(id.equals("all")) {
+			result = productDAO.getDeleteAll();
+			mv.setViewName("redirect:/product_mng_list.do");
+		}else {
+			
+		}
+		
+		
 		return mv;
 	}
 }

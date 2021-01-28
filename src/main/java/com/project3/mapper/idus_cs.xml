@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="mapper.cs">
+	<select id="list" resultType="com.project3.vo.IdusBoardVO">
+		select rownum rno, bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd') 
+		bdate, bhits, uemail, uname, bsecret s
+		from (select * from idus_board order by bdate desc)
+	</select>
+	
+	<insert id="insert" parameterType="com.project3.vo.IdusBoardVO">
+		insert into idus_board 
+		values('b_'||idus_board_seq.nextval, #{btitle}, #{bcontent}, #{bfile}, #{bsfile}, #{bpass}, 
+		sysdate, #{bhits}, 'jihye@naver.com', '최지혜', #{bsecret})
+	</insert>
+	
+	<select id="content" parameterType="java.lang.String" resultType="com.project3.vo.IdusBoardVO">
+		select bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd'), bhits, 
+		uemail, uname, bsecret from idus_board where bid = #{id}
+	</select>
+	
+	<update id="update" parameterType="com.project3.vo.IdusBoardVO">
+		update idus_board set btitle=#{btitle}, bcontent=#{bcontent}, bfile=#{bfile}, 
+		bsfile=#{bsfile}, bsecret=#{bsecret} where bid = #{bid}
+	</update>
+	
+	<update id="updateNofile" parameterType="com.project3.vo.IdusBoardVO">
+		update idus_board set btitle=#{btitle}, bcontent=#{bcontent}, bsecret=#{bsecret} 
+		where bid = #{bid}
+	</update>
+	
+	<delete id="delete" parameterType="java.lang.String">
+		delete from idus_board where bid = #{id}
+	</delete>
+	
+	<update id="bhits" parameterType="java.lang.String">
+		update idus_board set bhits = bhits+1 where bid = #{id}
+	</update>
+	
+	<select id="count" resultType="java.lang.Integer">
+		select count(*) from idus_board
+	</select>
+</mapper>
+

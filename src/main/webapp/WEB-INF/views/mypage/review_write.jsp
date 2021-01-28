@@ -14,8 +14,9 @@
 	$(document).ready(function() {
 
 		var rfileName = "";
+		
 
-	 	$("input[type=file]#rfile").on('change', function() {
+	 	$("input[type=file]#file1").on('change', function() {
 			if (window.FileReader) {
 				rfileName = $(this)[0].files[0].name;
 			}
@@ -31,7 +32,7 @@
 				return false;
 			} else if (rfileName == "") {
 				alert("리뷰사진을 입력해주세요,");
-				$("#rfile1").focus();
+				$("#file1").focus();
 				return false;
 			}else{
 				review_write_form.submit();
@@ -39,6 +40,10 @@
 		});
 	});
 </script>
+<style>
+table.review_write{
+margin-left:13px;}
+</style>
 </head>
 <body>
 	<div class="review_content">
@@ -75,7 +80,7 @@
 							name="rcontent" cols=55 rows=10></textarea></td>
 				</tr>
 				<tr>
-					<td colspan=2><input type="file" id="rfile" name="rfile"></td>
+					<td colspan=2><input type="file" id="file1" name="file1"></td>
 				</tr>
 				<tr>
 					<td colspan=2 class="td_center"><button type="button"
