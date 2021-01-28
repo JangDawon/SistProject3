@@ -7,6 +7,174 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>제품상세페이지</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 </head>
+<style>
+	#product_payInfo .add {
+		margin: 10px 0px;
+  		width: 230px;
+  	  	float: left;
+  	  	font-size: 13px;
+  	  	line-height: 17px;
+  	  	display: block;
+	}
+	
+	#optionCtn {
+		margin-top: 15px; 
+   		float: left;
+    	width: 85px;
+	}
+	#optionCtn .cnt{
+   		float: left;
+   		padding: 3px 7px;
+		border: solid 1px #aaaaaa;
+	}
+	
+	#optionCtn .downBtn {
+		all:unset;
+		float: left;
+		border-top: solid 1px #aaaaaa;
+		border-bottom: solid 1px #aaaaaa;
+		border-left: solid 1px #aaaaaa;
+		padding: 4px 4px 5px 4px;
+		text-align: center;
+		font-size: 14px;
+		color: #aaaaaa;
+		font-weight: bold;
+	}
+	
+	#optionCtn .upBtn {
+		all:unset;
+		float: left;
+		border-top: solid 1px #aaaaaa;
+		border-bottom: solid 1px #aaaaaa;
+		border-right: solid 1px #aaaaaa;
+		padding: 4px 4px 5px 4px;
+		text-align: center;
+		font-size: 14px;
+		color: #aaaaaa;
+		font-weight: bold;
+	}
+	
+	 #opPrice {
+		font-size: 14px;
+   		color: #c80a1e;
+    	margin: 16px 15px 0px 0px;
+    	width: 85px;
+    	line-height: 20px;
+    	float: left;
+    	text-align: right;
+	}
+	
+	#total_price {
+		margin-top:30px;
+		width:460px;
+	} 
+		
+	#opDelete {
+	    background-color: white;
+	    width: 20px;
+	    height: 20px;
+	    margin-top: 16px;
+	    margin-left: 30px;
+	    border: none;	
+	    font-size: 13px;
+	    text-align: center;
+	}
+	#opDelete:focus {
+		outline: none;
+	}
+</style>
+<script>
+$(document).ready(function(){
+	$("#product_colors").change(function(){		
+		var price = "<%= vo.getPprice()%>";	
+		if($("#product_colors option:selected").val() != "선택"){				
+			$("#total_price span").text(price+"원"); 
+			//$("#total_price").css("margin-left","300px");		
+			$(".add_content").css("display","block");
+		} else {
+			$("#total_price span").text("0원"); 
+			//$("#total_price").css("margin-left","354px");
+		}
+	});
+	
+	const price = parseInt($("#opPrice").text().replace(/ /gi,"").replace(/,/gi,""));
+	let cnt = 1;
+	let total = 0;
+	
+	$(".downBtn").click(function(){
+		if(cnt == 1) {
+			alert("최소 주문수량은 1개 이상입니다.");
+			return;
+		} else {
+			cnt = cnt - 1;
+			$(".cnt").text(cnt);
+			total = price * cnt;
+			$("#opPrice").text(comma(total+" 원"));
+			$("#total_price span").text(comma(total+" 원"));
+		}
+	});
+	
+	$(".upBtn").click(function(){
+		cnt = cnt + 1;
+		$(".cnt").text(cnt);
+		total = price * cnt;
+		$("#opPrice").text(comma(total+" 원"));
+			$("#total_price span").text(comma(total+" 원"));
+	});
+	
+	$("#opDelete").click(function(){
+		$(".add_content").css("display","none");	
+		triggerChange();
+		cnt = 1;
+		$(".cnt").text(cnt);
+		total = price * cnt;
+		$("#opPrice").text(comma(total+" 원"));
+		$("#total_price span").text("0원");
+	});
+	
+	$("#payBtn").click(function(){
+		if($("#product_colors option:selected").val() == "선택"){	
+			alert("주문 옵션을 선택해주세요.");
+			return;
+		} else {
+			<%if(mid !="") {%>
+			alert("주문확인 페이지로 이동합니다.");		
+			location.href='http://localhost:9000/sist_project_2/cart/order_form.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>&cnt='+cnt;
+			<%}else {%>
+			alert("로그인 해주세요!");
+			<%}%>
+		}
+	});
+	
+	$("#cartBtn").click(function(){
+		if($("#product_colors option:selected").val() == "선택"){	
+			alert("장바구니에 넣을 옵션을 선택해주세요.");
+			return;
+		} else {
+			<%if(mid !="") {%>
+				var info = confirm("장바구니 페이지로 이동할까요?");
+				if(info) {
+					alert("장바구니 페이지로 이동합니다.");
+					location.href='http://localhost:9000/sist_project_2/cart/cartProc.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>&cnt='+cnt;
+				} else {
+					$.ajax({
+						url : 'http://localhost:9000/sist_project_2/cart/cartProc.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>&cnt='+cnt,
+						success : function(result) {
+							if(result) {
+								alert("장바구니에 상품이 등록되었습니다.");
+							} else {
+								alert("장바구니에 상품이 등록되지 않았습니다.")
+							}
+						}
+					});
+				}
+			<%}else {%>
+			alert("로그인 해주세요!");
+			<%}%>
+		}
+        
+     });
+</script>
 <body>
    <!-- header -->
     <jsp:include page="../header.jsp" />
@@ -252,10 +420,36 @@
 	          			<div>
 							<select name="product_colors" id="product_colors">
 						  		<option value="선택">[필수] 색상을 선택해주세요</option>
+						  		<%-- <option value="color"><%= vo.getColor() %> <%= vo.getPprice()%>원</option> --%>
 						  		<option value="pink">핑크</option>
 						  		<option value="blue">하늘</option>
 						  	</select>
 					  	</div>
+						<li><hr style="margin:20px 0px;"></li>
+					  	<li class="add_content" style="display: none;">
+					  		<div class="add">
+					  			<b>[필수]</b>
+				 				&nbsp;&nbsp;
+				 				<span style="line-height: 20px"><%=vo.getPinfo() %></span>
+				 				<br>
+				 				<span style="color:#AAAAAA; line-height:20px;"> 색상 : <%= vo.getColor() %></span>
+				  			</div>
+				  			<div id="optionCtn">
+				  				<button class="downBtn"><</button>
+				  				<div class="cnt">1</div>
+				  				<button class="upBtn">></button>
+				  			</div>
+				  			<div id="opPrice"><%= vo.getPprice() %> 원</div>
+							<button type="button" id="opDelete">❌</button>
+						  	<hr style="margin-top:65px;">
+				  		</li>
+					  	<li class=total_price>
+					  		<div id="total_price">
+						  		총 구매가<span style="float:right;"> 0 원</span>
+					  		</div>
+					  	</li>
+					  	
+					  	
 	          		</div>
 	          	</div>
 	          	<div class="tab-style">
