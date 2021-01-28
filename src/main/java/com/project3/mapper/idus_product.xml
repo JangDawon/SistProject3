@@ -6,12 +6,14 @@
     
 <mapper namespace="mapper.product">
 	<select id="list" resultType="com.project3.vo.IdusProductVO">
-		select * from idus_product
+		select rownum rno, pid, pcat, sname, semail, ptitle, pcontent, pprice, opt1, opt1_price, opt2, opt2_price, opt3, opt3_price,
+		pfile1, psfile1, pfile2, psfile2, pfile3, psfile3, pdate, product_total from idus_product order by pdate desc
 	</select>
 	
 	<select id="plist" parameterType="map" resultType="com.project3.vo.IdusProductVO">
-		select * from (select rownum rno, sname, semail, pid, pcat, ptitle, pcontent, pprice, pfile1, psfile1 from idus_product) 
-		where rno between #{start} and #{end}
+		select * from (select rownum rno, pid, pcat, sname, semail, ptitle, pcontent, pprice, opt1, opt1_price, opt2, opt2_price, opt3, opt3_price,
+		pfile1, psfile1, pfile2, psfile2, pfile3, psfile3, pdate, product_total from (select * from idus_product order by pdate desc))
+    where rno between #{start} and #{end}
 	</select>
 	
 	<delete id="deleteAll">
@@ -19,7 +21,8 @@
 	</delete>
 	
 	<select id="content" parameterType="java.lang.String" resultType="com.project3.vo.IdusProductVO">
-		select * from idus_product where pid=#{id}
+		select pid, pcat, sname, semail, ptitle, pcontent, pprice, opt1, opt1_price, opt2, opt2_price, opt3, opt3_price,
+		pfile1, psfile1, pfile2, psfile2, pfile3, psfile3, to_char(pdate, 'yyyy.mm.dd') pdate, product_total from idus_product where pid=#{id}
 	</select>
 	
 	<select id="count" resultType="java.lang.Integer">

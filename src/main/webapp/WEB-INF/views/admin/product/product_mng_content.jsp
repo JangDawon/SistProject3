@@ -40,8 +40,12 @@
 		<tr>
 			<td colspan="4"><div>${vo.pcontent }
 				<br><img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }" style="height:100px; height:100px;">
-				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile2 }" style="height:100px; height:100px;">
-				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile3 }" style="height:100px; height:100px;">
+				<c:if test="${vo.psfile2 ne null}">
+					<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile2 }" style="height:100px; height:100px;">
+				</c:if>
+				<c:if test="${vo.psfile3 ne null}">
+					<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile3 }" style="height:100px; height:100px;">
+				</c:if>
 			</div>
 			</td>
 		</tr>
