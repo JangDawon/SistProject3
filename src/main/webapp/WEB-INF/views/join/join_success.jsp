@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/login.css">
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/join.css">
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>회원가입</title>
 
 <head>

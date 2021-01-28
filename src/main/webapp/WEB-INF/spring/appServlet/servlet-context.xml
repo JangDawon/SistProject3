@@ -18,10 +18,15 @@
 	<resources mapping="/js/**" location="/resources/js/" />
 	<resources mapping="/images/**" location="/resources/images/" />
 
+	<beans:bean class="com.project3.service.certifyServiceImpl" id="certifyService"></beans:bean>
+	
+
 	<!-- multipartResolver -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	</beans:bean> 
 
+<<<<<<< HEAD
+=======
 	<!-- DAO Object -->
 	<beans:bean class="com.project3.dao.IdusBoardDAO" id="boardDAO"></beans:bean>
 	<beans:bean class="com.project3.dao.IdusProductDAO" id="productDAO"></beans:bean>
@@ -29,6 +34,7 @@
 	<!-- Service -->
 	<beans:bean class="com.project3.service.BoardServiceImpl" id="boardService"></beans:bean>
 	<beans:bean class="com.project3.service.ProductServiceImpl" id="productService"></beans:bean>
+>>>>>>> branch 'master' of https://github.com/jihye0526/SistProject3.git
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -38,5 +44,6 @@
 	
 	<context:component-scan base-package="com.spring.sistproject3" />
 	<context:component-scan base-package="com.project3.controller" />
+	<context:component-scan base-package="com.project.service" />
 	
 </beans:beans>

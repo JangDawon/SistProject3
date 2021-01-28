@@ -108,7 +108,12 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-	
+		<!-- certify -->
+		<dependency>
+    		<groupId>net.nurigo</groupId>
+    		<artifactId>javaSDK</artifactId>
+    		<version>2.2</version>
+		</dependency>
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
