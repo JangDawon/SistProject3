@@ -140,8 +140,8 @@
           	 				<p>배송비</p>
           	 			</div>
           	 			<div class="product_delivery_td">
-          	 				<p>기본료 : 3,000원</p>
-          	 				<p>배송비 무료 조건 : 100,000원</p>
+          	 				<p>기본료 : 2,600원</p>
+          	 				<p>배송비 무료 조건 : 50,000원</p>
           	 			</div>
           	 		</div>
           	 		<div style="display:flex;">
@@ -222,11 +222,11 @@
           			</div>
           		</div>
           	
-          		<h2 class="aside_product-title" name="prod_name">레터링 마카롱 케이크 ❤️생일선물 기념일 새해</h2>
+          		<h2 class="aside_product-title" name="ptitle">레터링 마카롱 케이크 ❤️생일선물 기념일 새해</h2>
           		<div class="aside_product-info">
           			<div class="price_tag_detail">
           				<span class="price_tag_strong">
-          					<strong>18,900</strong>원
+          					<strong name="pprice">18,900</strong>원
           				</span>
           			</div>
           			
@@ -242,7 +242,7 @@
 	          			</div>
 	          			<div>
 	          				<span class="span-title-txt">배송비</span>
-	          				<span class="bold-txt">3000원</span>
+	          				<span class="bold-txt">2,600원</span>
 	          			</div>
 	          			<div>
 	          				<span class="span-title-txt">배송 시작</span>
@@ -253,21 +253,39 @@
 	          				<span class="bold-txt">주문시 제작</span>
 	          			</div>
 	          			<div>
-							<select name="product_colors" id="product_colors">
-						  		<option value="선택">[필수] 색상을 선택해주세요</option>
-						  		<option value="pink">핑크</option>
-						  		<option value="blue">하늘</option>
+							<select name="product_option" id="product_option" >
+						  		<option value="선택">[필수] 옵션을 선택해주세요</option>
+						  		<option value="opt1">핑크</option>
+						  		<option value="opt2">하늘</option>
 						  	</select>
 					  	</div>
           			</div>
           		</div>
-	          	<div class="tab-style">
-	          	
+	          	<div class="tab_style">
+	          		<div class="option">색상 : 핑크</div>
+	          		<div class="product_qty_price">
+	          			<div class="product_num">
+							<button type="button" class="minus" name="minus" id="p1">-</button>
+							<input type="text" class="price" value="1" id="p1_amt">
+							<button type="button" class="plus" name="plus" id="p1">+</button>
+						</div>
+						<div class="price"><span class="p1_price">9400</span>원</div>
+	          		</div>
 	          	</div>
+	          	<table class="price_sum">
+	          		<tr>
+	          			<td>
+	          				<div class="sum_title">총 작품금액</div>
+	          			</td>
+	          			<td>
+	          				<div class="sum"><span class="p1_price">9400</span>원</div>
+	          			</td>
+	          		</tr>
+	          	</table>
 	          	<div>
 	          		<div class="btn_box">
-	          			<button type="submit" class="btn_cart">장바구니</button>
-	          			<button type="submit" class="btn_buy">구매하기</button>
+	          			<button type="submit" class="btn_cart" id="cartBtn">장바구니</button>
+	          			<button type="submit" class="btn_buy" id="payBtn">구매하기</button>
 	          		</div>
 	          	</div>
           	</form>

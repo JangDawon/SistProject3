@@ -34,7 +34,7 @@
 			
 			<div class="cart_content">
 				<table>
-					<!-- <!-- <tr class="cart_title">
+					<!-- <tr class="cart_title">
 						<td>
 							<div class="cart_artist_chk">
 								<input type="checkbox" class="artist_name_chk">
@@ -45,7 +45,7 @@
 								<span class="rchk">호러블리 horror_vely 작가님</span>
 							</div>
 						</td>
-					</tr> --> -->
+					</tr> -->
 					<tr class="cart_product">
 						<td rowspan="2" width=2%>
 							<div class="cart_chk">
@@ -77,7 +77,7 @@
 							</div>
 						</td>
 						<td width=11%>
-							<div class="cart_price"><span id="p1_price">9400</span>원</div>
+							<div class="cart_price"><span class="p1_price">9400</span>원</div>
 						</td>
 						<td>
 							<div class="cart_update">
@@ -89,7 +89,7 @@
 					<tr class="cart_price_name">
 						<td colspan="2"><div class="price_title">작품 가격</div></td>
 						<td colspan="4">
-							<div class="price_content"><span id="p1_price">9400</span>원</div>
+							<div class="price_content"><span class="p1_price">9400</span>원</div>
 						</td>
 					</tr>
 					<tr class="cart_price_del">

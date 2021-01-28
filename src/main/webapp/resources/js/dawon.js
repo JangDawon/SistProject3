@@ -52,18 +52,18 @@
 			var obj_value = parseInt($(vname).val());
 			
 			//수량 변경 시 적립금, 가격 수정
-			var price = parseInt($("#" + obj_id + "_price").text());
+			var price = parseInt($("." + obj_id + "_price").text());
 			var one_price = price/obj_value;
 			
 			if(obj_name == "plus") {
 				$(vname).val(obj_value+1);
-				$("#"+obj_id+"_price").text(price + one_price);
+				$("."+obj_id+"_price").text(price + one_price);
 			}else if(obj_name == "minus") {
 				if(obj_value == 1) {
 					alert("최소 주문 수량은 1개입니다.");
 				}else {
 					$(vname).val(obj_value-1);
-					$("#"+obj_id+"_price").text(price - one_price);
+					$("."+obj_id+"_price").text(price - one_price);
 				}
 			}
 		});
@@ -76,7 +76,11 @@
 			confirm("정말 삭제하시겠습니까?");
 		});
 		
-		
+		$("#product_option").change(function(){
+			if($(this).val() != "선택"){
+				$(".tab_style").css("display","block");
+			}
+		});
 		
 		
 	});
