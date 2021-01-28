@@ -34,7 +34,7 @@
 			
 			<div class="cart_content">
 				<table>
-					<tr class="cart_title">
+					<!-- <!-- <tr class="cart_title">
 						<td>
 							<div class="cart_artist_chk">
 								<input type="checkbox" class="artist_name_chk">
@@ -45,7 +45,7 @@
 								<span class="rchk">호러블리 horror_vely 작가님</span>
 							</div>
 						</td>
-					</tr>
+					</tr> --> -->
 					<tr class="cart_product">
 						<td rowspan="2" width=2%>
 							<div class="cart_chk">

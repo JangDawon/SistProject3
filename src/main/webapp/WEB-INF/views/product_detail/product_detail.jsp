@@ -228,17 +228,9 @@
           				<span class="price_tag_strong">
           					<strong>18,900</strong>원
           				</span>
-	          			<!-- <div class="aside_mark_btn">
-	          				<button><img src="http://localhost:9000/sistproject3/images/star_off.png"></button>
-	          				<button><img src="http://localhost:9000/sistproject3/images/icon-share.png"></button>
-	          			</div> -->
           			</div>
           			
           			<div class="product-define-info">
-          			<!-- <div>
-          				<span class="span-title-txt">적립금</span>
-          				<span class="bold-txt">최대 661P</span>
-          			</div> -->
 	          			<div>
 	          				<span class="span-title-txt">구매후기</span>
 	          				<a href="">
@@ -269,16 +261,13 @@
 					  	</div>
           			</div>
           		</div>
-	          	<!-- <div class="tab-style">
-	          	</div> -->
+	          	<div class="tab-style">
+	          	
+	          	</div>
 	          	<div>
 	          		<div class="btn_box">
 	          			<button type="submit" class="btn_cart">장바구니</button>
 	          			<button type="submit" class="btn_buy">구매하기</button>
-	          			<!-- <button class="btn_gift">
-	          				<img src="http://localhost:9000/sistproject3/images/gift-box.png">
-	          				<span>선물하기</span>
-	          			</button> -->
 	          		</div>
 	          	</div>
           	</form>

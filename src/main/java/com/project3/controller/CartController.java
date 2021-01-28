@@ -25,10 +25,10 @@ public class CartController {
 	/**
 	 * 장바구니 담기
 	 */
-	@RequestMapping(value = "/cart_proc.do", method = RequestMethod.POST)
+	/* @RequestMapping(value = "/cart_proc.do", method = RequestMethod.POST)
 	public String cart_proc(IdusCartVO vo) {
 		return cartService.getResultCart(vo);
-	}
+	} */
 	
 	
 	/**
