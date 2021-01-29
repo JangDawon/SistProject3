@@ -32,11 +32,7 @@
 	<!-- Service -->
 	<beans:bean class="com.project3.service.BoardServiceImpl" id="boardService"></beans:bean>
 	<beans:bean class="com.project3.service.ProductServiceImpl" id="productService"></beans:bean>
-<<<<<<< HEAD
 	<beans:bean class="com.project3.service.CartServiceImpl" id="cartService"></beans:bean>
-
-=======
->>>>>>> branch 'master' of https://github.com/jihye0526/SistProject3.git
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
