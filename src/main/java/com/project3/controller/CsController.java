@@ -17,8 +17,8 @@ public class CsController {
 	private BoardService boardService;
 	
 	@RequestMapping(value = "/cs.do", method = RequestMethod.GET)
-	public ModelAndView cs() {
-		return (ModelAndView)boardService.getList();
+	public ModelAndView cs(String rpage) {
+		return (ModelAndView)boardService.getList(rpage, null);
 	}
 	
 	@RequestMapping(value = "/cs_write.do", method = RequestMethod.GET)

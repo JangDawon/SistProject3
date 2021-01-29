@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="mapper.cart">
+
+	<insert id="cart" parameterType="com.project3.vo.IdusCartVO">
+		insert into idus_cart values('c_'||sequ_cart.nextval, #{uemail}, #{pid}, 
+			#{prod_name}, #{prod_qty}, #{prod_opt}, #{prod_price})
+	</insert>
+	
+</mapper>
+
