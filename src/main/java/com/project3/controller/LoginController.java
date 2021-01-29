@@ -56,7 +56,7 @@ public class LoginController {
 	}
 	
 	/**
-	 * 로그아웃
+	 * 로그아웃 처리
 	 */
 	@RequestMapping(value="/logout.do", method=RequestMethod.GET)
 	public String logout(HttpSession session) {
