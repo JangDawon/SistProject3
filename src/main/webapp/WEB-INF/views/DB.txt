@@ -56,4 +56,4 @@ CREATE TABLE idus_product(
   psfile3    VARCHAR2(100),
   pdate     DATE,
   PRODUCT_TOTAL NUMBER(10)
-);  
+);
