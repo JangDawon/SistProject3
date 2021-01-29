@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/login.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sistproject3/js/login.js"></script>
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>로그인</title>
@@ -38,7 +38,7 @@
 						<li><hr>&nbsp;&nbsp;이메일 로그인&nbsp;&nbsp;<hr></li>
 						<li><input type="text" name="id" placeholder="이메일" id="id"></li>
 						<li><input type="password" name="pass" placeholder="비밀번호" id="pass"></li>
-						<li><a href="#"><span>아이디 / 비밀번호를 잊어버리셨나요?</span></a></li>
+						<li><a href="login_check.do"><span>아이디 / 비밀번호를 잊어버리셨나요?</span></a></li>
 						<li><a href="http://localhost:9000/sistproject3/index.do"><button type=button id=btnLogin>로그인</button></a></li>
 					</ul>	
 				</form>	

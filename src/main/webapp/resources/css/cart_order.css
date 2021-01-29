@@ -1,0 +1,39 @@
+	/*
+	cart_order.jsp
+	*/
+	
+	body.category section.payment_order,
+	body.category section.payment_info{
+		display:inline-block;
+	}
+	body.category section.payment_order{
+		width:400px;
+	}
+	body.category section.payment_info{
+		margin-left:30px;
+		width:300px;
+		float:right;
+		border:1px solid black;
+	}
+    ul.page_location li:nth-child(2) {
+       color:black;
+    }
+    body.category div.order_customer,
+    body.category div.order_addr,
+    body.category div.order_info,
+    body.category div.order_payment{
+    	box-shadow:2px 2px 0px 0px rgb(217,217,217);
+    	border:0.1px solid lightgray;
+    	padding:15px 10px;
+    	margin:15px 0;
+    }
+    body.category div.order_content,
+    body.category div.order_content_body{
+    	padding:10px 0;
+    }
+    body.category div.order_customer span.customer{
+    	float:right;
+    }
+    body.category section.payment_order span.order_title{
+    	font-weight:bold;
+    }
