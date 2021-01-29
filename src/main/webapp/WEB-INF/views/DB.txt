@@ -1,5 +1,20 @@
-/* ¾ÆÀÌµð¾î½º °øÁö»çÇ× & 1´ë1¹®ÀÇ °Ô½ÃÆÇ Å×ÀÌºí »ý¼º(ÁöÇý) 
-*  ¼öÁ¤ÀÏ : 2021.01.25
+/*
+	ì•„ì´ë””ì–´ìŠ¤ ë§´ë²„ í…Œì´ë¸” ìƒì„±(ì¤€ì„±)
+	ìˆ˜ì •ì¼ : 2021.01.28 ì˜¤í›„ 3ì‹œ 37ë¶„
+*/
+create table idus_member(
+	UEMAIL varchar2(30) Primary key,
+	UPASS varchar2(15) not null,
+	UNAME varchar2(10) not null,
+	CP varchar2(15) not null,
+	ADDR varchar2(100),
+	AGGRSMS varchar2(10),
+	AGGREMAIL varchar2(10),
+	PFILE varchar2(100),
+	PSFILE varchar2(100)
+);
+/* ì•„ì´ë””ì–´ìŠ¤ ê³µì§€ì‚¬í•­ & 1ëŒ€1ë¬¸ì˜ ê²Œì‹œíŒ í…Œì´ë¸” ìƒì„±(ì§€í˜œ) 
+*  ìˆ˜ì •ì¼ : 2021.01.25
 */
 CREATE TABLE idus_board(
   bid       VARCHAR2(20) primary key,
@@ -15,8 +30,24 @@ CREATE TABLE idus_board(
   bsecret VARCHAR2(15)
 );
 
-/* ¾ÆÀÌµð¾î½º »óÇ° Å×ÀÌºí »ý¼º(ÁöÇý) 
-*  ¼öÁ¤ÀÏ : 2021.01.25 ¿ÀÈÄ 10½Ã 39ºÐ
+/*  ì•„ì´ë””ì–´ìŠ¤ ê³µì§€ì‚¬í•­ & 1ëŒ€1ë¬¸ì˜ ê²Œì‹œíŒ í…Œì´ë¸” ì»¬ëŸ¼ ì¶”ê°€(ì§€í˜œ)  
+*   ìˆ˜ì •ì¼ : 2021.01.25 ì˜¤í›„ 10ì‹œ 39ë¶„
+*/
+ALTER TABLE idus_board ADD(bsecret VARCHAR2(15));
+
+/*  ì•„ì´ë””ì–´ìŠ¤ ê²Œì‹œíŒ í…Œì´ë¸” Sequence & ìƒí’ˆ í…Œì´ë¸” Sequence(ì§€í˜œ)  
+*   ìˆ˜ì •ì¼ : 2021.01.25 ì˜¤í›„ 10ì‹œ 39ë¶„
+*/
+CREATE SEQUENCE IDUS_SEQ
+  START WITH 1
+  INCREMENT BY 1;
+  
+CREATE SEQUENCE IDUS_PRODUCT_SEQ
+  START WITH 1
+  INCREMENT BY 1;  
+  
+/* ì•„ì´ë””ì–´ìŠ¤ ìƒí’ˆ í…Œì´ë¸” ìƒì„±(ì§€í˜œ) 
+*  ìˆ˜ì •ì¼ : 2021.01.28 ì˜¤í›„ 4ì‹œ 23ë¶„
 */
 CREATE TABLE idus_product(
   pid       VARCHAR2(20) primary key,
@@ -32,48 +63,12 @@ CREATE TABLE idus_product(
   opt2_price number(10),
   opt3      varchar2(150),
   opt3_price number(10),
-  opt4      varchar2(150),
-  opt4_price number(10),
-  opt5      varchar2(150),
-  opt5_price number(10),
   pfile1     VARCHAR2(100) NOT NULL,
   psfile1    VARCHAR2(100) NOT NULL,
   pfile2     VARCHAR2(100),
   psfile2    VARCHAR2(100),
   pfile3     VARCHAR2(100),
   psfile3    VARCHAR2(100),
-  pfile4     VARCHAR2(100),
-  psfile4    VARCHAR2(100),
-  pfile5     VARCHAR2(100),
-  psfile5    VARCHAR2(100),
-  pfile6     VARCHAR2(100),
-  psfile6    VARCHAR2(100),  
-  pfile7     VARCHAR2(100),
-  psfile7    VARCHAR2(100),
-  pfile8     VARCHAR2(100),
-  psfile8    VARCHAR2(100),
-  pfile9     VARCHAR2(100),
-  psfile9    VARCHAR2(100),
   pdate     DATE,
-  PRODUCT_TOTAL NUMBER(10),
-  SELLER_TOTAL NUMBER(10)
+  PRODUCT_TOTAL NUMBER(10)
 );
-
-
-/*  ¾ÆÀÌµð¾î½º °øÁö»çÇ× & 1´ë1¹®ÀÇ °Ô½ÃÆÇ Å×ÀÌºí ÄÃ·³ Ãß°¡(ÁöÇý)  
-*	¼öÁ¤ÀÏ : 2021.01.25 ¿ÀÈÄ 10½Ã 39ºÐ
-*/
-ALTER TABLE idus_board ADD(bsecret VARCHAR2(15));
-
-/*  ¾ÆÀÌµð¾î½º °Ô½ÃÆÇ Å×ÀÌºí Sequence & »óÇ° Å×ÀÌºí Sequence(ÁöÇý)  
-*	¼öÁ¤ÀÏ : 2021.01.25 ¿ÀÈÄ 10½Ã 39ºÐ
-*/
-CREATE SEQUENCE IDUS_SEQ
-  START WITH 1
-  INCREMENT BY 1;
-  
-CREATE SEQUENCE IDUS_PRODUCT_SEQ
-  START WITH 1
-  INCREMENT BY 1;  
-
-

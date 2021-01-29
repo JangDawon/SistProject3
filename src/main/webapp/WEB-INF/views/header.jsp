@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.project3.vo.*"
+    %>
+<%
+	IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");					
+%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,16 +17,16 @@
 	<header>
 		<nav class="navbar">
 			<div class="navbar1">
-				<%-- <% if(svo != null){ %> 
+				<% if(svo != null){ %> 
 				<ul>
-					<li><a href="#">안녕하세요~ <%=svo.getName() %>님!!</a></li>
+					<li><a href="#">안녕하세요~ <%=svo.getUname() %>님!!</a></li>
 					<li><a href="http://localhost:9000/sistproject3/logout.do">로그아웃</a><div></div></li>
 					<li><a href="#">고객센터</a><div></div></li>
-					<% if(svo.getName().equals("관리자")){ %>
+					<% if(svo.getUname().equals("관리자")){ %>
 					<li><a href="#">Admin</a></li>
 					<% } %>
 				</ul>
-				<% }else{ %> --%>
+				<% }else{ %>
 				<div class="navbar1_wrapper">
 					<ul class="navbar_menu">
 						<li><a href="http://localhost:9000/sistproject3/login.do">로그인</a></li>
@@ -29,6 +34,7 @@
 						<li><a href="http://localhost:9000/sistproject3/cs.do">고객센터</a></li>
 						<li><a href="http://localhost:9000/sistproject3/admin.do">admin</a></li>
 					</ul>
+				<% } %>
 				</div>
 			</div>
 			<div class="navbar2">

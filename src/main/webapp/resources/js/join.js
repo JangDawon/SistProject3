@@ -30,7 +30,9 @@ $(document).ready(function(){
 		*	로그인 폼 체크
 		**/
 		$("#btnLogin").click(function(){
-			if(!ruleCheck($("#id"))){
+			if(!emailCheck($("#id"))){
+				alert("이메일 형식으로 입력해주세요.");
+				$("#id").focus();
 				return false;
 			}else if($("#pass").val() == ""){
 				alert("패스워드를 입력해주세요");
@@ -129,6 +131,15 @@ $(document).ready(function(){
 			$("#checkbox_1").prop("checked", this.checked);
 			$("#checkbox_2").prop("checked", this.checked);
 			$("#checkbox_3").prop("checked", this.checked);
+		});
+		
+		$("#checkbox_3").change(function(){
+			//$("#checkbox_3_hd").prop("checked", this.checked);
+			if($(this).is(":checked")) {
+				$("#checkbox_3_hd").val("on");
+			}else {
+				$("#checkbox_3_hd").val("off");
+			}
 		});
 		
 		/** 

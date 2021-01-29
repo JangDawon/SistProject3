@@ -5,9 +5,15 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="mapper.cs">
+	<select id="plist" parameterType="map" resultType="com.project3.vo.IdusBoardVO">
+		select * from (select rownum rno, bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd') bdate, 
+		bhits, uemail, uname, bsecret 
+		from (select * from idus_board order by bdate desc)) where rno between #{start} and #{end}
+	</select>
+	
 	<select id="list" resultType="com.project3.vo.IdusBoardVO">
-		select rownum rno, bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd') 
-		bdate, bhits, uemail, uname, bsecret 
+		select rownum rno, bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd') bdate, 
+		bhits, uemail, uname, bsecret 
 		from (select * from idus_board order by bdate desc)
 	</select>
 	
