@@ -372,6 +372,7 @@
 *   °øÅë (ÁöÇý)
 **/
 button.btn_style {background-color:#F87E35; color:white; font-weight:600; border:none; border-radius:2px; padding:5px 13px;}
+button.btn_style1 {background-color:#F87E35; color:white; font-weight:600; border:none; border-radius:2px; padding:5px 13px;}
 body>div.jihye_content {width:1100px; margin:auto; margin-top:30px; margin-bottom:100px; /*border:1px solid purple;*/ }
 
 /**
@@ -393,7 +394,7 @@ table#cs_list_table tr:first-child td {border-top:1px solid white;}
 table#cs_list_table tr:first-child td:first-child {text-align:left; font-size:14px; font-weight:600;}
 table#cs_list_table tr:first-child td:last-child {text-align:right; padding-bottom:5px;}
 table#cs_list_table tr:nth-child(2) {border-top:2px solid lightgray; border-bottom:2px solid lightgray;}
-table#cs_list_table tr:last-child td{border-bottom:1px solid white;}
+table#cs_list_table tr:last-child td{border-bottom:1px solid white; padding-top:100px;}
 table#cs_list_table td {padding:0 15px 0 15px;}
 table#cs_list_table td:nth-child(2) {width:500px;}
 table#cs_list_table td:nth-child(4) {width:100px;}
@@ -472,7 +473,7 @@ table#user_list button#user_select_delete {padding:7px 12px; margin-right:5px;}
 table#user_list button#user_all_delete {background-color:tomato; padding:7px 12px;}
 table#user_list tr:first-child td {text-align:right; border:1px solid white; padding-bottom:10px;}
 table#user_list tr:nth-child(2) {border-top:2px solid lightgray; border-bottom:2px solid lightgray;}
-table#user_list tr:last-child td {border-bottom:1px solid white; border-top:2px solid lightgray;}
+table#user_list tr:last-child td {border-bottom:1px solid white; border-top:2px solid lightgray; padding-top:100px;}
 table#user_list tr th, table#user_list tr td {height:35px;}
 
 /**
@@ -496,7 +497,7 @@ table#admin_review_list tr:first-child td {border-top:2px solid white; text-alig
 table#admin_review_list tr:nth-child(2) th {border-top:2px solid lightgray; border-bottom:2px solid lightgray; height:35px;}
 table#admin_review_list tr:first-child td button{padding:7px 12px; margin-right:5px; margin-bottom:10px;}
 table#admin_review_list tr:first-child td button#review_all_delete{background-color:tomato;}
-table#admin_review_list tr:last-child td {border:1px solid white; border-top:2px solid lightgray;}
+table#admin_review_list tr:last-child td {border:1px solid white; border-top:2px solid lightgray; padding-top:100px;}
 table#admin_review_list td>img {height:100px; height:100px;}
 table#admin_review_list td:nth-child(1) {width:40px;}
 table#admin_review_list td:nth-child(2) {width:70px;}
@@ -524,7 +525,7 @@ table#admin_product_list tr:first-child button{padding:7px 10px; margin:0px 2px;
 table#admin_product_list tr:first-child button#product_all_delete{background-color:tomato;}
 table#admin_product_list tr:first-child td{text-align:right; border-top:none; border-bottom:2px solid lightgray; padding-bottom:10px;}
 table#admin_product_list tr:nth-child(2) th {border-bottom:2px solid lightgray; height:35px;}
-table#admin_product_list tr:last-child td{border-bottom:none; border-top:2px solid lightgray;}
+table#admin_product_list tr:last-child td{border-bottom:none; border-top:2px solid lightgray; padding-top:100px;}
 table#admin_product_list td:nth-child(2) {width:100px;}
 table#admin_product_list td:nth-child(4) {width:300px;}
 
@@ -548,8 +549,9 @@ table#admin_product_regist tr:nth-child(4) textarea, table#admin_product_update 
 table#admin_product_regist tr:nth-child(5) input, table#admin_product_regist tr:nth-child(6) input,
 table#admin_product_update tr:nth-child(5) input, table#admin_product_update tr:nth-child(6) input{width:200px; }
 table#admin_product_regist tr:nth-child(6) input, table#admin_product_update tr:nth-child(6) input {width:400px; margin-top:5px; margin-bottom:5px;}
+table#admin_product_regist tr:nth-child(6) td, table#admin_product_update tr:nth-child(6) td{height:170px;}
 table#admin_product_regist tr:nth-child(6) input.add_price, table#admin_product_update tr:nth-child(6) input.add_price {width:100px; margin-top:5px; margin-bottom:5px;}
-table#admin_product_regist tr:nth-child(7), table#admin_product_update tr:nth-child(7) {height:150px;}
+table#admin_product_regist tr:nth-child(7), table#admin_product_update tr:nth-child(7) {height:100px;}
 table#admin_product_regist tr:nth-child(7) input, table#admin_product_update tr:nth-child(7) input{padding-left:0px; position: absolute; width: 0;
   height: 0px; padding:0px; overflow: hidden; border: 0;}
 table#admin_product_regist tr:nth-child(7) label, table#admin_product_update tr:nth-child(7) label{float:left; margin:5px; padding: 6px 20px; border:2px solid #F87E35; border-radius: 4px; font-weight:600; color:#F87E35; cursor: pointer;}

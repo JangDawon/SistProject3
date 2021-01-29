@@ -51,9 +51,9 @@ $(document).ready(function(){
 				alert("옵션 가격을 입력해주세요");
 				$("#opt1_price").focus();
 				return false;
-			}else if($("#bfile1").val() == ""){
+			}else if($("#file1").val() == ""){
 				alert("이미지를 선택해주세요");
-				$("#bfile1").focus();
+				$("#file1").focus();
 				return false;
 			}else{
 				alert("성공적으로 수정되었습니다:)");
@@ -98,9 +98,9 @@ $(document).ready(function(){
 			alert("옵션 가격을 입력해주세요");
 			$("#opt1_price").focus();
 			return false;
-		}else if($("#bfile1").val() == ""){
+		}else if($("#file1").val() == ""){
 			alert("이미지를 선택해주세요");
-			$("#bfile1").focus();
+			$("#file1").focus();
 			return false;
 		}else{
 			alert("성공적으로 등록되었습니다:)");
