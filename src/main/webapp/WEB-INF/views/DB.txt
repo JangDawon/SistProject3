@@ -1,5 +1,21 @@
-/* ¾ÆÀÌµð¾î½º °øÁö»çÇ× & 1´ë1¹®ÀÇ °Ô½ÃÆÇ Å×ÀÌºí »ý¼º(ÁöÇý) 
-*  ¼öÁ¤ÀÏ : 2021.01.25
+/*
+	ì•„ì´ë””ì–´ìŠ¤ ë§´ë²„ í…Œì´ë¸” ìƒì„±(ì¤€ì„±)
+	ìˆ˜ì •ì¼ : 2021.01.28 ì˜¤í›„ 3ì‹œ 37ë¶„
+*/
+create table idus_member(
+	UEMAIL varchar2(30) Primary key,
+	UPASS varchar2(15) not null,
+	UNAME varchar2(10) not null,
+	CP varchar2(15) not null,
+	ADDR varchar2(100),
+	AGGRSMS varchar2(10),
+	AGGREMAIL varchar2(10),
+	PFILE varchar2(100),
+	PSFILE varchar2(100)
+);
+
+/* ï¿½ï¿½ï¿½Ìµï¿½î½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ & 1ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) 
+*  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : 2021.01.25
 */
 CREATE TABLE idus_board(
   bid       VARCHAR2(20) primary key,
@@ -15,8 +31,8 @@ CREATE TABLE idus_board(
   bsecret VARCHAR2(15)
 );
 
-/* ¾ÆÀÌµð¾î½º »óÇ° Å×ÀÌºí »ý¼º(ÁöÇý) 
-*  ¼öÁ¤ÀÏ : 2021.01.25 ¿ÀÈÄ 10½Ã 39ºÐ
+/* ï¿½ï¿½ï¿½Ìµï¿½î½º ï¿½ï¿½Ç° ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) 
+*  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : 2021.01.25 ï¿½ï¿½ï¿½ï¿½ 10ï¿½ï¿½ 39ï¿½ï¿½
 */
 CREATE TABLE idus_product(
   pid       VARCHAR2(20) primary key,
@@ -59,13 +75,13 @@ CREATE TABLE idus_product(
   SELLER_TOTAL NUMBER(10)
 );
 
-/*  ¾ÆÀÌµð¾î½º °øÁö»çÇ× & 1´ë1¹®ÀÇ °Ô½ÃÆÇ Å×ÀÌºí ÄÃ·³ Ãß°¡(ÁöÇý)  
-*	¼öÁ¤ÀÏ : 2021.01.25 ¿ÀÈÄ 10½Ã 39ºÐ
+/*  ï¿½ï¿½ï¿½Ìµï¿½î½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ & 1ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ã·ï¿½ ï¿½ß°ï¿½(ï¿½ï¿½ï¿½ï¿½)  
+*	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : 2021.01.25 ï¿½ï¿½ï¿½ï¿½ 10ï¿½ï¿½ 39ï¿½ï¿½
 */
 ALTER TABLE idus_board ADD(bsecret VARCHAR2(15));
 
-/*  ¾ÆÀÌµð¾î½º °Ô½ÃÆÇ Å×ÀÌºí Sequence & »óÇ° Å×ÀÌºí Sequence(ÁöÇý)  
-*	¼öÁ¤ÀÏ : 2021.01.25 ¿ÀÈÄ 10½Ã 39ºÐ
+/*  ï¿½ï¿½ï¿½Ìµï¿½î½º ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ Sequence & ï¿½ï¿½Ç° ï¿½ï¿½ï¿½Ìºï¿½ Sequence(ï¿½ï¿½ï¿½ï¿½)  
+*	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : 2021.01.25 ï¿½ï¿½ï¿½ï¿½ 10ï¿½ï¿½ 39ï¿½ï¿½
 */
 CREATE SEQUENCE IDUS_SEQ
   START WITH 1
