@@ -80,13 +80,8 @@ public class IdusBoardDAO extends DBConn{
 	/**
 	 * CS ªË¡¶
 	 */
-	public boolean getDelete(String id) {
-		boolean result = false;
-		
-		int count = sqlSession.delete(namespace+".delete", id);
-		if(count != 0) result = true;
-		
-		return result;
+	public int getDelete(String id) {
+		return sqlSession.delete(namespace+".delete", id);
 	}
 	
 	/**

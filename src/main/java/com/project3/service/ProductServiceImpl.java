@@ -178,18 +178,17 @@ public class ProductServiceImpl implements BoardService{
 		return mv;
 	}
 	
-	public ModelAndView getResultDelete(String id) {
-		ModelAndView mv = new ModelAndView();
-		boolean result = false;
-		
-		if(id.equals("all")) {
-			result = productDAO.getDeleteAll();
-			mv.setViewName("redirect:/product_mng_list.do");
+	public int getResultDelete(String id) {
+		int count = 0; return count;
+	}
+	
+	public int getResultDelete(String[] del_list) {
+		int count = 0;
+		if(del_list[0].equals("all")) {
+			count = productDAO.getDeleteAll();
 		}else {
-			
+			count = productDAO.getDeleteSelect(del_list);
 		}
-		
-		
-		return mv;
+		return count;
 	}
 }

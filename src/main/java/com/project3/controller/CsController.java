@@ -71,6 +71,15 @@ public class CsController {
 	
 	@RequestMapping(value = "/cs_delete_proc.do", method = RequestMethod.GET)
 	public ModelAndView cs_delete_proc(String id) {
-		return (ModelAndView)boardService.getResultDelete(id);
+		ModelAndView mv = new ModelAndView();
+		
+		int result = boardService.getResultDelete(id);
+		if(result > 0) {
+			mv.setViewName("redirect:/cs.do");
+		}else {
+			mv.setViewName("errorPage");
+		}
+		
+		return mv;
 	}
 }

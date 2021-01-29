@@ -19,8 +19,34 @@
 	
 	<insert id="insert" parameterType="com.project3.vo.IdusBoardVO">
 		insert into idus_board 
-		values('b_'||idus_board_seq.nextval, #{btitle}, #{bcontent}, #{bfile}, #{bsfile}, #{bpass}, 
-		sysdate, #{bhits}, 'jihye@naver.com', '최지혜', #{bsecret})
+		values('b_'||idus_board_seq.nextval, #{btitle}, #{bcontent}
+		
+		<choose>
+			<when test="bfile != null">
+				<choose>
+					<when test="bsecret != null">
+						, #{bfile}, #{bsfile}, #{bpass}, 
+						sysdate, #{bhits}, 'jihye@naver.com', '최지혜', #{bsecret})
+					</when>
+					<otherwise>
+						, #{bfile}, #{bsfile}, '', 
+						sysdate, #{bhits}, 'jihye@naver.com', '최지혜', '')
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				<choose>
+					<when test="bsecret != null">
+						, '', '', #{bpass}, 
+						sysdate, #{bhits}, 'jihye@naver.com', '최지혜', #{bsecret})
+					</when>
+					<otherwise>
+						, '', '', '', 
+						sysdate, #{bhits}, 'jihye@naver.com', '최지혜', '')
+					</otherwise>
+				</choose>
+			</otherwise>
+		</choose>
 	</insert>
 	
 	<select id="content" parameterType="java.lang.String" resultType="com.project3.vo.IdusBoardVO">
@@ -29,8 +55,20 @@
 	</select>
 	
 	<update id="update" parameterType="com.project3.vo.IdusBoardVO">
-		update idus_board set btitle=#{btitle}, bcontent=#{bcontent}, bfile=#{bfile}, 
-		bsfile=#{bsfile}, bsecret=#{bsecret} where bid = #{bid}
+		update idus_board set btitle=#{btitle}, bcontent=#{bcontent} 
+		
+		<if test="bfile != null">
+			, bfile=#{bfile}, bsfile=#{bsfile}
+		</if>
+		<choose>
+			<when test="bsecret != null">
+				, bsecret=#{bsecret}, bpass=#{bpass}
+			</when>
+			<otherwise>
+				, bsecret='', bpass=''
+			</otherwise>
+		</choose>
+		where bid = #{bid}
 	</update>
 	
 	<update id="updateNofile" parameterType="com.project3.vo.IdusBoardVO">

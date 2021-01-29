@@ -57,7 +57,7 @@ public class BoardServiceImpl implements BoardService {
 		
 		//3. DAO 객체 연동
 		ArrayList<IdusBoardVO> list = boardDAO.getList(start, end);
-
+		
 		//board_list.jsp 파일로 데이터 전송
 		mv.addObject("list", list);
 		mv.addObject("dbCount", dbCount);
@@ -77,22 +77,23 @@ public class BoardServiceImpl implements BoardService {
 			UUID uuid = UUID.randomUUID();
 			bvo.setBfile(bvo.getFile1().getOriginalFilename());
 			bvo.setBsfile(uuid + "_" + bvo.getFile1().getOriginalFilename());
-			
-			boolean result = boardDAO.getInsert(bvo);
-			
-			if(result) {
-				try {
-					File file = new File(bvo.getSavePath()+bvo.getBsfile());
-					bvo.getFile1().transferTo(file);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				
-				mv.setViewName("redirect:/cs.do");
-			}else {
-				mv.setViewName("erroePage");
+		}	
+		
+		boolean result = boardDAO.getInsert(bvo);
+		
+		if(result) {
+			try {
+				File file = new File(bvo.getSavePath()+bvo.getBsfile());
+				bvo.getFile1().transferTo(file);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
+			
+			mv.setViewName("redirect:/cs.do");
+		}else {
+			mv.setViewName("erroePage");
 		}
+	
 		
 		
 		
@@ -124,7 +125,6 @@ public class BoardServiceImpl implements BoardService {
 	
 	public ModelAndView getResultUpdate(Object vo) {
 		ModelAndView mv = new ModelAndView();
-		boolean result = false;
 		
 		IdusBoardVO bvo = (IdusBoardVO)vo;
 		
@@ -132,42 +132,40 @@ public class BoardServiceImpl implements BoardService {
 			UUID uuid = UUID.randomUUID();
 			bvo.setBfile(bvo.getFile1().getOriginalFilename());
 			bvo.setBsfile(uuid + "_" + bvo.getFile1().getOriginalFilename());
+		}	
+		
+		boolean result = boardDAO.getUpdate(bvo);
 			
-			result = boardDAO.getUpdate(bvo);
-			
-			if(result) {
-				try {
-					File file = new File(bvo.getSavePath()+bvo.getBsfile());
-					bvo.getFile1().transferTo(file);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		if(result) {
+			try {
+				File file = new File(bvo.getSavePath()+bvo.getBsfile());
+				bvo.getFile1().transferTo(file);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 			
-		}else {
-			result = boardDAO.getUpdateNoFile(bvo);
-		}
-		
-		if(result) {
 			mv.setViewName("redirect:/cs.do");
 		}else {
 			mv.setViewName("errorPage");
 		}
+			
+		/*}else {
+			result = boardDAO.getUpdateNoFile(bvo);
+		}*/
 		
 		return mv;
 	}
 	
-	public ModelAndView getResultDelete(String id) {
+	public int getResultDelete(String id) {
 		ModelAndView mv = new ModelAndView();
 		
-		boolean result = boardDAO.getDelete(id);
+		/*
+		 * boolean result =
+		 * 
+		 * if(result) { mv.setViewName("redirect:cs.do"); }else {
+		 * mv.setViewName("errorPage"); }
+		 */
 		
-		if(result) {
-			mv.setViewName("redirect:cs.do");
-		}else {
-			mv.setViewName("errorPage");
-		}
-		
-		return mv;
+		return boardDAO.getDelete(id);
 	}
 }
