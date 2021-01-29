@@ -12,7 +12,7 @@
 <script>
 	$(document).ready(function(){
 		$("input[type='file']").change(function(){
-			var name = $(this).attr("name");
+			var name = $(this).attr("id");
 			$("label[for='"+name+"']").css("width", "70px").css("background-color", "#F87E35").css("color","white");
 			$("label[for='"+name+"']").text("첨부 완료");
 		});
@@ -93,10 +93,6 @@
 	            <input type="text" name="opt2_price" id="opt2_price" placeholder="추가 금액" class="add_price" value=0>
 	            <input type="text" name="opt3" id="opt3" placeholder="상품명을 입력해주세요 :)">
 	            <input type="text" name="opt3_price" id="opt3_price" placeholder="추가 금액" class="add_price" value=0>
-	            <input type="text" name="opt4" id="opt4" placeholder="상품명을 입력해주세요 :)">
-	            <input type="text" name="opt4_price" id="opt4_price" placeholder="추가 금액" class="add_price" value=0>
-	            <input type="text" name="opt5" id="opt5" placeholder="상품명을 입력해주세요 :)">
-	            <input type="text" name="opt5_price" id="opt5_price" placeholder="추가 금액" class="add_price" value=0>
 	         </td>
 	      </tr>
 	      <tr>
@@ -115,26 +111,6 @@
 	            <div>
 	        		<label for="file3" class='btn_style'>파일 선택</label>   
 	            	<input name="file3" type="file" id="file3">
-	            </div>
-	            <div>
-	        		<label for="file4" class='btn_style'>파일 선택</label>   
-	            	<input name="file4" type="file" id="file4">
-	            </div>
-	            <div>
-	        		<label for="file5" class='btn_style'>파일 선택</label>   
-	            	<input name="file5" type="file" id="file5">
-	            </div>
-	            <div>
-	        		<label for="file6" class='btn_style'>파일 선택</label>   
-	            	<input name="file6" type="file" id="file6">
-	            </div>
-	            <div>
-	        		<label for="file7" class='btn_style'>파일 선택</label>   
-	            	<input name="file7" type="file" id="file7">
-	            </div>
-	            <div>
-	        		<label for="file8" class='btn_style'>파일 선택</label>   
-	            	<input name="file8" type="file" id="file8">
 	            </div>
 	         </td>
 	      </tr>

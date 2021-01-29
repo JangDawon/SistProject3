@@ -40,14 +40,12 @@
 		<tr>
 			<td colspan="4"><div>${vo.pcontent }
 				<br><img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }" style="height:100px; height:100px;">
-				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile2 }" style="height:100px; height:100px;">
-				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile3 }" style="height:100px; height:100px;">
-				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile4 }" style="height:100px; height:100px;">
-				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile5 }" style="height:100px; height:100px;">
-				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile6 }" style="height:100px; height:100px;">
-				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile7 }" style="height:100px; height:100px;">
-				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile8 }" style="height:100px; height:100px;">
-				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile9 }" style="height:100px; height:100px;">
+				<c:if test="${vo.psfile2 ne null}">
+					<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile2 }" style="height:100px; height:100px;">
+				</c:if>
+				<c:if test="${vo.psfile3 ne null}">
+					<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile3 }" style="height:100px; height:100px;">
+				</c:if>
 			</div>
 			</td>
 		</tr>
@@ -57,13 +55,11 @@
 			<c:if test="${vo.opt1 ne null }"><div>${vo.opt1}(+${vo.opt1_price}원)</div></c:if>
 			<c:if test="${vo.opt2 ne null }"><div>${vo.opt2}(+${vo.opt2_price}원)</div></c:if>
 			<c:if test="${vo.opt3 ne null }"><div>${vo.opt3}(+${vo.opt3_price}원)</div></c:if>
-			<c:if test="${vo.opt4 ne null }"><div>${vo.opt4}(+${vo.opt4_price}원)</div></c:if>
-			<c:if test="${vo.opt5 ne null }"><div>${vo.opt5}(+${vo.opt5_price}원)</div></c:if>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="4">
-				<a href="product_mng_update.do"><button type="button" class="btn_style" id="product_update">수정</button></a>
+				<a href="product_mng_update.do?id=${vo.pid}"><button type="button" class="btn_style" id="product_update">수정</button></a>
 				<a href="product_mng_list.do"><button type="button" class="btn_style" id="product_cancel">취소</button></a>
 			</td>
 		</tr>
