@@ -33,10 +33,6 @@
 	<beans:bean class="com.project3.service.BoardServiceImpl" id="boardService"></beans:bean>
 	<beans:bean class="com.project3.service.ProductServiceImpl" id="productService"></beans:bean>
 	<beans:bean class="com.project3.service.CartServiceImpl" id="cartService"></beans:bean>
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/heads/master
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
