@@ -2,8 +2,6 @@ package com.project3.controller;
 
 import java.util.Random;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,12 +9,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project3.service.MemberServiceImpl;
 import com.project3.service.certifyServiceImpl;
+import com.project3.vo.IdusMemberVO;
 
 @Controller
 public class JoinController {
 	@Autowired
 	private certifyServiceImpl certifyService;
+	
+	@Autowired
+	private MemberServiceImpl memberService;
 	/**
 	 * 회원가입 성공
 	 * @return
@@ -44,9 +47,10 @@ public class JoinController {
 	 * @return
 	 */
 	@RequestMapping(value="/join_proc.do", method=RequestMethod.POST)
-	public String join_proc() {
-		
-		return "join/join_success";
+	public String join_proc(IdusMemberVO vo) {
+		System.out.println(vo.getAggremail());
+		System.out.println(vo.getAggrsms());
+		return memberService.getResultJoin(vo);
 	}
 	/**
 	 * 회원가입 선택

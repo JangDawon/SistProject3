@@ -30,26 +30,26 @@
 					</ul>
 					<div class="join_form_block">
 						<label class="join_form_block_head"><em class="asterisk_red">*</em>이메일</label>
-						<div class="join_form_block_body" id="join_form_block_body"><input type="text" placeholder="이메일을 입력해주세요." id="email" name="email"></div>
+						<div class="join_form_block_body" id="join_form_block_body"><input type="text" placeholder="이메일을 입력해주세요." id="email" name="uemail"></div>
 						<div class="msg" id="email_msg"></div>
 						<div id="idcheck_result"></div>
 					</div>
 					<div class="join_form_block">
 						<label class="join_form_block_head"><em class="asterisk_red">*</em>비밀번호</label>
-						<div class="join_form_block_body" id="join_form_block_body"><input type="password" placeholder="비밀번호 (영문+숫자+특수문자 8자 이상)" id="pass" name="pass"></div>
+						<div class="join_form_block_body" id="join_form_block_body"><input type="password" placeholder="비밀번호 (영문+숫자+특수문자 8자 이상)" id="pass" name="upass"></div>
 						<div class="msg" id="pass_msg"></div>
-						<div class="join_form_block_body" id="join_form_block_body"><input type="password" placeholder="비밀번호 확인" id="cpass" name="cpass"></div>
+						<div class="join_form_block_body" id="join_form_block_body"><input type="password" placeholder="비밀번호 확인" id="cpass" name="ucpass"></div>
 						<div class="msg" id="cpass_msg"></div>
 					</div>
 					<div class="join_form_block">
 						<label class="join_form_block_head"><em class="asterisk_red">*</em>이름</label>
-						<div class="join_form_block_body" id="join_form_block_body"><input type="text" placeholder="이름을 입력해주세요." id="name" name="name"></div>
+						<div class="join_form_block_body" id="join_form_block_body"><input type="text" placeholder="이름을 입력해주세요." id="name" name="uname"></div>
 						<div class="msg" id="name_msg"></div>
 					</div>
 					<div class="join_form_block" id="join_form_block_hp">
 						<label class="join_form_block_head"><em class="asterisk_red">*</em>전화번호</label>
 						<div class="join_form_block_body" id="join_form_block_body">
-						<input type="text" placeholder="01012345678" id="hp" name="hp">
+						<input type="text" placeholder="01012345678" id="hp" name="cp">
 						<button type="button" id="hp_certify" class="hp_certify">인증요청</button>
 						<div class="msg" id="hp_msg"></div>
 						</div>
@@ -67,7 +67,8 @@
 						<hr>
 						<div class="join_form_block_body" id="join_form_block_body_check"><input type="checkbox" id="checkbox_1"><label>이용약관 필수 동의</label></div>
 						<div class="join_form_block_body" id="join_form_block_body_check"><input type="checkbox" id="checkbox_2"><label>개인정보 처리방침 필수 동의</label></div>
-						<div class="join_form_block_body" id="join_form_block_body_check"><input type="checkbox" id="checkbox_3"><label>쿠폰 / 이벤트 알림 선택 동의</label></div>
+						<div class="join_form_block_body" id="join_form_block_body_check"><input type="checkbox" id="checkbox_3" name="aggremail"><label>쿠폰 / 이벤트 알림 선택 동의</label></div>
+						<input type="hidden" id="checkbox_3_hd" name="aggrsms">
 						<div class="join_form_block_body" id="join_form_block_body_check"><label class="etc">이메일을 통해 쿠폰 및 이벤트 정보를 받아보실 수 있습니다.</label></div>
 						<hr>
 					</div>
