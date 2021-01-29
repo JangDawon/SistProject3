@@ -14,7 +14,7 @@ table.review{border-collpase:collapse;border:1px solid rgb(217,217,217);}
 img.review_image{width:80px;height:80px;float:left;margin-right:10px;}
 img.review_product{width:120px;height:140px;}
 span.review_star{padding-right:100px;color:rgb(255,200,1);}
-td.td_indent{text-indent:5px;}
+td.td_indent{text-indent:5px;border-bottom:1px solid rgb(217,217,217)}
 
 </style>
 </head>
@@ -39,7 +39,7 @@ td.td_indent{text-indent:5px;}
 			<tr>
 				<td rowspan =3><img class = "review_product"src ="http://localhost:9000/sistproject3/images/item_img.PNG"></td>
 				<td class = "td_indent" width=380><span class = "review_title">뚠뚠이 캐릭터 그림 일러스트 초상화</span></td>
-				<td>2020-20-20</td>
+				<td class = "td_indent">2020-20-20</td>
 			</tr>
 			
 		<tr>

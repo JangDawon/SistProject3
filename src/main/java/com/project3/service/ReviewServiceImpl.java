@@ -14,7 +14,8 @@ import com.project3.vo.IdusReviewVO;
 public class ReviewServiceImpl implements BoardService{
 	@Autowired
 	private IdusReviewDAO reviewDAO;
-	@Override
+	
+	
 	public Object getList() {
 		// TODO Auto-generated method stub
 		return null;
@@ -63,6 +64,12 @@ public class ReviewServiceImpl implements BoardService{
 
 	@Override
 	public Object getResultDelete(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object getList(String rpage, String param) {
 		// TODO Auto-generated method stub
 		return null;
 	}

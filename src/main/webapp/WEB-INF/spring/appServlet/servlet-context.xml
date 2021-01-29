@@ -30,15 +30,13 @@
 	<beans:bean class="com.project3.dao.IdusProductDAO" id="productDAO"></beans:bean>
 	<beans:bean class="com.project3.dao.IdusReviewDAO" id="reviewDAO"></beans:bean>
 	<beans:bean class="com.project3.dao.IdusCartDAO" id="cartDAO"></beans:bean>
-
+	
 	<!-- Service -->
 	<beans:bean class="com.project3.service.BoardServiceImpl" id="boardService"></beans:bean>
 	<beans:bean class="com.project3.service.ProductServiceImpl" id="productService"></beans:bean>
 	<beans:bean class="com.project3.service.ReviewServiceImpl" id="reviewService"></beans:bean>
 	<beans:bean class="com.project3.service.certifyServiceImpl" id="certifyService"></beans:bean>
 	<beans:bean class="com.project3.service.CartServiceImpl" id="cartService"></beans:bean>
-	<beans:bean class="com.project3.service.certifyServiceImpl" id="certifyService"></beans:bean>
-
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
