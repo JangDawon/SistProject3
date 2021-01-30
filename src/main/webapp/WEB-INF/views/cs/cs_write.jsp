@@ -42,14 +42,14 @@
 			<tr>
 				<td>
 					<span class="board_title">비밀글</span>
-					<input type="checkbox" name="bsecret">
+					<input type="checkbox" name="bsecret" id="bsecret">
 					
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<span class="board_title">비밀번호</span>
-					<input type="password" name="bpass" >
+					<input type="password" name="bpass" id="bpass" >
 				</td>
 			</tr>
 			<tr>

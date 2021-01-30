@@ -67,7 +67,7 @@
 			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do?id=${vo.pid}'">${vo.pcat }</td>
 			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do?id=${vo.pid}'"><div>${vo.ptitle }</div></td>
 			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do?id=${vo.pid}'"><img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }" style="height:100px; height:100px;"></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do?id=${vo.pid}'">${vo.pprice }원</td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/product_mng_content.do?id=${vo.pid}'">${vo.pprice_char }원</td>
 		</tr>
 		</c:forEach>
 		<tr>
