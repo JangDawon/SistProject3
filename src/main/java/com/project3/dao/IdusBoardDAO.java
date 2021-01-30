@@ -17,14 +17,6 @@ public class IdusBoardDAO extends DBConn{
 	private static String namespace = "mapper.cs";
 	
 	/**
-	 * CS 전체 리스트
-	 */
-	public ArrayList<IdusBoardVO> getList() {
-		List<IdusBoardVO> list = sqlSession.selectList(namespace+".list");
-		return (ArrayList<IdusBoardVO>)list;
-	}
-	
-	/**
 	 * CS 전체 리스트(페이지)
 	 */
 	public ArrayList<IdusBoardVO> getList(int start, int end){
@@ -33,6 +25,21 @@ public class IdusBoardDAO extends DBConn{
 		param.put("end", String.valueOf(end));
 		
 		List<IdusBoardVO> list = sqlSession.selectList(namespace + ".plist", param);
+		return (ArrayList<IdusBoardVO>)list;
+		
+	}
+	
+	/**
+	 * CS 전체 리스트 : ajax
+	 */
+	public ArrayList<IdusBoardVO> getList(String sname, String svalue, int start, int end){
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("sname", sname);
+		param.put("svalue", svalue);
+		param.put("start", String.valueOf(start));
+		param.put("end", String.valueOf(end));
+		
+		List<IdusBoardVO> list = sqlSession.selectList(namespace + ".plistajax", param);
 		return (ArrayList<IdusBoardVO>)list;
 		
 	}
@@ -68,16 +75,6 @@ public class IdusBoardDAO extends DBConn{
 	}
 	
 	/**
-	 * CS 수정(파일 X)
-	 */
-	public boolean getUpdateNoFile(IdusBoardVO vo) {
-		boolean result = false;
-		int count = sqlSession.update(namespace+".updateNofile", vo);
-		if(count != 0) result = true;
-		return result;
-	}
-	
-	/**
 	 * CS 삭제
 	 */
 	public int getDelete(String id) {
@@ -96,5 +93,16 @@ public class IdusBoardDAO extends DBConn{
 	 */
 	public int getCount() {
 		return sqlSession.selectOne(namespace+".count");
+	}
+	
+	/**
+	 * 총 게시물 갯수 : ajax
+	 */
+	public int getCount(String sname, String svalue) {
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("sname", sname);
+		param.put("svalue", svalue);
+		
+		return sqlSession.selectOne(namespace+".countajax", param);
 	}
 }

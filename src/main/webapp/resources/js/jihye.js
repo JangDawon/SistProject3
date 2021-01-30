@@ -36,6 +36,7 @@ $(document).ready(function(){
 		}
 	});
 	
+	
 	$("#product_update_btn").click(function(){
 			if($("#pcat").val() == "선택"){
 				alert("카테고리를 선택해주세요");

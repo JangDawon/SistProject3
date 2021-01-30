@@ -11,10 +11,14 @@
 		from (select * from idus_board order by bdate desc)) where rno between #{start} and #{end}
 	</select>
 	
-	<select id="list" resultType="com.project3.vo.IdusBoardVO">
-		select rownum rno, bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd') bdate, 
+	<select id="plistajax" parameterType="map" resultType="com.project3.vo.IdusBoardVO">
+		select * from (select rownum rno, bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd') bdate, 
 		bhits, uemail, uname, bsecret 
 		from (select * from idus_board order by bdate desc)
+		<if test="sname != 'all'">
+			where ${sname} like '%' || #{svalue} || '%'
+		</if>
+		) where rno between #{start} and #{end}
 	</select>
 	
 	<insert id="insert" parameterType="com.project3.vo.IdusBoardVO">
@@ -86,6 +90,14 @@
 	
 	<select id="count" resultType="java.lang.Integer">
 		select count(*) from idus_board
+	</select>
+	
+	<select id="countajax" parameterType="map" resultType="java.lang.Integer">
+		select count(*) from idus_board
+		
+		<if test="sname != 'all'">
+			where ${sname} like '%' || #{svalue} || '%'
+		</if>
 	</select>
 </mapper>
 
