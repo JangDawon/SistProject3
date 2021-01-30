@@ -10,44 +10,6 @@
 <link rel="stylesheet"
 	href="http://localhost:9000/sistproject3/css/woohyun.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
-<script>
-	$(document).ready(function() {
-
-		$("#updateBtn").click(function() {
-			if ($("#name").val() == "") {
-				alert("이름을 입력해주세요.");
-				$("#name").focus();
-				return false;
-			} else if ($("#email").val() == "") {
-				alert("이메일을 입력해주세요.");
-				$("#email").focus();
-				return false;
-			} else if ($("#addr1").val() == "") {
-				alert("우편번호를 입력해주세요.");
-				$("#addr1").focus();
-				return false;
-			} else if ($("#addr2").val() == "") {
-				alert("주소를 입력해주세요.");
-				$("#addr2").focus();
-				return false;
-			} else if ($("#addr3").val() == "") {
-				alert("상세주소를 입력해주세요.");
-				$("#addr3").focus();
-				return false;
-			} else if ($("#cp").val() == "") {
-				alert("전화번호를 입력해주세요.");
-				$("#cp").focus();
-				return false;
-			} else if ($("#gender").val() == "") {
-				alert("성별을 선택해주세요.");
-				$("#cp").focus();
-				return false;
-			} else {
-				myinfo_update_form.submit();
-			}
-		});
-	});
-</script>
 <style>
 table.member_info tr:first-child td img{border-radius:50%;width:100px; height:100px;}
 </style>
@@ -61,7 +23,7 @@ table.member_info tr:first-child td img{border-radius:50%;width:100px; height:10
 		<jsp:include page="mypage_aside.jsp"></jsp:include>
 		<h2>회원 정보 관리</h2>
 		<form name="myinfo_update_form" action="myinfo_update_proc.do"
-			method="post" enctype="multipart/form-data">
+			method="post">
 			<table class="member_info">
 			
 				<tr>
@@ -90,6 +52,7 @@ table.member_info tr:first-child td img{border-radius:50%;width:100px; height:10
 				<tr>
 					<td><input type="text" value="301동 1308호" id="addr3"
 						name="addr3" placeholder ="상세주소"></td>
+						
 				</tr>
 				<tr>
 					<td class="grey">전화</td>

@@ -50,6 +50,10 @@ public class MypageController {
 	public String my_order() {
 		return "/mypage/my_order";
 	}
+	@RequestMapping(value = "/NewFile.do", method = RequestMethod.GET)
+	public String new_file() {
+		return "/mypage/NewFile";
+	}
 
 	@RequestMapping(value = "/my_review.do", method = RequestMethod.GET)
 	public String my_review_write() {
@@ -59,8 +63,12 @@ public class MypageController {
 	public String review_write() {
 		return "/mypage/review_write";
 	}
+	@RequestMapping(value = "/jusoPopup.do", method = RequestMethod.GET)
+	public String popup_jusoPopup() {
+		return "/popup/jusoPopup";
+	}
 
-	@RequestMapping(value = "/review_write_proc.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/review_write_proc.do", method = RequestMethod.GET)
 	public ModelAndView my_review(IdusReviewVO vo, HttpServletRequest request) {
 		String path1 = request.getSession().getServletContext().getRealPath("/");
 		String path2 = "\\resources\\upload\\";
