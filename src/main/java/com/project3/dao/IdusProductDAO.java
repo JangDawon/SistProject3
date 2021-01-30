@@ -67,10 +67,14 @@ public class IdusProductDAO extends DBConn{
 	/**
 	 * 상품 전체 삭제
 	 */
-	public boolean getDeleteAll() {
-		boolean result = false;
-		int count = sqlSession.delete(namespace +".deleteAll");
-		if(count != 0) result = true;
-		return result;
+	public int getDeleteAll() {
+		return sqlSession.delete(namespace +".deleteAll");
+	}
+	
+	/**
+	 * 상품 선택 삭제
+	 */
+	public int getDeleteSelect(String[] del_list) {
+		return sqlSession.delete(namespace+".deleteSelect", del_list);
 	}
 }

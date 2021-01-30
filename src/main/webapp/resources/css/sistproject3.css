@@ -394,7 +394,8 @@ table#cs_list_table tr:first-child td {border-top:1px solid white;}
 table#cs_list_table tr:first-child td:first-child {text-align:left; font-size:14px; font-weight:600;}
 table#cs_list_table tr:first-child td:last-child {text-align:right; padding-bottom:5px;}
 table#cs_list_table tr:nth-child(2) {border-top:2px solid lightgray; border-bottom:2px solid lightgray;}
-table#cs_list_table tr:last-child td{border-bottom:1px solid white; padding-top:100px;}
+/* table#cs_list_table tr:last-child td{border-bottom:1px solid white; padding-top:100px;} */
+table#cs_list_table tr#cs_paging td{border-bottom:1px solid white; padding-top:100px;}
 table#cs_list_table td {padding:0 15px 0 15px;}
 table#cs_list_table td:nth-child(2) {width:500px;}
 table#cs_list_table td:nth-child(4) {width:100px;}
