@@ -11,5 +11,12 @@
 			#{prod_name}, #{prod_qty}, #{prod_opt}, #{prod_price})
 	</insert>
 	
+	<delete id="deletelist" parameterType="java.lang.reflect.Array">
+		delete from idus_cart where cart_id in
+		<foreach item="item" index="index" collection="array"
+			open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
 </mapper>
 

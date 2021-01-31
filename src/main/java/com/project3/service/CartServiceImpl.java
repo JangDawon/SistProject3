@@ -8,7 +8,7 @@ import com.project3.vo.IdusCartVO;
 
 @Service("cartService")
 public class CartServiceImpl implements CartService {
-	/* @Autowired
+	@Autowired
 	private IdusCartDAO cartDAO;
 	
 	@Override
@@ -24,5 +24,13 @@ public class CartServiceImpl implements CartService {
 		}
 		
 		return result;
-	} */
+	}
+	
+	/** 선택 삭제 **/
+	public int getSelectDelete(String[] dellist) {
+		return cartDAO.getSelectDelete(dellist);
+	}
+	
+	
+	
 }

@@ -13,37 +13,30 @@
 			}
 		});
 		
+		
+		
+		
 		$("#cart_select_del").click(function(){
-			var del_list = "";
-			
-			$(".cart_prod_chk:checked").each(function(index){
-				del_list += $(this).attr("value") + ", ";
-			});
-			
-			if(del_list == ""){
-				alert("선택된 상품이 없습니다.");
-			}else{
-				confirm(del_list + "정말 삭제하시겠습니까?");
+			var choice = confirm("정말로 삭제하시겠습니까?");
+			if(choice) {
+				var chk_list = new Array();
+				$("input[type=checkbox]:checked").each(function(i){
+					chk_list[i] = $(this).attr("id");
+				});
+				
+				//삭제할 페이지로 전송
+				$(location).attr("href", "http://localhost:9000/sistproject3/cart/cart_list_del.do?chklist="+chk_list);
 			}
 		});
 		
 		$("#cart_all_chk").click(function(){
 			if($("#cart_all_chk").is(":checked")){
-				$(".artist_name_chk").prop("checked", true);
 				$(".cart_prod_chk").prop("checked", true);
 			}else{
-				$(".artist_name_chk").prop("checked", false);
 				$(".cart_prod_chk").prop("checked", false);
 			}
 		});
 		
-		$(".artist_name_chk").click(function(){
-			if($(".artist_name_chk").is(":checked")){
-				$(".cart_prod_chk").prop("checked", true);
-			}else{
-				$(".cart_prod_chk").prop("checked", false);
-			}
-		});
 		
 		$("button").click(function(){
 			var obj_name = $(this).attr("name");

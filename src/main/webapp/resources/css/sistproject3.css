@@ -1182,7 +1182,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	}
 	div.price_content {
 	   	text-align:right;
-	   	font-size:14px;
+	   	font-size:16px;
 	   	font-weight:bold;
 	   	padding-right:10px;
 	}
@@ -1217,7 +1217,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	   	padding:10px 0;
 	   	margin:20px 0;
 	}
-	div.all_price>table.price_sum {
+	div.all_price>table.price_total {
 	   	border:1px solid black;
 	   	border-radius:3px;
 	   	width:100%;
@@ -1225,20 +1225,21 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	   	padding:10px 0;
 	   	margin-top:30px;
 	}
-	tr:first-child>td.price, tr:first-child>td.del, tr:first-child>td.sum {
+	tr:first-child>td.all_price, tr:first-child>td.del, tr:first-child>td.prod_total {
 	   	font-size:13px;
 	   	color:gray;   width:30%;
 	   	padding:20px 0;
 	}
-	tr:last-child>td.price2, tr:last-child>td.del2, tr:last-child>td.sum2 {
+	tr:last-child>td.all_price2, tr:last-child>td.del2, tr:last-child>td.prod_total2 {
 	 	font-size:22px;
 		font-weight:bold;
 		padding-bottom:20px;
+		border:1px solid red;
 	}
-	tr:last-child>td.sum2 {
+	tr:last-child>td.prod_total2 {
 		color:#F87E35;
 	}
-	table.price_sum>tr>th {
+	table.price_total>tr>th {
 		font-weight:bold;
 		font-size:18px;
 	}
@@ -1602,6 +1603,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	table.price_sum td:first-child {
 		font-size:14px;
 		color:gray;
+		border:1px solid black;
 	}
 	table.price_sum td:last-child {
 		text-align:right;

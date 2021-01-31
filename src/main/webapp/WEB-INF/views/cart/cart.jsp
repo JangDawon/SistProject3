@@ -34,22 +34,10 @@
 			
 			<div class="cart_content">
 				<table>
-					<!-- <tr class="cart_title">
-						<td>
-							<div class="cart_artist_chk">
-								<input type="checkbox" class="artist_name_chk">
-							</div>
-						</td>
-						<td colspan="5">
-							<div class="cart_artist">
-								<span class="rchk">호러블리 horror_vely 작가님</span>
-							</div>
-						</td>
-					</tr> -->
 					<tr class="cart_product">
 						<td rowspan="2" width=2%>
 							<div class="cart_chk">
-								<input type="checkbox" class="cart_prod_chk" value="1">
+								<input type="checkbox" id="" class="cart_prod_chk" value="1">
 							</div>
 						</td>
 						<td rowspan="2" width=10%>
@@ -58,11 +46,7 @@
 							</div>
 						</td>
 						<td colspan="4">
-							<div class="cart_text">
-								<a href="">
-									<label>블랙소이7oz캔들/소이캔들</label>
-								</a>
-							</div>
+							<div class="cart_text"><a href=""><label>블랙소이7oz캔들/소이캔들</label></a></div>
 						</td>
 					</tr>
 					<tr class="cart_explain">
@@ -104,18 +88,18 @@
 						<button type="button" id="cart_select_del">선택 삭제</button>
 					</div>
 					<div class="all_price">
-						<table class="price_sum">
+						<table class="price_total">
 							<tr>
-								<td class="price">작품금액</td>
+								<td class="all_price">작품금액</td>
 								<th rowspan="2">+</th>
 								<td class="del">배송비</td>
 								<th rowspan="2">=</th>
-								<td class="sum">결제 예정금액</td>
+								<td class="prod_total">결제 예정금액</td>
 							</tr>
 							<tr>
-								<td class="price2"><span id="p1_price">9400</span>원</td>
+								<td class="all_price2"><span id="p1_price">9400원</span></td>
 								<td class="del2">2,600원</td>
-								<td class="sum2">12,000원</td>
+								<td class="prod_total2">12,000원</td>
 							</tr>
 						</table>
 					</div>

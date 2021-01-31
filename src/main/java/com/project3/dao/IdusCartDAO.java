@@ -15,13 +15,23 @@ public class IdusCartDAO extends DBConn{
 	private static String namespace = "mapper.cart";
 	
 	/**
+	 * 선택 삭제
+	 */
+	public int getSelectDelete(String[] dellist) {
+		return sqlSession.delete(namespace+".deletelist", dellist);
+	}
+	
+	
+	/**
 	 * Insert : 장바구니 넣기
 	 */
 	public boolean getInsert(IdusCartVO vo) {
 		boolean result = false;
 		int value = sqlSession.insert(namespace+".cart", vo);
+		if(value != 0) result = true;
+		return result; 
 		
-		try {
+		/* try {
 			String sql = "insert into idus_cart values('c_'||sequ_cart.nextval,?,?,?,?,?,?)";
 			
 			getPreparedStatement(sql);
@@ -39,7 +49,7 @@ public class IdusCartDAO extends DBConn{
 			e.printStackTrace();
 		}
 		
-		return result;
+		return result; */
 	}
 	
 	/**
