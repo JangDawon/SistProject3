@@ -59,15 +59,9 @@
 				<td colspan="6" id="content">
 					${vo.bcontent }
 					<c:if test="${vo.bsfile ne null }">	
-						<img src="http://localhost:9000/sistproject3/resources/upload/${vo.bsfile }" style="width:300px; height:500px;">
+						<br>
+						<img src="http://localhost:9000/sistproject3/resources/upload/${vo.bsfile }" style="width:300px; height:300px;">
 					</c:if>
-					
-					<%-- <% if(vo.getBcontent() != null){ %>
-					<%= vo.getBcontent().replace("\r\n", "<br>") %><br>
-					<% } %>
-					<% if(vo.getBsfile() != null){ %>
-						<img src="http://localhost:9000/MyPrSite/upload/<%= vo.getBsfile() %>">
-					<% } %> --%>
 				</td>
 			</tr>
 			<tr>

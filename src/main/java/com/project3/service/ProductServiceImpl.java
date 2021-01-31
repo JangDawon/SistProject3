@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.dao.IdusProductDAO;
-import com.project3.vo.IdusBoardVO;
 import com.project3.vo.IdusProductVO;
 
 @Service("productService")
@@ -141,29 +140,55 @@ public class ProductServiceImpl implements BoardService{
 	public ModelAndView getResultUpdate(Object vo) {
 		ModelAndView mv = new ModelAndView();
 		IdusProductVO pvo = (IdusProductVO)vo;
+		UUID uuid = UUID.randomUUID();
 		
-		/*
-		 * int count = productDAO.getUpdate(pvo);
-		 * 
-		 * if(count == 1) { mv.setViewName("redirect:product_mng_list.do"); }else {
-		 * mv.setViewName("errorPage"); }
-		 */
+		if(pvo.getFile1().getSize() != 0) {
+			pvo.setPfile1(pvo.getFile1().getOriginalFilename());
+			pvo.setPsfile1(uuid + "_" + pvo.getFile1().getOriginalFilename());
+		}
+		
+		if(pvo.getFile2().getSize() != 0) {
+			pvo.setPfile2(pvo.getFile2().getOriginalFilename());
+			pvo.setPsfile2(uuid + "_" + pvo.getFile2().getOriginalFilename());
+		}
+		
+		if(pvo.getFile3().getSize() != 0) {
+			pvo.setPfile3(pvo.getFile3().getOriginalFilename());
+			pvo.setPsfile3(uuid + "_" + pvo.getFile3().getOriginalFilename());
+		}
+		System.out.println(pvo.getPsfile1());
+		int count = productDAO.getUpdate(pvo);
+		if(count == 1) { 
+			try {
+				File file1 = new File(pvo.getSavePath()+pvo.getPsfile1());
+				pvo.getFile1().transferTo(file1);
+				File file2 = new File(pvo.getSavePath()+pvo.getPsfile2());
+				pvo.getFile2().transferTo(file2);
+				File file3 = new File(pvo.getSavePath()+pvo.getPsfile3());
+				pvo.getFile3().transferTo(file3);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			mv.setViewName("redirect:product_mng_list.do"); 
+		}else {
+			mv.setViewName("errorPage"); 
+		}
+		 
 		
 		return mv;
 	}
 	
-	public ModelAndView getResultDelete(String id) {
-		ModelAndView mv = new ModelAndView();
-		boolean result = false;
-		
-		if(id.equals("all")) {
-			result = productDAO.getDeleteAll();
-			mv.setViewName("redirect:/product_mng_list.do");
+	public int getResultDelete(String id) {
+		int count = 0; return count;
+	}
+	
+	public int getResultDelete(String[] del_list) {
+		int count = 0;
+		if(del_list[0].equals("all")) {
+			count = productDAO.getDeleteAll();
 		}else {
-			
+			count = productDAO.getDeleteSelect(del_list);
 		}
-		
-		
-		return mv;
+		return count;
 	}
 }

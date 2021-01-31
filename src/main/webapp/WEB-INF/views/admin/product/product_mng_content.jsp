@@ -35,16 +35,18 @@
 		</tr>
 		<tr>
 			<th>카테고리</th>
-			<td colspan="3">${vo.pcat }</td>
+			<td>${vo.pcat }</td>
+			<th>가격</th>
+			<td>${vo.pprice_char }원</td>
 		</tr>
 		<tr>
 			<td colspan="4"><div>${vo.pcontent }
-				<br><img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }" style="height:100px; height:100px;">
+				<br><div></div><img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }" style="height:200px; height:200px;">
 				<c:if test="${vo.psfile2 ne null}">
-					<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile2 }" style="height:100px; height:100px;">
+					<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile2 }" style="height:200px; height:200px;">
 				</c:if>
 				<c:if test="${vo.psfile3 ne null}">
-					<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile3 }" style="height:100px; height:100px;">
+					<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile3 }" style="height:200px; height:200px;">
 				</c:if>
 			</div>
 			</td>
@@ -52,9 +54,9 @@
 		<tr>
 			<th>옵션</th>
 			<td colspan="3">
-			<c:if test="${vo.opt1 ne null }"><div>${vo.opt1}(+${vo.opt1_price}원)</div></c:if>
-			<c:if test="${vo.opt2 ne null }"><div>${vo.opt2}(+${vo.opt2_price}원)</div></c:if>
-			<c:if test="${vo.opt3 ne null }"><div>${vo.opt3}(+${vo.opt3_price}원)</div></c:if>
+			<c:if test="${vo.opt1 ne null }"><div>${vo.opt1}(+${vo.opt1_price_char}원)</div></c:if>
+			<c:if test="${vo.opt2 ne null }"><div>${vo.opt2}(+${vo.opt2_price_char}원)</div></c:if>
+			<c:if test="${vo.opt3 ne null }"><div>${vo.opt3}(+${vo.opt3_price_char}원)</div></c:if>
 			</td>
 		</tr>
 		<tr>
