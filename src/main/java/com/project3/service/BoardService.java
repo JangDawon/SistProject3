@@ -7,5 +7,5 @@ public interface BoardService {
 	Object getContent(String id);
 	Object getUpdate(String id);
 	Object getResultUpdate(Object vo);
-	Object getResultDelete(String id);
+	int getResultDelete(String id);
 }

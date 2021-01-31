@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: Dawon
+=======
+Built-By: samta
+>>>>>>> branch 'master' of https://github.com/jihye0526/SistProject3.git
 Build-Jdk: 14
 Created-By: Maven Integration for Eclipse
 

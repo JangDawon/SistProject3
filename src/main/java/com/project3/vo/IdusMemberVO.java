@@ -1,7 +1,31 @@
 package com.project3.vo;
 
 public class IdusMemberVO {
-	String uemail, upass, uname, cp, addr, aggrsms, aggremail, pfile, psfile;
+	String uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile;
+
+	public String getAddr1() {
+		return addr1;
+	}
+
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
+
+	public String getAddr2() {
+		return addr2;
+	}
+
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
+
+	public String getAddr3() {
+		return addr3;
+	}
+
+	public void setAddr3(String addr3) {
+		this.addr3 = addr3;
+	}
 
 	public String getUemail() {
 		return uemail;
@@ -35,24 +59,14 @@ public class IdusMemberVO {
 		this.cp = cp;
 	}
 
-	public String getAddr() {
-		return addr;
-	}
-
-	public void setAddr(String addr) {
-		this.addr = addr;
-	}
-
 	public String getAggrsms() {
 		return aggrsms;
 	}
-
+	
 	public void setAggrsms(String aggrsms) {
 		this.aggrsms = aggrsms;
 	}
-
-
-
+	
 	public String getAggremail() {
 		return aggremail;
 	}

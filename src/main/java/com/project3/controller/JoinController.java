@@ -48,8 +48,6 @@ public class JoinController {
 	 */
 	@RequestMapping(value="/join_proc.do", method=RequestMethod.POST)
 	public String join_proc(IdusMemberVO vo) {
-		System.out.println(vo.getAggremail());
-		System.out.println(vo.getAggrsms());
 		return memberService.getResultJoin(vo);
 	}
 	/**
