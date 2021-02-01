@@ -76,4 +76,10 @@
 		</if>
 		where pid=#{pid}
 	</update>
+	
+	<select id="categorylist" parameterType="java.lang.String" resultType="com.project3.vo.IdusProductVO">
+		select pid, pcat, psfile1, sname, ptitle, to_char(pprice, '9,999,999') pprice_char, to_char(pdate,'yy/mm/dd') pdate
+		  from (select * from idus_product order by pdate desc) where pcat =#{pcat}
+	</select>
+	
 </mapper>

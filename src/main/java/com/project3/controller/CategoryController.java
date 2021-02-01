@@ -1,13 +1,20 @@
 package com.project3.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.project3.service.CategoryServiceImpl;
 
 @Controller
 public class CategoryController {
+	@Autowired
+	private CategoryServiceImpl categoryService;
+		
 	/**
-	 * À½½Ä Ä«Å×°í¸®
+	 * ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½×°ï¿½
 	 */
 	@RequestMapping(value = "/food.do", method = RequestMethod.GET)
 	public String food() {
@@ -16,7 +23,7 @@ public class CategoryController {
 	
 	
 	/**
-	 * ¾Ç¼¼»ç¸® Ä«Å×°í¸®
+	 * ï¿½Ç¼ï¿½ï¿½ç¸® Ä«ï¿½×°ï¿½
 	 */
 	@RequestMapping(value = "/accessory.do", method = RequestMethod.GET)
 	public String accessory() {
@@ -25,7 +32,7 @@ public class CategoryController {
 	
 	
 	/**
-	 * ÆÐ¼ÇÀâÈ­ Ä«Å×°í¸®
+	 * ï¿½Ð¼ï¿½ï¿½ï¿½È­ Ä«ï¿½×°ï¿½
 	 */
 	@RequestMapping(value = "/living.do", method = RequestMethod.GET)
 	public String living() {
@@ -34,7 +41,7 @@ public class CategoryController {
 	
 	
 	/**
-	 * ÀÎÅ×¸®¾î ¼ÒÇ° Ä«Å×°í¸®
+	 * ï¿½ï¿½ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° Ä«ï¿½×°ï¿½
 	 */
 	@RequestMapping(value = "/interior.do", method = RequestMethod.GET)
 	public String interior() {
@@ -43,7 +50,7 @@ public class CategoryController {
 	
 	
 	/**
-	 * ±âÅ¸ Ä«Å×°í¸®
+	 * ï¿½ï¿½Å¸ Ä«ï¿½×°ï¿½
 	 */
 	@RequestMapping(value = "/etc.do", method = RequestMethod.GET)
 	public String etc() {
@@ -52,7 +59,7 @@ public class CategoryController {
 	
 	
 	/**
-	 * ÀÎ±âÀÛÇ° Ä«Å×°í¸®
+	 * ï¿½Î±ï¿½ï¿½ï¿½Ç° Ä«ï¿½×°ï¿½
 	 */
 	@RequestMapping(value = "/product_best.do", method = RequestMethod.GET)
 	public String product_best() {
@@ -61,10 +68,16 @@ public class CategoryController {
 	
 	
 	/**
-	 * ÃÖ½ÅÀÛÇ° Ä«Å×°í¸®
+	 * ï¿½Ö½ï¿½ï¿½ï¿½Ç° Ä«ï¿½×°ï¿½
 	 */
 	@RequestMapping(value = "/product_new.do", method = RequestMethod.GET)
 	public String product_new() {
 		return "/category/product_new";
 	}
+	
+	@RequestMapping(value = "/category_list.do", method = RequestMethod.GET)
+	public ModelAndView category_list(String pcat) {
+		return categoryService.getList(pcat); //(ModelAndView)
+	}
+	
 }
