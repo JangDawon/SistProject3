@@ -6,9 +6,11 @@
 	<meta charset="UTF-8">
 		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>제품상세페이지</title>
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
+		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/carousel.css">
 		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 		<script src="http://localhost:9000/sistproject3/js/am-pagination.js"></script>
 		<script src="http://localhost:9000/sistproject3/js/dawon.js"></script>
+<<<<<<< HEAD
 		<script>
 		//js - 11 참고
 			/* $(document).ready(function(){
@@ -42,6 +44,9 @@
 				}
 			}); */ 
 		</script>
+=======
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+>>>>>>> refs/heads/master
 	</head>
 <body>
    <!-- header -->
@@ -52,17 +57,35 @@
        <div class="detail_wrapper">
           <div class="content-left">
           	<section class="img-section">
-          		<div class="productmain_img">
-          			<img src="http://localhost:9000/sistproject3/images/제품상세1.jpg">
-          		</div>
-          		<div class="productmini_img">
-	          		<ul>
-	          			<li><img src="http://localhost:9000/sistproject3/images/제품상세1.jpg"></li>
-	          			<li><img src="http://localhost:9000/sistproject3/images/제품상세2.jpg"></li>
-	          			<li><img src="http://localhost:9000/sistproject3/images/제품상세3.jpg"></li>
-	          			<li><img src="http://localhost:9000/sistproject3/images/제품상세4.jpg"></li>
-	          		</ul>
-          		</div>
+          	<div id="demo" class="carousel slide" data-ride="carousel">
+						<ul class="carousel-indicators">
+							<li data-target="#demo" data-slide-to="0" class="active"></li>
+							<li data-target="#demo" data-slide-to="1"></li>
+							<li data-target="#demo" data-slide-to="2"></li>
+						</ul>
+
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }"
+									width="560" height="560">
+							</div>
+							<div class="carousel-item">
+								<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile2 }"
+									width="560" height="560">
+							</div>
+							<div class="carousel-item">
+								<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile3 }"
+									width="560" height="560">
+							</div>
+						</div>
+
+						<!-- Left and right controls -->
+						<a class="carousel-control-prev" href="#demo" data-slide="prev">
+							<span class="carousel-control-prev-icon"></span>
+						</a> <a class="carousel-control-next" href="#demo" data-slide="next">
+							<span class="carousel-control-next-icon"></span>
+						</a>
+			</div> 
           	 </section>
           	 <nav class="detail_nav_style">
           	 	<a href="#PD_product-info">작품정보</a>
@@ -71,90 +94,13 @@
           	 </nav>
           	 <section class="product-info" id="PD_product-info">
           	 	<p>
-          	 		❤️레터링마카롱케이크의 🌟원조🌟맘대롱❤️
-					<br>
-					<br>
-					🙅‍♀️🚫디자인도용 금지🚫🙅‍♀️
-					<br>
-					<br>
-					💡주문전 꼭 읽어주세용💡
-					<br>
-					<br>
-					⚠️공지⚠️
-					<br>코로나로 배송환경이 좋지 않아 지연될 수 있으니
-					<br>희망하는날보다 하루전으로 요청해주세요!
-					<br>
-					<br>✔️2인용 사이즈입니다✌️
-					<br>(파티초서비스로 드려요)
-					<br>
-					<br>💜메인사진💜
-					<br>스프링클디자인
-					<br>2단레터링
-					<br>
-					<br>✔️ 출고후 1-2일내 수령
-					<br>
-					<br>영어는 기본:필기체
-					<br>전부대문자기재시 고딕체
-					<br>
-					<br>고딕체원하시면 꼭 요청해주세요❗️
-					<br>
-					<br>✔️레터링색상: 빨/주/노/초/파/하/남/보/민트/흰/핑
-					<br>
-					<br>✔️택배수령
-					<br>화•수•목•금
-					<br>( 많은우체국이 이제 토요일에 배달하지않아요!)
-					<br>
-					<br>✔️도착시간 문의 및 요청은 받을 수 없어요!
-					<br>(지역,기사님마다 다르답니다)
-					<br>
-					<br>✔️배송
-					<br>택배사:우체국
-					<br>
-					<br>운송장은 5시부터 입력드립니다😊
-					<br>
-					<br>✔️제주,산간지역은 평균 2일배송소요됩니다!
-					<br>
-					<br>✔️묶음배송
-					<br>2개이상구매시 같은날만 묶음배송가능합니다!
-					<br>2개이상 픽업구매시 하나만 픽업옵션으로 선택해주세요!
-					<br>
-					<br>✔️배송중 파손에 의한
-					<br>교환 및 환불이 불가능한 상품입니다
-					<br>아이스박스+아이스팩+뽁뽁이로
-					<br>꼼꼼하게 포장해드려요❤️
-					<br>
-					<br>✔️사이즈
-					<br>약 16*14포장박스에 들어가는 사이즈입니다!
-					<br>(햄버거박스에 들어가는사이즈보다 훨씬 큽니다)
-					<br>
-					<br>✔️“사이즈업”은 중량2배로 체크하며 제작되며
-					<br>전체적으로 (상하좌우) 2-3센티씩 커집니다!
-					<br>*참고*
-					<br>기본사이즈 : 미니케이크
-					<br>사이즈업 : 1호케이크
-					<br>
-					<br>✔️픽업장소
-					<br>‼️제기동아니에요‼️
-					<br>서울시 은평구 갈현동 406-1 2층
-					<br>(짝태호프건물)
-					<br>13:00-20:00
-					<br>
-					<br>✔️픽업배송비문의
-					<br>배송비가 “자동결제” 시스템이라
-					<br>픽업 옵션 선택시 배송비가 없어지는게아니라
-					<br>배송비만큼 ”상품금액”에서
-					<br>차감되도록 설정해 놓았습니다!
-					<br>
-					<br>❄️보관방법❄️
-					<br>수령후 냉동보관2주내 섭취
-					
-					<br>취소는 “발송일”로부터 4일전까지만 가능합니다!
+					${vo.pcontent }
           	 	</p>
           	 	<div class="hashtag-box">
           	 		<div class="hashtag-box-txt">
           	 			<span>Category & Keyword</span>
           	 			<a href="">
-          	 				<strong>음식</strong>
+          	 				<strong>${vo.pcat }</strong>
           	 			</a>
           	 		</div>
           	 	</div>
@@ -246,21 +192,16 @@
 			<div class="product_sidebar">
 				<form name="cartForm" action="cart.do" method="get" class="cart">
 				<div class="artist_card">
-          			<div class="artist_card_split">
-          				<a href="" class="artist_card_link">
-          					<div class="artist_card_img">
-          						<img src="http://localhost:9000/sistproject3/images/맘대롱.jpg">
-          					</div>
-          					<span class="artist_card_label">맘대롱 스튜디오 ></span>
+          				<a href="" class="artist_card_link" style="width: 100%;">
+          					<span class="artist_card_label">${vo.sname } ></span>
           				</a>
-          			</div>
           		</div>
           	
-          		<h2 class="aside_product-title" name="ptitle">레터링 마카롱 케이크 ❤️생일선물 기념일 새해</h2>
+          		<h2 class="aside_product-title" name="ptitle">${vo.ptitle }</h2>
           		<div class="aside_product-info">
           			<div class="price_tag_detail">
           				<span class="price_tag_strong">
-          					<strong name="pprice">18,900</strong>원
+          					<strong name="pprice">${vo.pprice }</strong>원
           				</span>
           			</div>
           			
@@ -289,21 +230,27 @@
 	          			<div>
 							<select name="product_option" id="product_option" >
 						  		<option value="선택">[필수] 옵션을 선택해주세요</option>
-						  		<option value="opt1">핑크</option>
-						  		<option value="opt2">하늘</option>
+						  		<option value="opt1">${vo.opt1 }</option>
+						  		<option value="opt2">${vo.opt2 }</option>
+						  		<option value="opt2">${vo.opt3 }</option>
 						  	</select>
 					  	</div>
           			</div>
           		</div>
+<<<<<<< HEAD
 	          	<!-- <div class="tab_style">
 	          		<div class="option">색상 : 핑크</div>
+=======
+	          	<div class="tab_style">
+	          		<div class="option">${vo.opt1 }</div>
+>>>>>>> refs/heads/master
 	          		<div class="product_qty_price">
 	          			<div class="product_num">
 							<button type="button" class="minus" name="minus" id="p1">-</button>
 							<input type="text" class="price" value="1" id="p1_amt">
 							<button type="button" class="plus" name="plus" id="p1">+</button>
 						</div>
-						<div class="price"><span class="p1_price">9400</span>원</div>
+						<div class="price"><span class="p1_price">${vo.pprice_char }</span>원</div>
 	          		</div>
 	          	</div> -->
 	          	<table class="price_sum">

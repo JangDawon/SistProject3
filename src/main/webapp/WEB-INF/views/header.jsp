@@ -61,9 +61,9 @@
 					<ul class="navbar_category">
 						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">음식</a></li>
 						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=악세사리">악세사리</a></li>
-						<li><a href="http://localhost:9000/sistproject3/living.do">패션&잡화</a></li>
-						<li><a href="http://localhost:9000/sistproject3/interior.do">인테리어 소품</a></li>
-						<li><a href="http://localhost:9000/sistproject3/etc.do">기타</a></li>
+						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=패션, 잡화">패션&잡화</a></li>
+						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=인테리어 소품">인테리어 소품</a></li>
+						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=기타">기타</a></li>
 						<li><a href="http://localhost:9000/sistproject3/product_best.do">인기 작품</a></li>
 						<li><a href="http://localhost:9000/sistproject3/product_new.do">최신 작품</a></li>
 						<li><a href="http://localhost:9000/sistproject3/artist_best.do">인기 작가</a></li>
