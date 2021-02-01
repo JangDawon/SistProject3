@@ -21,9 +21,9 @@
 				<ul>
 					<li><a href="#">안녕하세요~ <%=svo.getUname() %>님!!</a></li>
 					<li><a href="http://localhost:9000/sistproject3/logout.do">로그아웃</a><div></div></li>
-					<li><a href="#">고객센터</a><div></div></li>
+					<li><a href="http://localhost:9000/sistproject3/cs.do">고객센터</a><div></div></li>
 					<% if(svo.getUname().equals("관리자")){ %>
-					<li><a href="#">Admin</a></li>
+					<li><a href="http://localhost:9000/sistproject3/admin.do">Admin</a></li>
 					<% } %>
 				</ul>
 				<% }else{ %>

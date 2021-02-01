@@ -25,15 +25,27 @@
 			$(".rc").remove();
 			$("#r_update_btn").css("display","none");
 			$("#r_delete_btn").css("display","none");
-			$(".rc_here").append("<textarea id='rcon_text' placeholder='댓글을 남겨주세요.(200자)' style='width:700px;'>" + text +"</textarea>");
-			$(".rc_here").append("<button type='button' class='btn_style'>수정</button>")
+			$(".rc_here").append("<textarea id='rcon_text' placeholder='댓글을 남겨주세요.(200자)' style='width:600px;'>" + text +"</textarea>");
+			$(".rc_here").append("<button type='button' id='r_update_proc_btn' class='btn_style'>수정</button>")
 		   });
 		
 		$(document).on("click","#r_delete_btn",function(){
 			alert("삭제완료");
 		   });
+		
+		$(document).on("click","#r_update_proc_btn",function(){
+			alert("수정완료");
+			$("#rcon_text").remove();
+			$("#r_update_proc_btn").remove();
+			$("#r_update_btn").css("display","");
+			$("#r_delete_btn").css("display","");
+		   });
 	});
 </script>
+<style>
+	#rcon_text {margin-left:60px; margin-right:30px;}
+	#r_update_proc_btn {clear:both; margin-top:65px;}
+</style>
 </head>
 <body>
 	<!-- header -->
