@@ -43,7 +43,7 @@
 	               <option>선택</option>
 	               <option value="음식">음식</option>
 	               <option value="악세사리">악세사리</option>
-	               <option value="패션&잡화">패션&잡화</option>
+	               <option value="패션, 잡화">패션&잡화</option>
 	               <option value="인테리어 소품">인테리어 소품</option>
 	               <option value="기타">기타</option>
 	            </select>

@@ -20,6 +20,11 @@ public class IdusCategoryDAO  extends DBConn{
 		
 	}
 	
+	public IdusProductVO getContent(String pid) {
+		return sqlSession.selectOne(namespace + ".content", pid);
+	}
+	
+	
 	/*public int getCount(String keyword) {
 		int result =0;
 		try {
