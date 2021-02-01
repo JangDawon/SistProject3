@@ -11,7 +11,8 @@
 <meta charset="UTF-8">
 <title>header</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-
+<script>
+</script>
 </head>
 <body class="header_body">
 	<header>
@@ -20,6 +21,7 @@
 				<% if(svo != null){ %> 
 				<ul>
 					<li><a href="#">안녕하세요~ <%=svo.getUname() %>님!!</a></li>
+					<li>${vo.uemail }</li>
 					<li><a href="http://localhost:9000/sistproject3/logout.do">로그아웃</a><div></div></li>
 					<li><a href="#">고객센터</a><div></div></li>
 					<% if(svo.getUname().equals("관리자")){ %>
@@ -49,7 +51,7 @@
 						<img src="http://localhost:9000/sistproject3/images/search.png"></button>
 					</div>
 					<ul class="navbar_icons">
-						<li><a href="http://localhost:9000/sistproject3/mypage.do">
+						<li><a href="http://localhost:9000/sistproject3/mypage.do?uemail=${vo.uemail }">
 						<img src="http://localhost:9000/sistproject3/images/user.png"></a></li>
 						<li><a href="http://localhost:9000/sistproject3/cart.do">
 						<img src="http://localhost:9000/sistproject3/images/cart.png"></a></li>

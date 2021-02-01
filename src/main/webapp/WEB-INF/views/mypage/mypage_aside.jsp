@@ -11,6 +11,7 @@
 	<!-- aside -->
 	<aside class="mypage_info">
 		<div class="mypage_menu">
+			<input type="hidden" name="uemail" value="${uemail}">
 			<div class="admin_profile">
 				<img src="http://localhost:9000/sistproject3/images/logo.jpg">
 				<p>홍길동님</p>
@@ -37,7 +38,7 @@
 				<b>
 					<span>내 정보</span>
 				</b>
-				<a href="my_info.do">회원정보관리</a>
+				<a href="my_info.do?uemail=${uemail }">회원정보관리</a>
 			</nav>
 		</div>
 	</aside>

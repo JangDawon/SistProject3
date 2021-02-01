@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project3.service.MemberServiceImpl;
 import com.project3.service.ReviewServiceImpl;
 import com.project3.vo.IdusReviewVO;
 
@@ -15,6 +16,8 @@ import com.project3.vo.IdusReviewVO;
 public class MypageController {
 	@Autowired 
 	private ReviewServiceImpl reviewService;
+	@Autowired 
+	private MemberServiceImpl memberService;
 	
 	@RequestMapping(value = "/mypage_aside.do", method = RequestMethod.GET)
 	public String mypage_aside() {
@@ -22,8 +25,11 @@ public class MypageController {
 	}
 
 	@RequestMapping(value = "/mypage.do", method = RequestMethod.GET)
-	public String mypage() {
-		return "/mypage/mypage";
+	public ModelAndView mypage(String uemail) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("uemail", uemail);
+		mv.setViewName("/mypage/mypage");
+		return mv;
 	}
 
 	@RequestMapping(value = "/my_bookmark_writer.do", method = RequestMethod.GET)
@@ -42,8 +48,8 @@ public class MypageController {
 	}
 
 	@RequestMapping(value = "/my_info.do", method = RequestMethod.GET)
-	public String my_info() {
-		return "/mypage/my_info";
+	public ModelAndView my_info(String uemail) {
+		return memberService.getContent(uemail);
 	}
 
 	@RequestMapping(value = "/my_order.do", method = RequestMethod.GET)
@@ -62,10 +68,6 @@ public class MypageController {
 	@RequestMapping(value = "/review_write.do", method = RequestMethod.GET)
 	public String review_write() {
 		return "/mypage/review_write";
-	}
-	@RequestMapping(value = "/jusoPopup.do", method = RequestMethod.GET)
-	public String popup_jusoPopup() {
-		return "/popup/jusoPopup";
 	}
 
 	@RequestMapping(value = "/review_write_proc.do", method = RequestMethod.GET)

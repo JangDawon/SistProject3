@@ -22,4 +22,8 @@ public class IdusMemberDAO {
 	public IdusSessionVO getLogin(IdusMemberVO vo) {
 		return sqlSession.selectOne(namespace+".login", vo);
 	}
+	public IdusMemberVO getContent(String uemail) {
+		return sqlSession.selectOne(namespace+".content",uemail);
+	}
+	
 }

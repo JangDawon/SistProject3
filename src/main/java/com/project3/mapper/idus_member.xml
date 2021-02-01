@@ -17,4 +17,10 @@
 		select count(*) result, uname from idus_member 
 				WHERE uemail=#{uemail} AND upass=#{upass} group by uname
 	</select>
+	
+	<!-- select:content -->
+	<select id = "content" parameterType = "java.lang.String" resultType = "com.project3.vo.IdusMemberVO">
+		 select uemail, uname, cp, addr1, addr2, addr3, aggrsms,aggremail, pfile, psfile from idus_member
+		 where uemail = #{uemail}
+	</select>
 </mapper>

@@ -16,7 +16,7 @@ public class MemberServiceImpl {
 	private IdusMemberDAO memberDAO;
 	
 	/**
-	 * 회원가입
+	 * �쉶�썝媛��엯
 	 */
 	public String getResultJoin(IdusMemberVO vo) {
 		boolean join_result = memberDAO.getInsert(vo);
@@ -30,7 +30,7 @@ public class MemberServiceImpl {
 	}
 	
 	/**
-	 * 로그인
+	 * 濡쒓렇�씤
 	 */
 	public ModelAndView getResultLogin(IdusMemberVO vo, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -38,11 +38,20 @@ public class MemberServiceImpl {
 			
 		if(svo.getResult() != 0) {
 			session.setAttribute("svo", svo);
+			mv.addObject("vo", vo);
 			mv.setViewName("index"); 
 		}else {
 			mv.addObject("result", "fail");
 			mv.setViewName("redirect:/login/login.do");
 		}
+		
+		return mv;
+	}
+	public ModelAndView getContent(String uemail) {
+		ModelAndView mv = new ModelAndView();
+		IdusMemberVO vo = memberDAO.getContent(uemail);
+		mv.addObject("vo", vo);
+		mv.setViewName("/mypage/my_info");
 		
 		return mv;
 	}

@@ -1,8 +1,11 @@
 package com.project3.vo;
 
-public class IdusMemberVO {
-	String uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+public class IdusMemberVO {
+	String uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile, savepath;
+	CommonsMultipartFile file1;
+	
 	public String getAddr1() {
 		return addr1;
 	}
@@ -21,6 +24,22 @@ public class IdusMemberVO {
 
 	public String getAddr3() {
 		return addr3;
+	}
+
+	public String getSavepath() {
+		return savepath;
+	}
+
+	public void setSavepath(String savepath) {
+		this.savepath = savepath;
+	}
+
+	public CommonsMultipartFile getFile1() {
+		return file1;
+	}
+
+	public void setFile1(CommonsMultipartFile file1) {
+		this.file1 = file1;
 	}
 
 	public void setAddr3(String addr3) {
