@@ -26,4 +26,18 @@ public class CategoryServiceImpl implements CategoryService{
 		return mv;
 	}
 	
+
+	public ModelAndView getContent(String pid) {
+		ModelAndView mv = new ModelAndView();
+		
+		IdusProductVO vo = categoryDAO.getContent(pid);
+		
+		vo.setPcontent(vo.getPcontent().replace("\r\n", "<br>"));
+		
+		mv.addObject("vo", vo);
+		mv.setViewName("/product_detail/product_detail");
+		
+		return mv;
+	}
+	
 }
