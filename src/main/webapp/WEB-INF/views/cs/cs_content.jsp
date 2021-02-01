@@ -69,7 +69,7 @@
 					output += "<table class='cs_reply_table' id='cs_reply_table'>";
 					output += "<tr>";
 					output += "<td><img src='http://localhost:9000/sistproject3/images/logo.jpg' style='height:60px; width:60px;  border-radius:50%'></td>";
-					output += "<td>" + jdata.jlist.uname + "</td>";
+					output += "<td>" + jdata.jlist.uname[i] + "</td>";
 					output += "<td></td>";
 					output += "<td><button type='button' class='btn_style' name='r_update' id='r_update_btn'>수정</button></td>";
 					output += "<td><button type='button' class='btn_style' name='r_delete' id='r_delete_btn'>삭제</button></td>"
