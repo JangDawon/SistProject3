@@ -14,8 +14,6 @@
 		});
 		
 		
-		
-		
 		$("#cart_select_del").click(function(){
 			var choice = confirm("정말로 삭제하시겠습니까?");
 			if(choice) {
@@ -28,6 +26,7 @@
 				$(location).attr("href", "http://localhost:9000/sistproject3/cart/cart_list_del.do?chklist="+chk_list);
 			}
 		});
+		
 		
 		$("#cart_all_chk").click(function(){
 			if($("#cart_all_chk").is(":checked")){
@@ -61,13 +60,16 @@
 			}
 		});
 		
+		
 		$(".cart_prod_update").click(function(){
 			confirm("수량을 변경하시겠습니까?");
 		});
 		
+		
 		$(".cart_prod_del").click(function(){
 			confirm("정말 삭제하시겠습니까?");
 		});
+		
 		
 		$("#product_option").change(function(){
 			if($(this).val() != "선택"){

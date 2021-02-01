@@ -1603,7 +1603,6 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	table.price_sum td:first-child {
 		font-size:14px;
 		color:gray;
-		border:1px solid black;
 	}
 	table.price_sum td:last-child {
 		text-align:right;

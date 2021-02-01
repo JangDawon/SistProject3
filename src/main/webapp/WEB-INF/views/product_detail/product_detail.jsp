@@ -7,7 +7,41 @@
 		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>제품상세페이지</title>
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+		<script src="http://localhost:9000/sistproject3/js/am-pagination.js"></script>
 		<script src="http://localhost:9000/sistproject3/js/dawon.js"></script>
+		<script>
+		//js - 11 참고
+			/* $(document).ready(function(){
+				function tab_style(){
+					$.ajax({
+						url:"tab_list_ajax.do?ddd=",
+						success:function(result){
+							
+							//alert(result);
+							var jdata = JSON.parse(result);
+							
+							//결과를 출력
+							var output = '<div class="tab_style">';
+							
+							for(var i in jdata.jlist){
+								output += '<div class="option">' 색상 데이터 '</div>';
+								output += '<div class="product_qty_price">';
+								output += '<div class="product_num">';
+								output += '<button type="button" class="minus" name="minus" id="p1">-</button>';
+								output += '<input type="text" class="price" value="1" id="p1_amt">';
+								output += '<button type="button" class="plus" name="plus" id="p1">+</button>';
+								output += '</div>';
+								output += '<div class="price"><span class="p1_price">' 가격 데이터 '</span>원</div>';
+								output += '</div>';
+							}
+							output += '</div>';
+							
+							$(".aside_product-info").after(output);
+						}
+					});
+				}
+			}); */ 
+		</script>
 	</head>
 <body>
    <!-- header -->
@@ -210,7 +244,7 @@
           </div>
           
 			<div class="product_sidebar">
-				<form name="cartForm" action="cart_proc.do" method="post" class="cart">
+				<form name="cartForm" action="cart.do" method="get" class="cart">
 				<div class="artist_card">
           			<div class="artist_card_split">
           				<a href="" class="artist_card_link">
@@ -261,7 +295,7 @@
 					  	</div>
           			</div>
           		</div>
-	          	<div class="tab_style">
+	          	<!-- <div class="tab_style">
 	          		<div class="option">색상 : 핑크</div>
 	          		<div class="product_qty_price">
 	          			<div class="product_num">
@@ -271,7 +305,7 @@
 						</div>
 						<div class="price"><span class="p1_price">9400</span>원</div>
 	          		</div>
-	          	</div>
+	          	</div> -->
 	          	<table class="price_sum">
 	          		<tr>
 	          			<td>

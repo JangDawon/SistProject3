@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,110 +19,28 @@
 		</div>
 		
 		<section class="product_content">
-			<div class="new_prod">
-				<a href="">
-					<div>
-						<div class="new_prod_img">
-							<div>
-								<button class="favorite_btn">
-									<img src="http://localhost:9000/sistproject3/images/favorite.png">
-								</button>
+			<c:forEach var="vo" items="${list}">
+				<div class="new_prod">
+					<a href="product_detail.do?bid=${vo.pid}">
+						<div>
+							<div class="new_prod_img">
+								<div>
+									<button class="favorite_btn">
+										<img src="http://localhost:9000/sistproject3/images/favorite.png">
+									</button>
+								</div>
+								<div>
+									<img src="http://localhost:9000/sistproject3/images/${vo.pfile1}">
+								</div>
 							</div>
-							<div>
-								<img src="http://localhost:9000/sistproject3/images/interior1.png">
-							</div>
-						</div>
-						<div class="new_prod_info">
-							<div class="prod_info_name">희다 heeda</div>
-							<div class="prod_info_title">[선물세트] 치즈곰캔들+빅치즈캔들 SET</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			
-			<div class="new_prod">
-				<a href="">
-					<div>
-						<div class="new_prod_img">
-							<div>
-								<button class="favorite_btn">
-									<img src="http://localhost:9000/sistproject3/images/favorite.png">
-								</button>
-							</div>
-							<div>
-								<img src="http://localhost:9000/sistproject3/images/interior2.png">
+							<div class="new_prod_info">
+								<div class="prod_info_name">${vo.sname }</div>
+								<div class="prod_info_title">${vo.ptitle }</div>
 							</div>
 						</div>
-						<div class="new_prod_info">
-							<div class="prod_info_name">희다 heeda</div>
-							<div class="prod_info_title">[선물세트] 치즈곰캔들+빅치즈캔들 SET</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			
-			<div class="new_prod">
-				<a href="">
-					<div>
-						<div class="new_prod_img">
-							<div>
-								<button class="favorite_btn">
-									<img src="http://localhost:9000/sistproject3/images/favorite.png">
-								</button>
-							</div>
-							<div>
-								<img src="http://localhost:9000/sistproject3/images/interior1.png">
-							</div>
-						</div>
-						<div class="new_prod_info">
-							<div class="prod_info_name">희다 heeda</div>
-							<div class="prod_info_title">[선물세트] 치즈곰캔들+빅치즈캔들 SET</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			
-			<div class="new_prod">
-				<a href="">
-					<div>
-						<div class="new_prod_img">
-							<div>
-								<button class="favorite_btn">
-									<img src="http://localhost:9000/sistproject3/images/favorite.png">
-								</button>
-							</div>
-							<div>
-								<img src="http://localhost:9000/sistproject3/images/interior2.png">
-							</div>
-						</div>
-						<div class="new_prod_info">
-							<div class="prod_info_name">희다 heeda</div>
-							<div class="prod_info_title">[선물세트] 치즈곰캔들+빅치즈캔들 SET</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			
-			<div class="new_prod">
-				<a href="">
-					<div>
-						<div class="new_prod_img">
-							<div>
-								<button class="favorite_btn">
-									<img src="http://localhost:9000/sistproject3/images/favorite.png">
-								</button>
-							</div>
-							<div>
-								<img src="http://localhost:9000/sistproject3/images/interior1.png">
-							</div>
-						</div>
-						<div class="new_prod_info">
-							<div class="prod_info_name">희다 heeda</div>
-							<div class="prod_info_title">[선물세트] 치즈곰캔들+빅치즈캔들 SET</div>
-						</div>
-					</div>
-				</a>
-			</div>
+					</a>
+				</div>
+			</c:forEach>
 		</section>
 		
 		<!-- footer -->

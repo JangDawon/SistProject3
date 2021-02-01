@@ -16,6 +16,34 @@ public class ProductServiceImpl implements BoardService{
 	@Autowired
 	private IdusProductDAO productDAO;
 	
+	/** 최신 차트 **/
+	public ModelAndView getNewList(String param) {
+		ModelAndView mv = new ModelAndView();
+		int start = 0;
+		int end = 0;
+		
+		ArrayList<IdusProductVO> list = productDAO.getNewList(start, end);
+		
+		mv.addObject("list", list);
+		mv.setViewName("/category/product_new");
+		
+		return mv;
+	}
+	
+	/** 인기 차트 **/
+	public ModelAndView getBestList(String param) {
+		ModelAndView mv = new ModelAndView();
+		int start = 0;
+		int end = 0;
+		
+		ArrayList<IdusProductVO> list = productDAO.getBestList(start, end);
+		
+		mv.addObject("list", list);
+		mv.setViewName("/category/product_best");
+		
+		return mv;
+	}
+	
 	public ModelAndView getList() {
 		ModelAndView mv = new ModelAndView();
 		
