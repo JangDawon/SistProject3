@@ -21,7 +21,7 @@
 		<section class="product_content">
 			<c:forEach var="vo" items="${list}">
 				<div class="new_prod">
-					<a href="product_detail.do?bid=${vo.pid}">
+					<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
 						<div>
 							<div class="new_prod_img">
 								<div>
@@ -30,7 +30,7 @@
 									</button>
 								</div>
 								<div>
-									<img src="http://localhost:9000/sistproject3/images/${vo.pfile1}">
+									<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">
 								</div>
 							</div>
 							<div class="new_prod_info">
