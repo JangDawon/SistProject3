@@ -41,7 +41,7 @@
 	
 	<a href="product_mng_list.do" class="h2_user"><h2 class="txt">상품 관리</h2></a>
 	<p class="mtitle">상품수정 ></p>
-	<form name="product_update_form" action="product_mng_update_proc.do" method="POST">
+	<form name="product_update_form" action="product_mng_update_proc.do" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="pid" value="${vo.pid }">
 		<table class="cs_table" id="admin_product_update">
 	      <tr>
@@ -65,7 +65,7 @@
 	         </td>
 	         <td>    
 	            <input type="text" name="sname" placeholder="작가명" id="sname" value="${vo.sname }">
-	            <input type="text" name="sid" placeholder="작가 아이디" id="sid" value="${vo.semail }">
+	            <input type="text" name="semail" placeholder="작가 아이디" id="semail" value="${vo.semail }">
 	         </td>
 	      </tr>
 	      <tr>

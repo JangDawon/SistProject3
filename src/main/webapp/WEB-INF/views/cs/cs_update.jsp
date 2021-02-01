@@ -63,10 +63,10 @@
 					<span class="board_title">비밀글</span>
 					<c:choose>
 						<c:when test="${vo.bsecret ne 'on' }">
-							<input type="checkbox" name="bsecret">
+							<input type="checkbox" name="bsecret" id="bsecret">
 						</c:when>
 						<c:otherwise>
-							<input type="checkbox" name="bsecret" checked>
+							<input type="checkbox" name="bsecret" id="bsecret" checked>
 						</c:otherwise> 
 					</c:choose>
 				</td>
@@ -74,7 +74,7 @@
 			<tr>
 				<td>
 					<span class="board_title">비밀번호</span>
-					<input type="password" name="bpass" >
+					<input type="password" name="bpass" id="bpass">
 				</td>
 			</tr>
 			<tr>

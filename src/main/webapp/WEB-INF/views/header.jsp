@@ -61,8 +61,8 @@
 			<div class="navbar3">
 				<div class="navbar3_wrapper">
 					<ul class="navbar_category">
-						<li><a href="http://localhost:9000/sistproject3/food.do">음식</a></li>
-						<li><a href="http://localhost:9000/sistproject3/accessory.do">악세사리</a></li>
+						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">음식</a></li>
+						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=악세사리">악세사리</a></li>
 						<li><a href="http://localhost:9000/sistproject3/living.do">패션&잡화</a></li>
 						<li><a href="http://localhost:9000/sistproject3/interior.do">인테리어 소품</a></li>
 						<li><a href="http://localhost:9000/sistproject3/etc.do">기타</a></li>
