@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.service.BoardServiceImpl;
 import com.project3.vo.IdusBoardVO;
+import com.project3.vo.IdusReplyVO;
 
 @Controller
 public class CsController {
@@ -90,4 +91,27 @@ public class CsController {
 		
 		return mv;
 	}
+	
+	/**
+	 * ´ñ±Û
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/cs_reply_write.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public String cs_reply_write(String uemail, String uname, String bid, String rcontent, String rfile, String rsfile) {
+		IdusReplyVO rvo = new IdusReplyVO();
+		rvo.setUemail(uemail);
+		rvo.setUname(uname);
+		rvo.setBid(bid);
+		rvo.setRcontent(rcontent);
+		rvo.setRfile(rfile);
+		rvo.setRsfile(rsfile); 
+		return String.valueOf(boardService.getReplyWrite(rvo));
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/cs_reply_list.do", method = RequestMethod.GET)
+	public String cs_reply_list(String bid) {
+		return boardService.getReplyList(bid);
+	}
+	
 }

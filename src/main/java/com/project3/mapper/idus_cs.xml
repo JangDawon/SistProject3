@@ -30,11 +30,11 @@
 				<choose>
 					<when test="bsecret != null">
 						, #{bfile}, #{bsfile}, #{bpass}, 
-						sysdate, #{bhits}, 'jihye@naver.com', '최지혜', #{bsecret})
+						sysdate, #{bhits}, 'jihye', '관리자', #{bsecret})
 					</when>
 					<otherwise>
 						, #{bfile}, #{bsfile}, '', 
-						sysdate, #{bhits}, 'jihye@naver.com', '최지혜', '')
+						sysdate, #{bhits}, 'jihye', '관리자', '')
 					</otherwise>
 				</choose>
 			</when>
@@ -42,11 +42,11 @@
 				<choose>
 					<when test="bsecret != null">
 						, '', '', #{bpass}, 
-						sysdate, #{bhits}, 'jihye@naver.com', '최지혜', #{bsecret})
+						sysdate, #{bhits}, 'jihye', '관리자', #{bsecret})
 					</when>
 					<otherwise>
 						, '', '', '', 
-						sysdate, #{bhits}, 'jihye@naver.com', '최지혜', '')
+						sysdate, #{bhits}, 'jihye', '관리자', '')
 					</otherwise>
 				</choose>
 			</otherwise>
@@ -98,6 +98,14 @@
 		<if test="sname != 'all'">
 			where ${sname} like '%' || #{svalue} || '%'
 		</if>
+	</select>
+	
+	<insert id="reply_write" parameterType="com.project3.vo.IdusReplyVO">
+		insert into idus_reply values('r_'||idus_reply_seq.nextval, #{uemail}, #{uname}, #{bid}, #{rcontent}, sysdate, #{rfile}, #{rsfile})
+	</insert>
+	
+	<select id="reply_list" parameterType="java.lang.String" resultType="com.project3.vo.IdusReplyVO">
+		select * from idus_reply order by rdate desc
 	</select>
 </mapper>
 

@@ -18,8 +18,15 @@ create table idus_reply(
   uname varchar2(30),
   bid varchar2(30) CONSTRAINT FK_RE_BID REFERENCES idus_board(bid) on delete cascade,
   rcon varchar2(1000) not null,
-  rdate date
+  rdate date,
+  rfile varchar2(100),
+  rsfile varchar2(100)
 );
+
+CREATE SEQUENCE IDUS_REPLY_SEQ
+  START WITH 1
+  INCREMENT BY 1;
+
 
 /* 아이디어스 상품 테이블 생성(지혜) 
 *  수정일 : 2021.01.28 오후 4시 23분

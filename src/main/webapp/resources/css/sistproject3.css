@@ -437,11 +437,12 @@ table#cs_content_table tr:last-child button#reply_write_btn {margin-left:-20px; 
 table#cs_content_table tr:nth-child(2) td {text-align:left;}
 table#cs_content_table td a>button {margin:0 5px;}
 table#cs_content_table tr:last-child td table {width:800px; border-collapse:collapse;}
+#cs_reply_table {margin-top:30px;}
 #cs_reply_table td:nth-child(1), #cs_reply_table td:nth-child(2) {width:100px;}
 #cs_reply_table td:nth-child(4),#cs_reply_table td:nth-child(5) {width:70px;}
 #cs_reply_table td:nth-child(4) button, #cs_reply_table td:nth-child(5) button {color:#454545; border-radius:4px; border:2px solid #F87E35; background-color:white; font-size:12px;}
 #cs_reply_table td:last-child {font-size:13px; width:110px; } 
-#cs_reply_table tr:last-child td div {padding-top:20px; padding-bottom:20px; width:700px; font-size:15px; margin:auto; white-space:normal; table-layout:fixed; word-break:break-all; }
+#cs_reply_table tr:last-child td div {background-color:#f5f5f5; border-radius:10px; padding-top:20px; padding-bottom:20px; width:750px; font-size:15px; margin:auto; white-space:normal; table-layout:fixed; word-break:break-all; }
 #board_content table#cs_reply_table, #board_content table#cs_reply_table th, #board_content table#cs_reply_table td {margin:20px;}
 #cs_reply_table textarea {width:450px;}
 div#here {clear:both;}

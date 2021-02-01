@@ -18,7 +18,25 @@
 			alert(obj_name+" : " +obj_id);
 		}); */
 		
-		
+		$(document).on("click","#reply_write_btn",function(){
+			if($("#r_content").val() == ""){
+				alert("내용을 입력해주세요 :) ");
+				$("#r_content").focus();
+				return false;
+			}else{
+				$.ajax({
+					url:"cs_reply_write.do?uemail=jihye&uname=관리자&bid=${vo.bid}&rcontent=" + $("#r_content").val() + "&rfile=n&rsfile=n",
+					success:function(result){
+						if(result == 1) {
+							alert("작성이 완료되었습니다:) ");
+							$("#r_content").val("");
+							reply_list_ajax();
+						}
+					}
+				});
+				
+			}
+		});
 		
 		$(document).on("click","#r_update_btn",function(){
 			var text = $("#r_content").val();
@@ -40,6 +58,31 @@
 			$("#r_update_btn").css("display","");
 			$("#r_delete_btn").css("display","");
 		   });
+		
+		function reply_list_ajax(){
+			$.ajax({
+				url:"cs_reply_list.do?bid=${vo.bid}",
+				success:function(result){
+					var jdata = JSON.parse(result);
+					
+					var output = "";
+					output += "<table class='cs_reply_table' id='cs_reply_table'>";
+					output += "<tr>";
+					output += "<td><img src='http://localhost:9000/sistproject3/images/logo.jpg' style='height:60px; width:60px;  border-radius:50%'></td>";
+					output += "<td>" + jdata.jlist.uname + "</td>";
+					output += "<td></td>";
+					output += "<td><button type='button' class='btn_style' name='r_update' id='r_update_btn'>수정</button></td>";
+					output += "<td><button type='button' class='btn_style' name='r_delete' id='r_delete_btn'>삭제</button></td>"
+					output += "<td>2021.01.19. 15:35:34</td>";
+					output += "</tr>";
+					output += "<tr>";
+					output += "<td class='rc_here' colspan='6'><div class='rc'>" + $("#r_content").val() + "</div></td>";
+					output += "</tr>";
+					output += "</table>";
+					$("#here").after(output);
+				}
+			});
+		}
 	});
 </script>
 <style>
@@ -92,12 +135,12 @@
 			</tr>
 			<tr>
 				<td colspan="6" id="last">
+					<div id="here"></div>
 					<div id="reply_form">
 					<img src="http://localhost:9000/sistproject3/images/logo.jpg" id="user_img">
 					<textarea id="r_content" placeholder="댓글을 남겨주세요.(200자)"></textarea>
 					<button type="button" id="reply_write_btn" class="btn_style">작성</button>
 					</div>
-					<div id="here"></div>
 					
 					<%-- <input type="hidden" id="u_id" value="<%= user_id %>">
 					<input type="hidden" id="bid" value="<%= bid %>">
