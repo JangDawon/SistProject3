@@ -1,53 +1,39 @@
 /*
-	아이디어스 맴버 테이블 생성(준성)
-	수정일 : 2021.01.28 오후 3시 37분
+	아이디어스 게시판 테이블 변경(지혜)
+	수정일 : 2021.02.02 오후 3시 00분
 */
-create table idus_member(
-	UEMAIL varchar2(30) Primary key,
-	UPASS varchar2(15) not null,
-	UNAME varchar2(10) not null,
-	CP varchar2(15) not null,
-	ADDR1 varchar2(100),
-	ADDR2 varchar2(100),
-	ADDR3 varchar2(100),
-	AGGRSMS varchar2(10),
-	AGGREMAIL varchar2(10),
-	PFILE varchar2(100),
-	PSFILE varchar2(100)
-);
-/* 아이디어스 공지사항 & 1대1문의 게시판 테이블 생성(지혜) 
-*  수정일 : 2021.01.25
+ALTER TABLE idus_board ADD(rank number(10));
+
+/*
+	아이디어스 게시판 테이블 변경(지혜)
+	수정일 : 2021.01.31 오후 1시 30분
 */
-CREATE TABLE idus_board(
-  bid       VARCHAR2(20) primary key,
-  btitle    VARCHAR2(100) not null,
-  bcontent  VARCHAR2(1000),
-  bfile     VARCHAR2(100),
-  bsfile    VARCHAR2(100),
-  bpass     VARCHAR2(100),
-  bdate     DATE,
-  bhits     NUMBER(10),
-  uemail    VARCHAR2(50) not null,
-  uname     VARCHAR2(30) not null,
-  bsecret VARCHAR2(15)
+ALTER TABLE idus_board
+ADD CONSTRAINT FK_BOARD_UEMAIL
+FOREIGN KEY (uemail)
+REFERENCES idus_member(UEMAIL);
+
+
+/*
+	아이디어스 댓글 테이블 생성(지혜)
+	수정일 : 2021.01.31 오후 1시 13분
+*/
+create table idus_reply(  
+  rid varchar2(30) primary key,
+  uemail varchar2(30) CONSTRAINT FK_RE_UEMAIL REFERENCES idus_member(uemail) on delete cascade,
+  uname varchar2(30),
+  bid varchar2(30) CONSTRAINT FK_RE_BID REFERENCES idus_board(bid) on delete cascade,
+  rcon varchar2(1000) not null,
+  rdate date,
+  rfile varchar2(100),
+  rsfile varchar2(100)
 );
 
-/*  아이디어스 공지사항 & 1대1문의 게시판 테이블 컬럼 추가(지혜)  
-*   수정일 : 2021.01.25 오후 10시 39분
-*/
-ALTER TABLE idus_board ADD(bsecret VARCHAR2(15));
-
-/*  아이디어스 게시판 테이블 Sequence & 상품 테이블 Sequence(지혜)  
-*   수정일 : 2021.01.25 오후 10시 39분
-*/
-CREATE SEQUENCE IDUS_SEQ
+CREATE SEQUENCE IDUS_REPLY_SEQ
   START WITH 1
   INCREMENT BY 1;
-  
-CREATE SEQUENCE IDUS_PRODUCT_SEQ
-  START WITH 1
-  INCREMENT BY 1;  
-  
+
+
 /* 아이디어스 상품 테이블 생성(지혜) 
 *  수정일 : 2021.01.28 오후 4시 23분
 */
@@ -75,6 +61,7 @@ CREATE TABLE idus_product(
   PRODUCT_TOTAL NUMBER(10)
 );
 
+<<<<<<< HEAD
 
 /** 
 * 아이디어스 장바구니 테이블&SEQUENCE (다원)
@@ -92,3 +79,57 @@ CREATE TABLE IDUS_CART(
 CREATE SEQUENCE SEQU_CART
   START WITH 1
   INCREMENT BY 1;
+=======
+/*
+	아이디어스 맴버 테이블 생성(준성)
+	수정일 : 2021.01.28 오후 3시 37분
+*/
+create table idus_member(
+	UEMAIL varchar2(30) Primary key,
+	UPASS varchar2(15) not null,
+	UNAME varchar2(10) not null,
+	CP varchar2(15) not null,
+	ADDR1 varchar2(100),
+	ADDR2 varchar2(100),
+	ADDR3 varchar2(100),
+	AGGRSMS varchar2(10),
+	AGGREMAIL varchar2(10),
+	PFILE varchar2(100),
+	PSFILE varchar2(100)
+);
+
+/* 아이디어스 공지사항 & 1대1문의 게시판 테이블 생성(지혜) 
+*  수정일 : 2021.01.25
+*/
+CREATE TABLE idus_board(
+  bid       VARCHAR2(20) primary key,
+  btitle    VARCHAR2(100) not null,
+  bcontent  VARCHAR2(1000),
+  bfile     VARCHAR2(100),
+  bsfile    VARCHAR2(100),
+  bpass     VARCHAR2(100),
+  bdate     DATE,
+  bhits     NUMBER(10),
+  uemail    VARCHAR2(50) not null,
+  uname     VARCHAR2(30) not null,
+  bsecret VARCHAR2(15),
+  rank number(10)
+);
+
+/*  아이디어스 공지사항 & 1대1문의 게시판 테이블 컬럼 추가(지혜)  
+*   수정일 : 2021.01.25 오후 10시 39분
+*/
+ALTER TABLE idus_board ADD(bsecret VARCHAR2(15));
+
+/*  아이디어스 게시판 테이블 Sequence & 상품 테이블 Sequence(지혜)  
+*   수정일 : 2021.01.25 오후 10시 39분
+*/
+CREATE SEQUENCE IDUS_SEQ
+  START WITH 1
+  INCREMENT BY 1;
+  
+CREATE SEQUENCE IDUS_PRODUCT_SEQ
+  START WITH 1
+  INCREMENT BY 1;  
+  
+>>>>>>> refs/heads/master

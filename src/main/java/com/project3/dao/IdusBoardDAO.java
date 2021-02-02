@@ -9,6 +9,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.project3.vo.IdusBoardVO;
+import com.project3.vo.IdusReplyVO;
 
 public class IdusBoardDAO extends DBConn{
 	@Autowired
@@ -104,5 +105,38 @@ public class IdusBoardDAO extends DBConn{
 		param.put("svalue", svalue);
 		
 		return sqlSession.selectOne(namespace+".countajax", param);
+	}
+	
+	/**
+	 * ´ñ±Û ¾²±â
+	 */
+	public int getReplyWrite(IdusReplyVO rvo) {
+		return sqlSession.insert(namespace+".reply_write", rvo);
+	}
+	
+	/**
+	 * ´ñ±Û ÀüÃ¼ ¸®½ºÆ®
+	 */
+	public ArrayList<IdusReplyVO> getReplyList(String bid){
+		List<IdusReplyVO> list = sqlSession.selectList(namespace+".reply_list", bid);
+		return (ArrayList<IdusReplyVO>)list;
+	}
+	
+	/**
+	 * ´ñ±Û ¼öÁ¤
+	 */
+	public int getReplyUpdate(String rid, String rcontent) {
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("rid", rid);
+		param.put("rcontent", rcontent);
+		
+		return sqlSession.update(namespace+".reply_update", param);
+	}
+	
+	/**
+	 * ´ñ±Û »èÁ¦
+	 */
+	public int getReplyDelete(String rid) {
+		return sqlSession.update(namespace+".reply_delete", rid);
 	}
 }

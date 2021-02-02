@@ -118,14 +118,25 @@
 							output += '</td>';
 							output += '</tr>';
 						}else{
-							var url = "location.href='http://localhost:9000/sistproject3/cs_content.do?id=" + jdata.jlist[i].bid + "'";
-							output += '<tr class="cs_row" id="cs_row1" onclick="' + url +'">';
-							output += '<td>' + jdata.jlist[i].rno + '</td>';
-							output += '<td>' + jdata.jlist[i].btitle + '</td>';
-							output += '<td>' + jdata.jlist[i].uname + '</td>';
-							output += '<td>' + jdata.jlist[i].bdate + '</td>';
-							output += '<td>' + jdata.jlist[i].bhits + '</td>';
-							output += '</tr>';
+							if(jdata.jlist[i].uname == '관리자'){
+								var url = "location.href='http://localhost:9000/sistproject3/cs_content.do?id=" + jdata.jlist[i].bid + "'";
+								output += '<tr class="cs_row" id="cs_row1" onclick="' + url +'">';
+								output += '<th>' + jdata.jlist[i].rno + '</th>';
+								output += '<th><span class="orange">[공지사항]</span> ' + jdata.jlist[i].btitle + '</th>';
+								output += '<th>' + jdata.jlist[i].uname + '</th>';
+								output += '<th>' + jdata.jlist[i].bdate + '</th>';
+								output += '<th>' + jdata.jlist[i].bhits + '</th>';
+								output += '</tr>';
+							}else{
+								var url = "location.href='http://localhost:9000/sistproject3/cs_content.do?id=" + jdata.jlist[i].bid + "'";
+								output += '<tr class="cs_row" id="cs_row1" onclick="' + url +'">';
+								output += '<td>' + jdata.jlist[i].rno + '</td>';
+								output += '<td>' + jdata.jlist[i].btitle + '</td>';
+								output += '<td>' + jdata.jlist[i].uname + '</td>';
+								output += '<td>' + jdata.jlist[i].bdate + '</td>';
+								output += '<td>' + jdata.jlist[i].bhits + '</td>';
+								output += '</tr>';
+							}
 						}
 					} 
 					
