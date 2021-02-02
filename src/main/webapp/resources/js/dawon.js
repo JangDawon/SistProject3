@@ -74,6 +74,8 @@
 		$("#product_option").change(function(){
 			if($(this).val() != "선택"){
 				$(".tab_style").css("display","block");
+				$(".whole_price").css("display","none");
+				$("#whole_price").css("display","block");
 			}
 		});
 		

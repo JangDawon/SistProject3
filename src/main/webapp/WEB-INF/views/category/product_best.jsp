@@ -22,6 +22,7 @@
 		
 		<section class="product_content">
 			<div class="best_prod_title">
+				<%= pcat %>
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">음식</a>
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">더보기<i class="idus-icon-arrow-right"></i></a>
 			</div>

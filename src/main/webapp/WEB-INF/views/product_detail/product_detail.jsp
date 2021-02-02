@@ -10,43 +10,7 @@
 		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 		<script src="http://localhost:9000/sistproject3/js/am-pagination.js"></script>
 		<script src="http://localhost:9000/sistproject3/js/dawon.js"></script>
-<<<<<<< HEAD
-		<script>
-		//js - 11 참고
-			/* $(document).ready(function(){
-				function tab_style(){
-					$.ajax({
-						url:"tab_list_ajax.do?ddd=",
-						success:function(result){
-							
-							//alert(result);
-							var jdata = JSON.parse(result);
-							
-							//결과를 출력
-							var output = '<div class="tab_style">';
-							
-							for(var i in jdata.jlist){
-								output += '<div class="option">' 색상 데이터 '</div>';
-								output += '<div class="product_qty_price">';
-								output += '<div class="product_num">';
-								output += '<button type="button" class="minus" name="minus" id="p1">-</button>';
-								output += '<input type="text" class="price" value="1" id="p1_amt">';
-								output += '<button type="button" class="plus" name="plus" id="p1">+</button>';
-								output += '</div>';
-								output += '<div class="price"><span class="p1_price">' 가격 데이터 '</span>원</div>';
-								output += '</div>';
-							}
-							output += '</div>';
-							
-							$(".aside_product-info").after(output);
-						}
-					});
-				}
-			}); */ 
-		</script>
-=======
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
->>>>>>> refs/heads/master
 	</head>
 <body>
    <!-- header -->
@@ -237,13 +201,9 @@
 					  	</div>
           			</div>
           		</div>
-<<<<<<< HEAD
-	          	<!-- <div class="tab_style">
-	          		<div class="option">색상 : 핑크</div>
-=======
+          		
 	          	<div class="tab_style">
 	          		<div class="option">${vo.opt1 }</div>
->>>>>>> refs/heads/master
 	          		<div class="product_qty_price">
 	          			<div class="product_num">
 							<button type="button" class="minus" name="minus" id="p1">-</button>
@@ -252,14 +212,18 @@
 						</div>
 						<div class="price"><span class="p1_price">${vo.pprice_char }</span>원</div>
 	          		</div>
-	          	</div> -->
+	          	</div>
+	          	
 	          	<table class="price_sum">
 	          		<tr>
 	          			<td>
 	          				<div class="sum_title">총 작품금액</div>
 	          			</td>
 	          			<td>
-	          				<div class="sum"><span class="p1_price">9400</span>원</div>
+	          				<div class="sum">
+	          					<div class="whole_price">0원</div>
+	          					<span id="whole_price">${vo.pprice_char}원</span>
+	          				</div>
 	          			</td>
 	          		</tr>
 	          	</table>
@@ -269,7 +233,8 @@
 	          			<button type="submit" class="btn_buy" id="payBtn">구매하기</button>
 	          		</div>
 	          	</div>
-          	</form>
+	          	
+          		</form>
 			</div>
 		</div>
 	</div>

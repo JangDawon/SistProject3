@@ -7,5 +7,4 @@ public interface CategoryService {
 	Object getNewList();
 	Object getBestList(String category);
 
-
 }
