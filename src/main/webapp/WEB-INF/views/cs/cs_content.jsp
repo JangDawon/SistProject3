@@ -12,28 +12,114 @@
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
 <script>
 	$(document).ready(function(){
-		/* $("button").click(function(){
-			var obj_name = $(this).attr("name");
-			var obj_id = $(this).attr("id");
-			alert(obj_name+" : " +obj_id);
-		}); */
+		reply_list_ajax();
 		
+		$(document).on("click","#reply_write_btn",function(){
+			if($("#r_content").val() == ""){
+				alert("내용을 입력해주세요 :) ");
+				$("#r_content").focus();
+				return false;
+			}else{
+				$.ajax({
+					url:"cs_reply_write.do?uemail=jihye&uname=관리자&bid=${vo.bid}&rcontent=" + $("#r_content").val() + "&rfile=n&rsfile=n",
+					success:function(result){
+						if(result == 1) {
+							alert("작성이 완료되었습니다:) ");
+							$("#r_content").val("");
+							reply_list_ajax();
+						}
+					}
+				});
+				
+			}
+		});
 		
-		
-		$(document).on("click","#r_update_btn",function(){
-			var text = $("#r_content").val();
-			$(".rc").remove();
-			$("#r_update_btn").css("display","none");
-			$("#r_delete_btn").css("display","none");
-			$(".rc_here").append("<textarea id='rcon_text' placeholder='댓글을 남겨주세요.(200자)' style='width:700px;'>" + text +"</textarea>");
-			$(".rc_here").append("<button type='button' class='btn_style'>수정</button>")
+		$(document).on("click",".r_update_btn",function(){
+			var rc_here = ".rc_here_" + $(this).val();
+			var rc = "#rc_" + $(this).val();
+			var text = $(rc).text();
+
+			$(rc).remove();
+			$(".r_update_btn").css("display","none");
+			$(".r_delete_btn").css("display","none");
+			$(rc_here).append("<textarea id='rcon_text' placeholder='댓글을 남겨주세요.(200자)' style='width:590px;'>" + text +"</textarea>");
+			$(rc_here).append("<button type='button' id='r_update_proc_btn' class='btn_style' value='" + $(this).val() + "'>수정</button>")
+			$(rc_here).append("<button type='button' id='r_cancel_btn' class='btn_style' value='" + $(this).val() + "'>취소</button>")
 		   });
 		
-		$(document).on("click","#r_delete_btn",function(){
-			alert("삭제완료");
+		$(document).on("click",".r_delete_btn",function(){
+			var rid = $(this).val();
+
+			$.ajax({
+				url:"cs_reply_delete.do?rid="+rid,
+				success:function(result){
+					if(result == 1){
+						alert("삭제완료");
+						reply_list_ajax();
+					}
+				}
+			});
 		   });
+		
+		$(document).on("click","#r_cancel_btn",function(){
+			reply_list_ajax();
+		   });
+		
+		$(document).on("click","#r_update_proc_btn",function(){
+			var rid = $("#r_update_proc_btn").val();
+			
+			if($("#rcon_text").val() == ""){
+				alert("내용을 입력해주세요");
+				$("#rcon_text").focus();
+				return false;
+			}
+			
+			$.ajax({
+				url:"cs_reply_update.do?rid="+rid+"&rcontent="+$("#rcon_text").val(),
+				success:function(result){
+					if(result == 1){
+						alert("수정완료");
+						reply_list_ajax();
+					}
+				}
+			});
+		   });
+		
+		function reply_list_ajax(){
+			$.ajax({
+				url:"cs_reply_list.do?bid=${vo.bid}",
+				success:function(result){
+					var jdata = JSON.parse(result);
+					
+					var output = "";
+					output += "<table class='cs_reply_table' id='cs_reply_table'>";
+					
+					for(var i in jdata.jlist){
+						output += "<tr>";
+						output += "<td><img src='http://localhost:9000/sistproject3/images/logo.jpg' style='height:60px; width:60px;  border-radius:50%' class='r_img'></td>";
+						output += "<td>" + jdata.jlist[i].uname + "</td>";
+						output += "<td></td>";
+						output += "<td><button type='button' name='r_update' class='r_update_btn' id='r_update_btn_"+ jdata.jlist[i].rid +"' value='"+ jdata.jlist[i].rid +"'>수정</button></td>";
+						output += "<td><button type='button' name='r_delete' class='r_delete_btn id='r_delete_btn_"+ jdata.jlist[i].rid +"' value='"+ jdata.jlist[i].rid +"'>삭제</button></td>"
+						output += "<td>" + jdata.jlist[i].rdate + "</td>";
+						output += "</tr>";
+						output += "<tr>";
+						output += "<td class='rc_here_"+ jdata.jlist[i].rid +"' colspan='6'><div class='rc' id='rc_"+ jdata.jlist[i].rid +"'>" + jdata.jlist[i].rcontent + "</div></td>";
+						output += "</tr>";
+					}
+					
+					output += "</table>";
+					$("#cs_reply_table").remove();
+					$("#here").after(output);
+				}
+			});
+		}
 	});
 </script>
+<style>
+	#rcon_text {margin-left:60px; margin-right:20px;}
+	#r_update_proc_btn {margin-top:65px; margin-right:10px;}
+</style>
 </head>
 <body>
 	<!-- header -->
@@ -80,12 +166,12 @@
 			</tr>
 			<tr>
 				<td colspan="6" id="last">
+					<div id="here"></div>
 					<div id="reply_form">
 					<img src="http://localhost:9000/sistproject3/images/logo.jpg" id="user_img">
 					<textarea id="r_content" placeholder="댓글을 남겨주세요.(200자)"></textarea>
 					<button type="button" id="reply_write_btn" class="btn_style">작성</button>
 					</div>
-					<div id="here"></div>
 					
 					<%-- <input type="hidden" id="u_id" value="<%= user_id %>">
 					<input type="hidden" id="bid" value="<%= bid %>">

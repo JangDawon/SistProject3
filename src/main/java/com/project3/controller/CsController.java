@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.service.BoardServiceImpl;
 import com.project3.vo.IdusBoardVO;
+import com.project3.vo.IdusReplyVO;
 
 @Controller
 public class CsController {
@@ -90,4 +91,39 @@ public class CsController {
 		
 		return mv;
 	}
+	
+	/**
+	 * ´ñ±Û
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/cs_reply_write.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public String cs_reply_write(String uemail, String uname, String bid, String rcontent, String rfile, String rsfile) {
+		IdusReplyVO rvo = new IdusReplyVO();
+		rvo.setUemail(uemail);
+		rvo.setUname(uname);
+		rvo.setBid(bid);
+		rvo.setRcontent(rcontent);
+		rvo.setRfile(rfile);
+		rvo.setRsfile(rsfile); 
+		return String.valueOf(boardService.getReplyWrite(rvo));
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/cs_reply_list.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public String cs_reply_list(String bid) {
+		return boardService.getReplyList(bid);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/cs_reply_update.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public String cs_reply_update(String rid, String rcontent) {
+		return String.valueOf(boardService.getReplyUpdate(rid, rcontent));
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/cs_reply_delete.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public String cs_reply_delete(String rid) {
+		return String.valueOf(boardService.getReplyDelete(rid));
+	}
+	
 }
