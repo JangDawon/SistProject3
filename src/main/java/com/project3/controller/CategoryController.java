@@ -58,7 +58,8 @@ public class CategoryController {
 	 */
 	@RequestMapping(value = "/product_best.do", method = RequestMethod.GET)
 	public ModelAndView product_best(String pcat) {
-		return categoryService.getBestList(pcat);
+		//return categoryService.getBestList();
+		return categoryService.getBestProdList(pcat);
 	}
 	
 	/**

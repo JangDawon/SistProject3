@@ -5,6 +5,6 @@ public interface CategoryService {
 	Object getList(String category);
 	Object getContent(String pid);
 	Object getNewList();
-	Object getBestList(String category);
-
+	//Object getBestList();
+	Object getBestProdList(String category);
 }

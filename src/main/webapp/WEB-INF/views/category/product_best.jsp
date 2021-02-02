@@ -22,7 +22,6 @@
 		
 		<section class="product_content">
 			<div class="best_prod_title">
-				<%= pcat %>
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">음식</a>
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">더보기<i class="idus-icon-arrow-right"></i></a>
 			</div>
@@ -58,7 +57,7 @@
 			</c:forEach>
 		</section>
 		
-		<%-- <section class="product_content">
+		<section class="product_content">
 			<div class="best_prod_title">
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=악세사리">악세사리</a>
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=악세사리">더보기<i class="idus-icon-arrow-right"></i></a>
@@ -204,7 +203,7 @@
 				</a>
 			</div>
 			</c:forEach>
-		</section> --%>
+		</section>
 		
 		<!-- footer -->
 		<jsp:include page="../footer.jsp" />

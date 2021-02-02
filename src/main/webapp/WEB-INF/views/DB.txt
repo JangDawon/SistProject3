@@ -1,12 +1,12 @@
 /*
-	아이디어스 게시판 테이블 변경(지혜)
-	수정일 : 2021.02.02 오후 3시 00분
+   아이디어스 게시판 테이블 변경(지혜)
+   수정일 : 2021.02.02 오후 3시 00분
 */
 ALTER TABLE idus_board ADD(rank number(10));
 
 /*
-	아이디어스 게시판 테이블 변경(지혜)
-	수정일 : 2021.01.31 오후 1시 30분
+   아이디어스 게시판 테이블 변경(지혜)
+   수정일 : 2021.01.31 오후 1시 30분
 */
 ALTER TABLE idus_board
 ADD CONSTRAINT FK_BOARD_UEMAIL
@@ -15,8 +15,8 @@ REFERENCES idus_member(UEMAIL);
 
 
 /*
-	아이디어스 댓글 테이블 생성(지혜)
-	수정일 : 2021.01.31 오후 1시 13분
+   아이디어스 댓글 테이블 생성(지혜)
+   수정일 : 2021.01.31 오후 1시 13분
 */
 create table idus_reply(  
   rid varchar2(30) primary key,
@@ -61,41 +61,22 @@ CREATE TABLE idus_product(
   PRODUCT_TOTAL NUMBER(10)
 );
 
-<<<<<<< HEAD
-
-/** 
-* 아이디어스 장바구니 테이블&SEQUENCE (다원)
-*/
-CREATE TABLE IDUS_CART(
-  CART_ID    VARCHAR2(30) PRIMARY KEY,
-  UEMAIL     VARCHAR2(30) REFERENCES idus_member(UEMAIL) ON DELETE CASCADE,
-  PID        VARCHAR2(20) REFERENCES idus_product(PID) ON DELETE CASCADE,
-  PROD_NAME  VARCHAR2(300) NOT NULL,
-  PROD_QTY   NUMBER(10) NOT NULL,
-  PROD_OPT   VARCHAR2(300) NOT NULL,
-  PROD_PRICE NUMBER(20) NOT NULL
-);
-
-CREATE SEQUENCE SEQU_CART
-  START WITH 1
-  INCREMENT BY 1;
-=======
 /*
-	아이디어스 맴버 테이블 생성(준성)
-	수정일 : 2021.01.28 오후 3시 37분
+   아이디어스 맴버 테이블 생성(준성)
+   수정일 : 2021.01.28 오후 3시 37분
 */
 create table idus_member(
-	UEMAIL varchar2(30) Primary key,
-	UPASS varchar2(15) not null,
-	UNAME varchar2(10) not null,
-	CP varchar2(15) not null,
-	ADDR1 varchar2(100),
-	ADDR2 varchar2(100),
-	ADDR3 varchar2(100),
-	AGGRSMS varchar2(10),
-	AGGREMAIL varchar2(10),
-	PFILE varchar2(100),
-	PSFILE varchar2(100)
+   UEMAIL varchar2(30) Primary key,
+   UPASS varchar2(15) not null,
+   UNAME varchar2(10) not null,
+   CP varchar2(15) not null,
+   ADDR1 varchar2(100),
+   ADDR2 varchar2(100),
+   ADDR3 varchar2(100),
+   AGGRSMS varchar2(10),
+   AGGREMAIL varchar2(10),
+   PFILE varchar2(100),
+   PSFILE varchar2(100)
 );
 
 /* 아이디어스 공지사항 & 1대1문의 게시판 테이블 생성(지혜) 
@@ -132,4 +113,20 @@ CREATE SEQUENCE IDUS_PRODUCT_SEQ
   START WITH 1
   INCREMENT BY 1;  
   
->>>>>>> refs/heads/master
+/** 
+* 아이디어스 장바구니 테이블&SEQUENCE (다원)
+*/
+CREATE TABLE IDUS_CART(
+  CART_ID    VARCHAR2(30) PRIMARY KEY,
+  UEMAIL     VARCHAR2(30) REFERENCES idus_member(UEMAIL) ON DELETE CASCADE,
+  PID        VARCHAR2(20) REFERENCES idus_product(PID) ON DELETE CASCADE,
+  PROD_NAME  VARCHAR2(300) NOT NULL,
+  PROD_QTY   NUMBER(10) NOT NULL,
+  PROD_OPT   VARCHAR2(300) NOT NULL,
+  PROD_PRICE NUMBER(20) NOT NULL
+);
+
+CREATE SEQUENCE SEQU_CART
+  START WITH 1
+  INCREMENT BY 1;
+

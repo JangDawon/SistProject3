@@ -50,10 +50,21 @@ public class CategoryServiceImpl implements CategoryService{
 		return mv;
 	}
 	
-	public ModelAndView getBestList(String pcat) {
+	/* public ModelAndView getBestList() {
 		ModelAndView mv = new ModelAndView();
 		
-		ArrayList<IdusProductVO> list = categoryDAO.getBestList(pcat);
+		ArrayList<IdusProductVO> list = categoryDAO.getBestList();
+		
+		mv.addObject("list", list);
+		mv.setViewName("/category/product_best");
+		
+		return mv;
+	} */
+	
+	public ModelAndView getBestProdList(String pcat) {
+		ModelAndView mv = new ModelAndView();
+		
+		ArrayList<IdusProductVO> list = categoryDAO.getBestProdList(pcat);
 		
 		mv.addObject("list", list);
 		mv.setViewName("/category/product_best");
