@@ -1,5 +1,11 @@
 /*
 	아이디어스 게시판 테이블 변경(지혜)
+	수정일 : 2021.02.02 오후 3시 00분
+*/
+ALTER TABLE idus_board ADD(rank number(10));
+
+/*
+	아이디어스 게시판 테이블 변경(지혜)
 	수정일 : 2021.01.31 오후 1시 30분
 */
 ALTER TABLE idus_board
@@ -87,7 +93,8 @@ CREATE TABLE idus_board(
   bhits     NUMBER(10),
   uemail    VARCHAR2(50) not null,
   uname     VARCHAR2(30) not null,
-  bsecret VARCHAR2(15)
+  bsecret VARCHAR2(15),
+  rank number(10)
 );
 
 /*  아이디어스 공지사항 & 1대1문의 게시판 테이블 컬럼 추가(지혜)  

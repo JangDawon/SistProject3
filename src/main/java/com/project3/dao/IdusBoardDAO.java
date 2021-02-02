@@ -121,4 +121,22 @@ public class IdusBoardDAO extends DBConn{
 		List<IdusReplyVO> list = sqlSession.selectList(namespace+".reply_list", bid);
 		return (ArrayList<IdusReplyVO>)list;
 	}
+	
+	/**
+	 * ´ñ±Û ¼öÁ¤
+	 */
+	public int getReplyUpdate(String rid, String rcontent) {
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("rid", rid);
+		param.put("rcontent", rcontent);
+		
+		return sqlSession.update(namespace+".reply_update", param);
+	}
+	
+	/**
+	 * ´ñ±Û »èÁ¦
+	 */
+	public int getReplyDelete(String rid) {
+		return sqlSession.update(namespace+".reply_delete", rid);
+	}
 }

@@ -4,10 +4,15 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class IdusBoardVO {
 	String bid, btitle, bcontent, bfile, bsfile, bpass, bdate, uemail, uname, bsecret, savePath;
-	int rno, bhits;
+	int rno, bhits, rank;
 	CommonsMultipartFile file1;
 	
-	
+	public int getRank() {
+		return rank;
+	}
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
 	public int getRno() {
 		return rno;
 	}

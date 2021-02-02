@@ -230,10 +230,18 @@ public class BoardServiceImpl implements BoardService {
 			jobj.addProperty("rcontent", vo.getRcontent());
 			
 			jarray.add(jobj);
+			
 		}
 		
 		jdata.add("jlist", jarray);
-				
 		return gson.toJson(jdata);
+	}
+	
+	public int getReplyUpdate(String rid, String rcontent) {
+		return boardDAO.getReplyUpdate(rid, rcontent);
+	}
+	
+	public int getReplyDelete(String rid) {
+		return boardDAO.getReplyDelete(rid);
 	}
 }

@@ -109,9 +109,21 @@ public class CsController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/cs_reply_list.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/cs_reply_list.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
 	public String cs_reply_list(String bid) {
 		return boardService.getReplyList(bid);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/cs_reply_update.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public String cs_reply_update(String rid, String rcontent) {
+		return String.valueOf(boardService.getReplyUpdate(rid, rcontent));
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/cs_reply_delete.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public String cs_reply_delete(String rid) {
+		return String.valueOf(boardService.getReplyDelete(rid));
 	}
 	
 }
