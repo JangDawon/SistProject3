@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/carousel.css">
 		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 		<script src="http://localhost:9000/sistproject3/js/dawon.js"></script>
+		<script src="http://localhost:9000/sistproject3/js/hyunju.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	</head>
 <body>
@@ -193,9 +194,9 @@
 	          			<div>
 							<select name="product_option" id="product_option" >
 						  		<option value="선택">[필수] 옵션을 선택해주세요</option>
-						  		<option value="opt1">${vo.opt1 }</option>
-						  		<option value="opt2">${vo.opt2 }</option>
-						  		<option value="opt2">${vo.opt3 }</option>
+						  		<option value="opt1">${vo.opt1 } ${vo.opt1_price }원</option>
+						  		<option value="opt2">${vo.opt2 } ${vo.opt2_price }원</option>
+						  		<option value="opt2">${vo.opt3 } ${vo.opt3_price }원</option>
 						  	</select>
 					  	</div>
           			</div>
