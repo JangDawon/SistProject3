@@ -1,7 +1,7 @@
 package com.project3.vo;
 
 public class IdusMemberVO {
-	String uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile;
+	String uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile, udate;
 
 	public String getAddr1() {
 		return addr1;
