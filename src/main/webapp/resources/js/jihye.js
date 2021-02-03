@@ -3,16 +3,39 @@ $(document).ready(function(){
 	$("#cs_write_btn").click(function(){
 		if($("#btitle").val() == ""){
 			alert("제목을 입력해주세요:) ");
+			$("#btitle").focus();
 			return false;
+		}else if($("#bcontent").val() == ""){
+			alert("내용을 입력해주세요:) ");
+			$("#bcontent").focus();
+			return false;
+		}else if($("#bsecret").is(":checked")){
+			if($("#bpass").val() == ""){
+				alert("비밀번호를 입력해주세요 :)");
+				$("#bpass").focus();
+				return false;
+			}
 		}
 	});
 	
 	$("#cs_update_btn").click(function(){
 		if($("#btitle").val() == ""){
 			alert("제목을 입력해주세요:) ");
+			$("#btitle").focus();
 			return false;
+		}else if($("#bcontent").val() == ""){
+			alert("내용을 입력해주세요:) ");
+			$("#bcontent").focus();
+			return false;
+		}else if($("#bsecret").is(":checked")){
+			if($("#bpass").val() == ""){
+				alert("비밀번호를 입력해주세요 :)");
+				$("#bpass").focus();
+				return false;
+			}
 		}
 	});
+	
 	
 	$("#product_update_btn").click(function(){
 			if($("#pcat").val() == "선택"){
@@ -51,7 +74,7 @@ $(document).ready(function(){
 				alert("옵션 가격을 입력해주세요");
 				$("#opt1_price").focus();
 				return false;
-			}else if($("#file1").val() == ""){
+			}else if($("label[for='file1']").attr("id") == ""){
 				alert("이미지를 선택해주세요");
 				$("#file1").focus();
 				return false;
@@ -122,7 +145,7 @@ $(document).ready(function(){
 		var result = confirm("정말 삭제하시겠습니까?");
 		
 		if(result){
-			$(location).attr('href', "product_mng_delete_proc.do?id=all");
+			$(location).attr('href', "product_mng_list_del.do?del_list=all");
 		}
 		
 		
@@ -139,7 +162,10 @@ $(document).ready(function(){
 		if(del_list == ""){
 			alert("선택된 리뷰가 없습니다");
 		}else{
-			confirm(del_list + "정말 삭제하시겠습니까?");
+			var result = confirm("정말 삭제하시겠습니까?");
+			if(result){
+				$(location).attr("href", "http://localhost:9000/sistproject3/product_mng_list_del.do?del_list="+del_list);	
+			}
 		}
 	});
 	
@@ -211,31 +237,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	$("#reply_write_btn").click(function(){
-		if($("#r_content").val() == ""){
-			alert("내용을 입력해주세요 :) ");
-			$("#r_content").focus();
-			return false;
-		}else{
-			alert("작성이 완료되었습니다:) ");
-			var output = "";
-			output += "<table id='cs_reply_table'>";
-			output += "<tr>";
-			output += "<td><img src='http://localhost:9000/sistproject3/images/logo.jpg' style='height:60px; width:60px;  border-radius:50%'></td>";
-			output += "<td>최지혜</td>";
-			output += "<td></td>";
-			output += "<td><button type='button' class='btn_style' name='r_update' id='r_update_btn'>수정</button></td>";
-			output += "<td><button type='button' class='btn_style' name='r_delete' id='r_delete_btn'>삭제</button></td>"
-			output += "<td>2021.01.19. 15:35:34</td>";
-			output += "</tr>";
-			output += "<tr>";
-			output += "<td class='rc_here' colspan='6'><div class='rc'>" + $("#r_content").val() + "</div></td>";
-			output += "</tr>";
-			output += "</table>";
-			$("#r_content").val("");
-			$("#here").after(output);
-		}
-	});
+	
 	
 	
 });

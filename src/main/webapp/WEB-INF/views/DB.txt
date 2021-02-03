@@ -1,55 +1,41 @@
 /*
-	ì•„ì´ë””ì–´ìŠ¤ ë§´ë²„ í…Œì´ë¸” ìƒì„±(ì¤€ì„±)
-	ìˆ˜ì •ì¼ : 2021.01.28 ì˜¤í›„ 3ì‹œ 37ë¶„
+	¾ÆÀÌµğ¾î½º °Ô½ÃÆÇ Å×ÀÌºí º¯°æ(ÁöÇı)
+	¼öÁ¤ÀÏ : 2021.02.02 ¿ÀÈÄ 3½Ã 00ºĞ
 */
-create table idus_member(
-	UEMAIL varchar2(30) Primary key,
-	UPASS varchar2(15) not null,
-	UNAME varchar2(10) not null,
-	CP varchar2(15) not null,
-	ADDR1 varchar2(100),
-	ADDR2 varchar2(100),
-	ADDR3 varchar2(100),
-	AGGRSMS varchar2(10),
-	AGGREMAIL varchar2(10),
-	PFILE varchar2(100),
-	PSFILE varchar2(100)
-);
-/* ì•„ì´ë””ì–´ìŠ¤ ê³µì§€ì‚¬í•­ & 1ëŒ€1ë¬¸ì˜ ê²Œì‹œíŒ í…Œì´ë¸” ìƒì„±(ì§€í˜œ) 
-*  ìˆ˜ì •ì¼ : 2021.01.25
+ALTER TABLE idus_board ADD(rank number(10));
+
+/*
+	¾ÆÀÌµğ¾î½º °Ô½ÃÆÇ Å×ÀÌºí º¯°æ(ÁöÇı)
+	¼öÁ¤ÀÏ : 2021.01.31 ¿ÀÈÄ 1½Ã 30ºĞ
 */
-CREATE TABLE idus_board(
-  bid       VARCHAR2(20) primary key,
-  btitle    VARCHAR2(100) not null,
-  bcontent  VARCHAR2(1000),
-  bfile     VARCHAR2(100),
-  bsfile    VARCHAR2(100),
-  bpass     VARCHAR2(100),
-  bdate     DATE,
-  bhits     NUMBER(10),
-  uemail    VARCHAR2(50) not null,
-  uname     VARCHAR2(30) not null,
-  bsecret VARCHAR2(15)
+ALTER TABLE idus_board
+ADD CONSTRAINT FK_BOARD_UEMAIL
+FOREIGN KEY (uemail)
+REFERENCES idus_member(UEMAIL);
+
+
+/*
+	¾ÆÀÌµğ¾î½º ´ñ±Û Å×ÀÌºí »ı¼º(ÁöÇı)
+	¼öÁ¤ÀÏ : 2021.01.31 ¿ÀÈÄ 1½Ã 13ºĞ
+*/
+create table idus_reply(  
+  rid varchar2(30) primary key,
+  uemail varchar2(30) CONSTRAINT FK_RE_UEMAIL REFERENCES idus_member(uemail) on delete cascade,
+  uname varchar2(30),
+  bid varchar2(30) CONSTRAINT FK_RE_BID REFERENCES idus_board(bid) on delete cascade,
+  rcon varchar2(1000) not null,
+  rdate date,
+  rfile varchar2(100),
+  rsfile varchar2(100)
 );
 
-/*  ì•„ì´ë””ì–´ìŠ¤ ê³µì§€ì‚¬í•­ & 1ëŒ€1ë¬¸ì˜ ê²Œì‹œíŒ í…Œì´ë¸” ì»¬ëŸ¼ ì¶”ê°€(ì§€í˜œ)  
-*   ìˆ˜ì •ì¼ : 2021.01.25 ì˜¤í›„ 10ì‹œ 39ë¶„
-*/
-ALTER TABLE idus_board ADD(bsecret VARCHAR2(15));
-
-/*  ì•„ì´ë””ì–´ìŠ¤ ê²Œì‹œíŒ í…Œì´ë¸” Sequence & ìƒí’ˆ í…Œì´ë¸” Sequence(ì§€í˜œ)  
-*   ìˆ˜ì •ì¼ : 2021.01.25 ì˜¤í›„ 10ì‹œ 39ë¶„
-*/
-CREATE SEQUENCE IDUS_SEQ
+CREATE SEQUENCE IDUS_REPLY_SEQ
   START WITH 1
   INCREMENT BY 1;
-  
-CREATE SEQUENCE IDUS_PRODUCT_SEQ
-  START WITH 1
-  INCREMENT BY 1;  
-  
-/* ì•„ì´ë””ì–´ìŠ¤ ìƒí’ˆ í…Œì´ë¸” ìƒì„±(ì§€í˜œ) 
-*  ìˆ˜ì •ì¼ : 2021.01.28 ì˜¤í›„ 4ì‹œ 23ë¶„
+
+
+/* ¾ÆÀÌµğ¾î½º »óÇ° Å×ÀÌºí »ı¼º(ÁöÇı) 
+*  ¼öÁ¤ÀÏ : 2021.01.28 ¿ÀÈÄ 4½Ã 23ºĞ
 */
 CREATE TABLE idus_product(
   pid       VARCHAR2(20) primary key,
@@ -74,3 +60,56 @@ CREATE TABLE idus_product(
   pdate     DATE,
   PRODUCT_TOTAL NUMBER(10)
 );
+
+/*
+	¾ÆÀÌµğ¾î½º ¸É¹ö Å×ÀÌºí »ı¼º(ÁØ¼º)
+	¼öÁ¤ÀÏ : 2021.01.28 ¿ÀÈÄ 3½Ã 37ºĞ
+*/
+create table idus_member(
+	UEMAIL varchar2(30) Primary key,
+	UPASS varchar2(15) not null,
+	UNAME varchar2(10) not null,
+	CP varchar2(15) not null,
+	ADDR1 varchar2(100),
+	ADDR2 varchar2(100),
+	ADDR3 varchar2(100),
+	AGGRSMS varchar2(10),
+	AGGREMAIL varchar2(10),
+	PFILE varchar2(100),
+	PSFILE varchar2(100)
+);
+
+/* ¾ÆÀÌµğ¾î½º °øÁö»çÇ× & 1´ë1¹®ÀÇ °Ô½ÃÆÇ Å×ÀÌºí »ı¼º(ÁöÇı) 
+*  ¼öÁ¤ÀÏ : 2021.01.25
+*/
+CREATE TABLE idus_board(
+  bid       VARCHAR2(20) primary key,
+  btitle    VARCHAR2(100) not null,
+  bcontent  VARCHAR2(1000),
+  bfile     VARCHAR2(100),
+  bsfile    VARCHAR2(100),
+  bpass     VARCHAR2(100),
+  bdate     DATE,
+  bhits     NUMBER(10),
+  uemail    VARCHAR2(50) not null,
+  uname     VARCHAR2(30) not null,
+  bsecret VARCHAR2(15),
+  rank number(10)
+);
+
+/*  ¾ÆÀÌµğ¾î½º °øÁö»çÇ× & 1´ë1¹®ÀÇ °Ô½ÃÆÇ Å×ÀÌºí ÄÃ·³ Ãß°¡(ÁöÇı)  
+*   ¼öÁ¤ÀÏ : 2021.01.25 ¿ÀÈÄ 10½Ã 39ºĞ
+*/
+ALTER TABLE idus_board ADD(bsecret VARCHAR2(15));
+
+/*  ¾ÆÀÌµğ¾î½º °Ô½ÃÆÇ Å×ÀÌºí Sequence & »óÇ° Å×ÀÌºí Sequence(ÁöÇı)  
+*   ¼öÁ¤ÀÏ : 2021.01.25 ¿ÀÈÄ 10½Ã 39ºĞ
+*/
+CREATE SEQUENCE IDUS_SEQ
+  START WITH 1
+  INCREMENT BY 1;
+  
+CREATE SEQUENCE IDUS_PRODUCT_SEQ
+  START WITH 1
+  INCREMENT BY 1;  
+  

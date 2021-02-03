@@ -6,12 +6,12 @@
     
 <mapper namespace="mapper.product">
 	<select id="list" resultType="com.project3.vo.IdusProductVO">
-		select rownum rno, pid, pcat, sname, semail, ptitle, pcontent, pprice, opt1, opt1_price, opt2, opt2_price, opt3, opt3_price,
+		select rownum rno, pid, pcat, sname, semail, ptitle, pcontent, pprice, to_char(pprice, '999,999') pprice_char, opt1, opt1_price, opt2, opt2_price, opt3, opt3_price,
 		pfile1, psfile1, pfile2, psfile2, pfile3, psfile3, pdate, product_total from idus_product order by pdate desc
 	</select>
 	
 	<select id="plist" parameterType="map" resultType="com.project3.vo.IdusProductVO">
-		select * from (select rownum rno, pid, pcat, sname, semail, ptitle, pcontent, pprice, opt1, opt1_price, opt2, opt2_price, opt3, opt3_price,
+		select * from (select rownum rno, pid, pcat, sname, semail, ptitle, pcontent, pprice, to_char(pprice, '999,999') pprice_char, opt1, opt1_price, opt2, opt2_price, opt3, opt3_price,
 		pfile1, psfile1, pfile2, psfile2, pfile3, psfile3, pdate, product_total from (select * from idus_product order by pdate desc))
     where rno between #{start} and #{end}
 	</select>
@@ -20,8 +20,19 @@
 		delete from idus_product
 	</delete>
 	
+	<delete id="deleteSelect" parameterType="java.lang.reflect.Array">
+		delete from idus_product where pid in
+		
+		<foreach item="item" index="index" collection="array"
+	      open="(" separator="," close=")">
+	      #{item}
+	    </foreach>
+	    
+	</delete>
+	
 	<select id="content" parameterType="java.lang.String" resultType="com.project3.vo.IdusProductVO">
-		select pid, pcat, sname, semail, ptitle, pcontent, pprice, opt1, opt1_price, opt2, opt2_price, opt3, opt3_price,
+		select pid, pcat, sname, semail, ptitle, pcontent, pprice, to_char(pprice, '999,999') pprice_char, opt1, opt1_price, to_char(opt1_price, '999,999') opt1_price_char, 
+		opt2, opt2_price, to_char(opt2_price, '999,999') opt2_price_char, opt3, opt3_price, to_char(opt3_price, '999,999') opt3_price_char,
 		pfile1, psfile1, pfile2, psfile2, pfile3, psfile3, to_char(pdate, 'yyyy.mm.dd') pdate, product_total from idus_product where pid=#{id}
 	</select>
 	
@@ -49,4 +60,26 @@
 		</choose>
 		,sysdate, 0)
 	</insert>
+	
+	<update id="update" parameterType="com.project3.vo.IdusProductVO">
+		update idus_product set pcat=#{pcat}, sname=#{sname}, semail=#{semail}, ptitle=#{ptitle}, pcontent=#{pcontent}, 
+		pprice=#{pprice}, opt1=#{opt1}, opt1_price=#{opt1_price}, 
+		opt2=#{opt2}, opt2_price=#{opt2_price}, opt3=#{opt3}, opt3_price=#{opt3_price}
+		<if test="pfile1 != null">
+			,pfile1=#{pfile1}, psfile1=#{psfile1}
+		</if>
+		<if test="pfile2 != null">
+			, pfile2=#{pfile2}, psfile2=#{psfile2}
+		</if>
+		<if test="pfile3 != null">
+			, pfile3=#{pfile3}, psfile3=#{psfile3}
+		</if>
+		where pid=#{pid}
+	</update>
+	
+	<select id="categorylist" parameterType="java.lang.String" resultType="com.project3.vo.IdusProductVO">
+		select pid, pcat, psfile1, sname, ptitle, to_char(pprice, '9,999,999') pprice_char, to_char(pdate,'yy/mm/dd') pdate
+		  from (select * from idus_product order by pdate desc) where pcat =#{pcat}
+	</select>
+	
 </mapper>

@@ -14,30 +14,31 @@
 <script src="http://localhost:9000/sistproject3/js/am-pagination.js"></script>
 <script>
 	$(document).ready(function(){
-		//페이지 번호 및 링크
-		var pager = jQuery("#ampaginationsm").pagination({
-			maxSize : 5,
-			totals : '${dbCount}',
-			pageSize : '${pageSize}',
-			page : '${ reqPage }',
-			
-			lastText : '&raquo;&raquo;',
-			firstText : '&laquo;&laquo;',
-			prevText : '&laquo;',
-			nextText : '&raquo;',
-			
-			btnSize : 'sm'
-		});
+		cs_list('all', '', '');
 		
-		//
-		jQuery("#ampaginationsm").on('am.pagination.change', function(e){
-			//$(location).attr('href','페이지 이름');	//location.href();
-			$(location).attr('href','http://localhost:9000/sistproject3/cs.do?rpage=' + e.page);
-		});
-		
-		
-		$(".cs_row").click(function(){
+		function page(dbCount, pageSize, reqPage){
+			//페이지 번호 및 링크
+			var pager = jQuery("#ampaginationsm").pagination({
+				maxSize : 5,
+				totals : dbCount,
+				pageSize : pageSize,
+				page : reqPage,
+				
+				lastText : '&raquo;&raquo;',
+				firstText : '&laquo;&laquo;',
+				prevText : '&laquo;',
+				nextText : '&raquo;',
+				
+				btnSize : 'sm'
+			});
 			
+			jQuery("#ampaginationsm").on('am.pagination.change', function(e){
+				/* $(location).attr('href','http://localhost:9000/sistproject3/cs.do?rpage=' + e.page); */
+				cs_list($("#sname").val(), $("#svalue").val(), e.page)
+			});
+		}
+		
+		$(document).on("click",".cs_row",function(){
 			var sub_menu = $(this).next("tr.cs_hide");
 			
 			$("tr.cs_hide").css("background", "#F5F5F5").css("height", "250px");
@@ -58,7 +59,7 @@
 
 		});
 		
-		$(".cs_hide_btn").click(function(){
+		$(document).on("click",".cs_hide_btn",function(){
 			var now = $(this).attr("id");
 			var pw_id = "#cs_hide_"+now;
 			var pass = "#cs_pw_"+now;
@@ -75,6 +76,83 @@
 				location.href="http://localhost:9000/sistproject3/cs_content.do?id="+now;
 			}
 		});
+				
+		$("#cs_search_btn").click(function(){
+			if($("#svalue").val() == ""){
+				alert("검색할 단어를 입력해주세요 :)");
+				$("#svalue").focus();
+				return false;
+			}else{
+				var sname = $("#sname").val();
+				var svalue = $("#svalue").val();
+				
+				cs_list(sname, svalue, "");
+			}
+		});		
+	
+		function cs_list(sname, svalue, rpage){
+			$.ajax({
+				url:"cs_search.do?sname=" + sname + "&svalue=" + svalue + "&rpage=" + rpage,
+				success:function(result){
+					var jdata = JSON.parse(result);
+					
+					//결과를 출력
+					var output = '';
+					for(var i in jdata.jlist){ 
+						if(jdata.jlist[i].bsecret == 'on'){
+							output += '<tr class="cs_row" id="cs_row1">';
+							output += '<td>' + jdata.jlist[i].rno + '</td>';
+							output += '<td>' + jdata.jlist[i].btitle + '</td>';
+							output += '<td>' + jdata.jlist[i].uname + '</td>';
+							output += '<td>' + jdata.jlist[i].bdate + '</td>';
+							output += '<td>' + jdata.jlist[i].bhits + '</td>';
+							output += '</tr>';
+							output += '<tr class="cs_hide">';
+							output += '<td colspan="5">';
+							output += '<div class="cs_hide_content" id="cs_hide_content">';
+							output += '<span class="cs_hide_title"><span class="red">*</span>비밀번호</span>';
+							output += '<input type="password" id="cs_hide_' + jdata.jlist[i].bid + '" class="cs_hide_pw" placeholder="비밀번호를 입력해주세요:)">';
+							output += '<input type="hidden" id="cs_pw_' + jdata.jlist[i].bid + '" value="' + jdata.jlist[i].bpass +'">';
+							output += '<button type="button" class="cs_hide_btn" id="'+ jdata.jlist[i].bid +'">확인</button>';
+							output += '</div>';
+							output += '</td>';
+							output += '</tr>';
+						}else{
+							if(jdata.jlist[i].uname == '관리자'){
+								var url = "location.href='http://localhost:9000/sistproject3/cs_content.do?id=" + jdata.jlist[i].bid + "'";
+								output += '<tr class="cs_row" id="cs_row1" onclick="' + url +'">';
+								output += '<th>' + jdata.jlist[i].rno + '</th>';
+								output += '<th><span class="orange">[공지사항]</span> ' + jdata.jlist[i].btitle + '</th>';
+								output += '<th>' + jdata.jlist[i].uname + '</th>';
+								output += '<th>' + jdata.jlist[i].bdate + '</th>';
+								output += '<th>' + jdata.jlist[i].bhits + '</th>';
+								output += '</tr>';
+							}else{
+								var url = "location.href='http://localhost:9000/sistproject3/cs_content.do?id=" + jdata.jlist[i].bid + "'";
+								output += '<tr class="cs_row" id="cs_row1" onclick="' + url +'">';
+								output += '<td>' + jdata.jlist[i].rno + '</td>';
+								output += '<td>' + jdata.jlist[i].btitle + '</td>';
+								output += '<td>' + jdata.jlist[i].uname + '</td>';
+								output += '<td>' + jdata.jlist[i].bdate + '</td>';
+								output += '<td>' + jdata.jlist[i].bhits + '</td>';
+								output += '</tr>';
+							}
+						}
+					} 
+					
+					output += '<tr id="cs_paging"><td colspan="6"><div id="ampaginationsm"></div></td></tr>';
+					
+					$(".cs_row").remove();
+					$("#cs_paging").remove();
+					$("#dbCount").text("").append(jdata.dbCount);
+					$("#cs_ajax_here").after(output);
+					
+					
+					page(jdata.dbCount, jdata.pageSize, jdata.reqPage);
+				}
+			});
+		}
+		
 		
 	});
 </script>
@@ -91,62 +169,26 @@
 			<option value="all">전체</option>
 			<option value="btitle">제목</option>
 			<option value="bcontent">내용</option>
-			<option value="user_id">아이디</option>
-			<option value="name">작성자</option>
+			<option value="uemail">아이디</option>
+			<option value="uname">작성자</option>
 		</select>
 		<input type="text" id="svalue" placeholder="검색할 단어를 입력해주세요 :)">
-		<button type="button" id="search_btn" class="btn_style">검색</button>
+		<button type="button" id="cs_search_btn" class="btn_style">검색</button>
 	</div>
 	<table id="cs_list_table" class="cs_table">
 		<tr>
-			<td colspan='2'><span id='cs_count'>게시글 ${total }개</span></td>
+			<td colspan='2'><span id='cs_count'>게시글 <span id="dbCount"></span>개</span></td>
 			<td colspan='3'><a href="cs_write.do"><button type="button" id="cs_write_btn" class="btn_style">글쓰기</button></a></td>
 		</tr>
-		<tr>
+		<tr id="cs_ajax_here">
 			<th>번호</th>
 			<th>제목</th>
 			<th>작성자</th>
 			<th>작성일</th>
 			<th>조회수</th>
 		</tr>
-		<c:forEach var="vo" items="${list }">
-		<c:choose>
-			<c:when test="${vo.bsecret eq 'on'}">
-				<tr class="cs_row" id="cs_row1">
-					<td>${vo.rno }</td>
-					<td>${vo.btitle }</td>
-					<td>${vo.uname }</td>
-					<td>${vo.bdate }</td>
-					<td>${vo.bhits }</td>
-				</tr>
-				<tr class="cs_hide">
-					<td colspan='5'>
-						<div class="cs_hide_content" id="cs_hide_content">
-							<span class="cs_hide_title"><span class="red">*</span>비밀번호</span>
-							<input type='password' id="cs_hide_${vo.bid}" class="cs_hide_pw" placeholder="비밀번호를 입력해주세요:)">
-							<input type="hidden" id="cs_pw_${vo.bid}" value="${vo.bpass }">
-							<button type='button' class="cs_hide_btn" id="${vo.bid }">확인</button>
-						</div>
-					</td>
-				</tr>
-			</c:when>
-			<c:otherwise>
-				<tr class="cs_row" id="cs_row1" onclick="location.href='http://localhost:9000/sistproject3/cs_content.do?id=${vo.bid}'">
-					<td>${vo.rno }</td>
-					<td>${vo.btitle }</td>
-					<td>${vo.uname }</td>
-					<td>${vo.bdate }</td>
-					<td>${vo.bhits }</td>
-				</tr>
-			</c:otherwise>
-		</c:choose>
-		</c:forEach>
-		<tr>
-			<td colspan="5"><div id="ampaginationsm"></div></td>
-		</tr>
 	</table>
 	</div>
-	
 	<!-- footer -->
 	<jsp:include page="../footer.jsp"></jsp:include>
 

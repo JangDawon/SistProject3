@@ -1,5 +1,7 @@
 package com.project3.controller;
 
+import java.util.StringTokenizer;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,17 +75,36 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/product_mng_update_proc.do", method=RequestMethod.POST)
-	public ModelAndView product_mng_udpate_proc(IdusProductVO vo) { 
+	public ModelAndView product_mng_udpate_proc(IdusProductVO vo, HttpServletRequest request) {
+		String path1 = request.getSession().getServletContext().getRealPath("/");
+		String path2 = "\\resources\\upload\\";
+		
+		vo.setSavePath(path1+path2);
+		
 		return productService.getResultUpdate(vo);
 	}
 	
-	@RequestMapping(value="/product_mng_delete.do", method=RequestMethod.GET)
-	public String product_mng_delete() { 
-		return "/admin/product/product_mng_delete";
-	}
 	
-	@RequestMapping(value="/product_mng_delete_proc.do", method=RequestMethod.GET)
-	public ModelAndView product_mng_delete_proc(String id) { 
-		return productService.getResultDelete(id);
+	@RequestMapping(value="/product_mng_list_del.do", method=RequestMethod.GET)
+	public ModelAndView product_mng_list_del(String del_list) {
+		ModelAndView mv= new ModelAndView();
+
+		StringTokenizer st = new StringTokenizer(del_list, ", ");
+		String[] dellist = new String[st.countTokens()];
+		
+		for(int i=0; i<dellist.length; i++) {
+			dellist[i] = st.nextToken();
+		}
+		
+		int result = productService.getResultDelete(dellist);
+		
+		if(result >0) {
+			mv.setViewName("redirect:/product_mng_list.do");
+		}else {
+			mv.setViewName("errorPage");
+		}
+		
+		return mv;
 	}
+		
 }

@@ -21,9 +21,9 @@
 				<ul>
 					<li><a href="#">안녕하세요~ <%=svo.getUname() %>님!!</a></li>
 					<li><a href="http://localhost:9000/sistproject3/logout.do">로그아웃</a><div></div></li>
-					<li><a href="#">고객센터</a><div></div></li>
+					<li><a href="http://localhost:9000/sistproject3/cs.do">고객센터</a><div></div></li>
 					<% if(svo.getUname().equals("관리자")){ %>
-					<li><a href="#">Admin</a></li>
+					<li><a href="http://localhost:9000/sistproject3/admin.do">Admin</a></li>
 					<% } %>
 				</ul>
 				<% }else{ %>
@@ -59,11 +59,11 @@
 			<div class="navbar3">
 				<div class="navbar3_wrapper">
 					<ul class="navbar_category">
-						<li><a href="http://localhost:9000/sistproject3/food.do">음식</a></li>
-						<li><a href="http://localhost:9000/sistproject3/accessory.do">악세사리</a></li>
-						<li><a href="http://localhost:9000/sistproject3/living.do">패션&잡화</a></li>
-						<li><a href="http://localhost:9000/sistproject3/interior.do">인테리어 소품</a></li>
-						<li><a href="http://localhost:9000/sistproject3/etc.do">기타</a></li>
+						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">음식</a></li>
+						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=악세사리">악세사리</a></li>
+						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=패션, 잡화">패션&잡화</a></li>
+						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=인테리어 소품">인테리어 소품</a></li>
+						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=기타">기타</a></li>
 						<li><a href="http://localhost:9000/sistproject3/product_best.do">인기 작품</a></li>
 						<li><a href="http://localhost:9000/sistproject3/product_new.do">최신 작품</a></li>
 						<li><a href="http://localhost:9000/sistproject3/artist_best.do">인기 작가</a></li>

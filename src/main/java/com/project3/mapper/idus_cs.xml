@@ -8,19 +8,49 @@
 	<select id="plist" parameterType="map" resultType="com.project3.vo.IdusBoardVO">
 		select * from (select rownum rno, bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd') bdate, 
 		bhits, uemail, uname, bsecret 
-		from (select * from idus_board order by bdate desc)) where rno between #{start} and #{end}
+		from (select * from idus_board order by rank, bdate desc)) where rno between #{start} and #{end}
 	</select>
 	
-	<select id="list" resultType="com.project3.vo.IdusBoardVO">
-		select rownum rno, bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd') bdate, 
+	<select id="plistajax" parameterType="map" resultType="com.project3.vo.IdusBoardVO">
+		select * from (select rownum rno, bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd') bdate, 
 		bhits, uemail, uname, bsecret 
-		from (select * from idus_board order by bdate desc)
+		from (select * from idus_board order by rank, bdate desc)
+		<if test="sname != 'all'">
+			where ${sname} like '%' || #{svalue} || '%'
+		</if>
+		) where rno between #{start} and #{end}
 	</select>
 	
 	<insert id="insert" parameterType="com.project3.vo.IdusBoardVO">
 		insert into idus_board 
-		values('b_'||idus_board_seq.nextval, #{btitle}, #{bcontent}, #{bfile}, #{bsfile}, #{bpass}, 
-		sysdate, #{bhits}, 'jihye@naver.com', '최지혜', #{bsecret})
+		values('b_'||idus_board_seq.nextval, #{btitle}, #{bcontent}
+		
+		<choose>
+			<when test="bfile != null">
+				<choose>
+					<when test="bsecret != null">
+						, #{bfile}, #{bsfile}, #{bpass}, 
+						sysdate, #{bhits}, 'test', '최지혜', #{bsecret},'')
+					</when>
+					<otherwise>
+						, #{bfile}, #{bsfile}, '', 
+						sysdate, #{bhits}, 'test', '최지혜', '','')
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				<choose>
+					<when test="bsecret != null">
+						, '', '', #{bpass}, 
+						sysdate, #{bhits}, 'test', '최지혜', #{bsecret},'')
+					</when>
+					<otherwise>
+						, '', '', '', 
+						sysdate, #{bhits}, 'test', '최지혜', '','')
+					</otherwise>
+				</choose>
+			</otherwise>
+		</choose>
 	</insert>
 	
 	<select id="content" parameterType="java.lang.String" resultType="com.project3.vo.IdusBoardVO">
@@ -29,8 +59,20 @@
 	</select>
 	
 	<update id="update" parameterType="com.project3.vo.IdusBoardVO">
-		update idus_board set btitle=#{btitle}, bcontent=#{bcontent}, bfile=#{bfile}, 
-		bsfile=#{bsfile}, bsecret=#{bsecret} where bid = #{bid}
+		update idus_board set btitle=#{btitle}, bcontent=#{bcontent} 
+		
+		<if test="bfile != null">
+			, bfile=#{bfile}, bsfile=#{bsfile}
+		</if>
+		<choose>
+			<when test="bsecret != null">
+				, bsecret=#{bsecret}, bpass=#{bpass}
+			</when>
+			<otherwise>
+				, bsecret='', bpass=''
+			</otherwise>
+		</choose>
+		where bid = #{bid}
 	</update>
 	
 	<update id="updateNofile" parameterType="com.project3.vo.IdusBoardVO">
@@ -49,5 +91,29 @@
 	<select id="count" resultType="java.lang.Integer">
 		select count(*) from idus_board
 	</select>
+	
+	<select id="countajax" parameterType="map" resultType="java.lang.Integer">
+		select count(*) from idus_board
+		
+		<if test="sname != 'all'">
+			where ${sname} like '%' || #{svalue} || '%'
+		</if>
+	</select>
+	
+	<insert id="reply_write" parameterType="com.project3.vo.IdusReplyVO">
+		insert into idus_reply values('r_'||idus_reply_seq.nextval, #{uemail}, #{uname}, #{bid}, #{rcontent}, sysdate, #{rfile}, #{rsfile})
+	</insert>
+	
+	<select id="reply_list" parameterType="java.lang.String" resultType="com.project3.vo.IdusReplyVO">
+		select * from idus_reply where bid=#{bid} order by rdate
+	</select>
+	
+	<update id="reply_update" parameterType="map">
+		update idus_reply set rcontent=#{rcontent} where rid=#{rid}	
+	</update>
+	
+	<delete id="reply_delete" parameterType="java.lang.String">
+		delete idus_reply where rid=#{rid}
+	</delete>
 </mapper>
 
