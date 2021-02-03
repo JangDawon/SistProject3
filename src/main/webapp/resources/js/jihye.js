@@ -237,31 +237,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	$("#reply_write_btn").click(function(){
-		if($("#r_content").val() == ""){
-			alert("내용을 입력해주세요 :) ");
-			$("#r_content").focus();
-			return false;
-		}else{
-			alert("작성이 완료되었습니다:) ");
-			var output = "";
-			output += "<table id='cs_reply_table'>";
-			output += "<tr>";
-			output += "<td><img src='http://localhost:9000/sistproject3/images/logo.jpg' style='height:60px; width:60px;  border-radius:50%'></td>";
-			output += "<td>최지혜</td>";
-			output += "<td></td>";
-			output += "<td><button type='button' class='btn_style' name='r_update' id='r_update_btn'>수정</button></td>";
-			output += "<td><button type='button' class='btn_style' name='r_delete' id='r_delete_btn'>삭제</button></td>"
-			output += "<td>2021.01.19. 15:35:34</td>";
-			output += "</tr>";
-			output += "<tr>";
-			output += "<td class='rc_here' colspan='6'><div class='rc'>" + $("#r_content").val() + "</div></td>";
-			output += "</tr>";
-			output += "</table>";
-			$("#r_content").val("");
-			$("#here").after(output);
-		}
-	});
+	
 	
 	
 });

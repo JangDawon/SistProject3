@@ -38,14 +38,14 @@ public class MemberServiceImpl {
 	public ModelAndView getResultLogin(IdusMemberVO vo, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		IdusSessionVO svo = memberDAO.getLogin(vo);
-			
-		if(svo.getResult() != 0) {
+		
+		if(svo != null) {
 			session.setAttribute("svo", svo);
 			mv.addObject("vo", vo);
-			mv.setViewName("index"); 
+			mv.setViewName("index"); 			
 		}else {
-			mv.addObject("result", "fail");
-			mv.setViewName("redirect:/login/login.do");
+			mv.addObject("result", "아이디 혹은 비밀번호가 틀립니다.");
+			mv.setViewName("/login/login");
 		}
 		
 		return mv;
@@ -81,3 +81,4 @@ public class MemberServiceImpl {
 	}
 	
 }
+

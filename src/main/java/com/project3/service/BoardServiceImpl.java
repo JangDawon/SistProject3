@@ -13,6 +13,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.project3.dao.IdusBoardDAO;
 import com.project3.vo.IdusBoardVO;
+import com.project3.vo.IdusReplyVO;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
@@ -203,5 +204,44 @@ public class BoardServiceImpl implements BoardService {
 	public int getResultDelete(String id) {
 		ModelAndView mv = new ModelAndView();
 		return boardDAO.getDelete(id);
+	}
+	
+	public int getReplyWrite(IdusReplyVO rvo) {
+		return boardDAO.getReplyWrite(rvo);
+	}
+	
+	public String getReplyList(String bid) {
+		ArrayList<IdusReplyVO> list = boardDAO.getReplyList(bid);
+		
+		JsonArray jarray = new JsonArray();
+		JsonObject jdata = new JsonObject();
+		Gson gson = new Gson();
+		
+		for(IdusReplyVO vo : list) {
+			JsonObject jobj = new JsonObject();
+			
+			jobj.addProperty("rid", vo.getRid());
+			jobj.addProperty("bid", vo.getBid());
+			jobj.addProperty("uemail", vo.getUemail());
+			jobj.addProperty("uname", vo.getUname());
+			jobj.addProperty("rdate", vo.getRdate());
+			jobj.addProperty("rfile", vo.getRfile());
+			jobj.addProperty("rsfile", vo.getRsfile());
+			jobj.addProperty("rcontent", vo.getRcontent());
+			
+			jarray.add(jobj);
+			
+		}
+		
+		jdata.add("jlist", jarray);
+		return gson.toJson(jdata);
+	}
+	
+	public int getReplyUpdate(String rid, String rcontent) {
+		return boardDAO.getReplyUpdate(rid, rcontent);
+	}
+	
+	public int getReplyDelete(String rid) {
+		return boardDAO.getReplyDelete(rid);
 	}
 }
