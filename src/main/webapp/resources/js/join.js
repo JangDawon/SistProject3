@@ -30,7 +30,7 @@ $(document).ready(function(){
 		*	로그인 폼 체크
 		**/
 		$("#btnLogin").click(function(){
-			if(!emailCheck($("#id"))){
+			if($("#id").val()==""){
 				alert("이메일 형식으로 입력해주세요.");
 				$("#id").focus();
 				return false;
@@ -131,14 +131,25 @@ $(document).ready(function(){
 			$("#checkbox_1").prop("checked", this.checked);
 			$("#checkbox_2").prop("checked", this.checked);
 			$("#checkbox_3").prop("checked", this.checked);
-		});
-		
-		$("#checkbox_3").change(function(){
-			//$("#checkbox_3_hd").prop("checked", this.checked);
-			if($(this).is(":checked")) {
+			if($("#checkbox_3").is(":checked")) {
 				$("#checkbox_3_hd").val("on");
+				$("#checkbox_3_hd2").val("on");
 			}else {
 				$("#checkbox_3_hd").val("off");
+				$("#checkbox_3_hd2").val("off");
+			}
+		});
+		
+		/**
+		 * 3번째 체크박스 히든값 설정 -> aggrsms, aggremail
+		 */
+		$("#checkbox_3").change(function(){
+			if($("#checkbox_3").is(":checked")) {
+				$("#checkbox_3_hd").val("on");
+				$("#checkbox_3_hd2").val("on");
+			}else {
+				$("#checkbox_3_hd").val("off");
+				$("#checkbox_3_hd2").val("off");
 			}
 		});
 		
