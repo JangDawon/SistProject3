@@ -20,8 +20,8 @@
 	
 	<!-- select:list -->
 	<select id="list" parameterType="map" resultType="com.project3.vo.IdusMemberVO">
-		select * from (select rownum rno, uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile 
-						from idus_member) where rno between #{start} and #{end}
+		select * from (select rownum rno, uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile, to_char(udate, 'yyyy.mm.dd') udate 
+						from (select * from idus_member order by udate desc)) where rno between #{start} and #{end}
 	</select>
 	
 	<!-- select:count -->

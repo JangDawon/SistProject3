@@ -67,7 +67,7 @@
 				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">${vo.uemail }</td>
 				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">${vo.uname }</td>
 				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">${vo.cp }</td>
-				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2021.01.14</td>
+				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">${vo.udate }</td>
 			</tr>
 		</c:forEach>
 		<tr>
