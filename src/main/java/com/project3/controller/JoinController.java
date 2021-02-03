@@ -21,7 +21,7 @@ public class JoinController {
 	@Autowired
 	private MemberServiceImpl memberService;
 	/**
-	 * íšŒì›ê°€ì… ì„±ê³µ
+	 * ·Î±×ÀÎ ¼º°ø
 	 * @return
 	 */
 	@RequestMapping(value="/join_success.do", method=RequestMethod.GET)
@@ -32,7 +32,7 @@ public class JoinController {
 		return mv;
 	}
 	/**
-	 * íšŒì›ê°€ì… 
+	 * È¸¿ø°¡ÀÔ 
 	 * @return
 	 */
 	@RequestMapping(value="/join.do", method=RequestMethod.GET)
@@ -43,7 +43,7 @@ public class JoinController {
 		return mv;
 	}
 	/**
-	 * íšŒì›ê°€ì… ì²˜ë¦¬
+	 * È¸¿ø°¡ÀÔ Ã³¸®
 	 * @return
 	 */
 	@RequestMapping(value="/join_proc.do", method=RequestMethod.POST)
@@ -51,7 +51,7 @@ public class JoinController {
 		return memberService.getResultJoin(vo);
 	}
 	/**
-	 * íšŒì›ê°€ì… ì„ íƒ
+	 * È¸¿ø°¡ÀÔ Á¾·ù ¼±ÅÃ
 	 * @return
 	 */
 	@RequestMapping(value="/join_choice.do", method=RequestMethod.GET)
@@ -63,7 +63,7 @@ public class JoinController {
 	}
 	
 	/**
-	 * ì¸ì¦ì½”ë“œ ì²˜ë¦¬
+	 * È¸¿ø°¡ÀÔ ÀÎÁõ¹øÈ£ Ã³¸®
 	 * @return
 	 */
 	@RequestMapping(value="/join_certify.do", method=RequestMethod.GET)
@@ -76,10 +76,18 @@ public class JoinController {
             numStr+=random;
         }
       
-        System.out.println("ìˆ˜ì‹ ì ë²ˆí˜¸ : " + hp);
-        System.out.println("ì¸ì¦ë²ˆí˜¸ : " + numStr);
+        System.out.println("ÈŞ´ëÆù ¹øÈ£ : " + hp);
+        System.out.println("ÀÎÁõ¹øÈ£ : " + numStr);
         certifyService.certifiedPhoneNumber(hp, numStr);
         return numStr; 
 
+	}
+	
+	/**
+	 * ÀÌ¸ŞÀÏ Áßº¹ Ã¼Å©
+	 */
+	@RequestMapping(value="/emailCheck.do", method=RequestMethod.GET)
+	public String emailCheck(String email) {
+		return "1";
 	}
 }
