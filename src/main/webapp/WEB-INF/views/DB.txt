@@ -81,10 +81,16 @@ CREATE TABLE idus_product(
 );
 
 /*
+<<<<<<< HEAD
    아이디어스 맴버 테이블 생성(준성)
    수정일 : 2021.01.28 오후 3시 37분
+=======
+	아이디어스 맴버 테이블 생성(준성)
+	수정일 : 2021.02.03 오전 12시 05분
+>>>>>>> refs/heads/master
 */
 create table idus_member(
+<<<<<<< HEAD
    UEMAIL varchar2(30) Primary key,
    UPASS varchar2(15) not null,
    UNAME varchar2(10) not null,
@@ -96,6 +102,20 @@ create table idus_member(
    AGGREMAIL varchar2(10),
    PFILE varchar2(100),
    PSFILE varchar2(100)
+=======
+	UEMAIL varchar2(30) Primary key,
+	UPASS varchar2(15) not null,
+	UNAME varchar2(10) not null,
+	CP varchar2(15) not null,
+	ADDR1 varchar2(100),
+	ADDR2 varchar2(100),
+	ADDR3 varchar2(100),
+	AGGRSMS varchar2(10),
+	AGGREMAIL varchar2(10),
+	PFILE varchar2(100),
+	PSFILE varchar2(100),
+	UDATE date
+>>>>>>> refs/heads/master
 );
 
 /* 아이디어스 공지사항 & 1대1문의 게시판 테이블 생성(지혜) 
@@ -124,7 +144,7 @@ ALTER TABLE idus_board ADD(bsecret VARCHAR2(15));
 /*  아이디어스 게시판 테이블 Sequence & 상품 테이블 Sequence(지혜)  
 *   수정일 : 2021.01.25 오후 10시 39분
 */
-CREATE SEQUENCE IDUS_SEQ
+CREATE SEQUENCE IDUS_BOARD_SEQ
   START WITH 1
   INCREMENT BY 1;
   

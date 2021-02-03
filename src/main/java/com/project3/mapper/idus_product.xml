@@ -41,6 +41,7 @@
 	      #{item}
 	    </foreach>
 	    
+	    on delete casecade
 	</delete>
 	
 	<select id="content" parameterType="java.lang.String" resultType="com.project3.vo.IdusProductVO">

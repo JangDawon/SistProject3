@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project3.service.MemberServiceImpl;
 import com.project3.service.ProductServiceImpl;
 import com.project3.vo.IdusProductVO;
 
@@ -18,14 +19,34 @@ public class AdminController {
 	@Autowired
 	private ProductServiceImpl productService;
 	
-	@RequestMapping(value="/admin.do", method=RequestMethod.GET)
-	public String admin() {
-		return "/admin/user/user_mng_list";
-	}
+	@Autowired
+	private MemberServiceImpl memberService;
 	
 	@RequestMapping(value="/user_mng_list.do", method=RequestMethod.GET)
-	public String user_mng_list() {
-		return "/admin/user/user_mng_list";
+	public ModelAndView user_mng_list(String rpage) {
+		return memberService.getList(rpage);
+	}
+	
+	@RequestMapping(value="/user_mng_list_del.do", method=RequestMethod.GET)
+	public ModelAndView user_mng_list_del(String user_list) {
+		ModelAndView mv= new ModelAndView();
+
+		StringTokenizer st = new StringTokenizer(user_list, ", ");
+		String[] userlist = new String[st.countTokens()];
+		
+		for(int i=0; i<userlist.length; i++) {
+			userlist[i] = st.nextToken();
+		}
+		
+		int result = memberService.getResultDelete(userlist);
+		
+		if(result >0) {
+			mv.setViewName("redirect:/user_mng_list.do");
+		}else {
+			mv.setViewName("errorPage");
+		}
+		
+		return mv;
 	}
 	
 	@RequestMapping(value="/user_mng_content.do", method=RequestMethod.GET)
