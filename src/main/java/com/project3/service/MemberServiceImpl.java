@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.dao.IdusMemberDAO;
-import com.project3.vo.IdusBoardVO;
 import com.project3.vo.IdusMemberVO;
 import com.project3.vo.IdusSessionVO;
 
@@ -93,5 +92,20 @@ public class MemberServiceImpl {
 		mv.setViewName("/admin/user/user_mng_list");
 		
 		return mv;
+	}
+	
+	/**
+	 * 회원 삭제
+	 */
+	public int getResultDelete(String[] userlist) {
+		int count = 0;
+		
+		if(userlist[0].equals("all")) {
+			count = memberDAO.getResultDelete();
+		}else {
+			count = memberDAO.getResultDelete(userlist);
+		}
+		
+		return count;
 	}
 }

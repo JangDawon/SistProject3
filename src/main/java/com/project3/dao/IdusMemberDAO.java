@@ -41,4 +41,12 @@ public class IdusMemberDAO {
 	    
 	    return (ArrayList<IdusMemberVO>)list;
 	}
+	
+	public int getResultDelete() {
+		return sqlSession.delete(namespace+".deleteAll");
+	}
+	
+	public int getResultDelete(String[] userlist) {
+		return sqlSession.delete(namespace+".deleteSelect", userlist);
+	}
 }

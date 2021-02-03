@@ -160,7 +160,7 @@ $(document).ready(function(){
 		});
 		
 		if(del_list == ""){
-			alert("선택된 리뷰가 없습니다");
+			alert("선택된 상품이 없습니다");
 		}else{
 			var result = confirm("정말 삭제하시겠습니까?");
 			if(result){
@@ -213,27 +213,28 @@ $(document).ready(function(){
 	});
 	
 	$("#user_all_delete").click(function(){
-		var del_list = "";
+		var result = confirm("정말 삭제하시겠습니까?");
 		
-		$("input[class='user_chk']").each(function(index){
-			del_list += $(this).attr("value") + ", ";
-		});
-		
-		confirm(del_list + "정말 삭제하시겠습니까?");
+		if(result){
+			$(location).attr('href', "user_mng_list_del.do?user_list=all");
+		}
 		
 	});
 	
 	$("#user_select_delete").click(function(){
-		var del_list = "";
+		var user_list = "";
 		
 		$("input[class='user_chk']:checked").each(function(index){
-			del_list += $(this).attr("value") + ", ";
+			user_list += $(this).attr("value") + ", ";
 		});
 		
-		if(del_list == ""){
+		if(user_list == ""){
 			alert("선택된 회원이 없습니다");
 		}else{
-			confirm(del_list + "정말 삭제하시겠습니까?");
+			var result = confirm(user_list + "를 정말 삭제하시겠습니까?");
+			if(result){
+				$(location).attr("href", "user_mng_list_del.do?user_list="+user_list);
+			}
 		}
 	});
 	

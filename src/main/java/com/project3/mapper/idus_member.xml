@@ -19,7 +19,29 @@
 	</select>
 	
 	<!-- select:list -->
-	<select id="list" resultType="com.project3.vo.IdusMemberVO">
-		select rownum rno, uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile from idus_member
+	<select id="list" parameterType="map" resultType="com.project3.vo.IdusMemberVO">
+		select * from (select rownum rno, uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile 
+						from idus_member) where rno between #{start} and #{end}
 	</select>
+	
+	<!-- select:count -->
+	<select id="count" resultType="java.lang.Integer">
+		select count(*) from idus_member
+	</select>
+	
+	<!-- delete:member all -->
+	<delete id="deleteAll">
+		delete from idus_member
+	</delete>
+	
+	<!-- delete:member select -->
+	<delete id="deleteSelect">
+		delete from idus_member where uemail in
+		
+		<foreach item="item" index="index" collection="array"
+	      open="(" separator="," close=")">
+	      #{item}
+	    </foreach>
+	</delete>
+	
 </mapper>
