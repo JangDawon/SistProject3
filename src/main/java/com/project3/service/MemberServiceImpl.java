@@ -16,7 +16,7 @@ public class MemberServiceImpl {
 	private IdusMemberDAO memberDAO;
 	
 	/**
-	 * íšŒì›ê°€ì…
+	 * È¸¿ø°¡ÀÔ °á°ú
 	 */
 	public String getResultJoin(IdusMemberVO vo) {
 		boolean join_result = memberDAO.getInsert(vo);
@@ -30,7 +30,7 @@ public class MemberServiceImpl {
 	}
 	
 	/**
-	 * ë¡œê·¸ì¸
+	 * ·Î±×ÀÎ °á°ú
 	 */
 	public ModelAndView getResultLogin(IdusMemberVO vo, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -41,7 +41,7 @@ public class MemberServiceImpl {
 			mv.addObject("vo", vo);
 			mv.setViewName("index"); 			
 		}else {
-			mv.addObject("result", "ì•„ì´ë”” í˜¹ì€ ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë¦½ë‹ˆë‹¤.");
+			mv.addObject("result", "¾ÆÀÌµğ ¶Ç´Â ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇØÁÖ¼¼¿ä.");
 			mv.setViewName("/login/login");
 		}
 		
