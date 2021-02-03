@@ -601,22 +601,24 @@ table.my_order tr:nth-child(2) td {border: 1px solid lightgrey;}
 table.my_order tr:nth-child(2) td button{background-color: rgb(255, 255, 255);border:1px solid rgb(204, 204, 204);padding: 5px 12px;}
 
 /**
-*   占쏙옙 占쏙옙占쏙옙
+*   내 정보
 **/
 table.myinfo{padding-top:20px;}
 table.myinfo{width:700px;}
 table.myinfo tr:nth-child(2) td{height:130px;}
 table.myinfo tr th {text-align: left;text-indent: 10px;font-size: 20px;background-color: rgb(245, 245, 245);}
 table.myinfo tr td {border: 1px solid lightgrey;text-indent: 12px;}
+
 /**
-*   占쏙옙占시ｏ옙占�
+*   즐겨찾기
 **/
 span.star{color: rgb(255, 200, 1);}
 dl.bookmark_list img{width: 200px;heigth: 500px;}
 dl.bookmark_list {border: 1px solid lightgrey;display: inline-block;background-color: rgb(248, 249, 251);}
 dl.bookmark_list:hover{box-shadow:1px 1px 20px #ddd;};
+
 /**
-*   占쏙옙占쏙옙占싹댐옙 占쌜곤옙
+*   좋아하는 작가
 **/
 table.bookmark_writer{width:750px;}
 table.bookmark_writer{border-bottom:1px solid rgb(217,217,217);}
@@ -626,7 +628,7 @@ table.bookmark_writer tr td button.home{background-color:white;border:1px solid 
 table.bookmark_writer tr td button.message{background-color:white;border:1px solid rgb(204, 204, 204);padding: 5px 65px;}
 
 /**
-*   회占쏙옙占쏙옙占쏙옙
+*   회원정보
 **/
 table.member_info {width:750px;}
 table.member_info input[type='text']{width:500px;border:none;font-size:15px;height:30px;text-indent:5px;}
@@ -640,7 +642,7 @@ table.member_info tr:last-child button {background-color: rgb(255, 123, 48);padd
 table.member_info tr:last-child td {text-align:center;border:none;}
 table.member_info tr:nth-child(10) td {text-align:right;}
 /**
-* 占쏙옙占쏙옙 占쏙옙 占쏙옙占쏙옙
+* 내가 쓴 리뷰
 **/
 table.review_content tr:first-child>td:first-child {width: 20px;}
 table.review_content tr:first-child span.title {font-weight: bold;display: inline-block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 350px;}
@@ -650,15 +652,15 @@ div.border {border: 1px solid rgb(217, 217, 217);display: inline-block;}
 div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-size: 12px;margin-bottom:30px;height:60px;padding:10px 10px;}
 
 
-   /** 카占쌓곤옙, 占쏙옙袂占쏙옙占�, 占쌜곤옙 **/
+   /** 카테고리, 장바구니, 작가 **/
    body.category, body.artist {
-      margin:0px; padding:0px; font-family:"占쏙옙占쏙옙占쌕몌옙占쏙옙占�";
+      margin:0px; padding:0px; font-family:""나눔바른고딕";
    }
    body.category>section, body.artist>section {
       width:1100px; margin:auto;
    }
    
-   /** 카占쌓곤옙(占쏙옙占쏙옙, 占실쇽옙占쏙옙占썹리, 占쏙옙활占쏙옙품, 占쏙옙占쌓몌옙占쏙옙占실�, 占쏙옙타) **/
+  /** 카테고리(음식, 악세서사리, 생활소품, 인테리어소품, 기타) **/
    section.category_menu div.filter_top {
       margin:0px;
    }
@@ -768,7 +770,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       box-shadow:1px 1px 20px #ddd;
    }
    
-   /** 占싸깍옙占쏙옙품, 占쌍쏙옙占쏙옙품 **/
+    /** 인기작품, 최신작품 **/
    div.banner_title {
       text-align:center;
       padding:30px 0;
@@ -875,7 +877,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       	margin-bottom:5px;
    	}
    
-   	/** 占싸깍옙占쌜곤옙 **/
+    /** 인기작가 **/
    	div.best_artist {
       	border-top:1px solid lightgray;
       	border-bottom:1px solid lightgray;
@@ -936,7 +938,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		text-align:center;
 	}
    
-	/** 占쌜곤옙 占쌨댐옙 **/
+	/** 작가 메뉴 **/
 	aside.artist_menu {
       width:150px;
       height:740px;
@@ -1004,7 +1006,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       padding:1px 0;
    }
    
-   /** 占쌜곤옙 홈, 占쏙옙품 **/
+  /** 작가 홈, 작품 **/
    div.artist_main {
       margin-left:190px;
       border:1px solid red;
@@ -1059,7 +1061,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       background-color:#F87E35;
    }
    
-   /** 占쏙옙袂占쏙옙占� **/
+    /** 장바구니 **/
 	div.cart_content>table {
 		border-collapse:collapse;
 		border:1px solid lightgray;
@@ -1250,7 +1252,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
    
    
    /*
-   *   product_detail (占쏙옙占쏙옙)
+   *   product_detail (현주)
    */
    .product_detail_content {
    display:border;
