@@ -106,7 +106,7 @@ ALTER TABLE idus_board ADD(bsecret VARCHAR2(15));
 /*  아이디어스 게시판 테이블 Sequence & 상품 테이블 Sequence(지혜)  
 *   수정일 : 2021.01.25 오후 10시 39분
 */
-CREATE SEQUENCE IDUS_SEQ
+CREATE SEQUENCE IDUS_BOARD_SEQ
   START WITH 1
   INCREMENT BY 1;
   
