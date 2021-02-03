@@ -41,7 +41,7 @@ public class MemberServiceImpl {
 			mv.addObject("vo", vo);
 			mv.setViewName("index"); 			
 		}else {
-			mv.addObject("result", "ì•„ì´ë”” í˜¹ì€ ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë¦½ë‹ˆë‹¤.");
+			mv.addObject("result", "¾ÆÀÌµğ È¤Àº ºñ¹Ğ¹øÈ£°¡ Æ²¸³´Ï´Ù.");
 			mv.setViewName("/login/login");
 		}
 		
