@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.service.CartServiceImpl;
+import com.project3.vo.IdusCartVO;
 
 @Controller
 public class CartController {
@@ -44,11 +45,21 @@ public class CartController {
 	} */
 	
 	/**
-	 * 장바구니
+	 * 장바구니 담기
 	 */
 	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
-	public String cart() {
-		return "/cart/cart";
+	public String cart(IdusCartVO vo) {
+		//return "/cart/cart";
+		return cartService.getInsertCart(vo);
+	}
+	
+	
+	/**
+	 * 바로구매
+	 */
+	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
+	public String purchase() {
+		return "/cart/purchase";
 	}
 	
 	/**
@@ -57,13 +68,5 @@ public class CartController {
 	@RequestMapping(value = "/cart_order.do", method = RequestMethod.GET)
 	public String cart_order() {
 		return "/cart/cart_order";
-	}
-	
-	/**
-	 * 바로구매
-	 */
-	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
-	public String purchase() {
-		return "/cart/purchase";
 	}
 }

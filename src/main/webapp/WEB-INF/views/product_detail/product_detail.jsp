@@ -154,7 +154,6 @@
           </div>
           
 			<div class="product_sidebar">
-				<form name="cartForm" action="cart.do" method="get" class="cart">
 				<div class="artist_card">
           				<a href="" class="artist_card_link" style="width: 100%;">
           					<span class="artist_card_label">${vo.sname } ></span>
@@ -229,12 +228,10 @@
 	          	</table>
 	          	<div>
 	          		<div class="btn_box">
-	          			<button type="submit" class="btn_cart" id="cartBtn">장바구니</button>
-	          			<button type="submit" class="btn_buy" id="payBtn">구매하기</button>
+	          			<a href="cart.do"><button type="button" class="btn_cart" id="cartBtn">장바구니</button></a>
+	          			<a href="purchase.do"><button type="button" class="btn_buy" id="payBtn">구매하기</button></a>
 	          		</div>
 	          	</div>
-	          	
-          		</form>
 			</div>
 		</div>
 	</div>

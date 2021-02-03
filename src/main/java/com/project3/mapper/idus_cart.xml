@@ -18,5 +18,7 @@
 			#{item}
 		</foreach>
 	</delete>
+	
+	
 </mapper>
 

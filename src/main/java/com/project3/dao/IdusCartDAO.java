@@ -23,6 +23,38 @@ public class IdusCartDAO extends DBConn{
 	
 	
 	/**
+	 * InsertCart : 확인 후 장바구니에 넣기
+	 */
+	public boolean getInsertCart(IdusCartVO vo) {
+		boolean result = false;
+		
+		try {
+			String sql = "merge into idus_cart using dual on (pid = ? and cart_id = ?)"
+					+ " when matched then update set prod_qty = prod_qty + ?"
+					+ " when not matched then insert (cart_id, uemail, pid, prod_name, prod_qty, prod_opt, prod_price) "
+					+ " values ('c_'||sequ_cart.nextval, ?, ?, ?, ?, ?, ?)";
+			
+			getPreparedStatement(sql);
+			pstmt.setString(1, vo.getUemail());
+			pstmt.setString(2, vo.getPid());
+			pstmt.setString(3, vo.getProd_name());
+			pstmt.setInt(4, vo.getProd_qty());
+			pstmt.setString(5, vo.getProd_opt());
+			pstmt.setInt(6, vo.getProd_price());
+			
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+		//return sqlSession.insert(namespace+".insertcart", vo);
+	}
+	
+
+	/**
 	 * Insert : 장바구니 넣기
 	 */
 	public boolean getInsert(IdusCartVO vo) {
