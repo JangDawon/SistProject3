@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/login.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sistproject3/js/login.js"></script>
 <script>
-	if(${result} != null){
+	<c:if test="${result ne null}">
 		alert("${result}");
-	}
+	</c:if>
 </script>
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>로그인</title>
 <head>

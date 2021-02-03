@@ -67,8 +67,9 @@
 						<hr>
 						<div class="join_form_block_body" id="join_form_block_body_check"><input type="checkbox" id="checkbox_1"><label>이용약관 필수 동의</label></div>
 						<div class="join_form_block_body" id="join_form_block_body_check"><input type="checkbox" id="checkbox_2"><label>개인정보 처리방침 필수 동의</label></div>
-						<div class="join_form_block_body" id="join_form_block_body_check"><input type="checkbox" id="checkbox_3" name="aggremail"><label>쿠폰 / 이벤트 알림 선택 동의</label></div>
-						<input type="hidden" id="checkbox_3_hd" name="aggrsms">
+						<div class="join_form_block_body" id="join_form_block_body_check"><input type="checkbox" id="checkbox_3" name="aggr"><label>쿠폰 / 이벤트 알림 선택 동의</label></div>
+						<input type="hidden" id="checkbox_3_hd" name="aggrsms" value="off">
+						<input type="hidden" id="checkbox_3_hd2" name="aggremail" value="off">
 						<div class="join_form_block_body" id="join_form_block_body_check"><label class="etc">이메일을 통해 쿠폰 및 이벤트 정보를 받아보실 수 있습니다.</label></div>
 						<hr>
 					</div>
