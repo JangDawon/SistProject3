@@ -33,7 +33,7 @@ public class MemberServiceImpl {
 	}
 	
 	/**
-	 * 濡쒓렇�씤
+	 * �α��� ���
 	 */
 	public ModelAndView getResultLogin(IdusMemberVO vo, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -44,7 +44,7 @@ public class MemberServiceImpl {
 			mv.addObject("vo", vo);
 			mv.setViewName("index"); 			
 		}else {
-			mv.addObject("result", "아이디 혹은 비밀번호가 틀립니다.");
+			mv.addObject("result", "���̵� �Ǵ� ��й�ȣ�� Ȯ�����ּ���.");
 			mv.setViewName("/login/login");
 		}
 		
