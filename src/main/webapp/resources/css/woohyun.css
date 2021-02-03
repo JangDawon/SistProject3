@@ -48,7 +48,7 @@ table.bookmark_writer tr:nth-child(2) td{background-color: rgb(245, 245, 245);}
 table.bookmark_writer tr td button.bookmark_button{border:1px solid rgb(255, 123, 48);background-color:rgb(255, 123, 48);color:rgb(255,255,255);margin-bottom:10px;}
 table.bookmark_writer tr td button.home{background-color:white;border:1px solid rgb(204, 204, 204);padding: 0px 12px;}
 table.bookmark_writer tr td button.message{background-color:white;border:1px solid rgb(204, 204, 204);padding: 5px 65px;}
-}
+
 
 /**
 *	회원정보
@@ -83,4 +83,4 @@ table.review_write tr:first-child td {border-bottom: 3px solid rgb(215, 215, 215
 table.review_write tr:nth-child(2) td, table.review_write tr:nth-child(4) td{font-size: 24px;font-weight: 900;}
 table.review_write tr:nth-child(4) td {border-bottom: 1px solid rgb(235, 235, 235);}
 table.review_write tr td.td_center {text-align: center;}
-table.review_write tr td button.writeBtn{height: 35px;padding: 5px 60px;background-color: rgb(255, 255, 255);border: 1px solid rgb(204, 204, 204);
+table.review_write tr td button.writeBtn{height: 35px;padding: 5px 60px;background-color: rgb(255, 255, 255);border: 1px solid rgb(204, 204, 204);}
