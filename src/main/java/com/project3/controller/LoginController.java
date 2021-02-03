@@ -18,8 +18,7 @@ public class LoginController {
 	@Autowired
 	private MemberServiceImpl memberService;
 	/**
-	 * ë¡œê·¸ì¸ í™”ë©´
-	 * @author ì—¬ì€
+	 * ·Î±×ÀÎ
 	 *
 	 */
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
@@ -28,8 +27,7 @@ public class LoginController {
 	}
 
 	/**
-	 * ì•„ì´ë””/ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° í™”ë©´
-	 * @author ì—¬ì€
+	 * ¾ÆÀÌµğ/ºñ¹Ğ¹øÈ£ Ã£±â
 	 *
 	 */
 	@RequestMapping(value="/login_check.do", method=RequestMethod.GET)
@@ -38,8 +36,7 @@ public class LoginController {
 	}
 	
 	/**
-	 * ì•„ì´ë””/ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° ê²°ê³¼
-	 * @return
+	 * ¾ÆÀÌµğ/ºñ¹Ğ¹øÈ£ Ã£±â Ã³¸®
 	 */
 	@RequestMapping(value="/login_check_result.do", method=RequestMethod.POST)
 	public String login_check_result(String hp) {
@@ -48,7 +45,7 @@ public class LoginController {
 	}
 	
 	/**
-	 * ë¡œê·¸ì¸ ì²˜ë¦¬
+	 * ·Î±×ÀÎ Ã³¸®
 	 */
 	@RequestMapping(value="/login_proc.do", method=RequestMethod.POST)
 	public ModelAndView login_proc(IdusMemberVO vo, HttpSession session) {
@@ -56,7 +53,7 @@ public class LoginController {
 	}
 	
 	/**
-	 * ë¡œê·¸ì•„ì›ƒ ì²˜ë¦¬
+	 * ·Î±×¾Æ¿ô
 	 */
 	@RequestMapping(value="/logout.do", method=RequestMethod.GET)
 	public String logout(HttpSession session) {
