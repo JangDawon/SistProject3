@@ -3,7 +3,7 @@
     import="com.project3.vo.*"
     %>
 <%
-	IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");					
+	IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
 %> 
 <!DOCTYPE html>
 <html>
