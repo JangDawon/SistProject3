@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project3.service.MemberServiceImpl;
 import com.project3.service.ProductServiceImpl;
 import com.project3.vo.IdusProductVO;
 
@@ -18,6 +19,9 @@ public class AdminController {
 	@Autowired
 	private ProductServiceImpl productService;
 	
+	@Autowired
+	private MemberServiceImpl memberService;
+	
 	@RequestMapping(value="/admin.do", method=RequestMethod.GET)
 	public String admin() {
 		return "/admin/user/user_mng_list";
@@ -25,7 +29,7 @@ public class AdminController {
 	
 	@RequestMapping(value="/user_mng_list.do", method=RequestMethod.GET)
 	public String user_mng_list() {
-		return "/admin/user/user_mng_list";
+		return memberService.getList();
 	}
 	
 	@RequestMapping(value="/user_mng_content.do", method=RequestMethod.GET)
