@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.service.MemberServiceImpl;
 import com.project3.service.ReviewServiceImpl;
+import com.project3.vo.IdusMemberVO;
 import com.project3.vo.IdusReviewVO;
 
 @Controller
@@ -77,6 +78,14 @@ public class MypageController {
 		vo.setSavepath(path1+path2);
 		
 		return (ModelAndView)reviewService.getResultWrite(vo);
+	}
+	@RequestMapping(value="/myinfo_update_proc.do", method=RequestMethod.POST)
+	public ModelAndView board_update_proc(IdusMemberVO vo, HttpServletRequest request) {
+		String path1 = request.getSession().getServletContext().getRealPath("/");
+		String path2 = "\\resources\\upload\\";
+		vo.setSavepath(path1+path2);
+		
+		return memberService.getResultUpdate(vo);
 	}
 
 }

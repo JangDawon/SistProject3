@@ -62,16 +62,18 @@ public class ReviewServiceImpl implements BoardService{
 		return null;
 	}
 
-	@Override
-	public Object getResultDelete(String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
 	public Object getList(String rpage, String param) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int getResultDelete(String id) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

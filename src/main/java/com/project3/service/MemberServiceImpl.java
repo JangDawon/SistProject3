@@ -1,5 +1,8 @@
 package com.project3.service;
 
+import java.io.File;
+import java.util.UUID;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,4 +58,26 @@ public class MemberServiceImpl {
 		
 		return mv;
 	}
+	public ModelAndView getResultUpdate(Object vo) {
+		ModelAndView mv = new ModelAndView();
+		IdusMemberVO mvo = (IdusMemberVO) vo;
+		boolean result = false;
+		if(mvo.getFile1().getSize()!=0) {
+			UUID uuid = UUID.randomUUID();
+			mvo.setPfile(mvo.getFile1().getOriginalFilename());
+			mvo.setPsfile(uuid+"_"+mvo.getFile1().getOriginalFilename());
+		}
+		result = memberDAO.getUpdate(mvo);
+		if(result) {
+			File file = new File(mvo.getSavepath()+mvo.getPsfile());
+			try {
+				mvo.getFile1().transferTo(file);
+			} catch (Exception e) {
+					e.printStackTrace();
+			}
+			mv.setViewName("redirect:/mypage.do");
+		}
+		return mv;
+	}
+	
 }

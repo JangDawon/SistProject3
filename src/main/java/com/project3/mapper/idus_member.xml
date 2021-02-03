@@ -23,4 +23,14 @@
 		 select uemail, uname, cp, addr1, addr2, addr3, aggrsms,aggremail, pfile, psfile from idus_member
 		 where uemail = #{uemail}
 	</select>
+	
+	<update id = "update" parameterType = "com.project3.vo.IdusMemberVO">
+	 	update idus_member 
+	 	set uname = #{uname}, cp =#{cp}, addr1=#{addr1}, addr2 =#{addr2},
+addr3 = #{addr3}
+	<if test = "pfile !=null">
+		,pfile =#{pfile},psfile=#{psfile}
+	</if>
+		where uemail =#{uemail}
+	</update>
 </mapper>

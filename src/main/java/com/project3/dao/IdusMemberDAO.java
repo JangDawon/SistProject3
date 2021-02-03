@@ -25,5 +25,12 @@ public class IdusMemberDAO {
 	public IdusMemberVO getContent(String uemail) {
 		return sqlSession.selectOne(namespace+".content",uemail);
 	}
-	
+	public boolean getUpdate(IdusMemberVO vo) {
+		boolean result = false;
+		int value = sqlSession.update(namespace+".update",vo);
+		if(value !=0) {
+			result = true;
+		}
+		return result;
+	}
 }

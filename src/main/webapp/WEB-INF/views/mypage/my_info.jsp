@@ -58,7 +58,7 @@ table.member_info tr:first-child td img{border-radius:50%;width:100px; height:10
 		</div>
 	</aside>
 		<h2>회원 정보 관리</h2>
-		<form name="myinfo_update_form" action="myinfo_update_proc.do" method="post">
+		<form name="myinfo_update_form" action="myinfo_update_proc.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="uemail" value="${vo.uemail}">
 			<table class="member_info">
 			
@@ -108,7 +108,7 @@ table.member_info tr:first-child td img{border-radius:50%;width:100px; height:10
 					<td colspan=2><button type="button" class="change">회원탈퇴</button></td>
 				</tr>
 				<tr>
-					<td colspan=2><button type="button" id="updateBtn">회원
+					<td colspan=2><button type="submit" id="updateBtn">회원
 							정보 수정하기</button></td>
 				</tr>
 			</table>
