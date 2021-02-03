@@ -164,6 +164,18 @@ $(document).ready(function(){
 				return false;
 			}else {
 				if(regExp.test($("#email").val())){
+					$.ajax({
+						url:"emailCheck.do?email="+$("#email").val(), 
+						success:function(result){
+							if(result == 1){
+								$("#email_msg").text("이미 중복된 아이디가 존재합니다. 다시 입력해주세요").css("color","red");
+								return false;
+							}else{
+								$("#email_msg").text("사용가능한 아이디 입니다.").css("color","blue");
+								return true;
+							}
+						}
+					});
 					$("#email_msg").text("");
 					$("input[name=email]").css("border", "1px solid black");
 					return true;

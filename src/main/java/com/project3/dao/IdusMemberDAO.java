@@ -1,5 +1,10 @@
 package com.project3.dao;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -21,5 +26,27 @@ public class IdusMemberDAO {
 	
 	public IdusSessionVO getLogin(IdusMemberVO vo) {
 		return sqlSession.selectOne(namespace+".login", vo);
+	}
+	
+	public int getCount() {
+		return sqlSession.selectOne(namespace+".count");
+	}
+	
+	public ArrayList<IdusMemberVO> getList(int start, int end){
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("start", String.valueOf(start));
+		param.put("end", String.valueOf(end));
+		
+	    List<IdusMemberVO> list = sqlSession.selectList(namespace+".list", param);
+	    
+	    return (ArrayList<IdusMemberVO>)list;
+	}
+	
+	public int getResultDelete() {
+		return sqlSession.delete(namespace+".deleteAll");
+	}
+	
+	public int getResultDelete(String[] userlist) {
+		return sqlSession.delete(namespace+".deleteSelect", userlist);
 	}
 }

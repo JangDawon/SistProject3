@@ -1,5 +1,7 @@
 package com.project3.service;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,7 @@ public class MemberServiceImpl {
 	private IdusMemberDAO memberDAO;
 	
 	/**
-	 * íšŒì›ê°€ì…
+	 * È¸¿ø°¡ÀÔ °á°ú
 	 */
 	public String getResultJoin(IdusMemberVO vo) {
 		boolean join_result = memberDAO.getInsert(vo);
@@ -30,7 +32,7 @@ public class MemberServiceImpl {
 	}
 	
 	/**
-	 * ë¡œê·¸ì¸
+	 * ·Î±×ÀÎ °á°ú
 	 */
 	public ModelAndView getResultLogin(IdusMemberVO vo, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -41,10 +43,69 @@ public class MemberServiceImpl {
 			mv.addObject("vo", vo);
 			mv.setViewName("index"); 			
 		}else {
-			mv.addObject("result", "ì•„ì´ë”” í˜¹ì€ ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë¦½ë‹ˆë‹¤.");
+			mv.addObject("result", "¾ÆÀÌµğ ¶Ç´Â ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇØÁÖ¼¼¿ä.");
 			mv.setViewName("/login/login");
 		}
 		
 		return mv;
+	}
+	
+	/**
+	 * °ü¸®ÀÚ : È¸¿ø ÀüÃ¼ ¸®½ºÆ®
+	 */
+	public ModelAndView getList(String rpage) {
+		ModelAndView mv = new ModelAndView();
+		
+		int start = 0;
+		int end = 0;
+		int pageSize = 10; //ÇÑ ÆäÀÌÁö´ç Ãâ·ÂµÇ´Â row
+		int pageCount = 1; //ÀüÃ¼ ÆäÀÌÁö ¼ö : ÀüÃ¼ row / ÇÑ ÆäÀÌÁö´ç Ãâ·ÂµÇ´Â row
+		int dbCount = memberDAO.getCount(); //DB¿¬µ¿ ÈÄ ÀüÃ¼·Î¿ì¼ö Ãâ·Â
+		int reqPage = 1; //¿äÃ» ÆäÀÌÁö
+		
+		//2-2. ÀüÃ¼ ÆäÀÌÁö ¼ö ±¸ÇÏ±â
+		if((dbCount%pageSize) == 0){
+			pageCount = dbCount/pageSize;
+		}else{
+			pageCount = (dbCount/pageSize)+1;
+		}
+		
+		//2-3. start, end °ª ±¸ÇÏ±â
+		if(rpage != null){
+			reqPage = Integer.parseInt(rpage);
+			start = (reqPage - 1) * pageSize + 1;
+			end = reqPage*pageSize;
+		}else{
+			start = reqPage;
+			end = pageSize;
+		}
+		
+		//3. DAO °´Ã¼ ¿¬µ¿
+		ArrayList<IdusMemberVO> list = memberDAO.getList(start, end);
+		
+		//board_list.jsp ÆÄÀÏ·Î µ¥ÀÌÅÍ Àü¼Û
+		mv.addObject("list", list);
+		mv.addObject("dbCount", dbCount);
+		mv.addObject("pageSize", pageSize);
+		mv.addObject("reqPage", reqPage);
+		
+		mv.setViewName("/admin/user/user_mng_list");
+		
+		return mv;
+	}
+	
+	/**
+	 * È¸¿ø »èÁ¦
+	 */
+	public int getResultDelete(String[] userlist) {
+		int count = 0;
+		
+		if(userlist[0].equals("all")) {
+			count = memberDAO.getResultDelete();
+		}else {
+			count = memberDAO.getResultDelete(userlist);
+		}
+		
+		return count;
 	}
 }
