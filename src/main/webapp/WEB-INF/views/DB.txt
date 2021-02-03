@@ -63,7 +63,7 @@ CREATE TABLE idus_product(
 
 /*
 	아이디어스 맴버 테이블 생성(준성)
-	수정일 : 2021.01.28 오후 3시 37분
+	수정일 : 2021.02.03 오전 12시 05분
 */
 create table idus_member(
 	UEMAIL varchar2(30) Primary key,
@@ -76,7 +76,8 @@ create table idus_member(
 	AGGRSMS varchar2(10),
 	AGGREMAIL varchar2(10),
 	PFILE varchar2(100),
-	PSFILE varchar2(100)
+	PSFILE varchar2(100),
+	UDATE date
 );
 
 /* 아이디어스 공지사항 & 1대1문의 게시판 테이블 생성(지혜) 

@@ -1,9 +1,16 @@
 package com.project3.vo;
 
 public class IdusMemberVO {
-	String uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile;
+	String uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile, udate;
 	int rno;
-	
+
+	public String getUdate() {
+		return udate;
+	}
+
+	public void setUdate(String udate) {
+		this.udate = udate;
+	}
 
 	public int getRno() {
 		return rno;
