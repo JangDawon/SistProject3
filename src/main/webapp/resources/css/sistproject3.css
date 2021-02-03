@@ -195,7 +195,7 @@
     display: block;
     margin: 0px auto;
     padding: 0px;
-    font-family: "�����ٸ����";
+    font-family: "占쏙옙占쏙옙占쌕몌옙占쏙옙占�";
     width:1100px;
 }
 
@@ -369,14 +369,14 @@
 
 
 /**
-*   ���� (����)
+*   공통 (지혜)
 **/
 button.btn_style {background-color:#F87E35; color:white; font-weight:600; border:none; border-radius:2px; padding:5px 13px;}
 button.btn_style1 {background-color:#F87E35; color:white; font-weight:600; border:none; border-radius:2px; padding:5px 13px;}
 body>div.jihye_content {width:1100px; margin:auto; margin-top:30px; margin-bottom:100px; /*border:1px solid purple;*/ }
 
 /**
-*   �������� �� 1:1���� �Խ��� : cs.jsp (����)
+*   공지사항 및 1:1문의 게시판 : cs.jsp (지혜)
 **/
 h2.txt {text-align:center; margin-bottom:50px;}
 
@@ -404,8 +404,9 @@ table#cs_list_table tr {height:35px;}
 table#cs_list_table tr.cs_hide {display:none; }
 table#cs_list_table span.orange {color:#F87E35; }
 table#cs_list_table tr.cs_hide td div span {margin:0px 20px; }
+
 /**
-*   CS�Խ��� �۾��� & ���� : cs_write.jsp & cs_update.jsp (����)
+*   CS게시판 글쓰기 & 수정 : cs_write.jsp & cs_update.jsp (지혜)
 **/
 table#cs_write_table tr *, table#cs_update_table tr * {margin:15px 5px;}
 table#cs_write_table, table#cs_update_table {text-align:center; width: 700px;}
@@ -425,7 +426,7 @@ table.cs_table input[type='file'] {padding-left:40px; }
 table#cs_update_table span#bfile_label {display:inline-block; width:200px; margin-left:-183px; background-color:white; text-indent:7px; font-size:13.5px; }
 
 /**
-*   CS�Խ��� ���� : cs_content.jsp (����)
+*   CS게시판 내용 : cs_content.jsp (지혜)
 **/
 table#cs_content_table {margin-bottom:150px; }
 table#cs_content_table tr {height:45px; }
@@ -447,14 +448,15 @@ table#cs_content_table tr:last-child td table {width:800px; border-collapse:coll
 #board_content table#cs_reply_table, #board_content table#cs_reply_table th, #board_content table#cs_reply_table td {margin:20px;}
 #cs_reply_table textarea {width:450px;}
 div#here {clear:both;}
+
 /**
-*   CS�Խ��� �� ���� : cs_delete.jsp (����)
+*   CS게시판 글 삭제 : cs_delete.jsp (지혜)
 **/
 table#cs_delete_table {margin-top:100px; height:400px; width:500px;}
 table#cs_delete_table td #delete_img {width:200px; height:210px; }
 
 /**
-*   Admin : admin.jsp (����)
+*   Admin : admin.jsp (지혜)
 */
 aside.admin_info {position: sticky; 
 top: 0; width:200px; height:600px; background-color:#FBFAFA; float:left; margin:auto; margin-top:-30px;}
@@ -467,7 +469,7 @@ aside.admin_info hr.h {color:#B4B4B4; width:90%;}
 aside.admin_info a:hover {color:#F87E35; font-weight:500;}
 
 /**
-*   ȸ������ : user_mng_list.jsp (����)
+*   회원관리 : user_mng_list.jsp (지혜)
 */
 body.admin {/* width:1000px; */ margin:auto; }
 body.admin a.h2_user {text-decoration:none; color:#333;}
@@ -480,7 +482,7 @@ table#user_list tr:last-child td {border-bottom:1px solid white; border-top:2px 
 table#user_list tr th, table#user_list tr td {height:35px;}
 
 /**
-*   ȸ������ : user_mng_content.jsp (����)
+*   회원관리 : user_mng_content.jsp (지혜)
 */
 table#admin_user_table {border-top:2px solid #B4B4B4; border-bottom:2px solid #B4B4B4; border-collapse:collapse; width:750px; margin:auto;}
 table#admin_user_table th, table#admin_user_table td {border-top:2px solid #B4B4B4; border-bottom:2px solid #B4B4B4; height:40px;}
@@ -492,7 +494,7 @@ table#admin_user_table td {text-align:center; text-indent:10px;}
 table#admin_user_table img {width:230px; height:225px; margin-left:-10px;}
 
 /**
-*   ���� ���� : review_mng_list.jsp (����)
+*   리뷰 관리 : review_mng_list.jsp (지혜)
 */
 table#admin_review_list {text-align:center; border:none;}
 table#admin_review_list tr.review_row {height:100px;}
@@ -513,7 +515,7 @@ table#admin_review_list td:nth-child(5) div {width:280px; overflow:hidden; text-
 table#admin_review_list td:last-child {width:120px;}
 
 /**
-*   ���� ���� : review_mng_content.jsp (����)
+*   리뷰 관리 : review_mng_content.jsp (지혜)
 */
 table#admin_review_content_table {text-align:center;}
 table#admin_review_content_table td>div{width:500px; margin:auto;}
@@ -521,7 +523,7 @@ table#admin_review_content_table tr:last-child td{border:1px solid white;}
 table#admin_review_content_table tr:last-child td button{margin-top:80px;}
 
 /**
-*   ��ǰ ���� : product_mng_list.jsp (����)
+*   상품 관리 : product_mng_list.jsp (지혜)
 */
 table#admin_product_list {text-align:center;}
 table#admin_product_list tr:first-child button{padding:7px 10px; margin:0px 2px;}
@@ -531,9 +533,10 @@ table#admin_product_list tr:nth-child(2) th {border-bottom:2px solid lightgray; 
 table#admin_product_list tr:last-child td{border-bottom:none; border-top:2px solid lightgray; padding-top:100px;}
 table#admin_product_list td:nth-child(2) {width:100px;}
 table#admin_product_list td:nth-child(4) {width:300px;}
+table#admin_product_list td:nth-child(4) div {width:300px; overflow:hidden; text-overflow: ellipsis;  white-space: nowrap;}
 
 /**
-*   ��ǰ ���&���� : product_mng_regist.jsp&product_mng_update.jsp (����)
+*   상품 등록&수정 : product_mng_regist.jsp&product_mng_update.jsp (지혜)
 */
 body#product_mng_regist p.mtitle, body#product_mng_update p.mtitle {font-size:18px; font-weight:550; color:#333; text-indent:50px; }
 table#admin_product_regist, table#admin_product_update {margin-bottom:80px;}
@@ -562,7 +565,7 @@ table#admin_product_regist tr:last-child td, table#admin_product_update tr:last-
 table#admin_product_regist button, table#admin_product_update button {padding:8px 20px; margin:0px 5px;}
 
 /**
-*   ��ǰ���� : product_mng_content.jsp (����)
+*   상품관리 : product_mng_content.jsp (지혜)
 */
 table#admin_product_content {margin-bottom:100px;}
 table#admin_product_content th, table#admin_product_content td {text-align:left; text-indent:30px; height:40px;}
@@ -574,7 +577,7 @@ table#admin_product_content td:nth-child(2) {width:300px; }
 table#admin_product_content th:nth-child(3) {width:130px; }
    
 /**
-*   ���������� aside
+*   마이페이지 aside
 **/
 body>div.content {width:1100px; margin:auto; margin-bottom:100px;}
 aside.mypage_info {width:200px; height:800px; background-color:#FBFAFA; float:left; margin:auto;margin-right:50px; }
@@ -587,7 +590,7 @@ aside.mypage_info hr.h {color:#B4B4B4; width:90%;}
 
 
 /**
-*   �ֹ�����
+*   주문내역
 **/
 table.my_order {border-collpase: collapse;width: 750px;height: 120px;}
 table.my_order tr:first-child {background-color: rgb(245, 245, 245);text-indent:10px;}
@@ -598,7 +601,7 @@ table.my_order tr:nth-child(2) td {border: 1px solid lightgrey;}
 table.my_order tr:nth-child(2) td button{background-color: rgb(255, 255, 255);border:1px solid rgb(204, 204, 204);padding: 5px 12px;}
 
 /**
-*   �� ����
+*   占쏙옙 占쏙옙占쏙옙
 **/
 table.myinfo{padding-top:20px;}
 table.myinfo{width:700px;}
@@ -606,14 +609,14 @@ table.myinfo tr:nth-child(2) td{height:130px;}
 table.myinfo tr th {text-align: left;text-indent: 10px;font-size: 20px;background-color: rgb(245, 245, 245);}
 table.myinfo tr td {border: 1px solid lightgrey;text-indent: 12px;}
 /**
-*   ���ã��
+*   占쏙옙占시ｏ옙占�
 **/
 span.star{color: rgb(255, 200, 1);}
 dl.bookmark_list img{width: 200px;heigth: 500px;}
 dl.bookmark_list {border: 1px solid lightgrey;display: inline-block;background-color: rgb(248, 249, 251);}
 dl.bookmark_list:hover{box-shadow:1px 1px 20px #ddd;};
 /**
-*   �����ϴ� �۰�
+*   占쏙옙占쏙옙占싹댐옙 占쌜곤옙
 **/
 table.bookmark_writer{width:750px;}
 table.bookmark_writer{border-bottom:1px solid rgb(217,217,217);}
@@ -623,7 +626,7 @@ table.bookmark_writer tr td button.home{background-color:white;border:1px solid 
 table.bookmark_writer tr td button.message{background-color:white;border:1px solid rgb(204, 204, 204);padding: 5px 65px;}
 
 /**
-*   ȸ������
+*   회占쏙옙占쏙옙占쏙옙
 **/
 table.member_info {width:750px;}
 table.member_info input[type='text']{width:500px;border:none;font-size:15px;height:30px;text-indent:5px;}
@@ -637,7 +640,7 @@ table.member_info tr:last-child button {background-color: rgb(255, 123, 48);padd
 table.member_info tr:last-child td {text-align:center;border:none;}
 table.member_info tr:nth-child(10) td {text-align:right;}
 /**
-* ���� �� ����
+* 占쏙옙占쏙옙 占쏙옙 占쏙옙占쏙옙
 **/
 table.review_content tr:first-child>td:first-child {width: 20px;}
 table.review_content tr:first-child span.title {font-weight: bold;display: inline-block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 350px;}
@@ -647,15 +650,15 @@ div.border {border: 1px solid rgb(217, 217, 217);display: inline-block;}
 div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-size: 12px;margin-bottom:30px;height:60px;padding:10px 10px;}
 
 
-   /** ī�װ�, ��ٱ���, �۰� **/
+   /** 카占쌓곤옙, 占쏙옙袂占쏙옙占�, 占쌜곤옙 **/
    body.category, body.artist {
-      margin:0px; padding:0px; font-family:"�����ٸ����";
+      margin:0px; padding:0px; font-family:"占쏙옙占쏙옙占쌕몌옙占쏙옙占�";
    }
    body.category>section, body.artist>section {
       width:1100px; margin:auto;
    }
    
-   /** ī�װ�(����, �Ǽ����縮, ��Ȱ��ǰ, ���׸����ǰ, ��Ÿ) **/
+   /** 카占쌓곤옙(占쏙옙占쏙옙, 占실쇽옙占쏙옙占썹리, 占쏙옙활占쏙옙품, 占쏙옙占쌓몌옙占쏙옙占실�, 占쏙옙타) **/
    section.category_menu div.filter_top {
       margin:0px;
    }
@@ -765,7 +768,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       box-shadow:1px 1px 20px #ddd;
    }
    
-   /** �α���ǰ, �ֽ���ǰ **/
+   /** 占싸깍옙占쏙옙품, 占쌍쏙옙占쏙옙품 **/
    div.banner_title {
       text-align:center;
       padding:30px 0;
@@ -872,7 +875,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       	margin-bottom:5px;
    	}
    
-   	/** �α��۰� **/
+   	/** 占싸깍옙占쌜곤옙 **/
    	div.best_artist {
       	border-top:1px solid lightgray;
       	border-bottom:1px solid lightgray;
@@ -933,7 +936,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		text-align:center;
 	}
    
-	/** �۰� �޴� **/
+	/** 占쌜곤옙 占쌨댐옙 **/
 	aside.artist_menu {
       width:150px;
       height:740px;
@@ -1001,7 +1004,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       padding:1px 0;
    }
    
-   /** �۰� Ȩ, ��ǰ **/
+   /** 占쌜곤옙 홈, 占쏙옙품 **/
    div.artist_main {
       margin-left:190px;
       border:1px solid red;
@@ -1056,7 +1059,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       background-color:#F87E35;
    }
    
-   /** ��ٱ��� **/
+   /** 占쏙옙袂占쏙옙占� **/
 	div.cart_content>table {
 		border-collapse:collapse;
 		border:1px solid lightgray;
@@ -1247,7 +1250,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
    
    
    /*
-   *   product_detail (����)
+   *   product_detail (占쏙옙占쏙옙)
    */
    .product_detail_content {
    display:border;
