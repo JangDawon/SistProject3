@@ -8,7 +8,7 @@
 	<!-- insert:join -->
 	<insert id="join" parameterType="com.project3.vo.IdusMemberVO">
 		insert into idus_member values(
-		#{uemail}, #{upass}, #{uname}, #{cp}, '', '', '', #{aggrsms}, #{aggremail}, '', ''
+		#{uemail}, #{upass}, #{uname}, #{cp}, '', '', '', #{aggrsms}, #{aggremail}, '', '', sysdate
 		)
 	</insert>
 	
