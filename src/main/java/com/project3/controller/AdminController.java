@@ -28,8 +28,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/user_mng_list.do", method=RequestMethod.GET)
-	public String user_mng_list() {
-		return memberService.getList();
+	public ModelAndView user_mng_list(String rpage) {
+		return memberService.getList(rpage);
 	}
 	
 	@RequestMapping(value="/user_mng_content.do", method=RequestMethod.GET)

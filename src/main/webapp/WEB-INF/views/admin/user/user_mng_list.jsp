@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,27 @@
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
+<script>
+	$(document).ready(function(){
+		var pager = jQuery("#ampaginationsm").pagination({
+			maxSize : 5,
+			totals : "${dbCount}",
+			pageSize : "${pageSize}",
+			page : "${reqPage}",
+			
+			lastText : '&raquo;&raquo;',
+			firstText : '&laquo;&laquo;',
+			prevText : '&laquo;',
+			nextText : '&raquo;',
+			
+			btnSize : 'sm'
+		});
+		
+		jQuery("#ampaginationsm").on('am.pagination.change', function(e){
+			$(location).attr('href','http://localhost:9000/sistproject3/user_mng_list.do?rpage=' + e.page);
+		});
+	});
+</script>
 </head>
 <body id="user_mng_list" class="admin">
 
@@ -33,35 +55,21 @@
 			<th>번호</th>
 			<th>아이디</th>
 			<th>이름</th>
-			<th>생년월일</th>
+			<th>전화번호</th>
 			<th>가입일자</th>
 		</tr>
-		<tr class="cs_row">
-			<td><input type="checkbox" class="user_chk" value=1></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">1</td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">jihye</td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">최지혜</td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2021.01.14</td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2021.01.14</td>
-		</tr>
-		<tr class="cs_row">
-			<td><input type="checkbox" class="user_chk" value=2></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2</td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">jihye</td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">최지혜</td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2021.01.14</td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2021.01.14</td>
-		</tr>
-		<tr class="cs_row">
-			<td><input type="checkbox" class="user_chk"  value=3></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">3</td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">jihye</td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">최지혜</td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2021.01.14</td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2021.01.14</td>
-		</tr>
+		<c:forEach var="vo" items="${list}" >
+			<tr class="cs_row">
+				<td><input type="checkbox" class="user_chk" value=1></td>
+				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">1</td>
+				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">${vo.uemail }</td>
+				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">${vo.uname }</td>
+				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">${vo.cp }</td>
+				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">2021.01.14</td>
+			</tr>
+		</c:forEach>
 		<tr>
-			<td colspan="6" id="ampaginationsm"><< 1 2 3 4 5 >></td>
+			<td colspan="6"><div id="ampaginationsm"></div></td>
 		</tr>
 	</table>
 	</div>
