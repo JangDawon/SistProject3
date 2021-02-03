@@ -63,4 +63,5 @@ public class IdusCategoryDAO  extends DBConn{
 		List<IdusProductVO> list = sqlSession.selectList(namespace+".bestprodlist", pcat);
 		return (ArrayList<IdusProductVO>)list;
 	}
+	
 }

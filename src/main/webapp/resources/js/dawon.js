@@ -1,4 +1,8 @@
 	$(document).ready(function(){
+		$(".btn_cart").click(function(){
+			alert("장바구니 담기 성공");
+		});
+		
 		$("#cart_order").click(function(){
 			var del_list = "";
 			

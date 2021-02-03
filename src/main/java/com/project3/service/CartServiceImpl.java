@@ -1,8 +1,9 @@
 package com.project3.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.dao.IdusCartDAO;
 import com.project3.vo.IdusCartVO;
@@ -12,7 +13,7 @@ public class CartServiceImpl implements CartService {
 	@Autowired
 	private IdusCartDAO cartDAO;
 	
-	public String getResultCart(IdusCartVO vo) {
+	/* public String getResultCart(IdusCartVO vo) {
 		IdusCartDAO dao = new IdusCartDAO();
 		boolean cart_result =  cartDAO.getInsert(vo);
 		String result = "";
@@ -24,7 +25,7 @@ public class CartServiceImpl implements CartService {
 		}
 		
 		return result;
-	}
+	} */
 	
 	/** 선택 삭제 **/
 	public int getSelectDelete(String[] dellist) {
@@ -32,10 +33,34 @@ public class CartServiceImpl implements CartService {
 	}
 	
 	
-	/** 장바구니에 확인하고 넣기 **/
-	public String getInsertCart(IdusCartVO vo) {
-		return cartDAO.getInsertCart(vo);
+	/** 장바구니 담기 **/
+	@Override
+	public void getCartInsert(IdusCartVO vo) {
+		cartDAO.getCartInsert(vo);
 	}
 	
+	/** 장바구니 리스트 **/
+	@Override
+	public List<IdusCartVO> getCartList(String uemail){
+		return cartDAO.getCartList(uemail);
+	}
+	
+	/** 장바구니 금액 합계 **/
+    @Override
+    public int sumMoney(String uemail) {
+        return cartDAO.sumMoney(uemail);
+    }
+    
+    /** 장바구니 상품 확인 **/
+    @Override
+    public int countCart(String pid, String uemail) {
+        return cartDAO.countCart(pid, uemail);
+    }
+    
+	/** 장바구니 상품 수량 변경 **/
+    @Override
+    public void updateCart(IdusCartVO vo) {
+    	cartDAO.updateCart(vo);
+    }
 	
 }

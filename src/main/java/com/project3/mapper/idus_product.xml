@@ -5,7 +5,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="mapper.product">
-
+	
 	<select id="newlist" resultType="com.project3.vo.IdusProductVO">
 		select pid, psfile1, sname, ptitle, to_char(pdate, 'yyyy/mm/dd') pdate
 			from (select * from idus_product order by pdate desc)
