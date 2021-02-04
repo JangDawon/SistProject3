@@ -784,29 +784,28 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
    section.product_content {
       padding:30px 0;
    }
-   div.best_prod_title {
+   div.best_prod_title, div.new_prod_title {
       background-color:rgb(231,231,231);
       border:1px solid lightgray;
       border-radius:3px;
       padding:15px 15px;
       margin-bottom:20px;
    }
-   div.best_prod_title>a:first-child {
+   div.best_prod_title>a:first-child, div.new_prod_title>a:first-child {
       display:inline-block;
       clear:left;
       text-decoration:none;
       font-weight:bold;
       color:black;
    }
-   div.best_prod_title>a:last-child {
+   div.best_prod_title>a:last-child, div.new_prod_title>a:last-child {
       display:inline-block;
       float:right;
       text-decoration:none;
 	  color:black;
       font-size:15px;
    }
-   div.best_prod_img>div>button.favorite_btn>img,
-   div.new_prod_img>div>button.favorite_btn>img,
+   div.best_prod_img>div>button.favorite_btn>img, div.new_prod_img>div>button.favorite_btn>img,
    div.artist_prod_img>div>button.favorite_btn>img {
       width:25px;
       height:25px;
@@ -817,8 +816,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       background-color:rgba(0, 0, 0, 0);
       border:1px solid rgba(0, 0, 0, 0);
    }
-   div.best_prod div.best_prod_img img,
-   div.new_prod div.new_prod_img img {
+   div.best_prod div.best_prod_img img, div.new_prod div.new_prod_img img {
       text-align:center;
       border-radius:3px;
       width:203px;
@@ -833,7 +831,8 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       margin-left:-0.5px;
       margin-top:-0.5px;
    }
-   section.product_content>div.best_prod {
+   section.product_content>div.best_prod, section.indexpage_section div.best_prod,
+   section.indexpage_section div.new_prod {
       background-color:rgb(250,250,250);
       border:1px solid lightgray;
       display:inline-block;
@@ -841,15 +840,14 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       margin:10px 7px;
       border-radius:5px;
    }
-   section.product_content>div.new_prod {
-      background-color:rgb(250,250,250);
-      border:1px solid lightgray;
-      display:inline-block;
-      width:18.4%;
-      /* height:280px; */
-     /*  margin:10px 5px; */
-      border-radius:5px;
-   }
+	section.product_content>div.new_prod{
+		background-color:rgb(250,250,250);
+      	border:1px solid lightgray;
+      	display:inline-block;
+      	width:18.4%;
+      	margin:10px 4px;
+      	border-radius:5px;
+   	}
    div.artist_product>div.artist_prod {
       background-color:rgb(250,250,250);
       border:1px solid lightgray;
@@ -864,7 +862,8 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       color:black;
    }
    div.best_prod div.best_prod_info, div.best_prod div.best_prod_info_review,
-   div.new_prod div.new_prod_info, div.artist_prod div.artist_prod_info {
+   div.new_prod div.new_prod_info, div.new_prod div.new_prod_info_review,
+   div.artist_prod div.artist_prod_info {
       padding:5px 8px;
    }
    div.best_prod_info>div.prod_info_name, div.new_prod_info>div.prod_info_name,
@@ -872,23 +871,20 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       font-size:11.5px;
       color:gray;
    }
-   div.best_prod_info>div.prod_info_title, 
+   div.best_prod_info>div.prod_info_title, div.new_prod_info>div.prod_info_title, 
    div.artist_prod_info>div.prod_info_title {
       font-size:13.5px;
       height:35px;
       margin-bottom:8px;
    }
-	div.new_prod_info>div.prod_info_title {
-		font-size:13.5px;
-	}
-   div.best_prod_info_review {
+   div.best_prod_info_review, div.new_prod_info_review {
 		border-top:1px solid lightgray;
    	}
-   	div.best_prod_info_review>div.rv {
+   	div.best_prod_info_review>div.rv, div.new_prod_info_review>div.rv {
  	  	padding: 6px 0 4px 0;
 		font-size:14px;
 	}
-	div.best_prod_info_review>div.rv2 {
+	div.best_prod_info_review>div.rv2, div.new_prod_info_review>div.rv2 {
       	font-size:12px;
       	margin-bottom:5px;
    	}
