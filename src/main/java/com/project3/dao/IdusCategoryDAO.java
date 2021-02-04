@@ -41,4 +41,27 @@ public class IdusCategoryDAO  extends DBConn{
 		}	
 		return result;
 	}*/
+	
+	
+	/**
+	 * 최신 차트
+	 */
+	public ArrayList<IdusProductVO> getNewList(){
+		List<IdusProductVO> list = sqlSession.selectList(namespace + ".newlist");
+		return (ArrayList<IdusProductVO>)list;
+	}
+	
+	/**
+	 * 인기 차트
+	 */
+	/* public ArrayList<IdusProductVO> getBestList(){
+		List<IdusProductVO> list = sqlSession.selectList(namespace + ".bestlist");
+		return (ArrayList<IdusProductVO>)list;
+	} */
+	
+	public ArrayList<IdusProductVO> getBestProdList(String pcat){
+		List<IdusProductVO> list = sqlSession.selectList(namespace+".bestprodlist");
+		return (ArrayList<IdusProductVO>)list;
+	}
+	
 }

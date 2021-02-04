@@ -27,7 +27,7 @@ table.member_info tr td span.user_email{margin-left:6px;}
 		<div class="mypage_menu">
 			<input type="hidden" name="uemail" value="${uemail}">
 			<div class="admin_profile">
-				<img src="http://localhost:9000/sistproject3/images/logo.jpg">
+				<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile }">
 				<p>홍길동님</p>
 			</div>
 			<p class="am">MY MENU</p>
@@ -105,7 +105,7 @@ table.member_info tr td span.user_email{margin-left:6px;}
 					<td colspan=2><button type="button" class="change">회원탈퇴</button></td>
 				</tr>
 				<tr>
-					<td colspan=2><button type="submit" id="updateBtn">회원정보 수정하기</button></td>
+					<td colspan=2 class = "tdlast"><button type="submit" id="updateBtn">회원정보 수정하기</button></td>
 				</tr>
 			</table>
 		</form>

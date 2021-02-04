@@ -2,6 +2,7 @@ package com.project3.service;
 
 import java.io.File;
 import java.util.UUID;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
@@ -21,15 +22,16 @@ public class MemberServiceImpl {
 	/**
 	 * �쉶�썝媛��엯
 	 */
-	public String getResultJoin(IdusMemberVO vo) {
+	public ModelAndView getResultJoin(IdusMemberVO vo) {
+		ModelAndView mv = new ModelAndView();
 		boolean join_result = memberDAO.getInsert(vo);
-		String result = "";
 		
 		if(join_result) {
-			result = "join/join_success"; 
+			mv.addObject("vo", vo);
+			mv.setViewName("/join/join_success"); 
 		}
 
-		return result;
+		return mv;
 	}
 	
 	/**
@@ -82,5 +84,82 @@ public class MemberServiceImpl {
 		return mv;
 	}
 	
+	
+	/**
+	 * ������ : ȸ�� ��ü ����Ʈ
+	 */
+	public ModelAndView getList(String rpage) {
+		ModelAndView mv = new ModelAndView();
+		
+		int start = 0;
+		int end = 0;
+		int pageSize = 10; //�� �������� ��µǴ� row
+		int pageCount = 1; //��ü ������ �� : ��ü row / �� �������� ��µǴ� row
+		int dbCount = memberDAO.getCount(); //DB���� �� ��ü�ο�� ���
+		int reqPage = 1; //��û ������
+		
+		//2-2. ��ü ������ �� ���ϱ�
+		if((dbCount%pageSize) == 0){
+			pageCount = dbCount/pageSize;
+		}else{
+			pageCount = (dbCount/pageSize)+1;
+		}
+		
+		//2-3. start, end �� ���ϱ�
+		if(rpage != null){
+			reqPage = Integer.parseInt(rpage);
+			start = (reqPage - 1) * pageSize + 1;
+			end = reqPage*pageSize;
+		}else{
+			start = reqPage;
+			end = pageSize;
+		}
+		
+		//3. DAO ��ü ����
+		ArrayList<IdusMemberVO> list = memberDAO.getList(start, end);
+		
+		//board_list.jsp ���Ϸ� ������ ����
+		mv.addObject("list", list);
+		mv.addObject("dbCount", dbCount);
+		mv.addObject("pageSize", pageSize);
+		mv.addObject("reqPage", reqPage);
+		
+		mv.setViewName("/admin/user/user_mng_list");
+		
+		return mv;
+	}
+	
+	/**
+	 * ȸ�� ����
+	 */
+	public int getResultDelete(String[] userlist) {
+		int count = 0;
+		
+		if(userlist[0].equals("all")) {
+			count = memberDAO.getResultDelete();
+		}else {
+			count = memberDAO.getResultDelete(userlist);
+		}
+		
+		return count;
+	}
+	
+	/**
+	 * �̸��� �ߺ� üũ
+	 */
+	public int getResultEmailCheck(String email) {
+		return memberDAO.getEmailCheck(email);
+	}
+	
+	/**
+	 * ���̵�/��й�ȣ ã��
+	 */
+	public ModelAndView getResultLoginCheck(String hp) {
+		ModelAndView mv = new ModelAndView();
+		ArrayList<IdusMemberVO> list = memberDAO.getLoginCheck(hp);
+		mv.addObject("list", list);
+		mv.setViewName("/login/login_check_result");
+		return mv;
+	}
 }
 

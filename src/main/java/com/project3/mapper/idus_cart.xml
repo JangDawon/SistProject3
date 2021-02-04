@@ -6,10 +6,37 @@
     
 <mapper namespace="mapper.cart">
 
-	<insert id="cart" parameterType="com.project3.vo.IdusCartVO">
-		insert into idus_cart values('c_'||sequ_cart.nextval, #{uemail}, #{pid}, 
+	<insert id="cartinsert" parameterType="com.project3.vo.IdusCartVO">
+		insert into idus_cart values ('c_'||sequ_cart.nextval, #{uemail}, #{pid}, 
 			#{prod_name}, #{prod_qty}, #{prod_opt}, #{prod_price})
 	</insert>
+	
+	<select id="cartlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusCartVO">
+		select * from idus_cart
+	</select>
+	
+	<delete id="deletelist" parameterType="java.lang.reflect.Array">
+		delete from idus_cart where cart_id in
+		<foreach item="item" index="index" collection="array"
+			open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+	<select id="sumMoney" resultType="int">
+        select nvl(sum(prod_price * prod_qty), 0) money
+        form idus_cart c, idus_product p
+        where c.pid = p.pid AND c.uemail = #{uemail}
+    </select>
+	
+    <select id="countCart" resultType="int">
+        select count(*) from idus_cart where uemail= #{uemail} and pid = #{pid}
+    </select>
+
+    <update id="updateCart">
+        update idus_cart set prod_qty = prod_qty + #{prod_qty} 
+        where uemail= #{uemail} and pid = #{pid}
+    </update>
 	
 </mapper>
 

@@ -32,9 +32,9 @@
 				<div class="navbar1_wrapper">
 					<ul class="navbar_menu">
 						<li><a href="http://localhost:9000/sistproject3/login.do">로그인</a></li>
-						<li><a href="http://localhost:9000/sistproject3/join.do">회원가입</a></li>
+						<li><a href="http://localhost:9000/sistproject3/join_choice.do">회원가입</a></li>
 						<li><a href="http://localhost:9000/sistproject3/cs.do">고객센터</a></li>
-						<li><a href="http://localhost:9000/sistproject3/admin.do">admin</a></li>
+						<li><a href="http://localhost:9000/sistproject3/user_mng_list.do">admin</a></li>
 					</ul>
 				<% } %>
 				</div>
@@ -60,13 +60,13 @@
 			</div>
 			<div class="navbar3">
 				<div class="navbar3_wrapper">
-					<ul class="navbar_category">
+					<ul class="navbar_category" id="c_test1">
 						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">음식</a></li>
 						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=악세사리">악세사리</a></li>
 						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=패션, 잡화">패션&잡화</a></li>
 						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=인테리어 소품">인테리어 소품</a></li>
 						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=기타">기타</a></li>
-						<li><a href="http://localhost:9000/sistproject3/product_best.do">인기 작품</a></li>
+						<li><a href="http://localhost:9000/sistproject3/product_best.do?pcat=total">인기 작품</a></li>
 						<li><a href="http://localhost:9000/sistproject3/product_new.do">최신 작품</a></li>
 						<li><a href="http://localhost:9000/sistproject3/artist_best.do">인기 작가</a></li>
 					</ul>
