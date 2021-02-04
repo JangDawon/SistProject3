@@ -643,12 +643,9 @@ table.member_info button.change {background-color: rgb(255, 255, 255);border: 1p
 table.member_info tr:last-child button {background-color: rgb(255, 123, 48);padding: 8px 8px;border: 1px solid rgb(255, 123, 48);color: rgb(255, 255, 255);}
 table.member_info tr:last-child td {text-align:center;border:none;}
 table.member_info tr:nth-child(10) td {text-align:right;}
+
 /**
-<<<<<<< HEAD
-* 占쏙옙占쏙옙 占쏙옙 占쏙옙占쏙옙
-=======
 * 내가 쓴 리뷰
->>>>>>> refs/heads/master
 **/
 table.review_content tr:first-child>td:first-child {width: 20px;}
 table.review_content tr:first-child span.title {font-weight: bold;display: inline-block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 350px;}
@@ -718,7 +715,8 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
    div.category_content>div.product {
       display:inline-block;
       width:23.6%;
-      margin:5px 5px;
+      height:430px;
+      margin:10px 5px;
    }
    div.prod_img>div>button.favorite_btn>img {
       width:25px;
@@ -739,13 +737,13 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       padding:8px 10px 5px 10px;
    }
    div.product_info>div.prod_info_name {
-      font-size:12px;
+      font-size:13px;
       color:gray;
-      margin-bottom:3px;
    }
    div.product_info>div.prod_info_title {
       font-size:16px;
-      margin-bottom:20px;
+      height:50px;
+      margin:13px 0;
    }
    div.product_info>div.prod_info_price {
       font-size:16px;
@@ -804,7 +802,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       display:inline-block;
       float:right;
       text-decoration:none;
-      color:black;
+	  color:black;
       font-size:15px;
    }
    div.best_prod_img>div>button.favorite_btn>img,
@@ -835,12 +833,21 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       margin-left:-0.5px;
       margin-top:-0.5px;
    }
-   section.product_content>div.best_prod, section.product_content>div.new_prod {
+   section.product_content>div.best_prod {
       background-color:rgb(250,250,250);
       border:1px solid lightgray;
       display:inline-block;
       width:18.4%;
-      margin:10px 5px;
+      margin:10px 7px;
+      border-radius:5px;
+   }
+   section.product_content>div.new_prod {
+      background-color:rgb(250,250,250);
+      border:1px solid lightgray;
+      display:inline-block;
+      width:18.4%;
+      /* height:280px; */
+     /*  margin:10px 5px; */
       border-radius:5px;
    }
    div.artist_product>div.artist_prod {
@@ -862,15 +869,18 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
    }
    div.best_prod_info>div.prod_info_name, div.new_prod_info>div.prod_info_name,
    div.artist_prod_info>div.prod_info_name {
-      font-size:12px;
+      font-size:11.5px;
       color:gray;
-      margin-bottom:3px;
    }
-   div.best_prod_info>div.prod_info_title,   div.new_prod_info>div.prod_info_title,
+   div.best_prod_info>div.prod_info_title, 
    div.artist_prod_info>div.prod_info_title {
-      font-size:15px;
-      margin-bottom:20px;
+      font-size:13.5px;
+      height:35px;
+      margin-bottom:8px;
    }
+	div.new_prod_info>div.prod_info_title {
+		font-size:13.5px;
+	}
    div.best_prod_info_review {
 		border-top:1px solid lightgray;
    	}
