@@ -47,7 +47,7 @@ public class JoinController {
 	 * @return
 	 */
 	@RequestMapping(value="/join_proc.do", method=RequestMethod.POST)
-	public String join_proc(IdusMemberVO vo) {
+	public ModelAndView join_proc(IdusMemberVO vo) {
 		return memberService.getResultJoin(vo);
 	}
 	/**
@@ -87,7 +87,9 @@ public class JoinController {
 	 * 이메일 중복 체크
 	 */
 	@RequestMapping(value="/emailCheck.do", method=RequestMethod.GET)
+	@ResponseBody
 	public String emailCheck(String email) {
-		return "1";
+		return (String.valueOf(memberService.getResultEmailCheck(email)));
+		
 	}
 }
