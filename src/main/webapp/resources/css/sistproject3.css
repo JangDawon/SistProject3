@@ -1565,7 +1565,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		background-color:rgb(240,240,240);
 		border-top:1px solid gray;
 		border-bottom:1px solid gray;
-		display:none;
+		/* display:none; */
 	}
 	div.tab_style>div.option {
 		padding:15px 20px 10px 20px;
