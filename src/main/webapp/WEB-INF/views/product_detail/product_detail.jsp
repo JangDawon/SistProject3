@@ -8,11 +8,15 @@
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/carousel.css">
 		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
-		<!-- <script src="http://localhost:9000/sistproject3/js/dawon.js"></script> -->
+		<script src="http://localhost:9000/sistproject3/js/dawon.js"></script>
 		<!-- <script src="http://localhost:9000/sistproject3/js/hyunju.js"></script> -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<script>
 		$(document).ready(function(){
+			var one=1;
+			var two=1;
+			var five=1;
+			
 			$("#product_option").change(function(){		
 				var price = "${vo.pprice }";	
 				var opt1_price = "${vo.opt1_price }";
@@ -24,9 +28,10 @@
 				var output = "";
 				output += "<div class='tab_style'>";
 				output += "<div class='option'>"+ $("#product_option option:selected").text() +"</div>";
+				output += "<button type='button' id='opDelete'>X</button>";
 				output += "<div class='product_qty_price'>";
 				output += "<div class='product_num'>";
-				output += "<button  type='button' class='minus' name='minus' id='p1'>-</button>";
+				output += "<div></div><button  type='button' class='minus' name='minus' id='p1'>-</button>";
 				output += "<input type='text' class='price' value='1' id='p1_amt'>";
 				output += "<button type='button' class='plus' name='plus' id='p1'>+</button>";
 				output += "</div>";
@@ -46,17 +51,21 @@
           		</div>
           	</div> */
 
-				if($(this).val() != "선택"){				
-					if($(this).val() == "opt1"){
+				
+				if($(this).val() != "선택"){
+					if($(this).val() == "opt1" && one == 1){
 						$(".sum").text(opt1_total+"원"); 
+						one++;
 						//$(".tab_style").css("display","block");
 						$(".product_option_div").after(output);
-					}else if($(this).val() == "opt2"){
+					}else if($(this).val() == "opt2" && two == 1){
 						$(".sum").text(opt2_total+"원"); 
+						two++;
 						//$(".tab_style").css("display","block");
 						$(".product_option_div").after(output);
-					}else if($(this).val() == "opt3"){
+					}else if($(this).val() == "opt3" && five == 1){
 						$(".sum").text(opt3_total+"원");
+						five++;
 						//$(".tab_style").css("display","block");
 						$(".product_option_div").after(output);
 					}
@@ -254,7 +263,7 @@
 						  		<option value="선택">[필수] 옵션을 선택해주세요</option>
 						  		<option value="opt1">${vo.opt1 } ${vo.opt1_price }원</option>
 						  		<option value="opt2">${vo.opt2 } ${vo.opt2_price }원</option>
-						  		<option value="opt2">${vo.opt3 } ${vo.opt3_price }원</option>
+						  		<option value="opt3">${vo.opt3 } ${vo.opt3_price }원</option>
 						  	</select>
 					  	</div>
           			</div>

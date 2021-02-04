@@ -1403,7 +1403,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
        
    }
    .product-define-info > div{
-      display:flex;
+     /*  display:flex; */
       margin-bottom: 8px;
    }
    .btn_box {
@@ -1563,13 +1563,20 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	}
 	div.tab_style {
 		background-color:rgb(240,240,240);
-		border-top:1px solid gray;
+		/* border-top:1px solid gray; */
 		border-bottom:1px solid gray;
+		margin:0;
 		/* display:none; */
 	}
 	div.tab_style>div.option {
 		padding:15px 20px 10px 20px;
 		font-size:13px;
+		display: inline-block;
+	}
+	button#opDelete   {
+		float: right;
+	    margin: 15px;
+	    padding: 0 3px;
 	}
 	div.tab_style div.product_num {
 		width:100px;
@@ -1599,6 +1606,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	div.product_qty_price {
 		display:flex;
    	 	justify-content:space-between;
+   	 	width: 100%;
 	}
 	table.price_sum {
 		padding:5px 10px;
