@@ -35,7 +35,11 @@ public class MemberServiceImpl {
 	}
 	
 	/**
+<<<<<<< HEAD
 	 * ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+=======
+	 * ·Î±×ÀÎ °á°ú!
+>>>>>>> branch 'master' of https://github.com/jihye0526/SistProject3
 	 */
 	public ModelAndView getResultLogin(IdusMemberVO vo, HttpSession session) {
 		ModelAndView mv = new ModelAndView();

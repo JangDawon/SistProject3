@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="com.project3.vo.*"
     %>
-<%
-	IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
-%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,18 +14,24 @@
 <body class="header_body">
 	<header>
 		<nav class="navbar">
-			<div class="navbar1">
-				<% if(svo != null){ %> 
+			<div class="navbar1">	
+				<c:choose>
+				<c:when test="${sessionScope.svo ne null}"> 
 				<ul>
+<<<<<<< HEAD
 					<li><a href="#">안녕하세요~ <%=svo.getUname() %>님!!</a></li>
 					<li>${vo.uemail }</li>
+=======
+					<li><a href="#">안녕하세요~ ${sessionScope.svo.uname} 님!!</a></li>
+>>>>>>> branch 'master' of https://github.com/jihye0526/SistProject3
 					<li><a href="http://localhost:9000/sistproject3/logout.do">로그아웃</a><div></div></li>
 					<li><a href="http://localhost:9000/sistproject3/cs.do">고객센터</a><div></div></li>
-					<% if(svo.getUname().equals("관리자")){ %>
+					<c:if test="${sessionScope.svo.uname eq '관리자' }">
 					<li><a href="http://localhost:9000/sistproject3/admin.do">Admin</a></li>
-					<% } %>
+					</c:if>
 				</ul>
-				<% }else{ %>
+				</c:when>
+				<c:otherwise>
 				<div class="navbar1_wrapper">
 					<ul class="navbar_menu">
 						<li><a href="http://localhost:9000/sistproject3/login.do">로그인</a></li>
@@ -36,9 +39,11 @@
 						<li><a href="http://localhost:9000/sistproject3/cs.do">고객센터</a></li>
 						<li><a href="http://localhost:9000/sistproject3/user_mng_list.do">admin</a></li>
 					</ul>
-				<% } %>
-				</div>
+				</c:otherwise>
+				</c:choose>
+				</div>		
 			</div>
+		
 			<div class="navbar2">
 				<div class="navbar2_wrapper">
 					<div class="navbar_logo">

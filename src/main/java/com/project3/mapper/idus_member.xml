@@ -17,24 +17,20 @@
 	<select id="login" parameterType="com.project3.vo.IdusMemberVO"
 		resultType="com.project3.vo.IdusSessionVO">
 		select count(*) result, uname from idus_member
-		WHERE
-		uemail=#{uemail} AND upass=#{upass} group by uname
+		WHERE uemail=#{uemail} AND upass=#{upass} group by uname
 	</select>
 
 	<!-- select:content -->
 	<select id="content" parameterType="java.lang.String"
 		resultType="com.project3.vo.IdusMemberVO">
-		select uemail, uname, cp, addr1, addr2, addr3,
-		aggrsms,aggremail, pfile,
+		select uemail, uname, cp, addr1, addr2, addr3, aggrsms,aggremail, pfile,
 		psfile from idus_member
-		where uemail =
-		#{uemail}
+		where uemail = #{uemail}
 	</select>
 
 	<update id="update" parameterType="com.project3.vo.IdusMemberVO">
 		update idus_member
-		set uname = #{uname}, cp =#{cp}, addr1=#{addr1},
-		addr2 =#{addr2},
+		set uname = #{uname}, cp =#{cp}, addr1=#{addr1}, addr2 =#{addr2},
 		addr3 = #{addr3}
 		<if test="pfile !=null">
 			,pfile =#{pfile},psfile=#{psfile}
@@ -47,8 +43,7 @@
 		select * from (select rownum rno, uemail, upass, uname, cp,
 		addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile, to_char(udate,
 		'yyyy.mm.dd') udate
-		from (select * from idus_member order by udate
-		desc)) where rno between
+		from (select * from idus_member order by udate desc)) where rno between
 		#{start} and #{end}
 	</select>
 
