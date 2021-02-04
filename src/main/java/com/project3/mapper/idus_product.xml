@@ -5,6 +5,31 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="mapper.product">
+	
+	<select id="newlist" resultType="com.project3.vo.IdusProductVO">
+		select pid, psfile1, sname, ptitle, to_char(pdate, 'yyyy/mm/dd') pdate
+			from (select * from idus_product order by pdate desc)
+		where pdate between sysdate-3 and sysdate
+	</select>
+	
+	<select id="bestprodlist" resultType="com.project3.vo.IdusProductVO">
+		select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
+			from (select * from idus_product where pcat = '음식' order by product_total desc))
+		where rno between 1 and 5 union
+		select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
+			from (select * from idus_product where pcat = '기타' order by product_total desc))
+		where rno between 1 and 5 union
+    	select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
+			from (select * from idus_product where pcat = '악세사리' order by product_total desc))
+		where rno between 1 and 5 union
+    	select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
+			from (select * from idus_product where pcat = '패션, 잡화' order by product_total desc))
+		where rno between 1 and 5 union
+    	select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
+			from (select * from idus_product where pcat = '인테리어 소품' order by product_total desc))
+		where rno between 1 and 5
+	</select>
+	
 	<select id="list" resultType="com.project3.vo.IdusProductVO">
 		select rownum rno, pid, pcat, sname, semail, ptitle, pcontent, pprice, to_char(pprice, '999,999') pprice_char, opt1, opt1_price, opt2, opt2_price, opt3, opt3_price,
 		pfile1, psfile1, pfile2, psfile2, pfile3, psfile3, pdate, product_total from idus_product order by pdate desc
