@@ -54,7 +54,7 @@
 	</insert>
 	
 	<select id="content" parameterType="java.lang.String" resultType="com.project3.vo.IdusBoardVO">
-		select bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd'), bhits, 
+		select bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd') bdate, bhits, 
 		uemail, uname, bsecret from idus_board where bid = #{id}
 	</select>
 	
@@ -115,5 +115,9 @@
 	<delete id="reply_delete" parameterType="java.lang.String">
 		delete idus_reply where rid=#{rid}
 	</delete>
+	
+	<select id="reply_count" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select count(*) from idus_reply where bid=#{bid}
+	</select>
 </mapper>
 

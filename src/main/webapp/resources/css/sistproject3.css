@@ -383,11 +383,11 @@ body>div.jihye_content {width:1100px; margin:auto; margin-top:30px; margin-botto
 h2.txt {text-align:center; margin-bottom:50px;}
 
 body#cs_board div#cs_search {text-align:center; margin:60px;}
-body#cs_board div#cs_search select {width:90px; height:35px; border-radius:6px; margin-right:5px; font-size:14px; text-indent:22px; background-color:rgb(245,245,245); border:1px solid rgb(245,245,245);}
-body#cs_board div#cs_search input {width:300px; height:32px; border-radius:6px; 
+body#cs_board div#cs_search select {width:90px; height:37px; border-radius:6px; margin-right:5px; font-size:14px; text-indent:22px; background-color:rgb(245,245,245); border:1px solid rgb(245,245,245);}
+body#cs_board div#cs_search input {width:300px; height:35px; border-radius:6px; margin-right:5px;
    text-indent:15px; font-size:15px; background-color:rgb(245,245,245); border:1px solid rgb(245,245,245);}
-body#cs_board div#cs_search button {width:70px; height:31px; border-radius:4px; font-size:14px;}
-body#cs_board button#search_btn {height:34px;}
+body#cs_board div#cs_search button {width:70px; height:37px; border-radius:4px; font-size:15px;}
+body#cs_board button#search_btn {height:35px;}
 
 table.cs_table {border-collapse:collapse; width:800px; font-size:16px; margin:auto;}
 table#cs_list_table {width:900px;}
@@ -404,7 +404,7 @@ table#cs_list_table th:nth-child(5), table#cs_list_table td:nth-child(5) {width:
 table#cs_list_table tr.cs_row:hover {background-color:#FA9354; /* height:35px; */ color:white; font-weight:600;}
 table#cs_list_table tr {height:35px;}
 table#cs_list_table tr.cs_hide {display:none; }
-table#cs_list_table span.orange {color:#F87E35; }
+table#cs_list_table span.orange {color:#F87E35; font-weight:800; }
 table#cs_list_table tr.cs_hide td div span {margin:0px 20px; }
 
 /**
@@ -432,6 +432,9 @@ table#cs_update_table span#bfile_label {display:inline-block; width:200px; margi
 **/
 table#cs_content_table {margin-bottom:150px; }
 table#cs_content_table tr {height:45px; }
+table#cs_content_table th {color:#F87E35; }
+table#cs_content_table td:first-child, table#cs_content_table td:nth-child(), 
+table#cs_content_table td:last-child{width:100px }
 table#cs_content_table td#content {height:330px;}
 table#cs_content_table tr:last-child td{border:1px solid white;}
 table#cs_content_table tr:last-child div#reply_form{margin:20px 0px 100px 0px;}
@@ -458,7 +461,6 @@ table#cs_delete_table {margin-top:100px; height:400px; width:500px;}
 table#cs_delete_table td #delete_img {width:200px; height:210px; }
 
 /**
-<<<<<<< HEAD
 *   Admin : admin.jsp (지혜)
 */
 aside.admin_info {position: sticky; 
@@ -489,12 +491,14 @@ table#user_list tr th, table#user_list tr td {height:35px;}
 */
 table#admin_user_table {border-top:2px solid #B4B4B4; border-bottom:2px solid #B4B4B4; border-collapse:collapse; width:750px; margin:auto;}
 table#admin_user_table th, table#admin_user_table td {border-top:2px solid #B4B4B4; border-bottom:2px solid #B4B4B4; height:40px;}
-table#admin_user_table button {padding:7px 15px; margin-top:80px;}
+table#admin_user_table button {padding:7px 15px; margin-top:80px; margin-right:15px;}
 table#admin_user_table tr:last-child td{text-align:center; border:2px solid white;}
 table#admin_user_table th {color:#F87E35; text-align:left; text-indent:10px;}
 table#admin_user_table tr:nth-child(5) th{text-align:center;}
-table#admin_user_table td {text-align:center; text-indent:10px;}
+table#admin_user_table td {text-align:left; text-indent:10px;}
 table#admin_user_table img {width:230px; height:225px; margin-left:-10px;}
+table#admin_user_table td:first-child {width:230px;}
+
 
 /**
 *   리뷰 관리 : review_mng_list.jsp (지혜)
@@ -524,6 +528,7 @@ table#admin_review_content_table {text-align:center;}
 table#admin_review_content_table td>div{width:500px; margin:auto;}
 table#admin_review_content_table tr:last-child td{border:1px solid white;}
 table#admin_review_content_table tr:last-child td button{margin-top:80px;}
+table#admin_review_content_table button {padding:7px 15px; margin:0px 5px 0px 5px;}
 
 /**
 *   상품 관리 : product_mng_list.jsp (지혜)
@@ -578,6 +583,7 @@ table#admin_product_content tr:last-child td{text-align:center; border:none; pad
 table#admin_product_content th:first-child {width:130px; }
 table#admin_product_content td:nth-child(2) {width:300px; }
 table#admin_product_content th:nth-child(3) {width:130px; }
+table#admin_product_content button {padding:7px 15px; margin:0px 5px 0px 5px;}
    
 /**
 *   마이페이지 aside

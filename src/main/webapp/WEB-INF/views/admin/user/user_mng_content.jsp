@@ -34,16 +34,20 @@
 					</c:otherwise>
 				</c:choose>
 			</td>
+			<th>아이디</th>
+			<td>${vo.uemail }</td>
 			<th>성명</th>
 			<td>${vo.uname}</td>
-			<th>가입일자</th>
-			<td>${vo.udate }</td>
 		</tr>
 		<tr>
 			<th>HP</th>
 			<td>${vo.cp }</td>
-			<th>마케팅 수신동의</th>
-			<td>
+			<th>가입일자</th>
+			<td>${vo.udate }</td>
+		</tr>
+		<tr>
+			<th colspan="2">마케팅 수신동의</th>
+			<td colspan="2">
 				<c:choose>
 					<c:when test="${vo.aggrsms eq on}">
 						<input type="checkbox" checked>전화
@@ -63,17 +67,13 @@
 			</td>
 		</tr>
 		<tr>
-			<th>E-mails</th>
-			<td colspan="3">${vo.uemail }</td>
-		</tr>
-		<tr>
 			<th>주소</th>
 			<td colspan="4">${vo.addr1 } ${vo.addr2 } ${vo.addr3}</td>
 		</tr>
 		<tr>
 			<td colspan="5">
-				<a href="user_mng_list.do"><button type="button" class="btn_style" id="user_delete_btn">삭제</button></a>
-				<a href="user_mng_list.do"><button type="button" class="btn_style" id="user_cancel_btn">취소</button></a>
+				<a href="user_mng_list.do"><button type="button" class="btn_style" id="user_cancel_btn">목록</button></a>
+				<button type="button" class="btn_style" id="user_delete_btn" value="${vo.uemail }">삭제</button>
 			</td>
 		</tr>
 	</table>

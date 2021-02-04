@@ -65,6 +65,8 @@ public class BoardServiceImpl implements BoardService {
 			jobj.addProperty("bhits", vo.getBhits());
 			jobj.addProperty("bpass", vo.getBpass());
 			jobj.addProperty("bsecret", vo.getBsecret());
+			jobj.addProperty("rcount", boardDAO.getReplyCount(vo.getBid()));
+			
 			
 			jarray.add(jobj);
 		}

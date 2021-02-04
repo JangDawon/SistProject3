@@ -45,8 +45,8 @@
 		</tr>
 		<tr>
 			<td colspan="5">
-				<a href="review_mng_list.do"><button type="button" class="btn_style" id="review_delete_btn">삭제</button></a>
 				<a href="review_mng_list.do"><button type="button" class="btn_style" id="review_cancel_btn">취소</button></a>
+				<a href="review_mng_list.do"><button type="button" class="btn_style" id="review_delete_btn">삭제</button></a>
 			</td>
 		</tr>
 	</table>
