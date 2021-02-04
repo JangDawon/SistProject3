@@ -12,14 +12,11 @@ import com.project3.service.ProductServiceImpl;
 @Controller
 public class MainController {
 	@Autowired
-	private ProductServiceImpl productService;
-	
-	@Autowired
 	private CategoryServiceImpl categoryService;
 	
 	@RequestMapping(value = "/index.do", method = RequestMethod.GET)
-	public String index() {
-		return "index";
+	public ModelAndView index() {
+		return categoryService.getIndexProd();
 	}
 	
 	@RequestMapping(value = "/product.do", method = RequestMethod.GET)
