@@ -1,21 +1,3 @@
-/* 아이디어스 공지사항 & 1대1문의 게시판 테이블 생성(지혜) ---> 기존 idus_board 테이블 삭제 후 다시 만들어주세요!!
-*  수정일 : 2021.02.03   
-*/
-CREATE TABLE idus_board(
-  bid       VARCHAR2(20) primary key,
-  btitle    VARCHAR2(100) not null,
-  bcontent  VARCHAR2(1000),
-  bfile     VARCHAR2(100),
-  bsfile    VARCHAR2(100),
-  bpass     VARCHAR2(100),
-  bdate     DATE,
-  bhits     NUMBER(10),
-  uemail    VARCHAR2(50) REFERENCES idus_member(uemail) on delete cascade,
-  uname     VARCHAR2(30) not null,
-  bsecret   varchar2(15),
-  RANK      number(10)
-);
-
 /*
 	아이디어스 게시판 테이블 변경(지혜)
 	수정일 : 2021.02.02 오후 3시 00분
@@ -96,6 +78,24 @@ create table idus_member(
 	PFILE varchar2(100),
 	PSFILE varchar2(100),
 	UDATE date
+);
+
+/* 아이디어스 공지사항 & 1대1문의 게시판 테이블 생성(지혜) 
+*  수정일 : 2021.01.25
+*/
+CREATE TABLE idus_board(
+  bid       VARCHAR2(20) primary key,
+  btitle    VARCHAR2(100) not null,
+  bcontent  VARCHAR2(1000),
+  bfile     VARCHAR2(100),
+  bsfile    VARCHAR2(100),
+  bpass     VARCHAR2(100),
+  bdate     DATE,
+  bhits     NUMBER(10),
+  uemail    VARCHAR2(50) not null,
+  uname     VARCHAR2(30) not null,
+  bsecret VARCHAR2(15),
+  rank number(10)
 );
 
 /*  아이디어스 공지사항 & 1대1문의 게시판 테이블 컬럼 추가(지혜)  
