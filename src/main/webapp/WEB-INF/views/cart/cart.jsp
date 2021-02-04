@@ -33,57 +33,54 @@
 			</div>
 			
 			<div class="cart_content">
-				<c:forEach var="vo" items="${list }">
-					<table>
-						<tr class="cart_product">
-							<td rowspan="2" width=2%>
-								<div class="cart_chk">
-									<input type="checkbox" id="" class="cart_prod_chk" value="1">
-								</div>
-							</td>
-							<td rowspan="2" width=10%>
-								<div class="cart_img">
-									<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }">
-								</div>
-							</td>
-							<td colspan="4">
-								<div class="cart_text"><a href=""><label>${vo.prod_name }</label></a></div>
-							</td>
-						</tr>
-						<tr class="cart_explain">
-							<td width=53%>
-								<div class="cart_option">${vo.prod_opt }</div>
-							</td>
-							<td width=12%>
-								<div class="cart_num">
-									<button type="button" class="minus" name="minus" id="p1">-</button>
-									<input type="text" class="price" value="1" id="p1_amt">
-									<button type="button" class="plus" name="plus" id="p1">+</button>
-								</div>
-							</td>
-							<td width=11%>
-								<div class="cart_price"><span class="p1_price">${vo.prod_price }</span>원</div>
-							</td>
-							<td>
-								<div class="cart_update">
-									<button type="button" class="cart_prod_update">수정</button>
-									<button type="button" class="cart_prod_del">삭제</button>
-								</div>
-							</td>
-						</tr>
-						<tr class="cart_price_name">
-							<td colspan="2"><div class="price_title">작품 가격</div></td>
-							<td colspan="4">
-								<div class="price_content"><span class="p1_price">${vo.prod_price }</span>원</div>
-							</td>
-						</tr>
-						<tr class="cart_price_del">
-							<td colspan="2"><div class="price_title">배송비</div></td>
-							<td colspan="4"><div class="price_content"><span>2600원</span></div></td>
-						</tr>
-					</table>
-				</c:forEach>
-				
+				<table>
+					<tr class="cart_product">
+						<td rowspan="2" width=2%>
+							<div class="cart_chk">
+								<input type="checkbox" id="" class="cart_prod_chk" value="1">
+							</div>
+						</td>
+						<td rowspan="2" width=10%>
+							<div class="cart_img">
+								<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }">
+							</div>
+						</td>
+						<td colspan="4">
+							<div class="cart_text"><a href=""><label>상품 이름</label></a></div>
+						</td>
+					</tr>
+					<tr class="cart_explain">
+						<td width=53%>
+							<div class="cart_option">옵션</div>
+						</td>
+						<td width=12%>
+							<div class="cart_num">
+								<button type="button" class="minus" name="minus" id="p1">-</button>
+								<input type="text" class="price" value="1" id="p1_amt">
+								<button type="button" class="plus" name="plus" id="p1">+</button>
+							</div>
+						</td>
+						<td width=11%>
+							<div class="cart_price"><span class="p1_price">500</span>원</div>
+						</td>
+						<td>
+							<div class="cart_update">
+								<button type="button" class="cart_prod_update">수정</button>
+								<button type="button" class="cart_prod_del">삭제</button>
+							</div>
+						</td>
+					</tr>
+					<tr class="cart_price_name">
+						<td colspan="2"><div class="price_title">작품 가격</div></td>
+						<td colspan="4">
+							<div class="price_content"><span class="p1_price">(가격)</span>원</div>
+						</td>
+					</tr>
+					<tr class="cart_price_del">
+						<td colspan="2"><div class="price_title">배송비</div></td>
+						<td colspan="4"><div class="price_content"><span>2600원</span></div></td>
+					</tr>
+				</table>
 				
 				<div class="cart_prod_order">
 					<div class="prod_choice">
