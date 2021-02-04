@@ -1,31 +1,4 @@
-$(document).ready(function(){
-		/**
-		 * 회원가입 - 아이디 중복체크
-		 */
-		$("#idCheck").click(function(){
-			if(!ruleCheck($("#id"))){
-				return false;
-			}else{
-				$.ajax({
-					url:"idCheck.do?id="+$("#id").val(), 
-					success:function(result){
-						if(result == 1){
-							$("#idcheck_result").text("이미 중복된 아이디가 존재합니다. 다시 입력해주세요")
-							.css("color","red");
-							$("#id").focus();
-							return false;
-						}else{
-							$(".idcheck").css("display","none");
-							$("#idcheck_result").text("사용가능한 아이디 입니다.")
-							.css("color","blue");
-							$("#pass").focus();
-							return true;
-						}
-					}
-				});
-			}			
-		});
-		
+$(document).ready(function(){	
 		/**
 		*	로그인 폼 체크
 		**/
@@ -165,20 +138,20 @@ $(document).ready(function(){
 			}else {
 				if(regExp.test($("#email").val())){
 					$.ajax({
-						url:"emailCheck.do?email="+$("#email").val(), 
-						success:function(result){
-							if(result == 1){
-								$("#email_msg").text("이미 중복된 아이디가 존재합니다. 다시 입력해주세요").css("color","red");
-								return false;
-							}else{
-								$("#email_msg").text("사용가능한 아이디 입니다.").css("color","blue");
-								return true;
-							}
+						url : "emailCheck.do?email="+$("#email").val(),
+						success: function(result){
+							 if(result == "1"){
+								$("#email_msg").text("이미 존재하는 이메일입니다.").css("color","red");
+							 	$("input[name=email]").css("border", "1px solid red");
+							 	$("#hidden_email").val(result);
+							 }else{
+			 					$("#email_msg").text("");
+								$("input[name=email]").css("border", "1px solid black");
+								$("#hidden_email").val(result);
+							 }
 						}
 					});
-					$("#email_msg").text("");
-					$("input[name=email]").css("border", "1px solid black");
-					return true;
+
 				}else {
 					$("#email_msg").text("이메일 형식이 맞지 않습니다.").css("color","red");
 					$("input[name=email]").css("border", "1px solid red");
@@ -303,7 +276,13 @@ function emailCheck(){
 		return false;
 	}else {
 		if(regExp.test($("#email").val())){
-			return true;
+			if($("#hidden_email").val() == 0){
+				return true;
+			}else{
+				alert("이미 존재하는 이메일입니다.");
+				$("#email").focus();
+				return false;
+			}		
 		}else {
 			alert("이메일 형식이 맞지 않습니다.");
 			$("#email").focus();
