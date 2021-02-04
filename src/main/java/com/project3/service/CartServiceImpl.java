@@ -32,35 +32,4 @@ public class CartServiceImpl implements CartService {
 		return cartDAO.getSelectDelete(dellist);
 	}
 	
-	
-	/** 장바구니 담기 **/
-	@Override
-	public void getCartInsert(IdusCartVO vo) {
-		cartDAO.getCartInsert(vo);
-	}
-	
-	/** 장바구니 리스트 **/
-	@Override
-	public List<IdusCartVO> getCartList(String uemail){
-		return cartDAO.getCartList(uemail);
-	}
-	
-	/** 장바구니 금액 합계 **/
-    @Override
-    public int sumMoney(String uemail) {
-        return cartDAO.sumMoney(uemail);
-    }
-    
-    /** 장바구니 상품 확인 **/
-    @Override
-    public int countCart(String pid, String uemail) {
-        return cartDAO.countCart(pid, uemail);
-    }
-    
-	/** 장바구니 상품 수량 변경 **/
-    @Override
-    public void updateCart(IdusCartVO vo) {
-    	cartDAO.updateCart(vo);
-    }
-	
 }

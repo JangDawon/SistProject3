@@ -8,6 +8,53 @@
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>인기작품 | 아이디어스</title>
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
+		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				<c:forEach items="${list}" var="vo">
+					var output = '<div class="best_prod">';
+					output += '<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">';
+					output += '<div>';
+					output += '<div class="best_prod_img">';
+					output += '<div>';
+					output += '<button class="favorite_btn">';
+					output += '<img src="http://localhost:9000/sistproject3/images/favorite.png">';
+					output += '</button>';
+					output += '</div>';
+					output += '<div>';
+					output += '<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">';
+					output += '</div>';
+					output += '</div>';
+					output += '<div class="best_prod_info">';
+					output += '<div class="prod_info_name">${vo.sname }</div>';
+					output += '<div class="prod_info_title">${vo.ptitle }</div>';
+					output += '</div>';
+					output += '<div class="best_prod_info_review">';
+					output += '<div class="rv">';
+					output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
+					output += '<span> 4.5</span>';
+					output += '</div>';
+					output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
+					output += '</div></div></a></div>';
+						
+					<c:if test="${vo.pcat=='음식'}"> 
+						$("#food").after(output);
+					</c:if>
+					<c:if test="${vo.pcat=='악세사리'}">
+						$("#accessory").after(output);
+					</c:if>
+					<c:if test="${vo.pcat=='패션, 잡화'}">
+						$("#living").after(output);
+					</c:if>
+					<c:if test="${vo.pcat=='인테리어 소품'}">
+						$("#interior").after(output);
+					</c:if>
+					<c:if test="${vo.pcat=='기타'}">
+						$("#etc").after(output);
+					</c:if>
+				</c:forEach>
+			});
+		</script>
 	</head>
 	<body class="category">
 		<!-- header -->
@@ -19,42 +66,40 @@
 		</div>
 		
 		<section class="product_content">
-			<div class="best_prod_title">
+			<div class="best_prod_title" id="food">
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">음식</a>
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">더보기<i class="idus-icon-arrow-right"></i></a>
-			</div>
-			
-			<c:forEach var="vo" items="${list}">
-			<div class="best_prod">
-				<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
-					<div>
-						<div class="best_prod_img">
-							<div>
-								<button class="favorite_btn">
-									<img src="http://localhost:9000/sistproject3/images/favorite.png">
-								</button>
-							</div>
-							<div>
-								<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">
-							</div>
-						</div>
-						<div class="best_prod_info">
-							<div class="prod_info_name">${vo.sname }</div>
-							<div class="prod_info_title">${vo.ptitle }</div>
-						</div>
-						<div class="best_prod_info_review">
-							<div class="rv">
-								<img src="http://localhost:9000/sistproject3/images/star2.png">
-		          				<span>4.5</span>
-							</div>
-							<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			</c:forEach>
+			</div> 
 		</section>
 		
+		<section class="product_content">
+			<div class="best_prod_title" id="accessory">
+				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=악세사리">악세사리</a>
+				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=악세사리">더보기<i class="idus-icon-arrow-right"></i></a>
+			</div> 
+		</section>
+		
+		<section class="product_content">
+			<div class="best_prod_title" id="living">
+				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=패션, 잡화">패션, 잡화</a>
+				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=패션, 잡화">더보기<i class="idus-icon-arrow-right"></i></a>
+			</div> 
+		</section>
+		
+		<section class="product_content">
+			<div class="best_prod_title" id="interior">
+				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=인테리어 소품">인테리어 소품</a>
+				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=인테리어 소품">더보기<i class="idus-icon-arrow-right"></i></a>
+			</div> 
+		</section>
+		
+		<section class="product_content">
+			<div class="best_prod_title" id="etc">
+				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=기타">기타</a>
+				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=기타">더보기<i class="idus-icon-arrow-right"></i></a>
+			</div> 
+		</section>
+
 		<!-- footer -->
 		<jsp:include page="../footer.jsp" />
 	</body>

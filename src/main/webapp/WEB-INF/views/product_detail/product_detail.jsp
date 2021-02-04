@@ -8,37 +8,8 @@
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/carousel.css">
 		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
-		<script src="http://localhost:9000/sistproject3/js/am-pagination.js"></script>
 		<script src="http://localhost:9000/sistproject3/js/dawon.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-		<!-- <script>
-			function prod_opt_list_ajax(){
-				$.ajax({
-					url:"prod_opt_list.do?pid=${pid}",
-					success:function(result){
-						var jdata = JSON.parse(result);
-						
-						var output = "";
-						output += '<div class="tab_style">';
-						
-						for(var i in jdata.jlist){
-							output += '<div class="option">'+jdata.jlist[i].opt1+'</div>';
-							output += '<div class="product_num">';
-							output += '<button type="button" class="minus" name="minus" id="p1">-</button>';
-							output += '<input type="text" class="price" value="1" id="p1_amt">';
-							output += '<button type="button" class="plus" name="plus" id="p1">+</button>';
-							output += '</div>';
-							output += '<div class="price"><span class="p1_price">'+jdata.jlist[i].pprice_char+'</span>원</div>';
-							output += '</div>';
-						}
-						
-						output += '</div>'
-		          		$(".aside_product-info").after(output);
-		          	
-					}
-				});
-			}
-		</script> -->
 	</head>
 <body>
    <!-- header -->
@@ -182,8 +153,7 @@
           </div>
           
 			<div class="product_sidebar">
-				<form name="cartForm" action="cart_insert.do" method="post" >
-				<input type="hidden" name="pid" value="${vo.pid }">
+				<form name="cartForm" action="cart_proc.do" method="post" class="cart">
 				<div class="artist_card">
           				<a href="" class="artist_card_link" style="width: 100%;">
           					<span class="artist_card_label">${vo.sname } ></span>
@@ -230,7 +200,6 @@
 					  	</div>
           			</div>
           		</div>
-          		
 	          	<div class="tab_style">
 	          		<div class="option">${vo.opt1 }</div>
 	          		<div class="product_qty_price">
@@ -242,30 +211,24 @@
 						<div class="price"><span class="p1_price">${vo.pprice_char }</span>원</div>
 	          		</div>
 	          	</div>
-	          	
 	          	<table class="price_sum">
 	          		<tr>
 	          			<td>
 	          				<div class="sum_title">총 작품금액</div>
 	          			</td>
 	          			<td>
-	          				<div class="sum">
-	          					<div class="whole_price">0원</div>
-	          					<span id="whole_price">${vo.pprice_char}원</span>
-	          				</div>
+	          				<div class="sum"><span class="p1_price">9400</span>원</div>
 	          			</td>
 	          		</tr>
 	          	</table>
 	          	<div>
 	          		<div class="btn_box">
 	          			<button type="submit" class="btn_cart" id="cartBtn">장바구니</button>
-	          			<!-- <button type="button" class="btn_cart" id="cartBtn">장바구니</button>
-	          			<button type="button" class="btn_buy" id="payBtn">구매하기</button> -->
+	          			<button type="submit" class="btn_buy" id="payBtn">구매하기</button>
 	          		</div>
 	          	</div>
-	          	</form>
+          	</form>
 			</div>
-			
 		</div>
 	</div>
     

@@ -60,7 +60,7 @@ public class IdusCategoryDAO  extends DBConn{
 	} */
 	
 	public ArrayList<IdusProductVO> getBestProdList(String pcat){
-		List<IdusProductVO> list = sqlSession.selectList(namespace+".bestprodlist", pcat);
+		List<IdusProductVO> list = sqlSession.selectList(namespace+".bestprodlist");
 		return (ArrayList<IdusProductVO>)list;
 	}
 	
