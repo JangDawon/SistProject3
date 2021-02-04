@@ -134,7 +134,7 @@ CREATE SEQUENCE IDUS_PRODUCT_SEQ
   INCREMENT BY 1;  
   
 /*
-* 아이디어스 주문 테이블(현주)
+*  아이디어스 주문 테이블(현주)
 */
 CREATE TABLE idus_order(
   oid       VARCHAR2(100) primary key, 
