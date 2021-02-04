@@ -35,7 +35,7 @@
 				output += "<input type='text' class='price' value='1' id='p1_amt'>";
 				output += "<button type='button' class='plus' name='plus' id='p1'>+</button>";
 				output += "</div>";
-				output += "<div class='price'>${vo.pprice_char }원</div>";
+				output += "<div class='price'>${vo.pprice }원</div>";
 				output += "</div>";
 				output += "</div>";
 				//alert(output);
