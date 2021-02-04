@@ -58,4 +58,8 @@ public class IdusMemberDAO {
 		List<IdusMemberVO> list = sqlSession.selectList(namespace+".checklist", hp);
 		return (ArrayList<IdusMemberVO>)list;
 	}
+	
+	public IdusMemberVO getUserContent(String uid) {
+		return sqlSession.selectOne(namespace+".userContent", uid);
+	}
 }

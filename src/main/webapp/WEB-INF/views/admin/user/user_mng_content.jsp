@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,34 +24,51 @@
 	<a href="user_mng_list.do" class="h2_user"><h2 class="txt">회원 관리</h2></a>
 	<table id="admin_user_table">
 		<tr>
-			<td rowspan="4"><img src="http://localhost:9000/sistproject3/images/logo.jpg"></td>
+			<td rowspan="4">
+				<c:choose>
+					<c:when test="${vo.psfile ne null }">
+						<img src="http://localhost:9000/sistproject3/upload/${vo.psfile}">
+					</c:when>
+					<c:otherwise>
+						<img src="http://localhost:9000/sistproject3/images/logo.jpg">
+					</c:otherwise>
+				</c:choose>
+			</td>
 			<th>성명</th>
-			<td>최지혜</td>
-			<th>생년월일</th>
-			<td>2021.01.14</td>
-		</tr>
-		<tr>
-			<th>성별</th>
-			<td>여</td>
+			<td>${vo.uname}</td>
 			<th>가입일자</th>
-			<td>2021.01.14</td>
+			<td>${vo.udate }</td>
 		</tr>
 		<tr>
 			<th>HP</th>
-			<td>010-1234-5678</td>
+			<td>${vo.cp }</td>
 			<th>마케팅 수신동의</th>
 			<td>
-				<input type="checkbox">전화
-				<input type="checkbox">E-mail
+				<c:choose>
+					<c:when test="${vo.aggrsms eq on}">
+						<input type="checkbox" checked>전화
+					</c:when>
+					<c:otherwise>
+						<input type="checkbox">전화
+					</c:otherwise>
+				</c:choose>
+				<c:choose>
+					<c:when test="${vo.aggremail eq on}">
+						<input type="checkbox" checked>E-mail
+					</c:when>
+					<c:otherwise>
+						<input type="checkbox">E-mail
+					</c:otherwise>
+				</c:choose>
 			</td>
 		</tr>
 		<tr>
 			<th>E-mails</th>
-			<td colspan="3">gildong@gmail.com</td>
+			<td colspan="3">${vo.uemail }</td>
 		</tr>
 		<tr>
 			<th>주소</th>
-			<td colspan="4">서울특별시 ~~~~~~</td>
+			<td colspan="4">${vo.addr1 } ${vo.addr2 } ${vo.addr3}</td>
 		</tr>
 		<tr>
 			<td colspan="5">

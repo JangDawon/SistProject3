@@ -127,4 +127,18 @@ public class MemberServiceImpl {
 		mv.setViewName("/login/login_check_result");
 		return mv;
 	}
+	
+	/**
+	 * 관리자 : 회원 내용
+	 */
+	public ModelAndView getUserContent(String uid) {
+		ModelAndView mv = new ModelAndView();
+		
+		IdusMemberVO vo = memberDAO.getUserContent(uid);
+		
+		mv.addObject("vo", vo);
+		mv.setViewName("/admin/user/user_mng_content");
+		
+		return mv;
+	}
 }
