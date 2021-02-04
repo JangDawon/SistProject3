@@ -33,7 +33,7 @@ public class MemberServiceImpl {
 	}
 	
 	/**
-	 * 로그인 결과!!
+	 * 로그인 결과!
 	 */
 	public ModelAndView getResultLogin(IdusMemberVO vo, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
