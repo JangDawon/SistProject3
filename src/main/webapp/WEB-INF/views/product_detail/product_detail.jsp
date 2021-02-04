@@ -9,7 +9,75 @@
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/carousel.css">
 		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 		<script src="http://localhost:9000/sistproject3/js/dawon.js"></script>
+		<!-- <script src="http://localhost:9000/sistproject3/js/hyunju.js"></script> -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			var one=1;
+			var two=1;
+			var three=1;
+			
+			$("#product_option").change(function(){		
+				var price = "${vo.pprice }";	
+				var opt1_price = "${vo.opt1_price }";
+				var opt2_price = "${vo.opt2_price }";
+				var opt3_price = "${vo.opt3_price }";
+				var opt1_total = parseInt(price) + parseInt(opt1_price);
+				var opt2_total = parseInt(price) + parseInt(opt2_price);
+				var opt3_total = parseInt(price) + parseInt(opt3_price);
+				var output = "";
+				output += "<div class='tab_style'>";
+				output += "<div class='option'>"+ $("#product_option option:selected").text() +"</div>";
+				output += "<button type='button' id='opDelete'>X</button>";
+				output += "<div class='product_qty_price'>";
+				output += "<div class='product_num'>";
+				output += "<div></div><button  type='button' class='minus' name='minus' id='p1'>-</button>";
+				output += "<input type='text' class='price' value='1' id='p1_amt'>";
+				output += "<button type='button' class='plus' name='plus' id='p1'>+</button>";
+				output += "</div>";
+				output += "<div class='price'>${vo.pprice }원</div>";
+				output += "</div>";
+				output += "</div>";
+				//alert(output);
+				/* <div class="tab_style">
+          		<div class="option">${vo.opt1 }</div>
+          		<div class="product_qty_price">
+          			<div class="product_num">
+						<button  type="button" class="minus" name="minus" id="p1">-</button>
+						<input type="text" class="price" value="1" id="p1_amt">
+						<button type="button" class="plus" name="plus" id="p1">+</button>
+					</div>
+					<div class="price">${vo.pprice_char }원</div>
+          		</div>
+          	</div> */
+
+				
+				if($(this).val() != "선택"){
+					if($(this).val() == "opt1" && one == 1){
+						$(".sum").text(opt1_total+"원"); 
+						one++;
+						//$(".tab_style").css("display","block");
+						$(".product_option_div").after(output);
+					}else if($(this).val() == "opt2" && two == 1){
+						$(".sum").text(opt2_total+"원"); 
+						two++;
+						//$(".tab_style").css("display","block");
+						$(".product_option_div").after(output);
+					}else if($(this).val() == "opt3" && five == 1){
+						$(".sum").text(opt3_total+"원");
+						three++;
+						//$(".tab_style").css("display","block");
+						$(".product_option_div").after(output);
+					}
+				} else {
+					$(".sum").text("0원"); 
+				}
+					
+			});//product_option.change	
+			
+		});//ready
+		
+		</script>
 	</head>
 <body>
    <!-- header -->
@@ -190,34 +258,24 @@
 	          				<span class="span-title-txt">수량</span>
 	          				<span class="bold-txt">주문시 제작</span>
 	          			</div>
-	          			<div>
+	          			<div class="product_option_div">
 							<select name="product_option" id="product_option" >
 						  		<option value="선택">[필수] 옵션을 선택해주세요</option>
-						  		<option value="opt1">${vo.opt1 }</option>
-						  		<option value="opt2">${vo.opt2 }</option>
-						  		<option value="opt2">${vo.opt3 }</option>
+						  		<option value="opt1">${vo.opt1 } ${vo.opt1_price }원</option>
+						  		<option value="opt2">${vo.opt2 } ${vo.opt2_price }원</option>
+						  		<option value="opt3">${vo.opt3 } ${vo.opt3_price }원</option>
 						  	</select>
 					  	</div>
           			</div>
           		</div>
-	          	<div class="tab_style">
-	          		<div class="option">${vo.opt1 }</div>
-	          		<div class="product_qty_price">
-	          			<div class="product_num">
-							<button type="button" class="minus" name="minus" id="p1">-</button>
-							<input type="text" class="price" value="1" id="p1_amt">
-							<button type="button" class="plus" name="plus" id="p1">+</button>
-						</div>
-						<div class="price"><span class="p1_price">${vo.pprice_char }</span>원</div>
-	          		</div>
-	          	</div>
+	          	
 	          	<table class="price_sum">
 	          		<tr>
 	          			<td>
 	          				<div class="sum_title">총 작품금액</div>
 	          			</td>
 	          			<td>
-	          				<div class="sum"><span class="p1_price">9400</span>원</div>
+	          				<div class="sum">0원</div>
 	          			</td>
 	          		</tr>
 	          	</table>
