@@ -33,7 +33,6 @@
 				<td>취소/환불 완료</td>
 			</tr>
 		</table>
-	<h2>${uemail }dd</h2>	
 	<h2>주문 내역</h2>
 	<table class="my_order">
 		<tr>

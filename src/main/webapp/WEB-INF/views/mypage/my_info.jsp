@@ -10,11 +10,10 @@
 <link rel="stylesheet"
 	href="http://localhost:9000/sistproject3/css/woohyun.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
-<script>
-alert(${vo.uemail});
-</script>
+
 <style>
 table.member_info tr:first-child td img{border-radius:50%;width:100px; height:100px;}
+table.member_info tr td span.user_email{margin-left:6px;}
 </style>
 <body>
 	<!-- aside -->
@@ -60,6 +59,7 @@ table.member_info tr:first-child td img{border-radius:50%;width:100px; height:10
 		<h2>회원 정보 관리</h2>
 		<form name="myinfo_update_form" action="myinfo_update_proc.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="uemail" value="${vo.uemail}">
+		<input type="hidden" name="email" value="${vo.uemail}">
 			<table class="member_info">
 			
 				<tr>
@@ -72,7 +72,7 @@ table.member_info tr:first-child td img{border-radius:50%;width:100px; height:10
 				</tr>
 				<tr>
 					<td class="grey">이메일</td>
-					<td><input type="text" value="${vo.uemail }" id="uemail" name="uemail"></td>
+					<td><span class= "user_email">${vo.uemail }</span></td>
 
 				</tr>
 				<tr>
@@ -83,18 +83,15 @@ table.member_info tr:first-child td img{border-radius:50%;width:100px; height:10
 					<td><input type="text" value="${vo.addr2 }" id="addr2" name="addr2" placeholder ="기본주소"></td>
 				</tr>
 				<tr>
-					<td><input type="text" value="${vo.addr3 }" id = "addr2"	name="addr3" placeholder ="상세주소"></td>
+					<td><input type="text" value="${vo.addr3 }" id = "addr3"	name="addr3" placeholder ="상세주소"></td>
 						
 				</tr>
 				<tr>
 					<td class="grey">전화</td>
-					<td><input type="text" value="${addr.cp }" id="cp" name="cp"placeholder ="'-'없이 입력해주세요.">
+					<td><input type="text" value="${vo.cp }" id="cp" name="cp"placeholder ="'-'없이 입력해주세요.">
 						<br>
 					<small>주문, 배송시 등록된 번호로 SMS를 발송해 드립니다</small></td>
 				</tr>
-
-
-				
 
 				<tr>
 					<td class="grey">알림설정</td>
@@ -108,8 +105,7 @@ table.member_info tr:first-child td img{border-radius:50%;width:100px; height:10
 					<td colspan=2><button type="button" class="change">회원탈퇴</button></td>
 				</tr>
 				<tr>
-					<td colspan=2><button type="submit" id="updateBtn">회원
-							정보 수정하기</button></td>
+					<td colspan=2><button type="submit" id="updateBtn">회원정보 수정하기</button></td>
 				</tr>
 			</table>
 		</form>

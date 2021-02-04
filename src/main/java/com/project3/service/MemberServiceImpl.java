@@ -76,6 +76,8 @@ public class MemberServiceImpl {
 					e.printStackTrace();
 			}
 			mv.setViewName("redirect:/mypage.do");
+		}else {
+			
 		}
 		return mv;
 	}
