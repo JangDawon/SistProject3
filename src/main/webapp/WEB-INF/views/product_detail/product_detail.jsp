@@ -182,7 +182,7 @@
           </div>
           
 			<div class="product_sidebar">
-				<form name="cartForm" action="cart_insert_proc.do" method="post" >
+				<form name="cartForm" action="cart_insert.do" method="post" >
 				<input type="hidden" name="pid" value="${vo.pid }">
 				<div class="artist_card">
           				<a href="" class="artist_card_link" style="width: 100%;">

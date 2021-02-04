@@ -14,7 +14,7 @@
 	
 	<select id="bestprodlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusProductVO">
 		select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
-			from (select * from idus_product where pcat = #{pcat, jdbcType=VARCHAR} order by product_total desc))
+			from (select * from idus_product where pcat = '음식' order by product_total desc))
 		where rno between 1 and 5
 	</select>
 	

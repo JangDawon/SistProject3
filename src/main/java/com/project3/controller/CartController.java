@@ -75,7 +75,7 @@ public class CartController {
             // 있으면 update
             cartService.updateCart(vo);
         }
-        return "redirect:/cart/cart.do";
+        return "redirect:/cart/cart";
     }
 	
 	
@@ -113,5 +113,13 @@ public class CartController {
 	@RequestMapping(value = "/cart_order.do", method = RequestMethod.GET)
 	public String cart_order() {
 		return "/cart/cart_order";
+	}
+	
+	/**
+	 * 장바구니
+	 */
+	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
+	public String cart() {
+		return "/cart/cart";
 	}
 }
