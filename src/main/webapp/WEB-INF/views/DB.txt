@@ -135,6 +135,7 @@ CREATE SEQUENCE IDUS_PRODUCT_SEQ
   
 /*
 *  아이디어스 주문 테이블(현주)
+*  수정일 : 2021.02.04 오후 3시 39분
 */
 CREATE TABLE idus_order(
   oid       VARCHAR2(100) primary key, 
