@@ -102,7 +102,7 @@
 						if(jdata.jlist[i].bsecret == 'on'){
 							output += '<tr class="cs_row" id="cs_row1">';
 							output += '<td>' + jdata.jlist[i].rno + '</td>';
-							output += '<td>' + jdata.jlist[i].btitle + '</td>';
+							output += '<td> 🔑 ' + jdata.jlist[i].btitle + '</td>';
 							output += '<td>' + jdata.jlist[i].uname + '</td>';
 							output += '<td>' + jdata.jlist[i].bdate + '</td>';
 							output += '<td>' + jdata.jlist[i].bhits + '</td>';

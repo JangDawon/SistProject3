@@ -30,11 +30,11 @@
 				<choose>
 					<when test="bsecret != null">
 						, #{bfile}, #{bsfile}, #{bpass}, 
-						sysdate, #{bhits}, 'test', '최지혜', #{bsecret},'')
+						sysdate, #{bhits}, 'jihye', '관리자', #{bsecret},'')
 					</when>
 					<otherwise>
 						, #{bfile}, #{bsfile}, '', 
-						sysdate, #{bhits}, 'test', '최지혜', '','')
+						sysdate, #{bhits}, 'jihye', '관리자', '','')
 					</otherwise>
 				</choose>
 			</when>
@@ -42,11 +42,11 @@
 				<choose>
 					<when test="bsecret != null">
 						, '', '', #{bpass}, 
-						sysdate, #{bhits}, 'test', '최지혜', #{bsecret},'')
+						sysdate, #{bhits}, 'jihye', '관리자', #{bsecret},'')
 					</when>
 					<otherwise>
 						, '', '', '', 
-						sysdate, #{bhits}, 'test', '최지혜', '','')
+						sysdate, #{bhits}, 'jihye', '관리자', '','')
 					</otherwise>
 				</choose>
 			</otherwise>
