@@ -39,9 +39,8 @@ public class LoginController {
 	 * 아이디/비밀번호 찾기 처리
 	 */
 	@RequestMapping(value="/login_check_result.do", method=RequestMethod.POST)
-	public String login_check_result(String hp) {
-		
-		return "login/login_check_result";
+	public ModelAndView login_check_result(String hp) {
+		return memberService.getResultLoginCheck(hp);
 	}
 	
 	/**

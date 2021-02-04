@@ -21,7 +21,7 @@
 			
 		<section class = join_success_section>
 			<div>
-				<div class=join_success><label>*** 님의</label></div>
+				<div class=join_success><label>${vo.uname } 님의</label></div>
 				<div class=join_success><label>가입을 축하드립니다!</label></div>
 				<div class=join_success><a href="http://localhost:9000/sistproject3/index.do"><button>메인 화면으로</button></a><a href="http://localhost:9000/sistproject3/login.do"><button>로그인하기</button></a></div>
 			</div>

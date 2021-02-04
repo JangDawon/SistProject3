@@ -1,7 +1,24 @@
 	/*
 	cart_order.jsp
 	*/
-	
+	*{	
+		font-family: 'NanumGothic UltraLight';
+	}
+	em.asterisk_red{
+		color:red;
+		margin-right:10px;
+	}
+	svg.svg-inline--fa{
+		margin-left:10px;
+	}
+	svg#icon.svg-inline--fa.fa-angle-down.fa-w-10,
+	svg#icon.fas.fa-angle-up,
+	svg#icon.fas.fa-angle-down{
+		margin-left:10px;
+		width:15px;
+		height:20px;
+		display:inline-block;
+	} 
 	body.category section.payment_order,
 	body.category section.payment_info{
 		display:inline-block;
@@ -11,9 +28,11 @@
 	}
 	body.category section.payment_info{
 		margin-left:30px;
-		width:300px;
+		margin-bottom:80px;
+		width:330px;
 		float:right;
-		border:1px solid black;
+		position:sticky;
+   		top:30px;
 	}
     ul.page_location li:nth-child(2) {
        color:black;
@@ -24,16 +43,160 @@
     body.category div.order_payment{
     	box-shadow:2px 2px 0px 0px rgb(217,217,217);
     	border:0.1px solid lightgray;
-    	padding:15px 10px;
+    	padding:15px 15px;
     	margin:15px 0;
+    }
+    body.category div.order_info{
+    	padding:15px 15px 0px 15px;
+    }
+    body.category div.order_payment{
+    	padding:15px 15px 0px 15px;
+    	margin:15px 0 80px 0;
+    }
+    body.category div.order_addr{
+    	height:350px;
+    }
+    body.category div.order_info div#order_title_info{
+    	line-height:40px;
+    	cursor:pointer;
+    	padding:0 0 15px 0;
+    }
+    body.category div.order_title,
+    body.category div.order_content{
+    	line-height:35px;
     }
     body.category div.order_content,
     body.category div.order_content_body{
-    	padding:10px 0;
+    	padding:15px 0;
     }
-    body.category div.order_customer span.customer{
+    body.category div.order_customer span.customer,
+    body.category div.order_info span.customer{
     	float:right;
     }
     body.category section.payment_order span.order_title{
     	font-weight:bold;
     }
+    body.category div.order_content_body input.input_info{
+    	text-indent:7px;
+    	width:250px;
+    	height:30px;
+    	float:right;
+    	clear:both;
+    }
+    body.category div.order_content_body>div.order_content:nth-child(3) input.input_info{
+    	margin-bottom:10px;
+    }
+    body.category div.content_hidden:first-child{
+    	background-color:rgb(217,217,217);
+    }
+    body.category div.content_hidden:first-child,
+    body.category div.content_hidden:last-child{
+    	line-height:40px;
+    	
+    }
+    body.category div.order_content_body_hidden{
+    	display:none;
+    	margin-left:-15px;
+    	width:400px;
+    }
+    body.category div.content_hidden{
+    	border:0.1px solid lightgray;
+    	padding:15px;
+    }
+    body.category div.hidden_img,
+    body.category div.hidden_product_name{
+    	display:inline-block;
+    }
+    body.category div.hidden_product_name{
+    	font-size:18px;
+    	width:270px;
+    	line-height:70px;
+    	float:right;
+    	clear:both;
+    }
+    body.category div.hidden_img,
+    body.category div.hidden_img img{
+    	width:70px;
+    	height:70px;
+    }
+    body.category ul.hidden_ul{
+    	font-size:13px;
+    	padding-left:18px;
+    }
+    body.category ul.hidden_ul li{
+    	margin-bottom:5px;
+    }
+    body.category label.price{
+    	float:right;
+    }
+    body.category div.order_payment div.order_content:first-child,
+    body.category div.order_payment div.order_content:nth-child(2){
+    	border-bottom:0.1px solid lightgray;
+    }
+    body.category div.order_payment div.order_content_body{
+    	padding-bottom:0px;
+    }
+    body.category div.order_payment div.order_content label{
+    	margin-left:5px;
+    }
+   	body.category section.payment_info div.info{
+   		margin-top:15px;
+   		padding:10px 30px;
+   		border:2.5px solid black;
+   		border-radius:3px;
+   	}
+   	body.category section.payment_info div.info div{
+   		padding:10px 0;
+   	}
+   	body.category section.payment_info div.info div.info_title{
+   		border-bottom:1px solid black;
+   		text-align:center;
+   		font-size:18px;
+   		font-weight:bold;
+   		padding-bottom:15px;
+   	}
+   	body.category section.payment_info div.info ul{
+   		list-style:none;
+   		padding:0px;
+   	}
+   	body.category section.payment_info div.info ul.info_body{
+   		font-size:14px;
+   	}
+   	body.category section.payment_info div.info div.info_body{
+   		border-bottom:0.1px solid lightgray;
+   	}
+   	body.category section.payment_info div.info ul li{
+   		padding:10px 0;
+   	}
+   	body.category section.payment_info div.info ul li label.price{
+   		float:right;
+   	}
+   	body.category section.payment_info div.info div.info_body2 ul li:first-child{
+   		font-size:16px;
+   		font-weight:bold;
+   	}
+   	body.category section.payment_info div.info div.info_body2 ul li:nth-child(2){
+   		background-color:rgb(251,206,177);
+   		border-radius:3px;
+   		margin-top:15px;
+   		line-height:27px;
+   		padding:10px 5px;
+   	}
+   	body.category section.payment_info div.info div.info_body2 ul li:nth-child(2) input.cb{
+   		height:22px;
+   		width:22px;
+   		float:left;
+   	}
+   	body.category section.payment_info div.info div.info_body2 ul li:nth-child(2) label{
+   		padding-left:5px;
+   	}
+   	body.category section.payment_info div.info button{
+   		font-size:20px;
+   		background-color:#FA9354;
+		color:white;
+		margin:auto;
+		width:265px;
+		line-height:70px;
+		border:none;
+		border-radius:3px;
+   	}

@@ -44,4 +44,14 @@
 	    </foreach>
 	</delete>
 	
+	<!-- select:emailCheck -->
+	<select id="emailCheck" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select count(*) result from idus_member where uemail=#{email}
+	</select>
+	
+	<!-- select:loginCheck -->
+	<select id="checklist" parameterType="java.lang.String" resultType="com.project3.vo.IdusMemberVO">
+		select uemail, upass from idus_member where cp=#{hp}
+	</select>
+	
 </mapper>

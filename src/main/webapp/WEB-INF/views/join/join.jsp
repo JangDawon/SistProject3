@@ -32,6 +32,7 @@
 						<label class="join_form_block_head"><em class="asterisk_red">*</em>이메일</label>
 						<div class="join_form_block_body" id="join_form_block_body"><input type="text" placeholder="이메일을 입력해주세요." id="email" name="uemail"></div>
 						<div class="msg" id="email_msg"></div>
+						<input type="hidden" id="hidden_email">
 						<div id="idcheck_result"></div>
 					</div>
 					<div class="join_form_block">

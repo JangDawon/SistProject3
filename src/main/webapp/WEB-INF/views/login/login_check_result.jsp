@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>로그인 | 아이디 비밀번호 찾기</title>
@@ -24,8 +26,10 @@
 				<div>
 					<ul>
 						<li><hr>&nbsp;&nbsp;아이디 / 비밀번호 찾기&nbsp;&nbsp;<hr></li>
-						<li>아이디 : test@naver.com</li>	
-						<li>비밀번호 : 1234</li>
+						<c:forEach var="vo" items="${list }">
+						<li>아이디 : ${vo.uemail }</li>	
+						<li>비밀번호 : ${vo.upass }</li>
+						</c:forEach>
 					</ul>
 					<div class=join_success ><a href="http://localhost:9000/sistproject3/index.do"><button>메인 화면으로</button></a>
 					<a href="http://localhost:9000/sistproject3/login.do"><button>로그인하기</button></a></div>

@@ -20,15 +20,16 @@ public class MemberServiceImpl {
 	/**
 	 * 회원가입 결과
 	 */
-	public String getResultJoin(IdusMemberVO vo) {
+	public ModelAndView getResultJoin(IdusMemberVO vo) {
+		ModelAndView mv = new ModelAndView();
 		boolean join_result = memberDAO.getInsert(vo);
-		String result = "";
 		
 		if(join_result) {
-			result = "join/join_success"; 
+			mv.addObject("vo", vo);
+			mv.setViewName("/join/join_success"); 
 		}
 
-		return result;
+		return mv;
 	}
 	
 	/**
@@ -107,5 +108,23 @@ public class MemberServiceImpl {
 		}
 		
 		return count;
+	}
+	
+	/**
+	 * 이메일 중복 체크
+	 */
+	public int getResultEmailCheck(String email) {
+		return memberDAO.getEmailCheck(email);
+	}
+	
+	/**
+	 * 아이디/비밀번호 찾기
+	 */
+	public ModelAndView getResultLoginCheck(String hp) {
+		ModelAndView mv = new ModelAndView();
+		ArrayList<IdusMemberVO> list = memberDAO.getLoginCheck(hp);
+		mv.addObject("list", list);
+		mv.setViewName("/login/login_check_result");
+		return mv;
 	}
 }
