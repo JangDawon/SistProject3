@@ -73,7 +73,7 @@
 				$(pw_id).focus();
 				return false;
 			}else{
-				location.href="http://localhost:9000/sistproject3/cs_content.do?id="+now;
+				location.href="http://localhost:9000/sistproject3/cs_content.do?id="+now+"&uemail="+$("#uemail").val();
 			}
 		});
 				
@@ -118,8 +118,8 @@
 							output += '</td>';
 							output += '</tr>';
 						}else{
-							if(jdata.jlist[i].uname == '관리자'){
-								var url = "location.href='http://localhost:9000/sistproject3/cs_content.do?id=" + jdata.jlist[i].bid + "'";
+							if(jdata.jlist[i].uemail == 'admin'){
+								var url = "location.href='http://localhost:9000/sistproject3/cs_content.do?id=" + jdata.jlist[i].bid + "&uemail=${sessionScope.svo.uemail}'";
 								output += '<tr class="cs_row" id="cs_row1" onclick="' + url +'">';
 								output += '<th>' + jdata.jlist[i].rno + '</th>';
 								output += '<th><span class="orange">[공지사항]</span> ' + jdata.jlist[i].btitle + '</th>';
@@ -128,7 +128,7 @@
 								output += '<th>' + jdata.jlist[i].bhits + '</th>';
 								output += '</tr>';
 							}else{
-								var url = "location.href='http://localhost:9000/sistproject3/cs_content.do?id=" + jdata.jlist[i].bid + "'";
+								var url = "location.href='http://localhost:9000/sistproject3/cs_content.do?id=" + jdata.jlist[i].bid + "&uemail=${sessionScope.svo.uemail}'";
 								output += '<tr class="cs_row" id="cs_row1" onclick="' + url +'">';
 								output += '<td>' + jdata.jlist[i].rno + '</td>';
 								output += '<td>' + jdata.jlist[i].btitle + '</td>';
@@ -164,6 +164,7 @@
 	<div class="jihye_content">
 	<!-- content -->
 	<h2 class="txt">공지사항 및 1:1문의</h2>
+	<input type="hidden" value="${sessionScope.svo.uemail}" id="uemail">
 	<div id="cs_search">
 		<select id="sname">
 			<option value="all">전체</option>
@@ -178,7 +179,14 @@
 	<table id="cs_list_table" class="cs_table">
 		<tr>
 			<td colspan='2'><span id='cs_count'>게시글 <span id="dbCount"></span>개</span></td>
-			<td colspan='3'><a href="cs_write.do"><button type="button" id="cs_write_btn" class="btn_style">글쓰기</button></a></td>
+			<c:choose>
+				<c:when test="${sessionScope.svo.uname eq null}">
+					<td colspan='3'></td>
+				</c:when>
+				<c:otherwise>
+					<td colspan='3'><a href="cs_write.do?uemail=${sessionScope.svo.uemail}&uname=${sessionScope.svo.uname}"><button type="button" id="cs_write_btn" class="btn_style">글쓰기</button></a></td>
+				</c:otherwise>
+			</c:choose>
 		</tr>
 		<tr id="cs_ajax_here">
 			<th>번호</th>

@@ -151,20 +151,23 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="6">
-					<a href="cs_update.do?id=${vo.bid }"><button type="button" class="btn_style">수정</button></a>
-					<a href="cs.do"><button type="button" class="btn_style">목록</button></a>
-					<a href="cs_delete.do?id=${vo.bid }"><button type="button" name="r_delete" id="rd1"class="btn_style">삭제</button></a>
-					<%-- <% if(vo.getUser_id().equals(user_id)){ %>
-						<a href="board_update.jsp?bid=<%= bid %>"><button type="button" class="btn_style">수정</button></a>
-					<% } %>
-					<a href="board_list.jsp"><button type="button" class="btn_style">목록</button></a>
-					<% if(vo.getUser_id().equals(user_id)){ %>
-						<a href="board_delete.jsp?bid=<%= bid %>"><button type="button" class="btn_style">삭제</button></a>
-					<% } %> --%>
+				<td colspan="6">	
+					<c:choose>
+						<c:when test="${result eq 'ok'}">
+							<a href="cs_update.do?id=${vo.bid }"><button type="button" class="btn_style">수정</button></a>
+							<a href="cs.do"><button type="button" class="btn_style">목록</button></a>
+							<a href="cs_delete.do?id=${vo.bid }"><button type="button" name="r_delete" id="rd1"class="btn_style">삭제</button></a>
+						</c:when>
+						<c:otherwise>
+							<a href="cs.do"><button type="button" class="btn_style">목록</button></a>
+						</c:otherwise>
+					</c:choose>
+					
+					
 				</td>
 			</tr>
 			<tr>
+				<c:if test="${reply_ok eq 'ok' }">
 				<td colspan="6" id="last">
 					<div id="here"></div>
 					<div id="reply_form">
@@ -173,25 +176,8 @@
 					<button type="button" id="reply_write_btn" class="btn_style">작성</button>
 					</div>
 					
-					<%-- <input type="hidden" id="u_id" value="<%= user_id %>">
-					<input type="hidden" id="bid" value="<%= bid %>">
-					<br>
-					<% if(pvo.getS_face_file() != null){ %>
-						<img src="http://localhost:9000/MyPrSite/upload/<%= pvo.getS_face_file() %>" id="user_img">						
-					<% }else{ %>
-						<img src="http://localhost:9000/MyPrSite/images/circle.png" id="user_img">
-					<% } %>
-					<% if(user_id != null){ %>		
-					<textarea id="r_content" placeholder="댓글을 남겨주세요.(200자)"></textarea>
-					<% }else{ %>
-					<textarea id="r_content" placeholder="로그인 이후에 작성할 수 있습니다 :)"></textarea>
-					<% } %>
-					<% if(user_id != null){ %>
-					<button type="button" id="btn_send" class="btn_style">작성</button>
-					<% } %>
-					<br>
-					<div id="here"></div> --%>
 				</td>
+				</c:if>
 			</tr>
 		</table>
 	</section>

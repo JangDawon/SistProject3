@@ -26,6 +26,7 @@
    display: flex;
     list-style: none;
     padding-right: 90px;
+    margin-left:700px;
 }
 .navbar1 ul li{
    font-size: 13px;

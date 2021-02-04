@@ -149,14 +149,35 @@ public class BoardServiceImpl implements BoardService {
 		
 		return mv;
 	}
-
+	
 	public ModelAndView getContent(String id) {
 		ModelAndView mv = new ModelAndView();
+		return mv;
+	}
+
+	public ModelAndView getContent(String id, String uemail) {
+		ModelAndView mv = new ModelAndView();
+		String result = "";
+		String reply_ok = "";
 		
 		IdusBoardVO vo = boardDAO.getContent(id);
 		boardDAO.getUpdateHits(id);
 		
+		if(vo.getUemail().equals(uemail)) {
+			result = "ok";
+		}else {
+			result = "no";
+		}
+		
+		if(vo.getUemail().equals(uemail) || uemail.equals("admin")) {
+			reply_ok = "ok";
+		}else {
+			reply_ok = "no";
+		}
+		
 		mv.addObject("vo", vo);
+		mv.addObject("result", result);
+		mv.addObject("reply_ok", reply_ok);
 		mv.setViewName("/cs/cs_content");
 		
 		return mv;
