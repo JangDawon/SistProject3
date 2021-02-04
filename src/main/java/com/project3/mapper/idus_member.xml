@@ -14,8 +14,8 @@
 	
 	<!-- select:login -->
 	<select id="login" parameterType="com.project3.vo.IdusMemberVO" resultType="com.project3.vo.IdusSessionVO">
-		select count(*) result, uname from idus_member 
-				WHERE uemail=#{uemail} AND upass=#{upass} group by uname
+		select count(*) result, uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, udate, pfile, psfile  from idus_member 
+				WHERE uemail=#{uemail} AND upass=#{upass} group by uname, uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, udate, pfile, psfile
 	</select>
 	
 	<!-- select:list -->
