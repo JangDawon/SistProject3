@@ -49,4 +49,13 @@ public class IdusMemberDAO {
 	public int getResultDelete(String[] userlist) {
 		return sqlSession.delete(namespace+".deleteSelect", userlist);
 	}
+	
+	public int getEmailCheck(String email) {
+		return sqlSession.selectOne(namespace+".emailCheck", email);
+	}
+	public ArrayList<IdusMemberVO> getLoginCheck(String hp) {
+		
+		List<IdusMemberVO> list = sqlSession.selectList(namespace+".checklist", hp);
+		return (ArrayList<IdusMemberVO>)list;
+	}
 }
