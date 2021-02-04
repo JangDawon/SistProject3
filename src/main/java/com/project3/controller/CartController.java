@@ -21,6 +21,11 @@ public class CartController {
 	@Autowired
 	private CartServiceImpl cartService;
 	
+	@RequestMapping(value="/cart_order.do", method=RequestMethod.GET)
+	public String cart_order() {
+		return "cart/cart_order";
+	}
+	
 	/**
 	 * 厘官备聪 昏力 贸府
 	 */

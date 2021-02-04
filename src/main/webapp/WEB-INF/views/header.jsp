@@ -32,10 +32,10 @@
 						<li><a href="http://localhost:9000/sistproject3/cs.do">고객센터</a></li>
 						<li><a href="http://localhost:9000/sistproject3/user_mng_list.do">admin</a></li>
 					</ul>
+			</div>
 				</c:otherwise>
 				</c:choose>
 				</div>		
-			</div>
 		
 			<div class="navbar2">
 				<div class="navbar2_wrapper">
