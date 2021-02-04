@@ -1,5 +1,7 @@
 package com.project3.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,11 +10,10 @@ import com.project3.vo.IdusCartVO;
 
 @Service("cartService")
 public class CartServiceImpl implements CartService {
-	/* @Autowired
+	@Autowired
 	private IdusCartDAO cartDAO;
 	
-	@Override
-	public String getResultCart(IdusCartVO vo) {
+	/* public String getResultCart(IdusCartVO vo) {
 		IdusCartDAO dao = new IdusCartDAO();
 		boolean cart_result =  cartDAO.getInsert(vo);
 		String result = "";
@@ -25,4 +26,10 @@ public class CartServiceImpl implements CartService {
 		
 		return result;
 	} */
+	
+	/** 선택 삭제 **/
+	public int getSelectDelete(String[] dellist) {
+		return cartDAO.getSelectDelete(dellist);
+	}
+	
 }

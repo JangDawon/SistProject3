@@ -7,7 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.project3.dao.IdusCategoryDAO;
+import com.project3.vo.IdusBoardVO;
 import com.project3.vo.IdusProductVO;
 
 @Service("categoryService")
@@ -26,7 +30,6 @@ public class CategoryServiceImpl implements CategoryService{
 		return mv;
 	}
 	
-
 	public ModelAndView getContent(String pid) {
 		ModelAndView mv = new ModelAndView();
 		
@@ -39,5 +42,41 @@ public class CategoryServiceImpl implements CategoryService{
 		
 		return mv;
 	}
+	
+	public ModelAndView getNewList() {
+		ModelAndView mv = new ModelAndView();
+		
+		ArrayList<IdusProductVO> list = categoryDAO.getNewList();
+		
+		mv.addObject("list", list);
+		mv.setViewName("/category/product_new");
+		
+		return mv;
+	}
+	
+	/* public ModelAndView getBestList() {
+		ModelAndView mv = new ModelAndView();
+		
+		ArrayList<IdusProductVO> list = categoryDAO.getBestList();
+		
+		mv.addObject("list", list);
+		mv.setViewName("/category/product_best");
+		
+		return mv;
+	} */
+	
+	public ModelAndView getBestProdList(String pcat) {
+		ModelAndView mv = new ModelAndView();
+		
+		ArrayList<IdusProductVO> list = categoryDAO.getBestProdList(pcat);
+		
+		mv.addObject("list", list);
+		mv.setViewName("/category/product_best");
+		
+		return mv;
+	}
+	
+
+	
 	
 }

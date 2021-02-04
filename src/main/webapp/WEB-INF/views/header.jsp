@@ -1,32 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="com.project3.vo.*"
     %>
-<%
-	IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
-%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>header</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-
 </head>
 <body class="header_body">
 	<header>
 		<nav class="navbar">
-			<div class="navbar1">
-				<% if(svo != null){ %> 
+			<div class="navbar1">	
+				<c:choose>
+				<c:when test="${sessionScope.svo ne null}"> 
 				<ul>
-					<li><a href="#">안녕하세요~ <%=svo.getUname() %>님!!</a></li>
+					<li><a href="#">안녕하세요~ ${sessionScope.svo.uname} 님!!</a></li>
 					<li><a href="http://localhost:9000/sistproject3/logout.do">로그아웃</a><div></div></li>
 					<li><a href="http://localhost:9000/sistproject3/cs.do">고객센터</a><div></div></li>
+<<<<<<< HEAD
 					<% if(svo.getUname().equals("관리자")){ %>
 					<li><a href="http://localhost:9000/sistproject3/user_mng_list.do">Admin</a></li>
 					<% } %>
+=======
+					<c:if test="${sessionScope.svo.uname eq '관리자' }">
+					<li><a href="http://localhost:9000/sistproject3/admin.do">Admin</a></li>
+					</c:if>
+>>>>>>> 2f40a5637d8ce96d13cbc18a6e4e254411befb3d
 				</ul>
-				<% }else{ %>
+				</c:when>
+				<c:otherwise>
 				<div class="navbar1_wrapper">
 					<ul class="navbar_menu">
 						<li><a href="http://localhost:9000/sistproject3/login.do">로그인</a></li>
@@ -34,9 +38,11 @@
 						<li><a href="http://localhost:9000/sistproject3/cs.do">고객센터</a></li>
 						<li><a href="http://localhost:9000/sistproject3/user_mng_list.do">admin</a></li>
 					</ul>
-				<% } %>
-				</div>
+				</c:otherwise>
+				</c:choose>
+				</div>		
 			</div>
+		
 			<div class="navbar2">
 				<div class="navbar2_wrapper">
 					<div class="navbar_logo">
@@ -58,13 +64,13 @@
 			</div>
 			<div class="navbar3">
 				<div class="navbar3_wrapper">
-					<ul class="navbar_category">
+					<ul class="navbar_category" id="c_test1">
 						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">음식</a></li>
 						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=악세사리">악세사리</a></li>
 						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=패션, 잡화">패션&잡화</a></li>
 						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=인테리어 소품">인테리어 소품</a></li>
 						<li><a href="http://localhost:9000/sistproject3/category_list.do?pcat=기타">기타</a></li>
-						<li><a href="http://localhost:9000/sistproject3/product_best.do">인기 작품</a></li>
+						<li><a href="http://localhost:9000/sistproject3/product_best.do?pcat=total">인기 작품</a></li>
 						<li><a href="http://localhost:9000/sistproject3/product_new.do">최신 작품</a></li>
 						<li><a href="http://localhost:9000/sistproject3/artist_best.do">인기 작가</a></li>
 					</ul>

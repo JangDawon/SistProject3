@@ -196,6 +196,7 @@
     margin: 0px auto;
     padding: 0px;
     font-family: "나눔바른고딕";
+
     width:1100px;
 }
 
@@ -456,6 +457,7 @@ table#cs_delete_table {margin-top:100px; height:400px; width:500px;}
 table#cs_delete_table td #delete_img {width:200px; height:210px; }
 
 /**
+<<<<<<< HEAD
 *   Admin : admin.jsp (지혜)
 */
 aside.admin_info {position: sticky; 
@@ -642,7 +644,11 @@ table.member_info tr:last-child button {background-color: rgb(255, 123, 48);padd
 table.member_info tr:last-child td {text-align:center;border:none;}
 table.member_info tr:nth-child(10) td {text-align:right;}
 /**
+<<<<<<< HEAD
+* 占쏙옙占쏙옙 占쏙옙 占쏙옙占쏙옙
+=======
 * 내가 쓴 리뷰
+>>>>>>> refs/heads/master
 **/
 table.review_content tr:first-child>td:first-child {width: 20px;}
 table.review_content tr:first-child span.title {font-weight: bold;display: inline-block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 350px;}
@@ -1189,7 +1195,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	}
 	div.price_content {
 	   	text-align:right;
-	   	font-size:14px;
+	   	font-size:16px;
 	   	font-weight:bold;
 	   	padding-right:10px;
 	}
@@ -1224,7 +1230,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	   	padding:10px 0;
 	   	margin:20px 0;
 	}
-	div.all_price>table.price_sum {
+	div.all_price>table.price_total {
 	   	border:1px solid black;
 	   	border-radius:3px;
 	   	width:100%;
@@ -1232,20 +1238,21 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	   	padding:10px 0;
 	   	margin-top:30px;
 	}
-	tr:first-child>td.price, tr:first-child>td.del, tr:first-child>td.sum {
+	tr:first-child>td.all_price, tr:first-child>td.del, tr:first-child>td.prod_total {
 	   	font-size:13px;
 	   	color:gray;   width:30%;
 	   	padding:20px 0;
 	}
-	tr:last-child>td.price2, tr:last-child>td.del2, tr:last-child>td.sum2 {
+	tr:last-child>td.all_price2, tr:last-child>td.del2, tr:last-child>td.prod_total2 {
 	 	font-size:22px;
 		font-weight:bold;
 		padding-bottom:20px;
+		border:1px solid red;
 	}
-	tr:last-child>td.sum2 {
+	tr:last-child>td.prod_total2 {
 		color:#F87E35;
 	}
-	table.price_sum>tr>th {
+	table.price_total>tr>th {
 		font-weight:bold;
 		font-size:18px;
 	}
@@ -1568,6 +1575,9 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		margin:0;
 		/* display:none; */
 	}
+	table.price_sum div.sum>span#whole_price {
+		display:none;
+	}
 	div.tab_style>div.option {
 		padding:15px 20px 10px 20px;
 		font-size:13px;
@@ -1614,13 +1624,16 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		margin-top:20px;
 	}
 	table.price_sum td:first-child {
+		width:49%;
 		font-size:14px;
 		color:gray;
 	}
 	table.price_sum td:last-child {
+		width:49%;
 		text-align:right;
 		font-size:18px;
 		font-weight:600;
+		border:1px solid red;
 	}
 	
 	
