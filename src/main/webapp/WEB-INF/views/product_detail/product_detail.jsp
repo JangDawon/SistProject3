@@ -15,7 +15,7 @@
 		$(document).ready(function(){
 			var one=1;
 			var two=1;
-			var five=1;
+			var three=1;
 			
 			$("#product_option").change(function(){		
 				var price = "${vo.pprice }";	
@@ -65,7 +65,7 @@
 						$(".product_option_div").after(output);
 					}else if($(this).val() == "opt3" && five == 1){
 						$(".sum").text(opt3_total+"원");
-						five++;
+						three++;
 						//$(".tab_style").css("display","block");
 						$(".product_option_div").after(output);
 					}
