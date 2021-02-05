@@ -19,7 +19,7 @@
                <li><a href="#">안녕하세요~ ${sessionScope.svo.uemail} 님!!</a></li>
                <li><a href="http://localhost:9000/sistproject3/logout.do">로그아웃</a><div></div></li>
                <li><a href="http://localhost:9000/sistproject3/cs.do">고객센터</a><div></div></li>
-               <c:if test="${sessionScope.svo.uname eq '관리자' }">
+			   <c:if test="${sessionScope.svo.uemail eq 'admin' }">
                <li><a href="http://localhost:9000/sistproject3/admin.do">Admin</a></li>
                </c:if>
             </ul>
@@ -72,5 +72,6 @@
          </div>
       </nav>
    </header>
+>>>>>>> branch 'master' of https://github.com/jihye0526/SistProject3.git
 </body>
 </html>

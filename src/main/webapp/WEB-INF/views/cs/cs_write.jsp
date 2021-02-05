@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +19,8 @@
 	<!-- content -->
 	<h2 class="txt">공지사항 및 1:1문의</h2>
 	<form name="cs_wirte_form" action="cs_write_proc.do" method="post" enctype="multipart/form-data">
-		<!-- <input type="hidden" name="user_id">
-		<input type="hidden" name="name"> -->
+		<input type="hidden" name="uemail" value="${sessionScope.svo.uemail}">
+		<input type="hidden" name="uname" value="${sessionScope.svo.uname}">
 		<table class="cs_table" id="cs_write_table" >
 			<tr>
 				<td>
@@ -42,14 +43,14 @@
 			<tr>
 				<td>
 					<span class="board_title">비밀글</span>
-					<input type="checkbox" name="bsecret" id="bsecret">
+					<input type="checkbox" name="bsecret" id="bsecret" <c:if test="${sessionScope.svo.uemail eq 'admin'}"> disabled </c:if>>
 					
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<span class="board_title">비밀번호</span>
-					<input type="password" name="bpass" id="bpass" >
+					<input type="password" name="bpass" id="bpass" <c:if test="${sessionScope.svo.uemail eq 'admin'}"> disabled </c:if>>
 				</td>
 			</tr>
 			<tr>

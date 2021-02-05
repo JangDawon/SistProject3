@@ -75,4 +75,8 @@ public class IdusMemberDAO {
 	public IdusMemberVO getContent(String email) {
 		return sqlSession.selectOne(namespace+".content",email);
 	}
+	
+	public IdusMemberVO getUserContent(String uid) {
+		return sqlSession.selectOne(namespace+".userContent", uid);
+	}
 }

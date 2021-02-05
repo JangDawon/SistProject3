@@ -139,4 +139,11 @@ public class IdusBoardDAO extends DBConn{
 	public int getReplyDelete(String rid) {
 		return sqlSession.update(namespace+".reply_delete", rid);
 	}
+	
+	/**
+	 * 댓글 전체 개수
+	 */
+	public int getReplyCount(String bid) {
+		return sqlSession.selectOne(namespace+".reply_count", bid);
+	}
 }

@@ -74,6 +74,12 @@
 		select uemail, upass from idus_member where cp=#{hp}
 	</select>
 	
+	<!-- select:UserContent -->
+	<select id="userContent" parameterType="java.lang.String" resultType="com.project3.vo.IdusMemberVO">
+		select uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile, to_char(udate, 'yyyy.mm.dd') udate 
+		from idus_member where uemail=#{uid} 
+	</select>
+	
 	<select id = "content" parameterType = "java.lang.String" resultType = "com.project3.vo.IdusMemberVO">
 		select uname,uemail,addr1,addr2,addr3,cp,aggrsms,aggremail,pfile,psfile from idus_member where uemail = #{email} 
 	</select>
