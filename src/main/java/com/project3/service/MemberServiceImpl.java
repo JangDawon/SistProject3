@@ -1,6 +1,8 @@
 package com.project3.service;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -18,7 +20,7 @@ public class MemberServiceImpl {
 	private IdusMemberDAO memberDAO;
 	
 	/**
-	 * È¸¿ø°¡ÀÔ °á°ú
+	 * ï¿½ì‰¶ï¿½ìåª›ï¿½ï¿½ì—¯
 	 */
 	public ModelAndView getResultJoin(IdusMemberVO vo) {
 		ModelAndView mv = new ModelAndView();
@@ -33,45 +35,73 @@ public class MemberServiceImpl {
 	}
 	
 	/**
-	 * ·Î±×ÀÎ °á°ú!
+	 * ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	 */
 	public ModelAndView getResultLogin(IdusMemberVO vo, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		System.out.println(vo.getUemail()+"service");
 		IdusSessionVO svo = memberDAO.getLogin(vo);
 		
 		if(svo != null) {
 			session.setAttribute("svo", svo);
+			session.setAttribute("email", svo.getUemail());
 			mv.addObject("vo", vo);
 			mv.setViewName("index"); 			
 		}else {
-			mv.addObject("result", "¾ÆÀÌµğ ¶Ç´Â ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇØÁÖ¼¼¿ä.");
+			mv.addObject("result", "ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½Ğ¹ï¿½È£ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 			mv.setViewName("/login/login");
 		}
 		
 		return mv;
 	}
+
+	public ModelAndView getResultUpdate(Object vo) {
+		ModelAndView mv = new ModelAndView();
+		IdusSessionVO svo = (IdusSessionVO) vo;
+		boolean result = false;
+		if(svo.getFile1().getSize()!=0) {
+			UUID uuid = UUID.randomUUID();
+			svo.setPfile(svo.getFile1().getOriginalFilename());
+			svo.setPsfile(uuid+"_"+svo.getFile1().getOriginalFilename());
+		}
+		result = memberDAO.getUpdate(svo);
+		if(result) {
+			File file = new File(svo.getSavepath()+svo.getPsfile());
+			try {
+				svo.getFile1().transferTo(file);
+			} catch (Exception e) {
+					e.printStackTrace();
+			}
+			//mv.addObject("vo",svo);
+			mv.setViewName("redirect:/my_info.do");
+		}else {
+			
+		}
+		return mv;
+	}
+	
 	
 	/**
-	 * °ü¸®ÀÚ : È¸¿ø ÀüÃ¼ ¸®½ºÆ®
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : È¸ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ®
 	 */
 	public ModelAndView getList(String rpage) {
 		ModelAndView mv = new ModelAndView();
 		
 		int start = 0;
 		int end = 0;
-		int pageSize = 10; //ÇÑ ÆäÀÌÁö´ç Ãâ·ÂµÇ´Â row
-		int pageCount = 1; //ÀüÃ¼ ÆäÀÌÁö ¼ö : ÀüÃ¼ row / ÇÑ ÆäÀÌÁö´ç Ãâ·ÂµÇ´Â row
-		int dbCount = memberDAO.getCount(); //DB¿¬µ¿ ÈÄ ÀüÃ¼·Î¿ì¼ö Ãâ·Â
-		int reqPage = 1; //¿äÃ» ÆäÀÌÁö
+		int pageSize = 10; //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÂµÇ´ï¿½ row
+		int pageCount = 1; //ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ : ï¿½ï¿½Ã¼ row / ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÂµÇ´ï¿½ row
+		int dbCount = memberDAO.getCount(); //DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½Î¿ï¿½ï¿½ ï¿½ï¿½ï¿½
+		int reqPage = 1; //ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		
-		//2-2. ÀüÃ¼ ÆäÀÌÁö ¼ö ±¸ÇÏ±â
+		//2-2. ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 		if((dbCount%pageSize) == 0){
 			pageCount = dbCount/pageSize;
 		}else{
 			pageCount = (dbCount/pageSize)+1;
 		}
 		
-		//2-3. start, end °ª ±¸ÇÏ±â
+		//2-3. start, end ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 		if(rpage != null){
 			reqPage = Integer.parseInt(rpage);
 			start = (reqPage - 1) * pageSize + 1;
@@ -81,10 +111,10 @@ public class MemberServiceImpl {
 			end = pageSize;
 		}
 		
-		//3. DAO °´Ã¼ ¿¬µ¿
+		//3. DAO ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 		ArrayList<IdusMemberVO> list = memberDAO.getList(start, end);
 		
-		//board_list.jsp ÆÄÀÏ·Î µ¥ÀÌÅÍ Àü¼Û
+		//board_list.jsp ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		mv.addObject("list", list);
 		mv.addObject("dbCount", dbCount);
 		mv.addObject("pageSize", pageSize);
@@ -96,7 +126,7 @@ public class MemberServiceImpl {
 	}
 	
 	/**
-	 * È¸¿ø »èÁ¦
+	 * È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	 */
 	public int getResultDelete(String[] userlist) {
 		int count = 0;
@@ -111,14 +141,14 @@ public class MemberServiceImpl {
 	}
 	
 	/**
-	 * ÀÌ¸ŞÀÏ Áßº¹ Ã¼Å©
+	 * ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ßºï¿½ Ã¼Å©
 	 */
 	public int getResultEmailCheck(String email) {
 		return memberDAO.getEmailCheck(email);
 	}
 	
 	/**
-	 * ¾ÆÀÌµğ/ºñ¹Ğ¹øÈ£ Ã£±â
+	 * ï¿½ï¿½ï¿½Ìµï¿½/ï¿½ï¿½Ğ¹ï¿½È£ Ã£ï¿½ï¿½
 	 */
 	public ModelAndView getResultLoginCheck(String hp) {
 		ModelAndView mv = new ModelAndView();
@@ -127,4 +157,12 @@ public class MemberServiceImpl {
 		mv.setViewName("/login/login_check_result");
 		return mv;
 	}
+	public ModelAndView getContent(String email) {
+		ModelAndView mv = new ModelAndView();
+		IdusMemberVO vo = memberDAO.getContent(email);
+		mv.addObject("vo",vo);
+		mv.setViewName("/mypage/my_info");
+		return mv;
+	}
 }
+

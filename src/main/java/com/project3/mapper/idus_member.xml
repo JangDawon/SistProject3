@@ -8,50 +8,73 @@
 	<!-- insert:join -->
 	<insert id="join" parameterType="com.project3.vo.IdusMemberVO">
 		insert into idus_member values(
-		#{uemail}, #{upass}, #{uname}, #{cp}, '', '', '', #{aggrsms}, #{aggremail}, '', '', sysdate
+		#{uemail}, #{upass}, #{uname}, #{cp}, '', '', '', #{aggrsms},
+		#{aggremail}, '', '', sysdate
 		)
 	</insert>
-	
-	<!-- select:login -->
-	<select id="login" parameterType="com.project3.vo.IdusMemberVO" resultType="com.project3.vo.IdusSessionVO">
-		select count(*) result, uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, udate, pfile, psfile  from idus_member 
-				WHERE uemail=#{uemail} AND upass=#{upass} group by uname, uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, udate, pfile, psfile
+
+	<select id="login" parameterType="com.project3.vo.IdusMemberVO"
+		resultType="com.project3.vo.IdusSessionVO">
+		select count(*) result, uemail, upass, uname, cp, addr1, addr2, addr3,
+		aggrsms, aggremail, udate, pfile, psfile from idus_member
+		WHERE uemail=#{uemail} AND upass=#{upass} group by uname, uemail, upass,
+		uname, cp, addr1, addr2, addr3, aggrsms, aggremail, udate, pfile,
+		psfile
 	</select>
-	
+
+	<update id="update" parameterType="com.project3.vo.IdusSessionVO">
+		update idus_member
+		set uname = #{uname}, cp =#{cp}, addr1=#{addr1},addr2 =#{addr2},addr3 = #{addr3}, agree_list = #{agree_list}
+		<if test="pfile !=null">
+			,pfile =#{pfile},psfile=#{psfile}
+		</if>
+		where uemail =#{uemail}
+	</update>
 	<!-- select:list -->
-	<select id="list" parameterType="map" resultType="com.project3.vo.IdusMemberVO">
-		select * from (select rownum rno, uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile, to_char(udate, 'yyyy.mm.dd') udate 
-						from (select * from idus_member order by udate desc)) where rno between #{start} and #{end}
+	<select id="list" parameterType="map"
+		resultType="com.project3.vo.IdusMemberVO">
+		select * from (select rownum rno, uemail, upass, uname, cp,
+		addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile, to_char(udate,
+		'yyyy.mm.dd') udate
+		from (select * from idus_member order by udate
+		desc)) where rno between
+		#{start} and #{end}
 	</select>
-	
+
 	<!-- select:count -->
 	<select id="count" resultType="java.lang.Integer">
 		select count(*) from idus_member
 	</select>
-	
+
 	<!-- delete:member all -->
 	<delete id="deleteAll">
 		delete from idus_member
 	</delete>
-	
+
 	<!-- delete:member select -->
 	<delete id="deleteSelect">
 		delete from idus_member where uemail in
-		
-		<foreach item="item" index="index" collection="array"
-	      open="(" separator="," close=")">
-	      #{item}
-	    </foreach>
+
+		<foreach item="item" index="index" collection="array" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
 	</delete>
-	
+
 	<!-- select:emailCheck -->
-	<select id="emailCheck" parameterType="java.lang.String" resultType="java.lang.Integer">
-		select count(*) result from idus_member where uemail=#{email}
+	<select id="emailCheck" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		select count(*) result from idus_member where
+		uemail=#{email}
 	</select>
-	
+
 	<!-- select:loginCheck -->
-	<select id="checklist" parameterType="java.lang.String" resultType="com.project3.vo.IdusMemberVO">
+	<select id="checklist" parameterType="java.lang.String"
+		resultType="com.project3.vo.IdusMemberVO">
 		select uemail, upass from idus_member where cp=#{hp}
 	</select>
 	
+	<select id = "content" parameterType = "java.lang.String" resultType = "com.project3.vo.IdusMemberVO">
+		select uname,uemail,addr1,addr2,addr3,cp,aggrsms,aggremail,pfile,psfile, agree_list from idus_member where uemail = #{email} 
+	</select>
 </mapper>

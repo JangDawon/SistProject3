@@ -57,13 +57,14 @@ table.member_info {width:750px;}
 table.member_info input[type='text']{border:none;font-size:15px;height:30px;text-indent:5px;}
 table.member_info td {padding: 13px 0;text-indent: 7px;border-top: 1px solid rgb(217, 217, 217);}
 table.member_info td small{padding-left:10px;}
-table.member_info tr:nth-child(4) td, table.member_info tr:nth-child(5) td{border:none;}
+table.member_info tr:nth-child(3) td{border-bottom:1px solid rgb(217,217,217);}
+table.member_info tr:nth-child(5) td, table.member_info tr:nth-child(6) td{border:none;}
 table.member_info td.alram{text-indent:12px;}
 table.member_info td.grey {background-color: rgb(245, 245, 245);padding:0 10px;}
 table.member_info button.change {background-color: rgb(255, 255, 255);border: 1px solid rgb(204, 204, 204);margin-left: 10px;padding: 5px 5px;}
 table.member_info tr:last-child button {background-color: rgb(255, 123, 48);padding: 8px 8px;border: 1px solid rgb(255, 123, 48);color: rgb(255, 255, 255);}
-table.member_info tr:last-child td {text-align:center;border:none;}
 table.member_info tr:nth-child(9) td {text-align:right;}
+table.member_info tr td.tdlast {text-align:center;}
 /**
 * 내가 쓴 리뷰
 **/
