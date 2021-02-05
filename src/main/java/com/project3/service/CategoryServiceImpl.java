@@ -19,6 +19,19 @@ public class CategoryServiceImpl implements CategoryService{
 	@Autowired
 	private IdusCategoryDAO categoryDAO;
 	
+	public ModelAndView getIndexProd() {
+		ModelAndView mv = new ModelAndView();
+		
+		ArrayList<IdusProductVO> list1 = categoryDAO.getIndexNew();
+		ArrayList<IdusProductVO> list2 = categoryDAO.getIndexBest();
+		
+		mv.addObject("list1", list1);
+		mv.addObject("list2", list2);
+		mv.setViewName("/index");
+		
+		return mv;
+	}
+	
 	public ModelAndView getList(String pcat) {
 		ModelAndView mv = new ModelAndView();
 		
@@ -54,16 +67,6 @@ public class CategoryServiceImpl implements CategoryService{
 		return mv;
 	}
 	
-	/* public ModelAndView getBestList() {
-		ModelAndView mv = new ModelAndView();
-		
-		ArrayList<IdusProductVO> list = categoryDAO.getBestList();
-		
-		mv.addObject("list", list);
-		mv.setViewName("/category/product_best");
-		
-		return mv;
-	} */
 	
 	public ModelAndView getBestProdList(String pcat) {
 		ModelAndView mv = new ModelAndView();
