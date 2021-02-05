@@ -14,7 +14,7 @@ public class IdusReviewDAO extends DBConn {
 	/**
 	 * ¸®ºä µî·Ï
 	 */
-	public boolean getInsert(IdusReviewVO vo) {
+public boolean getInsert(IdusReviewVO vo) {
 		boolean result = false;
 		int val = sqlSession.insert(namespace + ".register", vo);
 		if (val != 0) {

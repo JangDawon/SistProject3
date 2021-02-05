@@ -5,8 +5,8 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace = "mapper.review">
-	<insert id = "register" parameterType  = "com.project3.vo.IdusReviewVO">
+<!-- 	<insert id = "register" parameterType  = "com.project3.vo.IdusReviewVO">
 		INSERT INTO IDUS_REVIEW 
 		VALUES('r_'||idus_review_seq.nextval,"pid","uemail","","",#{rcontent},#{rscore},sysdate)
-	</insert>  
+	</insert>   -->
 </mapper>

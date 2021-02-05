@@ -35,13 +35,13 @@ table.member_info tr td span.user_email {
 }
 .filebox label {
   display: inline-block;
-  color: rgb(255,255,255);
+  color:black;
   font-size: inherit;
   line-height: normal;
   vertical-align: middle;
-  background-color: rgb(255,123,48);
+  background-color: white;
   cursor: pointer;
-  border: 1px solid rgb(255,123,48);
+  border: 1px solid rgb(217,217,217);
   border-radius: .25em;
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
