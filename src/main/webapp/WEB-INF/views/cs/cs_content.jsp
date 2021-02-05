@@ -153,8 +153,12 @@
 			<tr>
 				<td colspan="6">	
 					<c:choose>
-						<c:when test="${result eq 'ok'}">
+						<c:when test="${result eq 'user'}">
 							<a href="cs_update.do?id=${vo.bid }"><button type="button" class="btn_style">수정</button></a>
+							<a href="cs.do"><button type="button" class="btn_style">목록</button></a>
+							<a href="cs_delete.do?id=${vo.bid }"><button type="button" name="r_delete" id="rd1"class="btn_style">삭제</button></a>
+						</c:when>
+						<c:when test="${result eq 'admin'}">
 							<a href="cs.do"><button type="button" class="btn_style">목록</button></a>
 							<a href="cs_delete.do?id=${vo.bid }"><button type="button" name="r_delete" id="rd1"class="btn_style">삭제</button></a>
 						</c:when>

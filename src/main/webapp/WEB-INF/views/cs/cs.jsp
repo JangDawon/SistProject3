@@ -61,6 +61,7 @@
 		
 		$(document).on("click",".cs_hide_btn",function(){
 			var now = $(this).attr("id");
+			var writer = $(this).attr("name");
 			var pw_id = "#cs_hide_"+now;
 			var pass = "#cs_pw_"+now;
 			
@@ -72,8 +73,12 @@
 				alert("비밀번호가 일치하지 않습니다 :( ");
 				$(pw_id).focus();
 				return false;
+			}else if($("#login_uemail").val() != writer && $("#login_uemail").val() != 'admin'){
+				alert("본인이 작성한 게시물이 맞는지 확인해주세요 :( ");
+				$(pw_id).focus();
+				return false;
 			}else{
-				location.href="http://localhost:9000/sistproject3/cs_content.do?id="+now+"&uemail="+$("#uemail").val();
+				location.href="http://localhost:9000/sistproject3/cs_content.do?id="+now+"&uemail="+$("#login_uemail").val();
 			}
 		});
 				
@@ -113,7 +118,7 @@
 							output += '<span class="cs_hide_title"><span class="red">*</span>비밀번호</span>';
 							output += '<input type="password" id="cs_hide_' + jdata.jlist[i].bid + '" class="cs_hide_pw" placeholder="비밀번호를 입력해주세요:)">';
 							output += '<input type="hidden" id="cs_pw_' + jdata.jlist[i].bid + '" value="' + jdata.jlist[i].bpass +'">';
-							output += '<button type="button" class="cs_hide_btn" id="'+ jdata.jlist[i].bid +'">확인</button>';
+							output += '<button type="button" class="cs_hide_btn" name="'+ jdata.jlist[i].uemail +'" id="'+ jdata.jlist[i].bid +'">확인</button>';
 							output += '</div>';
 							output += '</td>';
 							output += '</tr>';
@@ -164,7 +169,7 @@
 	<div class="jihye_content">
 	<!-- content -->
 	<h2 class="txt">공지사항 및 1:1문의</h2>
-	<input type="hidden" value="${sessionScope.svo.uemail}" id="uemail">
+	<input type="hidden" value="${sessionScope.svo.uemail}" id="login_uemail">
 	<div id="cs_search">
 		<select id="sname">
 			<option value="all">전체</option>

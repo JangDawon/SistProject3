@@ -67,7 +67,6 @@ public class BoardServiceImpl implements BoardService {
 			jobj.addProperty("bsecret", vo.getBsecret());
 			jobj.addProperty("rcount", boardDAO.getReplyCount(vo.getBid()));
 			
-			
 			jarray.add(jobj);
 		}
 		
@@ -166,7 +165,9 @@ public class BoardServiceImpl implements BoardService {
 		boardDAO.getUpdateHits(id);
 		
 		if(vo.getUemail().equals(uemail)) {
-			result = "ok";
+			result = "user";
+		}else if(uemail.equals("admin")){
+			result = "admin";
 		}else {
 			result = "no";
 		}
