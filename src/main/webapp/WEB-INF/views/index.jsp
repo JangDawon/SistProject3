@@ -75,87 +75,82 @@
 		
 		<section id="ranking" class="indexpage_section">
 			<div class="ui_title">
-	                <a href="" class="ui_title__txt">
-	                    <span>인기작품</span>
-	                </a>
-	            </div>
-		        <div class="outer_frame">
-		        	<div class="ui_grid_cols5">
-		        		<c:forEach var="vo" items="${list2}">
-		        		<div class="best_prod">
-							<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
+                <a href="" class="ui_title__txt">
+                    <span>인기작품</span>
+                </a>
+            </div>
+	        <section class="product_content">
+        		<c:forEach var="vo" items="${list2}">
+        		<div class="best_prod">
+					<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
+						<div>
+							<div class="best_prod_img">
 								<div>
-									<div class="best_prod_img">
-										<div>
-											<button class="favorite_btn">
-												<img src="http://localhost:9000/sistproject3/images/favorite.png">
-											</button>
-										</div>
-										<div>
-											<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">
-										</div>
-									</div>
-									<div class="best_prod_info">
-										<div class="prod_info_name">${vo.sname }</div>
-										<div class="prod_info_title">${vo.ptitle }</div>
-									</div>
-									<div class="best_prod_info_review">
-										<div class="rv">
-											<img src="http://localhost:9000/sistproject3/images/star2.png">
-											<span> 4.5</span>
-										</div>
-										<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
+									<button class="favorite_btn">
+										<img src="http://localhost:9000/sistproject3/images/favorite.png">
+									</button>
 								</div>
+								<div>
+									<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">
 								</div>
-							</a>
+							</div>
+							<div class="best_prod_info">
+								<div class="prod_info_name">${vo.sname }</div>
+								<div class="prod_info_title">${vo.ptitle }</div>
+							</div>
+							<div class="best_prod_info_review">
+								<div class="rv">
+									<img src="http://localhost:9000/sistproject3/images/star2.png">
+									<span> 4.5</span>
+								</div>
+								<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
 						</div>
-						</c:forEach>
-					</div>
+						</div>
+					</a>
 				</div>
-				 <a href="http://localhost:9000/sistproject3/product_best.do" class="ui_btn-large">인기작품  더보기</a>
+				</c:forEach>
+			</section>
+			<a href="http://localhost:9000/sistproject3/product_best.do" class="ui_btn-large">인기작품  더보기</a>
 		</section>	
 		
 		<section id="new_product" class="indexpage_section">
 			<div class="ui_title">
-	                <a href="" class="ui_title__txt">
-	                    <span>최신작품</span>
-	                </a>
-	            </div>
-		        <div class="outer_frame">
-		        	<div class="ui_grid_cols5">
-		        		<c:forEach var="vo" items="${list1}">
-		        		<div class="new_prod">
-							<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
+                <a href="" class="ui_title__txt">
+                    <span>최신작품</span>
+                </a>
+            </div>
+		    <section class="product_content">
+        		<c:forEach var="vo" items="${list1}">
+        		<div class="new_prod">
+					<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
+						<div>
+							<div class="new_prod_img">
 								<div>
-									<div class="new_prod_img">
-										<div>
-											<button class="favorite_btn">
-												<img src="http://localhost:9000/sistproject3/images/favorite.png">
-											</button>
-										</div>
-										<div>
-											<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">
-										</div>
-									</div>
-									<div class="new_prod_info">
-										<div class="prod_info_name">${vo.sname }</div>
-										<div class="prod_info_title">${vo.ptitle }</div>
-									</div>
-									<div class="new_prod_info_review">
-										<div class="rv">
-											<img src="http://localhost:9000/sistproject3/images/star2.png">
-											<span> 4.5</span>
-										</div>
-										<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
-									</div>
+									<button class="favorite_btn">
+										<img src="http://localhost:9000/sistproject3/images/favorite.png">
+									</button>
 								</div>
-							</a>
+								<div>
+									<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">
+								</div>
+							</div>
+							<div class="new_prod_info">
+								<div class="prod_info_name">${vo.sname }</div>
+								<div class="prod_info_title">${vo.ptitle }</div>
+							</div>
+							<div class="new_prod_info_review">
+								<div class="rv">
+									<img src="http://localhost:9000/sistproject3/images/star2.png">
+									<span> 4.5</span>
+								</div>
+								<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
+							</div>
 						</div>
-						</c:forEach>
-					</div>
+					</a>
 				</div>
-				 <a href="http://localhost:9000/sistproject3/product_new.do" class="ui_btn-large">최신작품  더보기</a>
-		
+				</c:forEach>
+				<a href="http://localhost:9000/sistproject3/product_new.do" class="ui_btn-large">최신작품  더보기</a>
+			</section>
 		</section>	
 		
 		<section id="popular_artist" class="indexpage_section">
