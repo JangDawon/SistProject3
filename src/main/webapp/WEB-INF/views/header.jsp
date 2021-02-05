@@ -72,6 +72,5 @@
          </div>
       </nav>
    </header>
->>>>>>> branch 'master' of https://github.com/jihye0526/SistProject3.git
 </body>
 </html>

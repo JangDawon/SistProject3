@@ -1,6 +1,8 @@
 package com.project3.service;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -94,6 +96,31 @@ public class MemberServiceImpl {
       
       return mv;
    }
+   
+   public ModelAndView getResultUpdate(Object vo) {
+		ModelAndView mv = new ModelAndView();
+		IdusSessionVO svo = (IdusSessionVO) vo;
+		boolean result = false;
+		if(svo.getFile1().getSize()!=0) {
+			UUID uuid = UUID.randomUUID();
+			svo.setPfile(svo.getFile1().getOriginalFilename());
+			svo.setPsfile(uuid+"_"+svo.getFile1().getOriginalFilename());
+		}
+		result = memberDAO.getUpdate(svo);
+		if(result) {
+			File file = new File(svo.getSavepath()+svo.getPsfile());
+			try {
+				svo.getFile1().transferTo(file);
+			} catch (Exception e) {
+					e.printStackTrace();
+			}
+			//mv.addObject("vo",svo);
+			mv.setViewName("redirect:/my_info.do");
+		}else {
+			
+		}
+		return mv;
+	}
    
    /**
     * 회원 삭제
