@@ -1015,7 +1015,6 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
   /** 작가 홈, 작품 **/
    div.artist_main {
       margin-left:190px;
-      border:1px solid red;
    }
    div.artist_main>img {
       width:99.5%;
