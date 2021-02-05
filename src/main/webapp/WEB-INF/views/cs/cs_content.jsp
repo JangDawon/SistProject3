@@ -131,19 +131,14 @@
 	<section id="cs_content">
 		<table class="cs_table" id="cs_content_table">
 			<tr>
-				<td colspan="6">${vo.btitle }</td>
-			</tr>
-			<tr>
-				<th>작성자</th> 
-				<td>${vo.uname }</td>
-				<th>작성일</th> 
-				<td>${vo.bdate }</td>
-				<th>조회수</th>
-				<td>${vo.bhits+1 }</td>
+				<th colspan="4" id="cs_title"><c:if test="${vo.uemail eq 'admin' }"><span class="orange">[공지사항] </span></c:if>${vo.btitle }</th>
+				<td colspan="2" id="cs_title_small">
+				<span class="orange">작성자 : </span>${vo.uname } | <span class="orange">작성일 : </span> ${vo.bdate } | <span class="orange">조회수 : </span> ${vo.bhits+1 }
+				</td>
 			</tr>
 			<tr>
 				<td colspan="6" id="content">
-					${vo.bcontent }
+					<div id="bcontent">${vo.bcontent }</div>
 					<c:if test="${vo.bsfile ne null }">	
 						<br>
 						<img src="http://localhost:9000/sistproject3/resources/upload/${vo.bsfile }" style="width:300px; height:300px;">
