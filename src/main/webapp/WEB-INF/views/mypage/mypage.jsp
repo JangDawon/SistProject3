@@ -18,7 +18,6 @@
 	
 
 	<div class="mypage_content">
-	<input type="hidden" name="uemail" value="${uemail}">
 		<!-- aside -->
 		<jsp:include page="mypage_aside.jsp"></jsp:include>
 				

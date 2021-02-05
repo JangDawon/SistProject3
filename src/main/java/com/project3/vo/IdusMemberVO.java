@@ -4,13 +4,33 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class IdusMemberVO {
 	CommonsMultipartFile file1;
-	String uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile, udate,savepath;
+	String uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile, udate,savepath ;
+	String[]	agree;
+	String agree_list;
 	int rno;
 	public CommonsMultipartFile getFile1() {
 		return file1;
 	}
 	public void setFile1(CommonsMultipartFile file1) {
 		this.file1 = file1;
+	}
+	public String getAgree_list() {
+		String str = "";
+		if(agree!=null) {
+			str = String.join(",", agree);
+		}else {
+			str = agree_list;
+		}
+		return str;
+	}
+	public void setAgree_list(String agree_list) {
+		this.agree_list = agree_list;
+	}
+	public String[] getAgree() {
+		return agree;
+	}
+	public void setAgree(String[] agree) {
+		this.agree = agree;
 	}
 	public String getUemail() {
 		return uemail;

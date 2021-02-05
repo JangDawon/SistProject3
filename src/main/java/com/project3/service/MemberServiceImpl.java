@@ -1,8 +1,8 @@
 package com.project3.service;
 
 import java.io.File;
-import java.util.UUID;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -35,18 +35,16 @@ public class MemberServiceImpl {
 	}
 	
 	/**
-<<<<<<< HEAD
 	 * ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
-=======
-	 * ·Î±×ÀÎ °á°ú!
->>>>>>> branch 'master' of https://github.com/jihye0526/SistProject3
 	 */
 	public ModelAndView getResultLogin(IdusMemberVO vo, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		System.out.println(vo.getUemail()+"service");
 		IdusSessionVO svo = memberDAO.getLogin(vo);
 		
 		if(svo != null) {
 			session.setAttribute("svo", svo);
+			session.setAttribute("email", svo.getUemail());
 			mv.addObject("vo", vo);
 			mv.setViewName("index"); 			
 		}else {
@@ -56,32 +54,26 @@ public class MemberServiceImpl {
 		
 		return mv;
 	}
-	public ModelAndView getContent(String uemail) {
-		ModelAndView mv = new ModelAndView();
-		IdusMemberVO vo = memberDAO.getContent(uemail);
-		mv.addObject("vo", vo);
-		mv.setViewName("/mypage/my_info");
-		
-		return mv;
-	}
+
 	public ModelAndView getResultUpdate(Object vo) {
 		ModelAndView mv = new ModelAndView();
-		IdusMemberVO mvo = (IdusMemberVO) vo;
+		IdusSessionVO svo = (IdusSessionVO) vo;
 		boolean result = false;
-		if(mvo.getFile1().getSize()!=0) {
+		if(svo.getFile1().getSize()!=0) {
 			UUID uuid = UUID.randomUUID();
-			mvo.setPfile(mvo.getFile1().getOriginalFilename());
-			mvo.setPsfile(uuid+"_"+mvo.getFile1().getOriginalFilename());
+			svo.setPfile(svo.getFile1().getOriginalFilename());
+			svo.setPsfile(uuid+"_"+svo.getFile1().getOriginalFilename());
 		}
-		result = memberDAO.getUpdate(mvo);
+		result = memberDAO.getUpdate(svo);
 		if(result) {
-			File file = new File(mvo.getSavepath()+mvo.getPsfile());
+			File file = new File(svo.getSavepath()+svo.getPsfile());
 			try {
-				mvo.getFile1().transferTo(file);
+				svo.getFile1().transferTo(file);
 			} catch (Exception e) {
 					e.printStackTrace();
 			}
-			mv.setViewName("redirect:/mypage.do");
+			//mv.addObject("vo",svo);
+			mv.setViewName("redirect:/my_info.do");
 		}else {
 			
 		}
@@ -163,6 +155,13 @@ public class MemberServiceImpl {
 		ArrayList<IdusMemberVO> list = memberDAO.getLoginCheck(hp);
 		mv.addObject("list", list);
 		mv.setViewName("/login/login_check_result");
+		return mv;
+	}
+	public ModelAndView getContent(String email) {
+		ModelAndView mv = new ModelAndView();
+		IdusMemberVO vo = memberDAO.getContent(email);
+		mv.addObject("vo",vo);
+		mv.setViewName("/mypage/my_info");
 		return mv;
 	}
 }

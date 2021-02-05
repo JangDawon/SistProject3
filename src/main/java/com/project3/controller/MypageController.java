@@ -1,6 +1,7 @@
 package com.project3.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.service.MemberServiceImpl;
 import com.project3.service.ReviewServiceImpl;
-import com.project3.vo.IdusMemberVO;
 import com.project3.vo.IdusReviewVO;
+import com.project3.vo.IdusSessionVO;
 
 @Controller
 public class MypageController {
@@ -49,8 +50,9 @@ public class MypageController {
 	}
 
 	@RequestMapping(value = "/my_info.do", method = RequestMethod.GET)
-	public ModelAndView my_info(String uemail) {
-		return memberService.getContent(uemail);
+	public ModelAndView my_info(HttpSession session) {
+		String email = (String)session.getAttribute("email");
+		return memberService.getContent(email);
 	}
 
 	@RequestMapping(value = "/my_order.do", method = RequestMethod.GET)
@@ -80,7 +82,7 @@ public class MypageController {
 		return (ModelAndView)reviewService.getResultWrite(vo);
 	}
 	@RequestMapping(value="/myinfo_update_proc.do", method=RequestMethod.POST)
-	public ModelAndView board_update_proc(IdusMemberVO vo, HttpServletRequest request) {
+	public ModelAndView board_update_proc(IdusSessionVO vo, HttpServletRequest request) {
 		String path1 = request.getSession().getServletContext().getRealPath("/");
 		String path2 = "\\resources\\upload\\";
 		vo.setSavepath(path1+path2);

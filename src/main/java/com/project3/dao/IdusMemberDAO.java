@@ -1,3 +1,4 @@
+
 package com.project3.dao;
 
 import java.util.ArrayList;
@@ -29,11 +30,8 @@ public class IdusMemberDAO {
 		return sqlSession.selectOne(namespace + ".login", vo);
 	}
 
-	public IdusMemberVO getContent(String uemail) {
-		return sqlSession.selectOne(namespace + ".content", uemail);
-	}
 
-	public boolean getUpdate(IdusMemberVO vo) {
+	public boolean getUpdate(IdusSessionVO vo) {
 		boolean result = false;
 		int value = sqlSession.update(namespace + ".update", vo);
 		if (value != 0) {
@@ -73,5 +71,8 @@ public class IdusMemberDAO {
 
 		List<IdusMemberVO> list = sqlSession.selectList(namespace + ".checklist", hp);
 		return (ArrayList<IdusMemberVO>) list;
+	}
+	public IdusMemberVO getContent(String email) {
+		return sqlSession.selectOne(namespace+".content",email);
 	}
 }
