@@ -257,6 +257,8 @@ public class BoardServiceImpl implements BoardService {
 			
 		}
 		
+		jdata.addProperty("rcount", boardDAO.getReplyCount(bid));
+		
 		jdata.add("jlist", jarray);
 		return gson.toJson(jdata);
 	}

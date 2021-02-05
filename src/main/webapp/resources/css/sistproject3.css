@@ -433,16 +433,16 @@ table#cs_update_table span#bfile_label {display:inline-block; width:200px; margi
 table#cs_content_table {margin-bottom:150px; width:800px;}
 table#cs_content_table tr {height:45px;}
 table#cs_content_table th {color:#F87E35; font-size:17px; text-indent:0px;}
-table#cs_content_table tr:nth-child(2) {background-color:#F5F5F5; }
-table#cs_content_table tr:nth-child(2) td div#bcontent{height: 280px; width: 750px; text-align:left; margin: auto;}
+table#cs_content_table tr.cs_content_second_tr {background-color:#F5F5F5;}
+table#cs_content_table tr:nth-child(2) td div#bcontent{padding:20px 0px 20px 0px; width: 750px; text-align:left; margin: auto;}
 table#cs_content_table th, table#cs_content_table td{border:none;}
 table#cs_content_table th#cs_title {text-align:left; text-indent:10px; color:#333;}
 table#cs_content_table td#cs_title_small {font-size:12px; color:gray; font-weight:bold; text-align:right; padding-top:20px;}
-table#cs_content_table td#content {height:330px;}
+table#cs_content_table tr.cs_content_btnlist {height:100px;}
 /**
 * 	CS게시판 : 댓글 CSS
 */
-table#cs_content_table tr:last-child div#reply_form{margin:20px 0px 100px 0px;}
+table#cs_content_table tr:last-child div#reply_form{margin:20px 0px 100px -30px; padding-top:20px;}
 table#cs_content_table #user_img {width:80px; height:80px; float:left; margin:13px 20px 0px 60px; border-radius:50%;}
 table#cs_content_table textarea {width:500px; height:100px; border-radius:4px; float:left; margin-bottom:20px;}
 table#cs_content_table tr:last-child button#reply_write_btn {margin-left:-20px; width:55px; height:32px; font-size:14px; margin-top:30px;}
@@ -456,6 +456,8 @@ table#cs_content_table tr:last-child td table {width:800px; border-collapse:coll
 #cs_reply_table div.rc {background-color:#f5f5f5; border-radius:10px; padding:20px 0px 20px 10px; text-align:left; width:750px; font-size:15px;  white-space:normal; table-layout:fixed; word-break:break-all; }
 #board_content table#cs_reply_table, #board_content table#cs_reply_table th, #board_content table#cs_reply_table td {margin:20px;}
 #cs_reply_table textarea {width:450px;}
+#cs_reply_table tr.reply_total_count {border-bottom:2px solid #F87E35;}
+#cs_reply_table td#reply_total_count {font-size:16px; padding:0px 0px 10px 0px; text-align:left; text-indent:10px; color:#333; font-weight:bold;}
 div#here {clear:both;}
 
 /**

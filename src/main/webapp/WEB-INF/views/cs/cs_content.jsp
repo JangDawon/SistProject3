@@ -21,7 +21,7 @@
 				return false;
 			}else{
 				$.ajax({
-					url:"cs_reply_write.do?uemail=jihye&uname=관리자&bid=${vo.bid}&rcontent=" + $("#r_content").val() + "&rfile=n&rsfile=n",
+					url:"cs_reply_write.do?uemail=${sessionScope.svo.uemail}&uname=${sessionScope.svo.uname}&bid=${vo.bid}&rcontent=" + $("#r_content").val() + "&rfile=n&rsfile=n",
 					success:function(result){
 						if(result == 1) {
 							alert("작성이 완료되었습니다:) ");
@@ -93,7 +93,7 @@
 					
 					var output = "";
 					output += "<table class='cs_reply_table' id='cs_reply_table'>";
-					
+					output += "<tr class='reply_total_count'><td colspan='6' id='reply_total_count'>댓글 " + jdata.rcount +"개</td></tr>";
 					for(var i in jdata.jlist){
 						output += "<tr>";
 						output += "<td><img src='http://localhost:9000/sistproject3/images/logo.jpg' style='height:60px; width:60px;  border-radius:50%' class='r_img'></td>";
@@ -136,16 +136,18 @@
 				<span class="orange">작성자 : </span>${vo.uname } | <span class="orange">작성일 : </span> ${vo.bdate } | <span class="orange">조회수 : </span> ${vo.bhits+1 }
 				</td>
 			</tr>
-			<tr>
-				<td colspan="6" id="content">
-					<div id="bcontent">${vo.bcontent }</div>
+			<tr class="cs_content_second_tr">
+				<td colspan="6" class="cs_content_second_tr"">
+					<div id="bcontent">
+					${vo.bcontent }
 					<c:if test="${vo.bsfile ne null }">	
 						<br>
-						<img src="http://localhost:9000/sistproject3/resources/upload/${vo.bsfile }" style="width:300px; height:300px;">
+						<img src="http://localhost:9000/sistproject3/resources/upload/${vo.bsfile }" style="width:200px; height:200px; padding-top:20px;">
 					</c:if>
+					</div>
 				</td>
 			</tr>
-			<tr>
+			<tr class="cs_content_btnlist">
 				<td colspan="6">	
 					<c:choose>
 						<c:when test="${result eq 'user'}">
@@ -161,8 +163,6 @@
 							<a href="cs.do"><button type="button" class="btn_style">목록</button></a>
 						</c:otherwise>
 					</c:choose>
-					
-					
 				</td>
 			</tr>
 			<tr>
