@@ -45,4 +45,10 @@ public class CartController {
 	public String cart() {
 		return "/cart/cart";
 	}
+	
+	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
+	public String purchase() {
+		return "/cart/purchase";
+	}
+	
 }
