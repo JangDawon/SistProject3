@@ -45,5 +45,14 @@ public class CartController {
 		return mv;
 	}
 
+	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
+	public String cart() {
+		return "/cart/cart";
+	}
+	
+	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
+	public String purchase() {
+		return "/cart/purchase";
+	}
 	
 }

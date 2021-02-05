@@ -15,7 +15,8 @@ public class IdusProductDAO extends DBConn{
 	private SqlSessionTemplate sqlSession;
 	 
 	private static String namespace = "mapper.product";
-
+	
+	
 	/**
 	 * 상품 전체 수
 	 */
