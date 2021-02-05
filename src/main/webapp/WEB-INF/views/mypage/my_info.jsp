@@ -11,18 +11,6 @@
 <link rel="stylesheet"
 	href="http://localhost:9000/sistproject3/css/woohyun.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
-<script>
-	$(document).ready(function() {
-		var splitAgree = $("#checkedAgree").val().split(",");
-		$("input[name=agree]").each(function(){
-			for (var i = 0; i < splitAgree.length; i++) {
-				if ($(this).val() == splitAgree[i]) {
-					$(this).attr('checked', true);
-				}
-			}
-		});
-	});
-</script>
 <style>
 table.member_info tr:first-child td img {
 	border-radius: 50%;
@@ -132,7 +120,6 @@ table.member_info tr td span.user_email {
 				<tr>
 					<td class="grey">알림설정</td>
 					<td class="alram">파격할인/이벤트/쿠폰 알림 등의 정보를 받아보시겠습니까?<br> 
-						<input type="hidden" id="checkedAgree" value="${vo.agree_list }">
 						<input type="checkbox" name="agree" value="SMS"><span>SMS</span>
 						<input type="checkbox" name="agree" value="이메일"><span>이메일</span>
 					</td>

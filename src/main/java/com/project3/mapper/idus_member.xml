@@ -24,7 +24,7 @@
 
 	<update id="update" parameterType="com.project3.vo.IdusSessionVO">
 		update idus_member
-		set uname = #{uname}, cp =#{cp}, addr1=#{addr1},addr2 =#{addr2},addr3 = #{addr3}, agree_list = #{agree_list}
+		set uname = #{uname}, cp =#{cp}, addr1=#{addr1},addr2 =#{addr2},addr3 = #{addr3}
 		<if test="pfile !=null">
 			,pfile =#{pfile},psfile=#{psfile}
 		</if>
@@ -75,6 +75,6 @@
 	</select>
 	
 	<select id = "content" parameterType = "java.lang.String" resultType = "com.project3.vo.IdusMemberVO">
-		select uname,uemail,addr1,addr2,addr3,cp,aggrsms,aggremail,pfile,psfile, agree_list from idus_member where uemail = #{email} 
+		select uname,uemail,addr1,addr2,addr3,cp,aggrsms,aggremail,pfile,psfile from idus_member where uemail = #{email} 
 	</select>
 </mapper>
