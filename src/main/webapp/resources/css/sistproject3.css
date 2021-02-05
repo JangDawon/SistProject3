@@ -537,6 +537,7 @@ table#admin_review_content_table td>div{width:500px; margin:auto;}
 table#admin_review_content_table tr:last-child td{border:1px solid white;}
 table#admin_review_content_table tr:last-child td button{margin-top:80px;}
 table#admin_review_content_table button {padding:7px 15px; margin:0px 5px 0px 5px;}
+table#admin_review_content_table th {color:#F87E35;}
 
 /**
 *   상품 관리 : product_mng_list.jsp (지혜)
@@ -591,6 +592,7 @@ table#admin_product_content tr:last-child td{text-align:center; border:none; pad
 table#admin_product_content th:first-child {width:130px; }
 table#admin_product_content td:nth-child(2) {width:300px; }
 table#admin_product_content th:nth-child(3) {width:130px; }
+table#admin_product_content th {color:#F87E35; }
 table#admin_product_content button {padding:7px 15px; margin:0px 5px 0px 5px;}
    
 /**

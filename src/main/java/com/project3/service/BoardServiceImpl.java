@@ -252,10 +252,13 @@ public class BoardServiceImpl implements BoardService {
 			jobj.addProperty("rfile", vo.getRfile());
 			jobj.addProperty("rsfile", vo.getRsfile());
 			jobj.addProperty("rcontent", vo.getRcontent());
-			if(vo.getUemail().equals(login_uemail)) {
-				jobj.addProperty("rresult", "ok");
-			}else {
-				jobj.addProperty("rresult", "no");
+			
+			if(login_uemail != null) {
+				if(vo.getUemail().equals(login_uemail)) {
+					jobj.addProperty("rresult", "ok");
+				}else {
+					jobj.addProperty("rresult", "no");
+				}
 			}
 			
 			jarray.add(jobj);
