@@ -87,25 +87,33 @@
 		
 		function reply_list_ajax(){
 			$.ajax({
-				url:"cs_reply_list.do?bid=${vo.bid}",
+				url:"cs_reply_list.do?bid=${vo.bid}&login_uemail=${sessionScope.svo.uemail}",
 				success:function(result){
 					var jdata = JSON.parse(result);
 					
 					var output = "";
 					output += "<table class='cs_reply_table' id='cs_reply_table'>";
-					output += "<tr class='reply_total_count'><td colspan='6' id='reply_total_count'>댓글 " + jdata.rcount +"개</td></tr>";
+					output += "<tr class='reply_total_count'><td colspan='7' id='reply_total_count'>댓글 " + jdata.rcount +"개</td></tr>";
 					for(var i in jdata.jlist){
+						output += "<div id='cs_rlist'>"
 						output += "<tr>";
 						output += "<td><img src='http://localhost:9000/sistproject3/images/logo.jpg' style='height:60px; width:60px;  border-radius:50%' class='r_img'></td>";
 						output += "<td>" + jdata.jlist[i].uname + "</td>";
 						output += "<td></td>";
-						output += "<td><button type='button' name='r_update' class='r_update_btn' id='r_update_btn_"+ jdata.jlist[i].rid +"' value='"+ jdata.jlist[i].rid +"'>수정</button></td>";
-						output += "<td><button type='button' name='r_delete' class='r_delete_btn id='r_delete_btn_"+ jdata.jlist[i].rid +"' value='"+ jdata.jlist[i].rid +"'>삭제</button></td>"
+						if(jdata.jlist[i].rresult == 'ok'){
+							output += "<td><button type='button' name='r_update' class='r_update_btn' id='r_update_btn_"+ jdata.jlist[i].rid +"' value='"+ jdata.jlist[i].rid +"'>수정</button></td>";
+							output += "<td><button type='button' name='r_delete' class='r_delete_btn id='r_delete_btn_"+ jdata.jlist[i].rid +"' value='"+ jdata.jlist[i].rid +"'>삭제</button></td>"
+						}else{
+							output += "<td></td>";
+							output += "<td></td>";
+						}
 						output += "<td>" + jdata.jlist[i].rdate + "</td>";
 						output += "</tr>";
 						output += "<tr>";
 						output += "<td class='rc_here_"+ jdata.jlist[i].rid +"' colspan='6'><div class='rc' id='rc_"+ jdata.jlist[i].rid +"'>" + jdata.jlist[i].rcontent + "</div></td>";
+						output += "<td></td>";
 						output += "</tr>";
+						output += "</div>";
 					}
 					
 					output += "</table>";
@@ -124,7 +132,7 @@
 <body>
 	<!-- header -->
 	<jsp:include page="../header.jsp"></jsp:include>
-
+	
 	<div class="jihye_content">
 	<!-- content -->
 	<h2 class="txt">공지사항 및 1:1문의</h2>
@@ -166,17 +174,16 @@
 				</td>
 			</tr>
 			<tr>
-				<c:if test="${reply_ok eq 'ok' }">
 				<td colspan="6" id="last">
 					<div id="here"></div>
+					<c:if test="${reply_ok eq 'ok' }">
 					<div id="reply_form">
 					<img src="http://localhost:9000/sistproject3/images/logo.jpg" id="user_img">
 					<textarea id="r_content" placeholder="댓글을 남겨주세요.(200자)"></textarea>
 					<button type="button" id="reply_write_btn" class="btn_style">작성</button>
 					</div>
-					
+					</c:if>
 				</td>
-				</c:if>
 			</tr>
 		</table>
 	</section>

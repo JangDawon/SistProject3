@@ -30,11 +30,11 @@
 				<choose>
 					<when test="bsecret != null">
 						, #{bfile}, #{bsfile}, #{bpass}, 
-						sysdate, #{bhits}, #{uemail}, #{uname}, #{bsecret},'')
+						sysdate, #{bhits}, #{uemail}, #{uname}, #{bsecret}
 					</when>
 					<otherwise>
 						, #{bfile}, #{bsfile}, '', 
-						sysdate, #{bhits}, #{uemail}, #{uname}, '','')
+						sysdate, #{bhits}, #{uemail}, #{uname}, ''
 					</otherwise>
 				</choose>
 			</when>
@@ -42,15 +42,25 @@
 				<choose>
 					<when test="bsecret != null">
 						, '', '', #{bpass}, 
-						sysdate, #{bhits}, #{uemail}, #{uname}, #{bsecret},'')
+						sysdate, #{bhits}, #{uemail}, #{uname}, #{bsecret}
 					</when>
 					<otherwise>
 						, '', '', '', 
-						sysdate, #{bhits}, #{uemail}, #{uname}, '','')
+						sysdate, #{bhits}, #{uemail}, #{uname}, ''
 					</otherwise>
 				</choose>
 			</otherwise>
 		</choose>
+		
+		<choose>
+		<when test="uemail == 'admin'">
+			, 1)
+		</when>
+		<otherwise>
+			,'')
+		</otherwise>
+		</choose>
+			
 	</insert>
 	
 	<select id="content" parameterType="java.lang.String" resultType="com.project3.vo.IdusBoardVO">

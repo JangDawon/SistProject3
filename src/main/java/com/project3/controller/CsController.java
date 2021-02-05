@@ -116,8 +116,8 @@ public class CsController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/cs_reply_list.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
-	public String cs_reply_list(String bid) {
-		return boardService.getReplyList(bid);
+	public String cs_reply_list(String bid, String login_uemail) {
+		return boardService.getReplyList(bid, login_uemail);
 	}
 	
 	@ResponseBody

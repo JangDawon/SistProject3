@@ -234,7 +234,7 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.getReplyWrite(rvo);
 	}
 	
-	public String getReplyList(String bid) {
+	public String getReplyList(String bid, String login_uemail) {
 		ArrayList<IdusReplyVO> list = boardDAO.getReplyList(bid);
 		
 		JsonArray jarray = new JsonArray();
@@ -252,6 +252,11 @@ public class BoardServiceImpl implements BoardService {
 			jobj.addProperty("rfile", vo.getRfile());
 			jobj.addProperty("rsfile", vo.getRsfile());
 			jobj.addProperty("rcontent", vo.getRcontent());
+			if(vo.getUemail().equals(login_uemail)) {
+				jobj.addProperty("rresult", "ok");
+			}else {
+				jobj.addProperty("rresult", "no");
+			}
 			
 			jarray.add(jobj);
 			
