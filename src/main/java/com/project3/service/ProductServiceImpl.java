@@ -164,7 +164,6 @@ public class ProductServiceImpl implements BoardService{
 			pvo.setPfile3(pvo.getFile3().getOriginalFilename());
 			pvo.setPsfile3(uuid + "_" + pvo.getFile3().getOriginalFilename());
 		}
-		System.out.println(pvo.getPsfile1());
 		int count = productDAO.getUpdate(pvo);
 		if(count == 1) { 
 			try {

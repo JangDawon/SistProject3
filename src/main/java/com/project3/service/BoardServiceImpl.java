@@ -188,7 +188,6 @@ public class BoardServiceImpl implements BoardService {
 		mv.addObject("reply_ok", reply_ok);
 		mv.addObject("psfile", memberDAO.getPsfile(uemail));
 		mv.setViewName("/cs/cs_content");
-		System.out.println("psfile "+memberDAO.getPsfile(uemail));
 		
 		return mv;
 	}
