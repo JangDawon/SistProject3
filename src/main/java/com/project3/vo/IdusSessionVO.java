@@ -1,9 +1,43 @@
 package com.project3.vo;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 public class IdusSessionVO {
 	int result;
-	String uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, udate, pfile, psfile;
-	
+	String uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, udate, pfile, psfile,savepath;
+	String[]	agree;
+	String agree_list;
+	CommonsMultipartFile file1;
+	public CommonsMultipartFile getFile1() {
+		return file1;
+	}
+	public void setFile1(CommonsMultipartFile file1) {
+		this.file1 = file1;
+	}
+	public String[] getAgree() {
+		return agree;
+	}
+	public void setAgree(String[] agree) {
+		this.agree = agree;
+	}
+	public String getAgree_list() {
+		String str = "";
+		if(agree!=null) {
+			str = String.join(",", agree);
+		}else {
+			str = agree_list;
+		}
+		return str;
+	}
+	public void setAgree_list(String agree_list) {
+		this.agree_list = agree_list;
+	}
+	public String getSavepath() {
+		return savepath;
+	}
+	public void setSavepath(String savepath) {
+		this.savepath = savepath;
+	}
 	public String getPfile() {
 		return pfile;
 	}
