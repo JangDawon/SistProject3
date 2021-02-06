@@ -93,6 +93,7 @@ create table idus_member(
 	ADDR2 varchar2(100),
 	ADDR3 varchar2(100),
 	AGGRSMS varchar2(10),
+	AGREE_LIST varchar2(20),
 	AGGREMAIL varchar2(10),
 	PFILE varchar2(100),
 	PSFILE varchar2(100),

@@ -23,8 +23,8 @@ public class CartController {
 	
 	@RequestMapping(value="/cart_order.do", method=RequestMethod.GET)
 	public String cart_order() {
-		return "cart/cart_order";
-	}
+	      return "cart/cart_order";
+	   }
 	
 	/**
 	 * 厘官备聪 昏力 贸府
@@ -50,4 +50,10 @@ public class CartController {
 	public String cart() {
 		return "/cart/cart";
 	}
+	
+	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
+	public String purchase() {
+		return "/cart/purchase";
+	}
+	
 }

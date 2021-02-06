@@ -63,7 +63,7 @@
 					<span class="board_title">비밀글</span>
 					<c:choose>
 						<c:when test="${vo.bsecret ne 'on' }">
-							<input type="checkbox" name="bsecret" id="bsecret">
+							<input type="checkbox" name="bsecret" id="bsecret" <c:if test="${sessionScope.svo.uemail eq 'admin'}"> disabled </c:if>>
 						</c:when>
 						<c:otherwise>
 							<input type="checkbox" name="bsecret" id="bsecret" checked>
@@ -74,7 +74,7 @@
 			<tr>
 				<td>
 					<span class="board_title">비밀번호</span>
-					<input type="password" name="bpass" id="bpass">
+					<input type="password" name="bpass" id="bpass" <c:if test="${sessionScope.svo.uemail eq 'admin'}"> disabled </c:if>>
 				</td>
 			</tr>
 			<tr>

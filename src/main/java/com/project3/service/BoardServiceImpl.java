@@ -65,6 +65,7 @@ public class BoardServiceImpl implements BoardService {
 			jobj.addProperty("bhits", vo.getBhits());
 			jobj.addProperty("bpass", vo.getBpass());
 			jobj.addProperty("bsecret", vo.getBsecret());
+			jobj.addProperty("rcount", boardDAO.getReplyCount(vo.getBid()));
 			
 			jarray.add(jobj);
 		}
@@ -149,14 +150,37 @@ public class BoardServiceImpl implements BoardService {
 		
 		return mv;
 	}
-
+	
 	public ModelAndView getContent(String id) {
 		ModelAndView mv = new ModelAndView();
+		return mv;
+	}
+
+	public ModelAndView getContent(String id, String uemail) {
+		ModelAndView mv = new ModelAndView();
+		String result = "";
+		String reply_ok = "";
 		
 		IdusBoardVO vo = boardDAO.getContent(id);
 		boardDAO.getUpdateHits(id);
 		
+		if(vo.getUemail().equals(uemail)) {
+			result = "user";
+		}else if(uemail.equals("admin")){
+			result = "admin";
+		}else {
+			result = "no";
+		}
+		
+		if(vo.getUemail().equals(uemail) || uemail.equals("admin")) {
+			reply_ok = "ok";
+		}else {
+			reply_ok = "no";
+		}
+		
 		mv.addObject("vo", vo);
+		mv.addObject("result", result);
+		mv.addObject("reply_ok", reply_ok);
 		mv.setViewName("/cs/cs_content");
 		
 		return mv;
@@ -210,7 +234,7 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.getReplyWrite(rvo);
 	}
 	
-	public String getReplyList(String bid) {
+	public String getReplyList(String bid, String login_uemail) {
 		ArrayList<IdusReplyVO> list = boardDAO.getReplyList(bid);
 		
 		JsonArray jarray = new JsonArray();
@@ -228,10 +252,17 @@ public class BoardServiceImpl implements BoardService {
 			jobj.addProperty("rfile", vo.getRfile());
 			jobj.addProperty("rsfile", vo.getRsfile());
 			jobj.addProperty("rcontent", vo.getRcontent());
+			if(vo.getUemail().equals(login_uemail)) {
+				jobj.addProperty("rresult", "ok");
+			}else {
+				jobj.addProperty("rresult", "no");
+			}
 			
 			jarray.add(jobj);
 			
 		}
+		
+		jdata.addProperty("rcount", boardDAO.getReplyCount(bid));
 		
 		jdata.add("jlist", jarray);
 		return gson.toJson(jdata);

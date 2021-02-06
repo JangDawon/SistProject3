@@ -63,11 +63,11 @@
 		<c:forEach var="vo" items="${list}" >
 			<tr class="cs_row">
 				<td><input type="checkbox" class="user_chk" value="${vo.uemail }"></td>
-				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">${vo.rno }</td>
-				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">${vo.uemail }</td>
-				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">${vo.uname }</td>
-				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">${vo.cp }</td>
-				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do'">${vo.udate }</td>
+				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do?uid=${vo.uemail}'">${vo.rno }</td>
+				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do?uid=${vo.uemail}'">${vo.uemail }</td>
+				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do?uid=${vo.uemail}'">${vo.uname }</td>
+				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do?uid=${vo.uemail}'">${vo.cp }</td>
+				<td onclick="location.href='http://localhost:9000/sistproject3/user_mng_content.do?uid=${vo.uemail}'">${vo.udate }</td>
 			</tr>
 		</c:forEach>
 		<tr>
