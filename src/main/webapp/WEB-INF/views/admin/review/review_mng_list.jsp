@@ -13,7 +13,7 @@
 <body id="review_mng_list" class="admin">
 	
 	<!-- header -->
-	<jsp:include page="../../header.jsp"></jsp:include>
+	<jsp:include page="../../header.jsp"><jsp:param name="psfile" value="${psfile }" /></jsp:include>
 	
 	<div class="jihye_content">
 	

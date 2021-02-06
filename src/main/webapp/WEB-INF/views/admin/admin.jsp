@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,15 @@
 	<aside class="admin_info">
 		<div class="admin_menu">
 			<div class="admin_profile">
-				<img src="http://localhost:9000/sistproject3/images/logo.jpg">
+				<c:choose>
+					<c:when test="${param.psfile ne null }">
+						<img src="http://localhost:9000/sistproject3/resources/upload/${param.psfile}">
+					</c:when>
+					<c:otherwise>
+						<img src="http://localhost:9000/sistproject3/images/logo.jpg">
+					</c:otherwise>
+				</c:choose>	
+				
 				<p>${sessionScope.svo.uname}</p>
 			</div>
 			<p class="am">Admin Menu</p>

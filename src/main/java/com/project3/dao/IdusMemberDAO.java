@@ -80,4 +80,9 @@ public class IdusMemberDAO {
 	public IdusMemberVO getUserContent(String uid) {
 		return sqlSession.selectOne(namespace+".userContent", uid);
 	}
+	
+	/** 프로필 사진 변경 후 다시 가져오기 **/
+	public String getPsfile(String uemail) {
+		return sqlSession.selectOne(namespace+".psfile", uemail);
+	}
 }

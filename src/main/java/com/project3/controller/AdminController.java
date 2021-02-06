@@ -70,8 +70,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/product_mng_regist.do", method=RequestMethod.GET)
-	public String product_mng_regist() { 
-		return "/admin/product/product_mng_regist";
+	public ModelAndView product_mng_regist() { 
+		return productService.getRegist();
 	}
 	
 	@RequestMapping(value="/product_mng_regist_proc.do", method=RequestMethod.POST)

@@ -18,7 +18,7 @@
 	<div class="jihye_content">
 	
 	<!-- aside -->
-	<jsp:include page="../admin.jsp"></jsp:include>
+	<jsp:include page="../admin.jsp"><jsp:param name="psfile" value="${psfile }" /></jsp:include>
 	
 	<a href="review_mng_list.do" class="h2_user"><h2 class="txt">리뷰 관리</h2></a>
 	<table class="cs_table" id="admin_review_content_table">
