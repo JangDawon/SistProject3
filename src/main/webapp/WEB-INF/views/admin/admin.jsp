@@ -15,7 +15,7 @@
 		<div class="admin_menu">
 			<div class="admin_profile">
 				<img src="http://localhost:9000/sistproject3/images/logo.jpg">
-				<p>관리자</p>
+				<p>${sessionScope.svo.uname}</p>
 			</div>
 			<p class="am">Admin Menu</p>
 			<nav>
