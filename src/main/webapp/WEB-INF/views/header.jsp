@@ -20,7 +20,7 @@
                <li><a href="http://localhost:9000/sistproject3/logout.do">로그아웃</a><div></div></li>
                <li><a href="http://localhost:9000/sistproject3/cs.do">고객센터</a><div></div></li>
 			   <c:if test="${sessionScope.svo.uemail eq 'admin' }">
-               <li><a href="http://localhost:9000/sistproject3/admin.do">Admin</a></li>
+               <li><a href="http://localhost:9000/sistproject3/user_mng_list.do">Admin</a></li>
                </c:if>
             </ul>
             </c:when>

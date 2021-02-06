@@ -37,7 +37,7 @@
 				<b>
 					<span>내 정보</span>
 				</b>
-				<a href="my_info.do">회원정보관리</a>
+				<a href="my_info.do?email=${sessionScope.svo.uemail}">회원정보관리</a>
 			</nav>
 		</div>
 	</aside>

@@ -100,14 +100,19 @@
 				url:"cs_search.do?sname=" + sname + "&svalue=" + svalue + "&rpage=" + rpage,
 				success:function(result){
 					var jdata = JSON.parse(result);
-					
 					//결과를 출력
 					var output = '';
 					for(var i in jdata.jlist){ 
 						if(jdata.jlist[i].bsecret == 'on'){
 							output += '<tr class="cs_row" id="cs_row1">';
 							output += '<td>' + jdata.jlist[i].rno + '</td>';
-							output += '<td> 🔑 ' + jdata.jlist[i].btitle + '<span class="orange"> ['+ jdata.jlist[i].rcount +']</span></td>';
+							
+							if($("#login_uemail").val() == 'admin'){
+								output += '<td> 🔑 ' + jdata.jlist[i].btitle + '<span class="orange"> ['+ jdata.jlist[i].rcount +']</span><span class="tomato">[비밀번호 : '+ jdata.jlist[i].bpass +']</span></td>';
+							}else{
+								output += '<td> 🔑 ' + jdata.jlist[i].btitle + '<span class="orange"> ['+ jdata.jlist[i].rcount +']</span></td>';
+							}
+							
 							output += '<td>' + jdata.jlist[i].uname + '</td>';
 							output += '<td>' + jdata.jlist[i].bdate + '</td>';
 							output += '<td>' + jdata.jlist[i].bhits + '</td>';
