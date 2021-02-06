@@ -162,6 +162,7 @@ public class BoardServiceImpl implements BoardService {
 		String reply_ok = "";
 		
 		IdusBoardVO vo = boardDAO.getContent(id);
+		vo.setBcontent(vo.getBcontent().replace("\r\n", "<br>"));
 		boardDAO.getUpdateHits(id);
 		
 		if(vo.getUemail().equals(uemail)) {
@@ -231,6 +232,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	public int getReplyWrite(IdusReplyVO rvo) {
+		rvo.setRcontent(rvo.getRcontent().replace(".",".\r\n"));
 		return boardDAO.getReplyWrite(rvo);
 	}
 	
@@ -251,7 +253,7 @@ public class BoardServiceImpl implements BoardService {
 			jobj.addProperty("rdate", vo.getRdate());
 			jobj.addProperty("rfile", vo.getRfile());
 			jobj.addProperty("rsfile", vo.getRsfile());
-			jobj.addProperty("rcontent", vo.getRcontent());
+			jobj.addProperty("rcontent", vo.getRcontent().replace("\r\n", "<br>"));
 			
 			if(login_uemail != null) {
 				if(vo.getUemail().equals(login_uemail)) {
@@ -272,7 +274,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	public int getReplyUpdate(String rid, String rcontent) {
-		return boardDAO.getReplyUpdate(rid, rcontent);
+		String re_rcontent = rcontent.replace(".",".\r\n");
+		return boardDAO.getReplyUpdate(rid, re_rcontent);
 	}
 	
 	public int getReplyDelete(String rid) {

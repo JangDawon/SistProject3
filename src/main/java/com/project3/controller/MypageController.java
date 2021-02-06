@@ -50,8 +50,8 @@ public class MypageController {
 	}
 
 	@RequestMapping(value = "/my_info.do", method = RequestMethod.GET)
-	public ModelAndView my_info(HttpSession session) {
-		String email = (String)session.getAttribute("email");
+	public ModelAndView my_info(String email) {
+		//String email = (String)session.getAttribute("email");
 		return memberService.getContent(email);
 	}
 
