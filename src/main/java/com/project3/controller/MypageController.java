@@ -22,7 +22,7 @@ public class MypageController {
 	private MemberServiceImpl memberService;
 	
 	@RequestMapping(value = "/mypage_aside.do", method = RequestMethod.GET)
-	public String mypage_aside() {
+	public String mypage_aside(HttpSession session) {
 		return "/mypage/mypage_aside";
 	}
 
@@ -50,9 +50,9 @@ public class MypageController {
 	}
 
 	@RequestMapping(value = "/my_info.do", method = RequestMethod.GET)
-	public ModelAndView my_info(String email) {
-		//String email = (String)session.getAttribute("email");
-		return memberService.getContent(email);
+	public ModelAndView my_info(HttpSession session) {
+		IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
+		return memberService.getContent(svo.getUemail());
 	}
 
 	@RequestMapping(value = "/my_order.do", method = RequestMethod.GET)

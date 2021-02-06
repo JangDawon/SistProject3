@@ -13,7 +13,7 @@
 		<div class="mypage_menu">
 			<div class="admin_profile">
 				<img src="http://localhost:9000/sistproject3/images/logo.jpg">
-				<p>홍길동님</p>
+				<p>${sessionScope.svo.uname}</p>
 			</div>
 			<p class="am">MY MENU</p>
 			<nav>
@@ -37,7 +37,7 @@
 				<b>
 					<span>내 정보</span>
 				</b>
-				<a href="my_info.do?email=${sessionScope.svo.uemail}">회원정보관리</a>
+				<a href="my_info.do">회원정보관리</a>
 			</nav>
 		</div>
 	</aside>
