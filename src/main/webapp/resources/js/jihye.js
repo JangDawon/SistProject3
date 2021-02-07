@@ -1,4 +1,21 @@
 $(document).ready(function(){
+
+	$("#product_delete_btn").click(function(){
+		var result = confirm("정말 삭제 하시겠습니까?");
+		
+		if(result){
+			$(location).attr('href', "product_mng_list_del.do?del_list="+$("#product_delete_btn").val());
+		}
+	});
+	
+
+	$("#user_delete_btn").click(function(){
+		var result = confirm("정말 탈퇴 시키시겠습니까?");
+		
+		if(result){
+			$(location).attr('href', "user_mng_list_del.do?user_list="+$("#user_delete_btn").val());
+		}
+	});
 	
 	$("#cs_write_btn").click(function(){
 		if($("#btitle").val() == ""){

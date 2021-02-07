@@ -50,8 +50,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/user_mng_content.do", method=RequestMethod.GET)
-	public String user_mng_content() {
-		return "/admin/user/user_mng_content";
+	public ModelAndView user_mng_content(String uid) {
+		return memberService.getUserContent(uid);
 	}
 	
 	@RequestMapping(value="/review_mng_list.do", method=RequestMethod.GET) 

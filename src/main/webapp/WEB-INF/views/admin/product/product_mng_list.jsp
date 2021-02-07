@@ -29,7 +29,7 @@
 		});
 		
 		jQuery("#ampaginationsm").on('am.pagination.change', function(e){
-			$(location).attr('href','http://localhost:9000/sistproject3/cs.do?rpage=' + e.page);
+			$(location).attr('href','http://localhost:9000/sistproject3/product_mng_list.do?rpage=' + e.page);
 		});
 	});
 </script>

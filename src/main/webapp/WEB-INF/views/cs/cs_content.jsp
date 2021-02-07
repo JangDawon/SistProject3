@@ -21,7 +21,7 @@
 				return false;
 			}else{
 				$.ajax({
-					url:"cs_reply_write.do?uemail=jihye&uname=관리자&bid=${vo.bid}&rcontent=" + $("#r_content").val() + "&rfile=n&rsfile=n",
+					url:"cs_reply_write.do?uemail=${sessionScope.svo.uemail}&uname=${sessionScope.svo.uname}&bid=${vo.bid}&rcontent=" + $("#r_content").val() + "&rfile=n&rsfile=n",
 					success:function(result){
 						if(result == 1) {
 							alert("작성이 완료되었습니다:) ");
@@ -87,25 +87,33 @@
 		
 		function reply_list_ajax(){
 			$.ajax({
-				url:"cs_reply_list.do?bid=${vo.bid}",
+				url:"cs_reply_list.do?bid=${vo.bid}&login_uemail=${sessionScope.svo.uemail}",
 				success:function(result){
 					var jdata = JSON.parse(result);
 					
 					var output = "";
 					output += "<table class='cs_reply_table' id='cs_reply_table'>";
-					
+					output += "<tr class='reply_total_count'><td colspan='7' id='reply_total_count'>댓글 " + jdata.rcount +"개</td></tr>";
 					for(var i in jdata.jlist){
+						output += "<div id='cs_rlist'>"
 						output += "<tr>";
 						output += "<td><img src='http://localhost:9000/sistproject3/images/logo.jpg' style='height:60px; width:60px;  border-radius:50%' class='r_img'></td>";
 						output += "<td>" + jdata.jlist[i].uname + "</td>";
 						output += "<td></td>";
-						output += "<td><button type='button' name='r_update' class='r_update_btn' id='r_update_btn_"+ jdata.jlist[i].rid +"' value='"+ jdata.jlist[i].rid +"'>수정</button></td>";
-						output += "<td><button type='button' name='r_delete' class='r_delete_btn id='r_delete_btn_"+ jdata.jlist[i].rid +"' value='"+ jdata.jlist[i].rid +"'>삭제</button></td>"
+						if(jdata.jlist[i].rresult == 'ok'){
+							output += "<td><button type='button' name='r_update' class='r_update_btn' id='r_update_btn_"+ jdata.jlist[i].rid +"' value='"+ jdata.jlist[i].rid +"'>수정</button></td>";
+							output += "<td><button type='button' name='r_delete' class='r_delete_btn id='r_delete_btn_"+ jdata.jlist[i].rid +"' value='"+ jdata.jlist[i].rid +"'>삭제</button></td>"
+						}else{
+							output += "<td></td>";
+							output += "<td></td>";
+						}
 						output += "<td>" + jdata.jlist[i].rdate + "</td>";
 						output += "</tr>";
 						output += "<tr>";
 						output += "<td class='rc_here_"+ jdata.jlist[i].rid +"' colspan='6'><div class='rc' id='rc_"+ jdata.jlist[i].rid +"'>" + jdata.jlist[i].rcontent + "</div></td>";
+						output += "<td></td>";
 						output += "</tr>";
+						output += "</div>";
 					}
 					
 					output += "</table>";
@@ -124,73 +132,57 @@
 <body>
 	<!-- header -->
 	<jsp:include page="../header.jsp"></jsp:include>
-
+	
 	<div class="jihye_content">
 	<!-- content -->
 	<h2 class="txt">공지사항 및 1:1문의</h2>
 	<section id="cs_content">
 		<table class="cs_table" id="cs_content_table">
 			<tr>
-				<td colspan="6">${vo.btitle }</td>
+				<th colspan="4" id="cs_title"><c:if test="${vo.uemail eq 'admin' }"><span class="orange">[공지사항] </span></c:if>${vo.btitle }</th>
+				<td colspan="2" id="cs_title_small">
+				<span class="orange">작성자 : </span>${vo.uname } | <span class="orange">작성일 : </span> ${vo.bdate } | <span class="orange">조회수 : </span> ${vo.bhits+1 }
+				</td>
 			</tr>
-			<tr>
-				<th>작성자</th> 
-				<td>${vo.uname }</td>
-				<th>작성일</th> 
-				<td>${vo.bdate }</td>
-				<th>조회수</th>
-				<td>${vo.bhits+1 }</td>
-			</tr>
-			<tr>
-				<td colspan="6" id="content">
+			<tr class="cs_content_second_tr">
+				<td colspan="6" class="cs_content_second_tr"">
+					<div id="bcontent">
 					${vo.bcontent }
 					<c:if test="${vo.bsfile ne null }">	
 						<br>
-						<img src="http://localhost:9000/sistproject3/resources/upload/${vo.bsfile }" style="width:300px; height:300px;">
+						<img src="http://localhost:9000/sistproject3/resources/upload/${vo.bsfile }" style="width:200px; height:200px; padding-top:20px;">
 					</c:if>
+					</div>
 				</td>
 			</tr>
-			<tr>
-				<td colspan="6">
-					<a href="cs_update.do?id=${vo.bid }"><button type="button" class="btn_style">수정</button></a>
-					<a href="cs.do"><button type="button" class="btn_style">목록</button></a>
-					<a href="cs_delete.do?id=${vo.bid }"><button type="button" name="r_delete" id="rd1"class="btn_style">삭제</button></a>
-					<%-- <% if(vo.getUser_id().equals(user_id)){ %>
-						<a href="board_update.jsp?bid=<%= bid %>"><button type="button" class="btn_style">수정</button></a>
-					<% } %>
-					<a href="board_list.jsp"><button type="button" class="btn_style">목록</button></a>
-					<% if(vo.getUser_id().equals(user_id)){ %>
-						<a href="board_delete.jsp?bid=<%= bid %>"><button type="button" class="btn_style">삭제</button></a>
-					<% } %> --%>
+			<tr class="cs_content_btnlist">
+				<td colspan="6">	
+					<c:choose>
+						<c:when test="${result eq 'user'}">
+							<a href="cs_update.do?id=${vo.bid }"><button type="button" class="btn_style">수정</button></a>
+							<a href="cs.do"><button type="button" class="btn_style">목록</button></a>
+							<a href="cs_delete.do?id=${vo.bid }"><button type="button" name="r_delete" id="rd1"class="btn_style">삭제</button></a>
+						</c:when>
+						<c:when test="${result eq 'admin'}">
+							<a href="cs.do"><button type="button" class="btn_style">목록</button></a>
+							<a href="cs_delete.do?id=${vo.bid }"><button type="button" name="r_delete" id="rd1"class="btn_style">삭제</button></a>
+						</c:when>
+						<c:otherwise>
+							<a href="cs.do"><button type="button" class="btn_style">목록</button></a>
+						</c:otherwise>
+					</c:choose>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="6" id="last">
 					<div id="here"></div>
+					<c:if test="${reply_ok eq 'ok' }">
 					<div id="reply_form">
 					<img src="http://localhost:9000/sistproject3/images/logo.jpg" id="user_img">
 					<textarea id="r_content" placeholder="댓글을 남겨주세요.(200자)"></textarea>
 					<button type="button" id="reply_write_btn" class="btn_style">작성</button>
 					</div>
-					
-					<%-- <input type="hidden" id="u_id" value="<%= user_id %>">
-					<input type="hidden" id="bid" value="<%= bid %>">
-					<br>
-					<% if(pvo.getS_face_file() != null){ %>
-						<img src="http://localhost:9000/MyPrSite/upload/<%= pvo.getS_face_file() %>" id="user_img">						
-					<% }else{ %>
-						<img src="http://localhost:9000/MyPrSite/images/circle.png" id="user_img">
-					<% } %>
-					<% if(user_id != null){ %>		
-					<textarea id="r_content" placeholder="댓글을 남겨주세요.(200자)"></textarea>
-					<% }else{ %>
-					<textarea id="r_content" placeholder="로그인 이후에 작성할 수 있습니다 :)"></textarea>
-					<% } %>
-					<% if(user_id != null){ %>
-					<button type="button" id="btn_send" class="btn_style">작성</button>
-					<% } %>
-					<br>
-					<div id="here"></div> --%>
+					</c:if>
 				</td>
 			</tr>
 		</table>

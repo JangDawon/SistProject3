@@ -62,7 +62,8 @@
 		<tr>
 			<td colspan="4">
 				<a href="product_mng_update.do?id=${vo.pid}"><button type="button" class="btn_style" id="product_update">수정</button></a>
-				<a href="product_mng_list.do"><button type="button" class="btn_style" id="product_cancel">취소</button></a>
+				<a href="product_mng_list.do"><button type="button" class="btn_style" id="product_cancel">목록</button></a>
+				<button type="button" class="btn_style" id="product_delete_btn" value="${vo.pid }">삭제</button>
 			</td>
 		</tr>
 	</table>

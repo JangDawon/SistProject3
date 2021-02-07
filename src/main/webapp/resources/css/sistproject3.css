@@ -26,6 +26,7 @@
    display: flex;
     list-style: none;
     padding-right: 90px;
+    margin-left:700px;
 }
 .navbar1 ul li{
    font-size: 13px;
@@ -374,7 +375,9 @@
 **/
 button.btn_style {background-color:#F87E35; color:white; font-weight:600; border:none; border-radius:2px; padding:5px 13px;}
 button.btn_style1 {background-color:#F87E35; color:white; font-weight:600; border:none; border-radius:2px; padding:5px 13px;}
-body>div.jihye_content {width:1100px; margin:auto; margin-top:30px; margin-bottom:100px; /*border:1px solid purple;*/ }
+body>div.jihye_content {width:1100px; margin:auto; margin-top:30px; margin-bottom:100px; }
+span.orange {color:#F87E35; font-weight:800; }
+span.tomato {color:white; font-weight:800; }
 
 /**
 *   공지사항 및 1:1문의 게시판 : cs.jsp (지혜)
@@ -382,12 +385,14 @@ body>div.jihye_content {width:1100px; margin:auto; margin-top:30px; margin-botto
 h2.txt {text-align:center; margin-bottom:50px;}
 
 body#cs_board div#cs_search {text-align:center; margin:60px;}
-body#cs_board div#cs_search select {width:90px; height:35px; border-radius:6px; margin-right:5px; font-size:14px; text-indent:22px; background-color:rgb(245,245,245); border:1px solid rgb(245,245,245);}
-body#cs_board div#cs_search input {width:300px; height:32px; border-radius:6px; 
+body#cs_board div#cs_search select {width:90px; height:37px; border-radius:6px; margin-right:5px; font-size:14px; text-indent:22px; background-color:rgb(245,245,245); border:1px solid rgb(245,245,245);}
+body#cs_board div#cs_search input {width:300px; height:35px; border-radius:6px; margin-right:5px;
    text-indent:15px; font-size:15px; background-color:rgb(245,245,245); border:1px solid rgb(245,245,245);}
-body#cs_board div#cs_search button {width:70px; height:31px; border-radius:4px; font-size:14px;}
-body#cs_board button#search_btn {height:34px;}
-
+body#cs_board div#cs_search button {width:70px; height:37px; border-radius:4px; font-size:15px;}
+body#cs_board button#search_btn {height:35px;}
+table#cs_list_table th:first-child, table#cs_list_table td:first-child {text-indent:15px; }
+table#cs_list_table tr:nth-child(2) th:nth-child(2) {text-align:center; }
+table#cs_list_table th:nth-child(2), table#cs_list_table td:nth-child(2) {text-align:left; text-indent:50px;}
 table.cs_table {border-collapse:collapse; width:800px; font-size:16px; margin:auto;}
 table#cs_list_table {width:900px;}
 table.cs_table th, table.cs_table td{border-top:1px solid lightgray; border-bottom:1px solid lightgray; text-align:center; border-left:1px solid none; border-right:1px solid none;}
@@ -403,7 +408,6 @@ table#cs_list_table th:nth-child(5), table#cs_list_table td:nth-child(5) {width:
 table#cs_list_table tr.cs_row:hover {background-color:#FA9354; /* height:35px; */ color:white; font-weight:600;}
 table#cs_list_table tr {height:35px;}
 table#cs_list_table tr.cs_hide {display:none; }
-table#cs_list_table span.orange {color:#F87E35; }
 table#cs_list_table tr.cs_hide td div span {margin:0px 20px; }
 
 /**
@@ -429,25 +433,36 @@ table#cs_update_table span#bfile_label {display:inline-block; width:200px; margi
 /**
 *   CS게시판 내용 : cs_content.jsp (지혜)
 **/
-table#cs_content_table {margin-bottom:150px; }
-table#cs_content_table tr {height:45px; }
-table#cs_content_table td#content {height:330px;}
-table#cs_content_table tr:last-child td{border:1px solid white;}
-table#cs_content_table tr:last-child div#reply_form{margin:20px 0px 100px 0px;}
+table#cs_content_table {margin-bottom:150px; width:800px;}
+table#cs_content_table tr {height:45px;}
+table#cs_content_table th {color:#F87E35; font-size:17px; text-indent:0px;}
+table#cs_content_table tr.cs_content_second_tr {background-color:#F5F5F5;}
+table#cs_content_table tr:nth-child(2) td div#bcontent{padding:20px 0px 20px 0px; width: 750px; text-align:left; margin: auto;}
+table#cs_content_table th, table#cs_content_table td{border:none;}
+table#cs_content_table th#cs_title {text-align:left; text-indent:10px; color:#333;}
+table#cs_content_table td#cs_title_small {font-size:12px; color:gray; font-weight:bold; text-align:right; padding-top:20px;}
+table#cs_content_table tr.cs_content_btnlist {height:100px;}
+/**
+* 	CS게시판 : 댓글 CSS
+*/
+table#cs_content_table tr:last-child div#reply_form{margin:20px 0px 100px 0px; padding-top:20px;}
 table#cs_content_table #user_img {width:80px; height:80px; float:left; margin:13px 20px 0px 60px; border-radius:50%;}
 table#cs_content_table textarea {width:500px; height:100px; border-radius:4px; float:left; margin-bottom:20px;}
 table#cs_content_table tr:last-child button#reply_write_btn {margin-left:-20px; width:55px; height:32px; font-size:14px; margin-top:30px;}
-table#cs_content_table tr:nth-child(2) td {text-align:left;}
 table#cs_content_table td a>button {margin:0 5px;}
 table#cs_content_table tr:last-child td table {width:800px; border-collapse:collapse;}
+#cs_reply_table div#cs_rlist {border:1px solid red; margin:auto; }
 #cs_reply_table img.r_img{margin:20px 0px 10px 0px;}
-#cs_reply_table td:nth-child(1), #cs_reply_table td:nth-child(2) {width:100px;}
+#cs_reply_table td:nth-child(1), #cs_reply_table td:nth-child(2) {width:70px;}
 #cs_reply_table td:nth-child(4),#cs_reply_table td:nth-child(5) {width:70px;}
 #cs_reply_table td:nth-child(4) button, #cs_reply_table td:nth-child(5) button {color:#454545; border-radius:4px; border:2px solid #F87E35; background-color:white; font-size:12px; width:55px; height:28px; font-weight:bold;}
 #cs_reply_table td:last-child {font-size:13px; width:110px; } 
-#cs_reply_table div.rc {background-color:#f5f5f5; border-radius:10px; padding:20px 0px 20px 10px; text-align:left; width:750px; font-size:15px;  white-space:normal; table-layout:fixed; word-break:break-all; }
+#cs_reply_table td:first-child {padding-left:50px; }
+#cs_reply_table div.rc {background-color:#f5f5f5; border-radius:10px; padding:20px 0px 20px 10px; text-align:left; width:700px; font-size:15px;  white-space:normal; table-layout:fixed; word-break:break-all; }
 #board_content table#cs_reply_table, #board_content table#cs_reply_table th, #board_content table#cs_reply_table td {margin:20px;}
 #cs_reply_table textarea {width:450px;}
+#cs_reply_table tr.reply_total_count {border-bottom:2px solid #F87E35;}
+#cs_reply_table td#reply_total_count {font-size:16px; padding:0px 0px 10px 0px; text-align:left; text-indent:10px; color:#333; font-weight:bold;}
 div#here {clear:both;}
 
 /**
@@ -457,7 +472,6 @@ table#cs_delete_table {margin-top:100px; height:400px; width:500px;}
 table#cs_delete_table td #delete_img {width:200px; height:210px; }
 
 /**
-<<<<<<< HEAD
 *   Admin : admin.jsp (지혜)
 */
 aside.admin_info {position: sticky; 
@@ -488,12 +502,14 @@ table#user_list tr th, table#user_list tr td {height:35px;}
 */
 table#admin_user_table {border-top:2px solid #B4B4B4; border-bottom:2px solid #B4B4B4; border-collapse:collapse; width:750px; margin:auto;}
 table#admin_user_table th, table#admin_user_table td {border-top:2px solid #B4B4B4; border-bottom:2px solid #B4B4B4; height:40px;}
-table#admin_user_table button {padding:7px 15px; margin-top:80px;}
+table#admin_user_table button {padding:7px 15px; margin-top:80px; margin-right:15px;}
 table#admin_user_table tr:last-child td{text-align:center; border:2px solid white;}
 table#admin_user_table th {color:#F87E35; text-align:left; text-indent:10px;}
 table#admin_user_table tr:nth-child(5) th{text-align:center;}
-table#admin_user_table td {text-align:center; text-indent:10px;}
+table#admin_user_table td {text-align:left; text-indent:10px;}
 table#admin_user_table img {width:230px; height:225px; margin-left:-10px;}
+table#admin_user_table td:first-child {width:230px;}
+
 
 /**
 *   리뷰 관리 : review_mng_list.jsp (지혜)
@@ -523,6 +539,8 @@ table#admin_review_content_table {text-align:center;}
 table#admin_review_content_table td>div{width:500px; margin:auto;}
 table#admin_review_content_table tr:last-child td{border:1px solid white;}
 table#admin_review_content_table tr:last-child td button{margin-top:80px;}
+table#admin_review_content_table button {padding:7px 15px; margin:0px 5px 0px 5px;}
+table#admin_review_content_table th {color:#F87E35;}
 
 /**
 *   상품 관리 : product_mng_list.jsp (지혜)
@@ -577,6 +595,8 @@ table#admin_product_content tr:last-child td{text-align:center; border:none; pad
 table#admin_product_content th:first-child {width:130px; }
 table#admin_product_content td:nth-child(2) {width:300px; }
 table#admin_product_content th:nth-child(3) {width:130px; }
+table#admin_product_content th {color:#F87E35; }
+table#admin_product_content button {padding:7px 15px; margin:0px 5px 0px 5px;}
    
 /**
 *   마이페이지 aside
@@ -1015,7 +1035,6 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
   /** 작가 홈, 작품 **/
    div.artist_main {
       margin-left:190px;
-      border:1px solid red;
    }
    div.artist_main>img {
       width:99.5%;

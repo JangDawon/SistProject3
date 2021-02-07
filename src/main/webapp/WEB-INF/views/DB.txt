@@ -42,7 +42,7 @@ create table idus_reply(
   uemail varchar2(30) CONSTRAINT FK_RE_UEMAIL REFERENCES idus_member(uemail) on delete cascade,
   uname varchar2(30),
   bid varchar2(30) CONSTRAINT FK_RE_BID REFERENCES idus_board(bid) on delete cascade,
-  rcon varchar2(1000) not null,
+  rcontent varchar2(1000) not null,
   rdate date,
   rfile varchar2(100),
   rsfile varchar2(100)

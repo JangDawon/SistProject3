@@ -31,8 +31,14 @@ public class CsController {
 	}
 	
 	@RequestMapping(value = "/cs_write.do", method = RequestMethod.GET)
-	public String cs_write() {
-		return "/cs/cs_write";
+	public ModelAndView cs_write(String uemail, String uname) {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("uemail", uemail);
+		mv.addObject("uname", uname);
+		mv.setViewName("/cs/cs_write");
+		
+		return mv;
 	}
 	
 	@RequestMapping(value = "/cs_write_proc.do", method = RequestMethod.POST)
@@ -42,7 +48,7 @@ public class CsController {
 		String path2 = "\\resources\\upload\\";
 		
 		vo.setSavePath(path1+path2);
-		
+
 		return (ModelAndView)boardService.getResultWrite(vo);
 	}
 	
@@ -64,8 +70,8 @@ public class CsController {
 	}
 	
 	@RequestMapping(value = "/cs_content.do", method = RequestMethod.GET)
-	public ModelAndView cs_content(String id) {
-		return (ModelAndView)boardService.getContent(id);
+	public ModelAndView cs_content(String id, String uemail) {
+		return (ModelAndView)boardService.getContent(id, uemail);
 	}
 	
 	@RequestMapping(value = "/cs_delete.do", method = RequestMethod.GET)
@@ -110,8 +116,8 @@ public class CsController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/cs_reply_list.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
-	public String cs_reply_list(String bid) {
-		return boardService.getReplyList(bid);
+	public String cs_reply_list(String bid, String login_uemail) {
+		return boardService.getReplyList(bid, login_uemail);
 	}
 	
 	@ResponseBody
