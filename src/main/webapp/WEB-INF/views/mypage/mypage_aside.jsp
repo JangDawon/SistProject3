@@ -13,7 +13,7 @@
 		<div class="mypage_menu">
 			<div class="admin_profile">
 				<img src="http://localhost:9000/sistproject3/images/logo.jpg">
-				<p>홍길동님</p>
+				<p>${sessionScope.svo.uname}</p>
 			</div>
 			<p class="am">MY MENU</p>
 			<nav>

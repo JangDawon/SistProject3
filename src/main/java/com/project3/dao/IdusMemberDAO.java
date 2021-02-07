@@ -73,6 +73,7 @@ public class IdusMemberDAO {
 		return (ArrayList<IdusMemberVO>) list;
 	}
 	public IdusMemberVO getContent(String email) {
+		System.out.println(email);
 		return sqlSession.selectOne(namespace+".content",email);
 	}
 	

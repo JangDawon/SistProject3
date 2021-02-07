@@ -49,7 +49,7 @@
 			<th colspan="2">마케팅 수신동의</th>
 			<td colspan="2">
 				<c:choose>
-					<c:when test="${vo.aggrsms eq on}">
+					<c:when test="${vo.aggrsms eq 'on'}">
 						<input type="checkbox" checked>전화
 					</c:when>
 					<c:otherwise>
@@ -57,7 +57,7 @@
 					</c:otherwise>
 				</c:choose>
 				<c:choose>
-					<c:when test="${vo.aggremail eq on}">
+					<c:when test="${vo.aggremail eq 'on'}">
 						<input type="checkbox" checked>E-mail
 					</c:when>
 					<c:otherwise>
