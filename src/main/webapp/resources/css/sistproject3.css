@@ -1654,8 +1654,14 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		font-weight:600;
 		border:1px solid red;
 	}
-	
-	
+
+/**
+*	errorPage(지혜)
+**/	
+div.error_content {margin:auto; width:1000px; text-align:center; padding:100px 0px 100px 0px;}	
+section.error ul {list-style-type:none;}
+section.error li div {font-size:20px; font-weight:bold; color:#333;}
+section.error li img {width:200px; height:200px; padding:20px 0px 20px 0px;}
 	
 	
       
