@@ -83,4 +83,8 @@
 	<select id = "content" parameterType = "java.lang.String" resultType = "com.project3.vo.IdusMemberVO">
 		select uname,uemail,addr1,addr2,addr3,cp,aggrsms,aggremail,pfile,psfile from idus_member where uemail = #{email} 
 	</select>
+	
+	<select id="psfile" parameterType = "java.lang.String" resultType="java.lang.String">
+		select psfile from idus_member where uemail=#{uemail}
+	</select>
 </mapper>

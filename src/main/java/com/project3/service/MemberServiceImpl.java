@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project3.dao.IdusBoardDAO;
 import com.project3.dao.IdusMemberDAO;
 import com.project3.vo.IdusMemberVO;
 import com.project3.vo.IdusSessionVO;
@@ -18,6 +19,9 @@ import com.project3.vo.IdusSessionVO;
 public class MemberServiceImpl {
    @Autowired
    private IdusMemberDAO memberDAO;
+   
+   @Autowired
+   private IdusBoardDAO boardDAO;
    
    /**
     * 회원가입 결과
@@ -91,6 +95,7 @@ public class MemberServiceImpl {
       mv.addObject("dbCount", dbCount);
       mv.addObject("pageSize", pageSize);
       mv.addObject("reqPage", reqPage);
+      mv.addObject("psfile", memberDAO.getPsfile("admin"));
       
       mv.setViewName("/admin/user/user_mng_list");
       
@@ -106,7 +111,12 @@ public class MemberServiceImpl {
 			svo.setPfile(svo.getFile1().getOriginalFilename());
 			svo.setPsfile(uuid+"_"+svo.getFile1().getOriginalFilename());
 		}
+		
 		result = memberDAO.getUpdate(svo);
+		
+		//reply테이블 프로필 바꾸기
+		boardDAO.getUpdateRsfile(svo.getPsfile(), svo.getUemail());
+		
 		if(result) {
 			File file = new File(svo.getSavepath()+svo.getPsfile());
 			try {
@@ -164,6 +174,7 @@ public class MemberServiceImpl {
       IdusMemberVO vo = memberDAO.getUserContent(uid);
       
       mv.addObject("vo", vo);
+      mv.addObject("psfile", memberDAO.getPsfile("admin"));
       mv.setViewName("/admin/user/user_mng_content");
       
       return mv;
