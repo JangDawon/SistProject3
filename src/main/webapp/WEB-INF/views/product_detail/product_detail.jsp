@@ -75,8 +75,13 @@
 					
 			});//product_option.change	
 			
+			$("#cartBtn").click(function(){
+				if($("#product_option").val() == '선택'){
+					alert("옵션을 선택해 주세요.");
+					return;
+				}
+			});
 		});//ready
-		
 		</script>
 	</head>
 <body>
@@ -221,7 +226,6 @@
           </div>
           
 			<div class="product_sidebar">
-				<form name="cartForm" action="cart_proc.do" method="post" class="cart">
 				<div class="artist_card">
           				<a href="" class="artist_card_link" style="width: 100%;">
           					<span class="artist_card_label">${vo.sname } ></span>
@@ -280,12 +284,17 @@
 	          		</tr>
 	          	</table>
 	          	<div>
-	          		<div class="btn_box">
-	          			<button type="submit" class="btn_cart" id="cartBtn">장바구니</button>
-	          			<button type="submit" class="btn_buy" id="payBtn">구매하기</button>
-	          		</div>
+	          		<table class="btn_box">
+	          			<tr>
+		          			<a href="http://localhost:9000/sistproject3/cart_insert.do?pid=${vo.pid }">
+		          				<button type="button" class="btn_cart" id="cartBtn">장바구니</button>
+		          			</a>
+		          			<a href="http://localhost:9000/sistproject3/purchase.do?pid=${vo.pid }">
+		          				<button type="button" class="btn_buy" id="payBtn">구매하기</button>
+		          			</a>
+		          		</tr>
+	          		</table>
 	          	</div>
-          	</form>
 			</div>
 		</div>
 	</div>
