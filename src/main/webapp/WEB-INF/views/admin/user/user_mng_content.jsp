@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 회원관리</title>
-<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
@@ -19,7 +18,7 @@
 	<div class="jihye_content">
 
 	<!-- aside -->
-	<jsp:include page="../admin.jsp"></jsp:include>
+	<jsp:include page="../admin.jsp"><jsp:param name="psfile" value="${psfile }" /></jsp:include>
 	
 	<a href="user_mng_list.do" class="h2_user"><h2 class="txt">회원 관리</h2></a>
 	<table id="admin_user_table">
@@ -27,7 +26,7 @@
 			<td rowspan="4">
 				<c:choose>
 					<c:when test="${vo.psfile ne null }">
-						<img src="http://localhost:9000/sistproject3/upload/${vo.psfile}">
+						<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile}">
 					</c:when>
 					<c:otherwise>
 						<img src="http://localhost:9000/sistproject3/images/logo.jpg">
@@ -49,7 +48,7 @@
 			<th colspan="2">마케팅 수신동의</th>
 			<td colspan="2">
 				<c:choose>
-					<c:when test="${vo.aggrsms eq on}">
+					<c:when test="${vo.aggrsms eq 'on'}">
 						<input type="checkbox" checked>전화
 					</c:when>
 					<c:otherwise>
@@ -57,7 +56,7 @@
 					</c:otherwise>
 				</c:choose>
 				<c:choose>
-					<c:when test="${vo.aggremail eq on}">
+					<c:when test="${vo.aggremail eq 'on'}">
 						<input type="checkbox" checked>E-mail
 					</c:when>
 					<c:otherwise>

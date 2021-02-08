@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.project3.dao.IdusBoardDAO;
+import com.project3.dao.IdusMemberDAO;
 import com.project3.vo.IdusBoardVO;
 import com.project3.vo.IdusReplyVO;
 
@@ -19,6 +20,9 @@ import com.project3.vo.IdusReplyVO;
 public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private IdusBoardDAO boardDAO;
+	
+	@Autowired
+	private IdusMemberDAO memberDAO;
 	
 	public String getSearchList(String sname, String svalue, String rpage) {
 		int start = 0;
@@ -162,6 +166,7 @@ public class BoardServiceImpl implements BoardService {
 		String reply_ok = "";
 		
 		IdusBoardVO vo = boardDAO.getContent(id);
+		vo.setBcontent(vo.getBcontent().replace("\r\n", "<br>"));
 		boardDAO.getUpdateHits(id);
 		
 		if(vo.getUemail().equals(uemail)) {
@@ -181,6 +186,7 @@ public class BoardServiceImpl implements BoardService {
 		mv.addObject("vo", vo);
 		mv.addObject("result", result);
 		mv.addObject("reply_ok", reply_ok);
+		mv.addObject("psfile", memberDAO.getPsfile(uemail));
 		mv.setViewName("/cs/cs_content");
 		
 		return mv;
@@ -231,6 +237,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	public int getReplyWrite(IdusReplyVO rvo) {
+		rvo.setRcontent(rvo.getRcontent().replace(".",".\r\n"));
 		return boardDAO.getReplyWrite(rvo);
 	}
 	
@@ -251,11 +258,14 @@ public class BoardServiceImpl implements BoardService {
 			jobj.addProperty("rdate", vo.getRdate());
 			jobj.addProperty("rfile", vo.getRfile());
 			jobj.addProperty("rsfile", vo.getRsfile());
-			jobj.addProperty("rcontent", vo.getRcontent());
-			if(vo.getUemail().equals(login_uemail)) {
-				jobj.addProperty("rresult", "ok");
-			}else {
-				jobj.addProperty("rresult", "no");
+			jobj.addProperty("rcontent", vo.getRcontent().replace("\r\n", "<br>"));
+			
+			if(login_uemail != null) {
+				if(vo.getUemail().equals(login_uemail)) {
+					jobj.addProperty("rresult", "ok");
+				}else {
+					jobj.addProperty("rresult", "no");
+				}
 			}
 			
 			jarray.add(jobj);
@@ -269,7 +279,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	public int getReplyUpdate(String rid, String rcontent) {
-		return boardDAO.getReplyUpdate(rid, rcontent);
+		String re_rcontent = rcontent.replace(".",".\r\n");
+		return boardDAO.getReplyUpdate(rid, re_rcontent);
 	}
 	
 	public int getReplyDelete(String rid) {

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project3.dao.IdusMemberDAO;
 import com.project3.dao.IdusProductDAO;
 import com.project3.vo.IdusProductVO;
 
@@ -16,12 +17,16 @@ public class ProductServiceImpl implements BoardService{
 	@Autowired
 	private IdusProductDAO productDAO;
 	
+	@Autowired
+	private IdusMemberDAO memberDAO;
+	
 	public ModelAndView getList() {
 		ModelAndView mv = new ModelAndView();
 		
 		ArrayList<IdusProductVO> list = productDAO.getList();
 		
 		mv.addObject("list", list);
+		mv.addObject("psfile", memberDAO.getPsfile("admin"));
 		mv.setViewName("/admin/product/product_mng_list");
 		
 		return mv;
@@ -62,6 +67,7 @@ public class ProductServiceImpl implements BoardService{
 		mv.addObject("dbCount", dbCount);
 		mv.addObject("pageSize", pageSize);
 		mv.addObject("reqPage", reqPage);
+		mv.addObject("psfile", memberDAO.getPsfile("admin"));
 		
 		mv.setViewName("/admin/product/product_mng_list");
 		
@@ -121,6 +127,7 @@ public class ProductServiceImpl implements BoardService{
 		vo.setPcontent(vo.getPcontent().replace("\r\n", "<br>"));
 		
 		mv.addObject("vo", vo);
+		mv.addObject("psfile", memberDAO.getPsfile("admin"));
 		mv.setViewName("/admin/product/product_mng_content");
 		
 		return mv;
@@ -132,6 +139,7 @@ public class ProductServiceImpl implements BoardService{
 		IdusProductVO vo = productDAO.getContent(id);
 		
 		mv.addObject("vo", vo);
+		mv.addObject("psfile", memberDAO.getPsfile("admin"));
 		mv.setViewName("/admin/product/product_mng_update");
 		
 		return mv;
@@ -156,7 +164,6 @@ public class ProductServiceImpl implements BoardService{
 			pvo.setPfile3(pvo.getFile3().getOriginalFilename());
 			pvo.setPsfile3(uuid + "_" + pvo.getFile3().getOriginalFilename());
 		}
-		System.out.println(pvo.getPsfile1());
 		int count = productDAO.getUpdate(pvo);
 		if(count == 1) { 
 			try {
@@ -190,5 +197,14 @@ public class ProductServiceImpl implements BoardService{
 			count = productDAO.getDeleteSelect(del_list);
 		}
 		return count;
+	}
+	
+	public ModelAndView getRegist() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("psfile", memberDAO.getPsfile("admin"));		
+		mv.setViewName("/admin/product/product_mng_regist");
+		
+		return mv;
 	}
 }
