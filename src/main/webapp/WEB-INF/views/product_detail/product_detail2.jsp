@@ -1,89 +1,201 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>제품상세페이지</title>
-		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/carousel.css">
-		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
-		<script src="http://localhost:9000/sistproject3/js/dawon.js"></script>
-		<!-- <script src="http://localhost:9000/sistproject3/js/hyunju.js"></script> -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-		<script>
-		$(document).ready(function(){
-			var one=1;
-			var two=1;
-			var three=1;
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>제품상세페이지</title>
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/carousel.css">
+<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+	var one=1;
+	var two=1;
+	var three=1;
+	var sum = 0;
+	
+	$("#cartBtn").click(function(){
+		$.ajax({
+			url:"cart_insert.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
+			success:function(result){
+				
+			}
+		});
+	});
+	
+	$(document).on("click",".optDelete",function(){
+		var id = $(this).val();
+		var pid = "#"+id+"_tab_style";
+		var name = "#"+id+"_price";
+		var pprice = parseInt($(name).text());
+		sum = parseInt($(".sum").text()) - pprice;
+		$("div.sum").text(sum+"원");
+		$(pid).remove();
+		
+		if(id == "p1"){
+			one = 1;
+		}else if(id == "p2"){
+			two = 1;
+		}else if(id == "p3"){
+			three =1;
+		} 
+	});
+	
+	$(document).on("click","button",function(){
+		var obj_name = $(this).attr("name");	//+, -구분
+		var obj_id = $(this).attr("id");		//p1, p2, p3 아이디 구분
+		var vname = "#" + obj_id + "_amt"		//p1_amt, p2_amt ...
+		var p1_value = parseInt($("#p1_amt").val());	//$(p1_amt).val()
+		var p2_value = parseInt($("#p2_amt").val());	//$(p2_amt).val()
+		var p3_value = parseInt($("#p3_amt").val());	//$(p3_amt).val()
+		
+		//수량 변경 시 적립금, 가격 수정
+		var p1_price = parseInt($("#p1_price").text());	//(기본가격+옵션가격)*수량
+		var p1_one_price = p1_price/p1_value;			//(기본가격+옵션가격)
+		var p2_price = parseInt($("#p2_price").text()); //(기본가격+옵션가격)*수량
+		var p2_one_price = p2_price/p2_value;			//(기본가격+옵션가격)
+		var p3_price = parseInt($("#p3_price").text()); //(기본가격+옵션가격)*수량
+		var p3_one_price = p3_price/p3_value;			//(기본가격+옵션가격)
+		
+		if(obj_name == "plus") {
+			var count = parseInt($(vname).val())+1;
+			$(vname).val(count);
+			//p2, p3없을때 확인해보기
+			if(obj_id == "p1"){
+				$("#"+ obj_id +"_price").text("").append(p1_price + p1_one_price+"원");
+			}else if(obj_id == "p2"){
+				$("#"+ obj_id +"_price").text("").append(p2_price + p2_one_price+"원");
+			}else if(obj_id == "p3"){
+				$("#"+ obj_id +"_price").text("").append(p3_price + p3_one_price+"원");
+			}
+			$(".sum").text("").append((p1_one_price*$("#p1_amt").val())+(p2_one_price*$("#p2_amt").val())+(p3_one_price*$("#p3_amt").val())+"원");
 			
-			$("#product_option").change(function(){		
-				var price = "${vo.pprice }";	
-				var opt1_price = "${vo.opt1_price }";
-				var opt2_price = "${vo.opt2_price }";
-				var opt3_price = "${vo.opt3_price }";
-				var opt1_total = parseInt(price) + parseInt(opt1_price);
-				var opt2_total = parseInt(price) + parseInt(opt2_price);
-				var opt3_total = parseInt(price) + parseInt(opt3_price);
-				var output = "";
-				output += "<div class='tab_style'>";
+		}else if(obj_name == "minus") {
+			//선택한 아이디의 값만 1일 때 경고창
+			if($(vname).val() == 1) {
+				alert("최소 주문 수량은 1개입니다.");
+			}else {
+				var count = parseInt($(vname).val())-1;
+				$(vname).val(count);
+				
+				if(obj_id == "p1"){
+					$("#"+ obj_id +"_price").text("").append(p1_price - p1_one_price+"원");
+				}else if(obj_id == "p2"){
+					$("#"+ obj_id +"_price").text("").append(p2_price - p2_one_price+"원");
+				}else if(obj_id == "p3"){
+					$("#"+ obj_id +"_price").text("").append(p3_price - p3_one_price+"원");
+				}
+			}
+			$(".sum").text("").append((p1_one_price*$("#p1_amt").val())+(p2_one_price*$("#p2_amt").val())+(p3_one_price*$("#p3_amt").val())+"원");
+		}
+		
+	});
+	
+	
+	$("#product_option").change(function(){		
+		var price = "${vo.pprice }";	
+		var opt1_price = "${vo.opt1_price }";
+		var opt2_price = "${vo.opt2_price }";
+		var opt3_price = "${vo.opt3_price }";
+		var opt1_total = parseInt(price) + parseInt(opt1_price);
+		var opt2_total = parseInt(price) + parseInt(opt2_price);
+		var opt3_total = parseInt(price) + parseInt(opt3_price);
+		var output = "";
+
+		if($(this).val() != "선택"){
+			if($(this).val() == "opt1" && one == 1){
+				output += "<div class='tab_style' id='p1_tab_style'>";
 				output += "<div class='option'>"+ $("#product_option option:selected").text() +"</div>";
-				output += "<button type='button' id='opDelete'>X</button>";
+				output += "<button type='button' class='optDelete' id='p1_del_btn' value='p1'>X</button>";
 				output += "<div class='product_qty_price'>";
 				output += "<div class='product_num'>";
-				output += "<div></div><button  type='button' class='minus' name='minus' id='p1'>-</button>";
-				output += "<input type='text' class='price' value='1' id='p1_amt'>";
+				output += "<button  type='button' class='minus' name='minus' id='p1'>-</button>";
+				output += "<input type='text' class='price' value='1' id='p1_amt' disabled>";
 				output += "<button type='button' class='plus' name='plus' id='p1'>+</button>";
 				output += "</div>";
-				output += "<div class='price'>${vo.pprice }원</div>";
+				output += "<div class='price' id='p1_price'>"+ opt1_total +"원</div>";
 				output += "</div>";
 				output += "</div>";
-				//alert(output);
-				/* <div class="tab_style">
-          		<div class="option">${vo.opt1 }</div>
-          		<div class="product_qty_price">
-          			<div class="product_num">
-						<button  type="button" class="minus" name="minus" id="p1">-</button>
-						<input type="text" class="price" value="1" id="p1_amt">
-						<button type="button" class="plus" name="plus" id="p1">+</button>
-					</div>
-					<div class="price">${vo.pprice_char }원</div>
-          		</div>
-          	</div> */
-
 				
-				if($(this).val() != "선택"){
-					if($(this).val() == "opt1" && one == 1){
-						$(".sum").text(opt1_total+"원"); 
-						one++;
-						//$(".tab_style").css("display","block");
-						$(".product_option_div").after(output);
-					}else if($(this).val() == "opt2" && two == 1){
-						$(".sum").text(opt2_total+"원"); 
-						two++;
-						//$(".tab_style").css("display","block");
-						$(".product_option_div").after(output);
-					}else if($(this).val() == "opt3" && five == 1){
-						$(".sum").text(opt3_total+"원");
-						three++;
-						//$(".tab_style").css("display","block");
-						$(".product_option_div").after(output);
-					}
-				} else {
-					$(".sum").text("0원"); 
-				}
-					
-			});//product_option.change	
+				sum += opt1_total; 
+				one++;
+				$(".product_option_div").after(output);
+			}else if($(this).val() == "opt1"){
+				var count = parseInt($("#p1_amt").val())+1;
+				$("#p1_amt").val(count);
+				$("#p1_price").text("").append(opt1_total*count+"원");
+				sum = parseInt($(".sum").text());
+				sum += opt1_total;
+			}else if($(this).val() == "opt2" && two == 1){
+				output += "<div class='tab_style' id='p2_tab_style'>";
+				output += "<div class='option'>"+ $("#product_option option:selected").text() +"</div>";
+				output += "<button type='button' class='optDelete' id='p2_del_btn' value='p2'>X</button>";
+				output += "<div class='product_qty_price'>";
+				output += "<div class='product_num'>";
+				output += "<button  type='button' class='minus' name='minus' id='p2'>-</button>";
+				output += "<input type='text' class='price' value='1' id='p2_amt' disabled>";
+				output += "<button type='button' class='plus' name='plus' id='p2'>+</button>";
+				output += "</div>";
+				output += "<div class='price' id='p2_price'>"+ opt2_total +"원</div>";
+				output += "</div>";
+				output += "</div>";
+				
+				sum += opt2_total;
+				two++;
+				$(".product_option_div").after(output);
+			}else if($(this).val() == "opt2"){
+				var count = parseInt($("#p2_amt").val())+1;
+				$("#p2_amt").val(count);
+				$("#p2_price").text("").append(opt2_total*count+"원");
+				sum = parseInt($(".sum").text());
+				sum += opt2_total;
+			}else if($(this).val() == "opt3" && three == 1){
+				output += "<div class='tab_style' id='p3_tab_style'>";
+				output += "<div class='option'>"+ $("#product_option option:selected").text() +"</div>";
+				output += "<button type='button' class='optDelete' id='p3_del_btn' value='p3'>X</button>";
+				output += "<div class='product_qty_price'>";
+				output += "<div class='product_num'>";
+				output += "<button  type='button' class='minus' name='minus' id='p3'>-</button>";
+				output += "<input type='text' class='price' value='1' id='p3_amt' disabled>";
+				output += "<button type='button' class='plus' name='plus' id='p3'>+</button>";
+				output += "</div>";
+				output += "<div class='price' id='p3_price'>"+ opt3_total +"원</div>";
+				output += "</div>";
+				output += "</div>";
+				
+				sum += opt3_total; 
+				
+				three++;
+				$(".product_option_div").after(output);
+			}else if($(this).val() == "opt3"){
+				var count = parseInt($("#p3_amt").val())+1;
+				$("#p3_amt").val(count);
+				$("#p3_price").text("").append(opt3_total*count+"원");
+				sum = parseInt($(".sum").text());
+				sum += opt3_total;
+			}
 			
-			$("#cartBtn").click(function(){
-				if($("#product_option").val() == '선택'){
-					alert("옵션을 선택해 주세요.");
-					return;
-				}
-			});
-		});//ready
-		</script>
-	</head>
+			$(".sum").text(sum+"원");
+			
+			
+		} else {
+			$(".sum").text("0원"); 
+		}
+			
+	});//product_option.change	
+	
+	$("#cartBtn").click(function(){
+		if($("#product_option").val() == '선택'){
+			alert("옵션을 선택해 주세요.");
+			return;
+		}
+	});
+});//ready
+</script>
+</head>
 <body>
    <!-- header -->
     <jsp:include page="../header.jsp" />
@@ -265,9 +377,13 @@
 	          			<div class="product_option_div">
 							<select name="product_option" id="product_option" >
 						  		<option value="선택">[필수] 옵션을 선택해주세요</option>
-						  		<option value="opt1">${vo.opt1 } ${vo.opt1_price }원</option>
-						  		<option value="opt2">${vo.opt2 } ${vo.opt2_price }원</option>
-						  		<option value="opt3">${vo.opt3 } ${vo.opt3_price }원</option>
+						  		<option value="opt1">${vo.opt1 } (+${vo.opt1_price }원)</option>
+						  		<c:if test="${vo.opt2 ne null }">
+						  			<option value="opt2">${vo.opt2 } (+${vo.opt2_price }원)</option>
+						  		</c:if>
+						  		<c:if test="${vo.opt3 ne null }">
+						  			<option value="opt3">${vo.opt3 } (+${vo.opt3_price }원)</option>
+						  		</c:if>
 						  	</select>
 					  	</div>
           			</div>
@@ -286,9 +402,7 @@
 	          	<div>
 	          		<table class="btn_box">
 	          			<tr>
-		          			<a href="http://localhost:9000/sistproject3/cart_insert.do?pid=${vo.pid }">
-		          				<button type="button" class="btn_cart" id="cartBtn">장바구니</button>
-		          			</a>
+		          			<button type="button" class="btn_cart" id="cartBtn">장바구니</button>
 		          			<a href="http://localhost:9000/sistproject3/purchase.do?pid=${vo.pid }">
 		          				<button type="button" class="btn_buy" id="payBtn">구매하기</button>
 		          			</a>

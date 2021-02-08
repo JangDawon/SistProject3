@@ -51,7 +51,7 @@ public class CategoryServiceImpl implements CategoryService{
 		vo.setPcontent(vo.getPcontent().replace("\r\n", "<br>"));
 		
 		mv.addObject("vo", vo);
-		mv.setViewName("/product_detail/product_detail");
+		mv.setViewName("/product_detail/product_detail2");
 		
 		return mv;
 	}

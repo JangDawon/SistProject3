@@ -1601,7 +1601,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		font-size:13px;
 		display: inline-block;
 	}
-	button#opDelete   {
+	button.optDelete   {
 		float: right;
 	    margin: 15px;
 	    padding: 0 3px;
@@ -1651,7 +1651,6 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 		text-align:right;
 		font-size:18px;
 		font-weight:600;
-		border:1px solid red;
 	}
 
 /**
