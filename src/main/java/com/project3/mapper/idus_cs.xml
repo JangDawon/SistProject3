@@ -111,7 +111,7 @@
 	</select>
 	
 	<insert id="reply_write" parameterType="com.project3.vo.IdusReplyVO">
-		insert into idus_reply values('r_'||idus_reply_seq.nextval, #{uemail}, #{uname}, #{bid}, #{rcontent}, sysdate, #{rfile}, #{rsfile})
+		insert into idus_reply values('r_'||idus_reply_seq.nextval, #{uemail}, #{uname}, #{bid}, #{rcontent}, sysdate, '', #{rsfile})
 	</insert>
 	
 	<select id="reply_list" parameterType="java.lang.String" resultType="com.project3.vo.IdusReplyVO">
@@ -128,6 +128,10 @@
 	
 	<select id="reply_count" parameterType="java.lang.String" resultType="java.lang.Integer">
 		select count(*) from idus_reply where bid=#{bid}
+	</select>
+	
+	<select id="rsfile" parameterType="map">
+		update idus_reply set rsfile=#{rsfile} where uemail=#{uemail}
 	</select>
 </mapper>
 

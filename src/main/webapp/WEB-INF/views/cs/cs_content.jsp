@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 고객센터</title>
-<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
@@ -21,7 +20,7 @@
 				return false;
 			}else{
 				$.ajax({
-					url:"cs_reply_write.do?uemail=${sessionScope.svo.uemail}&uname=${sessionScope.svo.uname}&bid=${vo.bid}&rcontent=" + $("#r_content").val() + "&rfile=n&rsfile=n",
+					url:"cs_reply_write.do?uemail=${sessionScope.svo.uemail}&uname=${sessionScope.svo.uname}&bid=${vo.bid}&rcontent=" + $("#r_content").val() + "&rsfile=${psfile}",
 					success:function(result){
 						if(result == 1) {
 							alert("작성이 완료되었습니다:) ");
@@ -97,7 +96,11 @@
 					for(var i in jdata.jlist){
 						output += "<div id='cs_rlist'>"
 						output += "<tr>";
-						output += "<td><img src='http://localhost:9000/sistproject3/images/logo.jpg' style='height:60px; width:60px;  border-radius:50%' class='r_img'></td>";
+						if(jdata.jlist[i].rsfile != null){
+							output += "<td><img src='http://localhost:9000/sistproject3/resources/upload/"+ jdata.jlist[i].rsfile +"' style='height:60px; width:60px;  border-radius:50%' class='r_img'></td>";
+						}else{
+							output += "<td><img src='http://localhost:9000/sistproject3/images/logo.jpg' style='height:60px; width:60px;  border-radius:50%' class='r_img'></td>";
+						}
 						output += "<td>" + jdata.jlist[i].uname + "</td>";
 						output += "<td></td>";
 						if(jdata.jlist[i].rresult == 'ok'){
@@ -178,7 +181,14 @@
 					<div id="here"></div>
 					<c:if test="${reply_ok eq 'ok' }">
 					<div id="reply_form">
-					<img src="http://localhost:9000/sistproject3/images/logo.jpg" id="user_img">
+					<c:choose>
+						<c:when test="${psfile ne null }">
+							<img src="http://localhost:9000/sistproject3/resources/upload/${psfile }" id="user_img">
+						</c:when>
+						<c:otherwise>
+							<img src="http://localhost:9000/sistproject3/images/logo.jpg" id="user_img">
+						</c:otherwise>
+					</c:choose>
 					<textarea id="r_content" placeholder="댓글을 남겨주세요.(200자)"></textarea>
 					<button type="button" id="reply_write_btn" class="btn_style">작성</button>
 					</div>

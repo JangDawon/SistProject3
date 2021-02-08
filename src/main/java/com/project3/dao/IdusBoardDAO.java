@@ -146,4 +146,14 @@ public class IdusBoardDAO extends DBConn{
 	public int getReplyCount(String bid) {
 		return sqlSession.selectOne(namespace+".reply_count", bid);
 	}
+	
+	/**
+	 * 프로필만 바꾸기
+	 */
+	public int getUpdateRsfile(String rsfile, String uemail) {
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("rsfile", rsfile);
+		param.put("uemail", uemail);
+		return sqlSession.update(namespace+".rsfile", param);
+	}
 }

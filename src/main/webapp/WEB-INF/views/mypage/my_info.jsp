@@ -63,7 +63,7 @@ table.member_info tr td span.user_email {
 
 	<div class="mypage_content">
 		<!-- aside -->
-		<jsp:include page="mypage_aside.jsp" />
+		<jsp:include page="mypage_aside.jsp"><jsp:param name="psfile" value="${vo.psfile }" /></jsp:include>
 
 		<h2>회원 정보 관리</h2>
 		<form name="myinfo_update_form" action="myinfo_update_proc.do"method="post" enctype="multipart/form-data">
