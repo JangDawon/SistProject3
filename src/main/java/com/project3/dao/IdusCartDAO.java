@@ -21,24 +21,16 @@ public class IdusCartDAO extends DBConn{
 		return sqlSession.delete(namespace+".deletelist", dellist);
 	}
 	
-	/** 장바구니 담기 **/
-	public int getCartInsert(IdusCartVO vo) {
-		return sqlSession.insert(namespace+".cartinsert", vo);
-	}
 	
 	/** 장바구니 리스트 **/
-	/* public ArrayList<IdusCartVO> getCartList(String cid){
-		List<IdusCartVO> list = sqlSession.selectList(namespace+".cartlist", cid);
-		return (ArrayList<IdusCartVO>)list;
-	} */
-	
 	public ArrayList<IdusCartVO> getCartList(String uemail){
 		List<IdusCartVO> list = sqlSession.selectList(namespace+".cartlist", uemail);
 		return (ArrayList<IdusCartVO>)list;
 	}
 	
+	
 	/** 장바구니 수정 **/
-	public int getCartUpdate(String cid, String p_qty, String p_price) {
+	/* public int getCartUpdate(String cid, String p_qty, String p_price) {
 		Map<String, String> param = new HashMap<String, String>();
 		param.put("cid", cid);
 		param.put("p_qty", p_qty);
@@ -47,7 +39,6 @@ public class IdusCartDAO extends DBConn{
 		return sqlSession.update(namespace+".cartupdate", param);
 	}
 	
-	/** 장바구니 삭제 **/
 	public int getCartDelete(String cid) {
 		return sqlSession.delete(namespace+".cartdelete", cid);
 	}
@@ -58,7 +49,7 @@ public class IdusCartDAO extends DBConn{
  
     public int countCart(String uemail, int pid) {
         return 0;
-    }
+    } */
 	
 } 
 

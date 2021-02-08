@@ -21,10 +21,6 @@ public class CartServiceImpl implements CartService {
 		return cartDAO.getSelectDelete(dellist);
 	}
 	
-	@Override
-	public int getCartInsert(IdusCartVO vo) {
-		return cartDAO.getCartInsert(vo);
-	}
 	
 	@Override
 	public String getCartList(String uemail) {
@@ -51,34 +47,7 @@ public class CartServiceImpl implements CartService {
 		jdata.add("jlist", jarray);
 		return gson.toJson(jdata);
 		
-		/* ModelAndView mv = new ModelAndView();
-		
-		ArrayList<IdusCartVO> list = cartDAO.getCartList(uemail);
-		
-		mv.addObject("list", list);
-		mv.setViewName("/cart/cart");
-		
-		return mv; */
-		//return cartDAO.getCartList(uemail);
 	}
 	
-	@Override
-	public int getCartUpdate(String cid, String p_qty, String p_price) {
-		return cartDAO.getCartUpdate(cid, p_qty, p_price);
-	}
 	
-	@Override
-	public int getCartDelete(String cid) {
-		return cartDAO.getCartDelete(cid);
-	}
-	
-	@Override
-    public int sumMoney(String uemail) {
-        return cartDAO.sumMoney(uemail);
-    }
- 
-    @Override
-    public int countCart(String uemail, String pid) {
-        return 0;
-    }
 }

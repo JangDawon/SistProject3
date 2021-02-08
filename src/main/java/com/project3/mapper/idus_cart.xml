@@ -23,25 +23,6 @@
 		select * from idus_cart where uemail=#{uemail, jdbcType=VARCHAR} order by cdate
 	</select>
 	
-	<select id="sumMoney" resultType="int">
-		select nvl((p.pprice*c.p_qty),0) p_price
-			from idus_cart c, idus_product p
-			where c.pid = p.pid and uemail = #{uemail}
-	</select>
-	
-	<delete id="cartdelete" parameterType="java.lang.String">
-		delete idus_cart where cid=#{cid}
-	</delete>
-	
-	<update id="cartupdate" parameterType="map">
-		update idus_cart set p_qty=#{p_qty}, p_price=#{p_price} where cid=#{cid}
-	</update>
-	
-	
-	
-	
-	
-	
 	
 	
 	
