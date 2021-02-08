@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 		<script src="http://localhost:9000/sistproject3/js/dawon.js"></script>
-		<script>
+		<!-- <script>
 			$(document).ready(function(){
 				cart_list();
 				
@@ -70,7 +70,7 @@
 				}
 				
 			});
-		</script>
+		</script> -->
 	</head>
 	<body class="category">
 		<!-- header -->
@@ -87,7 +87,7 @@
 			</div>
 			
 			<div class="cart_content">
-				<%-- <table>
+				<table>
 					<tr class="cart_product">
 						<td rowspan="2" width=2%>
 							<div class="cart_chk">
@@ -136,7 +136,7 @@
 						<td colspan="2"><div class="price_title">배송비</div></td>
 						<td colspan="4"><div class="price_content"><span>2600</span></div></td>
 					</tr>
-				</table> --%>
+				</table>
 			</div>
 			
 			<div class="cart_prod_order">
