@@ -32,6 +32,7 @@
 	<beans:bean class="com.project3.dao.IdusReviewDAO" id="reviewDAO"></beans:bean>
 	<beans:bean class="com.project3.dao.IdusMemberDAO" id="memberDAO"></beans:bean>
 	<beans:bean class="com.project3.dao.IdusCartDAO" id="cartDAO"></beans:bean>
+	<beans:bean class="com.project3.dao.IdusCartDAO2" id="cartDAO2"></beans:bean>
 	<beans:bean class="com.project3.dao.IdusCategoryDAO" id="categoryDAO"></beans:bean>
 	
 	<!-- Service -->
@@ -41,6 +42,7 @@
 	<beans:bean class="com.project3.service.certifyServiceImpl" id="certifyService"></beans:bean>
 	<beans:bean class="com.project3.service.MemberServiceImpl" id="memberService"></beans:bean>
 	<beans:bean class="com.project3.service.CartServiceImpl" id="cartService"></beans:bean>
+	<beans:bean class="com.project3.service.CartServiceImpl2" id="cartService2"></beans:bean>
 	<beans:bean class="com.project3.service.CategoryServiceImpl" id="categoryService"></beans:bean>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
