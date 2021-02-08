@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    %>
+    pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
@@ -50,9 +49,11 @@
                </div>
                <ul class="navbar_icons">
                   <li><a href="http://localhost:9000/sistproject3/mypage.do">
-                  <img src="http://localhost:9000/sistproject3/images/user.png"></a></li>
-                  <li><a href="http://localhost:9000/sistproject3/cart.do">
-                  <img src="http://localhost:9000/sistproject3/images/cart.png"></a></li>
+                  	<img src="http://localhost:9000/sistproject3/images/user.png"></a>
+                  </li>
+                  <li><a href="http://localhost:9000/sistproject3/cart_list.do">
+                  	<img src="http://localhost:9000/sistproject3/images/cart.png"></a>
+                  </li>
                </ul>
             </div>
          </div>
