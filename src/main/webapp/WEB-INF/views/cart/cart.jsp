@@ -10,26 +10,8 @@
 		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 		<script src="http://localhost:9000/sistproject3/js/dawon.js"></script>
 		<script>
-		$(document).ready(function(){
-			$(".cart_prod_chk").click(){
-				var str = "";
-				var sum = 0;
-				var coutn = $(".cart_prod_chk").length;
-				for(var i=0; i<count; i++){
-					if($(".cart_prod_chk")[i].checked == true){
-						sum += parseInt($(".cart_prod_chk")[i].value);
-					}
-				}  
-				$("#all_price_total").html(sum+"원");
-				$("#amout").val(sum);
-			}
-			
-			$(".cart_prod_chk").click(function(){
-				$("#cart_all_chk").prop("checked", false);
-			});
-		});
+			var cid="<c:out value='${vo.cid}'/>";
 		</script>
-		
 	</head>
 	<body class="category">
 		<!-- header -->
@@ -56,12 +38,12 @@
 						</td>
 						<td width=10%>
 							<div class="cart_img">
-								<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }">
+								<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">
 							</div>
 						</td>
 						<td colspan="4">
 							<div class="cart_text"><a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
-								<label>${vo.ptitle }</label></a>
+								<label>${vo.ptitle}</label></a>
 							</div>
 						</td>
 					</tr>
@@ -75,17 +57,17 @@
 						</td>
 						<td width=12%>
 							<div class="cart_num">
-								<button type="button" class="minus" name="minus" id="p1">-</button>
-								<input type="text" class="price" value="${vo.opt1_qty }" id="p1_amt" name="opt1_qty">
-								<button type="button" class="plus" name="plus" id="p1">+</button>
+								<button type="button" class="minus" name="minus" id="${vo.cid}p1">-</button>
+								<input type="text" class="price" value="${vo.opt1_qty}" id="${vo.cid}p1_amt">
+								<button type="button" class="plus" name="plus" id="${vo.cid}p1">+</button>
 							</div>
 						</td>
 						<td width=11%>
-							<div class="cart_price"><span id="p1_price" name="op1_price">${vo.opt1_price }</span>원</div>
+							<div class="cart_price"><span id="${vo.cid}p1_price">${pprice + vo.opt1_price}</span>원</div>
 						</td>
 						<td>
 							<div class="cart_update">
-								<button type="button" class="cart_prod_update">수정</button>
+								<button type="submit" class="cart_prod_update" id="updateBtn">수정</button>
 								<button type="button" class="cart_prod_del">삭제</button>
 							</div>
 						</td>
@@ -102,12 +84,12 @@
 						<td width=12%>
 							<div class="cart_num">
 								<button type="button" class="minus" name="minus" id="p2">-</button>
-								<input type="text" class="price" value="${vo.opt2_qty }" id="p2_amt" name="opt2_qty">
+								<input type="text" class="price" value="${vo.opt2_qty }" id="p2_amt">
 								<button type="button" class="plus" name="plus" id="p2">+</button>
 							</div>
 						</td>
 						<td width=11%>
-							<div class="cart_price"><span id="p2_price" name="op2_price">${vo.opt2_price }</span>원</div>
+							<div class="cart_price"><span id="p2_price">${pprice + vo.opt2_price }</span>원</div>
 						</td>
 						<td>
 							<div class="cart_update">
@@ -128,12 +110,12 @@
 						<td width=12%>
 							<div class="cart_num">
 								<button type="button" class="minus" name="minus" id="p3">-</button>
-								<input type="text" class="price" value="${vo.opt3_qty }" id="p3_amt" name="opt3_qty">
+								<input type="text" class="price" value="${vo.opt3_qty }" id="p3_amt">
 								<button type="button" class="plus" name="plus" id="p3">+</button>
 							</div>
 						</td>
 						<td width=11%>
-							<div class="cart_price"><span id="p3_price" name="op3_price">${vo.opt3_price }</span>원</div>
+							<div class="cart_price"><span id="p3_price">${pprice + vo.opt3_price}</span>원</div>
 						</td>
 						<td>
 							<div class="cart_update">
@@ -147,7 +129,7 @@
 					<tr class="cart_price_name">
 						<td colspan="2"><div class="price_title">작품 가격</div></td>
 						<td colspan="4">
-							<div class="price_content"><span id="price_total">${vo.pprice + vo.opt1_price + vo.opt2_price + vo.opt3_price }</span>원</div>
+							<div class="price_content"><span id="price_total">${pprice + vo.opt1_price}</span>원</div>
 						</td>
 					</tr>
 					<tr class="cart_price_del">
@@ -173,9 +155,9 @@
 							<td class="prod_total">결제 예정금액</td>
 						</tr>
 						<tr>
-							<td class="all_price2" id="all_price_total"></td>
-							<td class="del2"><span>0</span>원</td>
-							<td class="prod_total2"><span>0</span>원</td>
+							<td class="all_price2"><div class="total_price">0원</div></td>
+							<td class="del2"><div>0원</div></td>
+							<td class="prod_total2"><div>0원</div></td>
 						</tr>
 					</table>
 				</div>

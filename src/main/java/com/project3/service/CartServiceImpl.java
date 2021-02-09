@@ -30,7 +30,16 @@ public class CartServiceImpl implements CartService {
 		
 		return mv;
 	}
-	
-	
+
+	public ModelAndView getPurchaseList(String uemail) {
+		ModelAndView mv = new ModelAndView();
+		
+		ArrayList<IdusCartVO> list = cartDAO.getPurchaseList(uemail);
+		
+		mv.addObject("list", list);
+		mv.setViewName("/cart/purchase");
+		
+		return mv;
+	}
 	
 }

@@ -40,11 +40,14 @@
 		
 		$("button").click(function(){
 			var obj_name = $(this).attr("name");
-			var obj_id = $(this).attr("id");
-			var vname = "#" + obj_id + "_amt";
-			var p1_value = parseInt($("#p1_amt").val());
-			var p2_value = parseInt($("#p2_amt").val());
-			var p3_value = parseInt($("#p3_amt").val());
+	        var obj_id = $(this).attr("id");
+	        var btnId = "#" + obj_id;
+	        var vname = "#" + obj_id + "_amt"; //#c_51p1_amt == vname
+	        var vprice = "#" + obj_id + "_price";
+	        var p1_value = parseInt($("#p1_amt").val());
+	        var p2_value = parseInt($("#p2_amt").val());
+	        var p3_value = parseInt($("#p3_amt").val());
+
 			
 			//수량 변경 시 적립금, 가격 수정
 			var p1_price = parseInt($("#p1_price").text());
@@ -81,21 +84,9 @@
 		            }
 				}
 			}
-			
 		});
 		
-		
-		
-		$(".cart_prod_update").click(function(){
-			confirm("수량을 변경하시겠습니까?");
-		});
-		
-		
-		$(".cart_prod_del").click(function(){
-			confirm("정말 삭제하시겠습니까?");
-		});
-		
-		
+	
 		
 	});
 	

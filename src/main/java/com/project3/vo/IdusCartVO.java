@@ -5,6 +5,7 @@ public class IdusCartVO {
 		opt1, opt2, opt3, psfile1;
 	int pprice, opt1_price, opt2_price, opt3_price;
 	
+	
 	public String getCid() {
 		return cid;
 	}

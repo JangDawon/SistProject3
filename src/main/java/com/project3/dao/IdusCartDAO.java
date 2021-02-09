@@ -28,28 +28,13 @@ public class IdusCartDAO extends DBConn{
 		return (ArrayList<IdusCartVO>)list;
 	}
 	
-	
-	/** 장바구니 수정 **/
-	/* public int getCartUpdate(String cid, String p_qty, String p_price) {
-		Map<String, String> param = new HashMap<String, String>();
-		param.put("cid", cid);
-		param.put("p_qty", p_qty);
-		param.put("p_price", p_price);
-		
-		return sqlSession.update(namespace+".cartupdate", param);
+	public ArrayList<IdusCartVO> getPurchaseList(String uemail){
+		List<IdusCartVO> list = sqlSession.selectList(namespace+".purchaselist", uemail);
+		return (ArrayList<IdusCartVO>)list;
 	}
 	
-	public int getCartDelete(String cid) {
-		return sqlSession.delete(namespace+".cartdelete", cid);
-	}
 	
-    public int sumMoney(String uemail) {
-        return sqlSession.selectOne(namespace+".sumMoney", uemail); 
-    }
- 
-    public int countCart(String uemail, int pid) {
-        return 0;
-    } */
+	
 	
 } 
 

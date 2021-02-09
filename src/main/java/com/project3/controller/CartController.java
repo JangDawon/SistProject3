@@ -1,7 +1,5 @@
 package com.project3.controller;
 
-import java.util.StringTokenizer;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,39 +22,26 @@ public class CartController {
 	}
 	
 	
-	/**
-	 * 장바구니 삭제 처리
-	 */
-	@RequestMapping(value = "/cart/cart_list_del.do", method = RequestMethod.GET)
-	public ModelAndView cart_list_del(String chklist) {
-		ModelAndView mv = new ModelAndView();
-		
-		//String chklist --> array
-		StringTokenizer st = new StringTokenizer(chklist, ",");
-		String[] dellist = new String[st.countTokens()];
-		for(int i=0;i<dellist.length;i++) {
-			dellist[i] = st.nextToken();
-		}
-		
-		int result = cartService.getSelectDelete(dellist);
-		
-		mv.setViewName("redirect:/cart/cart.do");
-		return mv;
-	}
-
 	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
 	public ModelAndView cart(HttpSession session) {
 		IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
 		return cartService.getCartList(svo.getUemail());
 	}
 	
+	/* @RequestMapping(value = "/cart_insert.do", method = RequestMethod.GET)
+	public ModelAndView cart(String uemail, String pid, String opt1_qty, String opt2_qty, String op3_qty) {
+		return cartService.getCartInsert(uemail, pid, opt1_qty, opt2_qty, op3_qty);
+	} */
+
 	
-	/**
-	 * 구매하기
-	 */
 	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
-	public String purchase() {
-		return "/cart/purchase";
+	public ModelAndView purchase(HttpSession session) {
+		IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
+		return cartService.getPurchaseList(svo.getUemail());
 	}
 
+	
+	
+	
+	
 }
