@@ -4,10 +4,8 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.project3.dao.IdusCartDAO;
 import com.project3.vo.IdusCartVO;
 
@@ -21,33 +19,18 @@ public class CartServiceImpl implements CartService {
 		return cartDAO.getSelectDelete(dellist);
 	}
 	
-	
 	@Override
-	public String getCartList(String uemail) {
+	public ModelAndView getCartList(String uemail) {
+		ModelAndView mv = new ModelAndView();
+		
 		ArrayList<IdusCartVO> list = cartDAO.getCartList(uemail);
 		
-		JsonArray jarray = new JsonArray();
-		JsonObject jdata = new JsonObject();
-		Gson gson = new Gson();
+		mv.addObject("list", list);
+		mv.setViewName("/cart/cart");
 		
-		for(IdusCartVO vo : list) {
-			JsonObject jobj = new JsonObject();
-			
-			jobj.addProperty("cid", vo.getCid());
-			jobj.addProperty("uemail", vo.getUemail());
-			jobj.addProperty("pid", vo.getPid());
-			jobj.addProperty("p_name", vo.getP_name());
-			jobj.addProperty("p_qty", vo.getP_qty());
-			jobj.addProperty("p_opt", vo.getP_opt());
-			jobj.addProperty("p_price", vo.getP_price());
-			
-			jarray.add(jobj);
-		}
-
-		jdata.add("jlist", jarray);
-		return gson.toJson(jdata);
-		
+		return mv;
 	}
+	
 	
 	
 }
