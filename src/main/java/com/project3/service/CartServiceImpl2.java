@@ -28,5 +28,21 @@ public class CartServiceImpl2 implements CartService {
 		return mv;
 	}
 	
+	public ModelAndView getCartWrite(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = cartDAO2.getCartWrite(uemail, pid, opt1_qty, opt2_qty, opt3_qty);
+		
+		if(result > 0) {
+			mv.setViewName("redirect:/product.do?pid="+pid);
+		}else {
+			mv.setViewName("errorPage");
+		}
+		
+		
+		return mv;
+	}
+	
+	
 	
 }

@@ -76,10 +76,22 @@ public class CategoryController {
 	 */
 	@RequestMapping(value = "/category_list.do", method = RequestMethod.GET)
 	public ModelAndView category_list(String pcat) {
-		return categoryService.getList(pcat); //(ModelAndView)
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("pcat", pcat);
+		mv.setViewName("/category/category_list");
+		
+		return mv; 
 	}
 	
-	
+	/**
+	 * 카테고리 리스트
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/category_ajax_list.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public String category_ajax_list(String pcat, String sname) {
+		return categoryService.getAjaxList(pcat, sname); 
+	}
 	
 	
 	

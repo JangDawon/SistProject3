@@ -29,7 +29,7 @@
                   <li><a href="http://localhost:9000/sistproject3/login.do">로그인</a></li>
                   <li><a href="http://localhost:9000/sistproject3/join_choice.do">회원가입</a></li>
                   <li><a href="http://localhost:9000/sistproject3/cs.do">고객센터</a></li>
-                  <li><a href="http://localhost:9000/sistproject3/user_mng_list.do">admin</a></li>
+                  <!-- <li><a href="http://localhost:9000/sistproject3/user_mng_list.do">admin</a></li> -->
                </ul>
          	</div>
             </c:otherwise>

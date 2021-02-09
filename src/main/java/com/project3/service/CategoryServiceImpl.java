@@ -34,13 +34,34 @@ public class CategoryServiceImpl implements CategoryService{
 	
 	public ModelAndView getList(String pcat) {
 		ModelAndView mv = new ModelAndView();
-		
-		ArrayList<IdusProductVO> list = categoryDAO.getList(pcat);
-		
-		mv.addObject("list", list);
-		mv.setViewName("/category/category_list");
-		
 		return mv;
+	}
+	
+	public String getAjaxList(String pcat, String sname) {
+		ArrayList<IdusProductVO> list = categoryDAO.getAjaxList(pcat, sname);
+		
+		//list객체의 데이터를 JSON 객체로 변환 --> JSON 라이브러리 설치(gson)
+		JsonArray jarray = new JsonArray();
+		JsonObject jdata = new JsonObject();
+		Gson gson = new Gson();
+		
+		for(IdusProductVO vo : list){
+			JsonObject jobj = new JsonObject();
+
+			jobj.addProperty("pid", vo.getPid());
+			jobj.addProperty("pcat", vo.getPcat());
+			jobj.addProperty("psfile1", vo.getPsfile1());
+			jobj.addProperty("sname", vo.getSname());
+			jobj.addProperty("ptitle", vo.getPtitle());
+			jobj.addProperty("pprice_char", vo.getPprice_char());
+			jobj.addProperty("pdate", vo.getPdate());
+			
+			jarray.add(jobj);
+		}
+		
+		jdata.add("jlist", jarray);
+		
+		return gson.toJson(jdata);
 	}
 	
 	public ModelAndView getContent(String pid) {
@@ -78,8 +99,5 @@ public class CategoryServiceImpl implements CategoryService{
 		
 		return mv;
 	}
-	
-
-	
 	
 }
