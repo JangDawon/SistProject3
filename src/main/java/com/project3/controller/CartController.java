@@ -1,8 +1,5 @@
 package com.project3.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpSession;
@@ -14,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.service.CartServiceImpl;
-import com.project3.vo.IdusCartVO;
+import com.project3.vo.IdusSessionVO;
 
 @Controller
 public class CartController {
@@ -22,7 +19,7 @@ public class CartController {
 	private CartServiceImpl cartService;
 	
 	@RequestMapping(value="/cart_order.do", method=RequestMethod.GET)
-	public String cart_order() {
+	   public String cart_order() {
 	      return "cart/cart_order";
 	   }
 	
@@ -47,13 +44,18 @@ public class CartController {
 	}
 
 	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
-	public String cart() {
-		return "/cart/cart";
+	public ModelAndView cart(HttpSession session) {
+		IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
+		return cartService.getCartList(svo.getUemail());
 	}
 	
+	
+	/**
+	 * 구매하기
+	 */
 	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
 	public String purchase() {
 		return "/cart/purchase";
 	}
-	
+
 }

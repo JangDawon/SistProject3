@@ -1266,7 +1266,6 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	 	font-size:22px;
 		font-weight:bold;
 		padding-bottom:20px;
-		border:1px solid red;
 	}
 	tr:last-child>td.prod_total2 {
 		color:#F87E35;
@@ -1452,7 +1451,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       width:22px;
    }
    .btn_cart {
-      width: 48%;
+   		width:49%;
        font-size: 16px;
        background-color: white;
        box-shadow: 0 1px 3px 0 hsla(0,0%,86.3%,.3);
@@ -1462,7 +1461,6 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
        color: #333;
        cursor: pointer;
        outline:0;
-       margin-left: 12px;
        height: 40px;
    }
    .btn_cart:hover {
@@ -1475,7 +1473,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       background-color: #f5e9da;
    }
    .btn_buy {
-      width: 48%;
+   		width:49%;
        font-size: 16px;
        background: #ff7b30;
        box-shadow: 0 1px 3px 0 hsla(0,0%,86.3%,.3);
@@ -1484,6 +1482,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
        color: #fff;
        cursor: pointer;
        outline:0;
+       height: 40px;
    }
    .hashtag-box { 
        padding: 24px 0;

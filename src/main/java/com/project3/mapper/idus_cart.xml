@@ -5,38 +5,28 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="mapper.cart">
-
-	<insert id="cartinsert" parameterType="com.project3.vo.IdusCartVO">
-		insert into idus_cart values ('c_'||sequ_cart.nextval, #{uemail}, #{pid}, 
-			#{prod_name}, #{prod_qty}, #{prod_opt}, #{prod_price})
-	</insert>
-	
-	<select id="cartlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusCartVO">
-		select * from idus_cart
-	</select>
-	
+		
 	<delete id="deletelist" parameterType="java.lang.reflect.Array">
-		delete from idus_cart where cart_id in
+		delete from idus_cart where cid in
 		<foreach item="item" index="index" collection="array"
 			open="(" separator="," close=")">
 			#{item}
 		</foreach>
 	</delete>
-	
-	<select id="sumMoney" resultType="int">
-        select nvl(sum(prod_price * prod_qty), 0) money
-        form idus_cart c, idus_product p
-        where c.pid = p.pid AND c.uemail = #{uemail}
-    </select>
-	
-    <select id="countCart" resultType="int">
-        select count(*) from idus_cart where uemail= #{uemail} and pid = #{pid}
-    </select>
+    
+   	<insert id="cartinsert">
+		insert into idus_cart values('c_'||idus_cart_seq.nextval, #{uemail}, #{pid},
+	       #{p_name}, #{p_qty}, #{p_opt}, #{p_price}, sysdate)
+	</insert>
 
-    <update id="updateCart">
-        update idus_cart set prod_qty = prod_qty + #{prod_qty} 
-        where uemail= #{uemail} and pid = #{pid}
-    </update>
+	<select id="cartlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusCartVO">
+      select c.cid, c.uemail, c.pid, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty
+      , p.opt2, p.opt2_price, c.opt2_qty, p.opt3, p.opt3_price, c.opt3_qty
+      , c.cdate, p.psfile1 
+      from idus_cart c, idus_product p where c.pid=p.pid and uemail=#{uemail}
+   </select>
+	
+	
 	
 </mapper>
 
