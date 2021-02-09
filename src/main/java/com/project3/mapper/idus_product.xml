@@ -113,9 +113,22 @@
 		where pid=#{pid}
 	</update>
 	
-	<select id="categorylist" parameterType="java.lang.String" resultType="com.project3.vo.IdusProductVO">
+	<select id="ajaxlist" parameterType="map" resultType="com.project3.vo.IdusProductVO">
 		select pid, pcat, psfile1, sname, ptitle, to_char(pprice, '9,999,999') pprice_char, to_char(pdate,'yy/mm/dd') pdate
-		  from (select * from idus_product order by pdate desc) where pcat =#{pcat}
+		  from (select * from idus_product order by 
+		 <if test="sname == 'new'">
+		 	pdate desc
+		 </if> 
+		 <if test="sname == 'purchase'">
+		 	product_total desc
+		 </if> 
+		 <if test="sname == 'low'">
+		 	pprice asc
+		 </if> 
+		 <if test="sname == 'high'">
+		 	pprice desc
+		 </if>
+		 ) where pcat =#{pcat} 
 	</select>
 	
 </mapper>
