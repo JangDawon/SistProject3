@@ -9,68 +9,27 @@
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 		<script src="http://localhost:9000/sistproject3/js/dawon.js"></script>
-		<!-- <script>
-			$(document).ready(function(){
-				cart_list();
-				
-				function cart_list(){
-					$.ajax({
-						url:"cart_list.do?uemail=${vo.uemail}",
-						success:function(Result){
-							var jdata = JSON.parse(result);
-							
-							var output = "";
-							output += '<table class="cart_table"><tr class="cart_product">';
-							
-							for(var i in jdata.jlist){
-								output += '<td rowspan="2" width=2%>';
-								output += '<div class="cart_chk">';
-								output += '<input type="checkbox" id="" class="cart_prod_chk" value="1">';
-								output += '</div></td>';
-								output += '<td rowspan="2" width=10%>';
-								output += '<div class="cart_img">';
-								output += '<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }">';
-								output += '</div></td>';
-								output += '<td colspan="4">';
-								output += '<div class="cart_text"><a href="http://localhost:9000/sistproject3/product.do?pid="'+ jdata.jlist[i].pid +'>';
-								output += '<label>상품이름</label></a>';
-								output += '</div></td></tr>';
-								output += '<tr class="cart_explain">';
-								output += '<td width=53%><div class="cart_option">'+ jdata.jlist[i].p_opt +'</div></td>';
-								output += '<td width=12%>';
-								output += '<div class="cart_num">';
-								output += '<button type="button" class="minus" name="minus" id="p1">-</button>';
-								output += '<input type="text" class="price" value="'+ jdata.jlist[i].p_qty +'" id="p1_amt">';
-								output += '<button type="button" class="plus" name="plus" id="p1">+</button>';
-								output += '</div></td>';
-								output += '<td width=11%>';
-								output += '	<div class="cart_price"><span class="p1_price">'+ jdata.jlist[i].p_price +'</span>원</div>';
-								output += '</td>';
-								output += '<td>';
-								output += '<div class="cart_update">';
-								output += '<button type="button" class="cart_prod_update">수정</button>';
-								output += '<button type="button" class="cart_prod_del">삭제</button>';
-								output += '</div></td></tr>';
-								output += '<tr class="cart_price_name">';
-								output += '<td colspan="2"><div class="price_title">작품 가격</div></td>';
-								output += '<td colspan="4">';
-								output += '<div class="price_content"><span class="p1_price">총가격</span>원</div>';
-								output += '</td></tr>';
-								output += '<tr class="cart_price_del">';
-								output += '<td colspan="2"><div class="price_title">배송비</div></td>';
-								output += '<td colspan="4"><div class="price_content"><span>2600</span></div></td>';
-								output += '</tr>';
-							}
-							
-							output += '</table>';
-							$(".cart_table").remove();
-							$(".cart_content").append(output);
-						}
-					});
-				}
-				
+		<script>
+		$(document).ready(function(){
+			$(".cart_prod_chk").click(){
+				var str = "";
+				var sum = 0;
+				var coutn = $(".cart_prod_chk").length;
+				for(var i=0; i<count; i++){
+					if($(".cart_prod_chk")[i].checked == true){
+						sum += parseInt($(".cart_prod_chk")[i].value);
+					}
+				}  
+				$("#all_price_total").html(sum+"원");
+				$("#amout").val(sum);
+			}
+			
+			$(".cart_prod_chk").click(function(){
+				$("#cart_all_chk").prop("checked", false);
 			});
-		</script> -->
+		});
+		</script>
+		
 	</head>
 	<body class="category">
 		<!-- header -->
@@ -117,12 +76,12 @@
 						<td width=12%>
 							<div class="cart_num">
 								<button type="button" class="minus" name="minus" id="p1">-</button>
-								<input type="text" class="price" value="${vo.opt1_qty }" id="p1_amt">
+								<input type="text" class="price" value="${vo.opt1_qty }" id="p1_amt" name="opt1_qty">
 								<button type="button" class="plus" name="plus" id="p1">+</button>
 							</div>
 						</td>
 						<td width=11%>
-							<div class="cart_price"><span id="p1_price">${vo.opt1_price }</span>원</div>
+							<div class="cart_price"><span id="p1_price" name="op1_price">${vo.opt1_price }</span>원</div>
 						</td>
 						<td>
 							<div class="cart_update">
@@ -143,12 +102,12 @@
 						<td width=12%>
 							<div class="cart_num">
 								<button type="button" class="minus" name="minus" id="p2">-</button>
-								<input type="text" class="price" value="${vo.opt2_qty }" id="p2_amt">
+								<input type="text" class="price" value="${vo.opt2_qty }" id="p2_amt" name="opt2_qty">
 								<button type="button" class="plus" name="plus" id="p2">+</button>
 							</div>
 						</td>
 						<td width=11%>
-							<div class="cart_price"><span id="p2_price">${vo.opt2_price }</span>원</div>
+							<div class="cart_price"><span id="p2_price" name="op2_price">${vo.opt2_price }</span>원</div>
 						</td>
 						<td>
 							<div class="cart_update">
@@ -169,12 +128,12 @@
 						<td width=12%>
 							<div class="cart_num">
 								<button type="button" class="minus" name="minus" id="p3">-</button>
-								<input type="text" class="price" value="${vo.opt3_qty }" id="p3_amt">
+								<input type="text" class="price" value="${vo.opt3_qty }" id="p3_amt" name="opt3_qty">
 								<button type="button" class="plus" name="plus" id="p3">+</button>
 							</div>
 						</td>
 						<td width=11%>
-							<div class="cart_price"><span id="p3_price">${vo.opt3_price }</span>원</div>
+							<div class="cart_price"><span id="p3_price" name="op3_price">${vo.opt3_price }</span>원</div>
 						</td>
 						<td>
 							<div class="cart_update">
@@ -193,7 +152,7 @@
 					</tr>
 					<tr class="cart_price_del">
 						<td colspan="2"><div class="price_title">배송비</div></td>
-						<td colspan="4"><div class="price_content"><span id="del_price">2600</span></div></td>
+						<td colspan="4"><div class="price_content"><span id="del_price">2,600</span>원</div></td>
 					</tr>
 				</table>
 				</c:forEach>
@@ -214,9 +173,9 @@
 							<td class="prod_total">결제 예정금액</td>
 						</tr>
 						<tr>
-							<td class="all_price2"><span id="all_price_total"></span>원</td>
-							<td class="del2"><span>2,600</span>원</td>
-							<td class="prod_total2"><span></span>원</td>
+							<td class="all_price2" id="all_price_total"></td>
+							<td class="del2"><span>0</span>원</td>
+							<td class="prod_total2"><span>0</span>원</td>
 						</tr>
 					</table>
 				</div>
