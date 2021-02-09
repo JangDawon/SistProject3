@@ -96,7 +96,6 @@
 	
 	<section class="category_content">
 		<div class="category_content">
-		
 		</div>
 	</section>
 	

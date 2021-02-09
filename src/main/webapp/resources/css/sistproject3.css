@@ -730,11 +730,12 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       padding:4px 4px;
    }
    section.category_content {
+   	  clear:both;
       padding:15px 0 50px 0;
    }
    div.category_content>div.product {
       display:inline-block;
-      width:23.6%;
+      width:24%;
       height:430px;
       margin:10px 5px;
    }
@@ -745,7 +746,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
    }
    div.product div.prod_img img {
       text-align:center;
-      width:258px;
+      width:263px;
       height:258px;
    }
    div.product>a {
@@ -792,6 +793,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
    }
    div.category_content>div.product:hover {
       box-shadow:1px 1px 20px #ddd;
+      transform:scale(1.03);  
    }
    
     /** 인기작품, 최신작품 **/
