@@ -1,7 +1,9 @@
 package com.project3.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +16,13 @@ public class IdusCategoryDAO  extends DBConn{
 	 
 	private static String namespace = "mapper.product";
 	
-	public ArrayList<IdusProductVO> getList(String pcat){
-		List<IdusProductVO> list = sqlSession.selectList(namespace + ".categorylist", pcat);
-		return (ArrayList<IdusProductVO>)list;
+	public ArrayList<IdusProductVO> getAjaxList(String pcat, String sname){
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("pcat", pcat);
+		param.put("sname", sname);
 		
+		List<IdusProductVO> list = sqlSession.selectList(namespace + ".ajaxlist", param);
+		return (ArrayList<IdusProductVO>)list;
 	}
 	
 	public IdusProductVO getContent(String pid) {
