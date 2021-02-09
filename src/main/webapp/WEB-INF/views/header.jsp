@@ -51,7 +51,7 @@
                   <li><a href="http://localhost:9000/sistproject3/mypage.do">
                   	<img src="http://localhost:9000/sistproject3/images/user.png"></a>
                   </li>
-                  <li><a href="http://localhost:9000/sistproject3/cart2.do">
+                  <li><a href="http://localhost:9000/sistproject3/cart.do">
                   	<img src="http://localhost:9000/sistproject3/images/cart.png"></a>
                   </li>
                </ul>

@@ -4,10 +4,8 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.project3.dao.IdusCartDAO;
 import com.project3.vo.IdusCartVO;
 
@@ -21,7 +19,17 @@ public class CartServiceImpl implements CartService {
 		return cartDAO.getSelectDelete(dellist);
 	}
 	
-	
+	@Override
+	public ModelAndView getCartList(String uemail) {
+		ModelAndView mv = new ModelAndView();
+		
+		ArrayList<IdusCartVO> list = cartDAO.getCartList(uemail);
+		
+		mv.addObject("list", list);
+		mv.setViewName("/cart/cart");
+		
+		return mv;
+	}
 	
 	
 	
