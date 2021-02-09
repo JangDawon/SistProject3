@@ -150,8 +150,6 @@ public class BoardServiceImpl implements BoardService {
 		}
 	
 		
-		
-		
 		return mv;
 	}
 	
@@ -256,7 +254,6 @@ public class BoardServiceImpl implements BoardService {
 			jobj.addProperty("uemail", vo.getUemail());
 			jobj.addProperty("uname", vo.getUname());
 			jobj.addProperty("rdate", vo.getRdate());
-			jobj.addProperty("rfile", vo.getRfile());
 			jobj.addProperty("rsfile", vo.getRsfile());
 			jobj.addProperty("rcontent", vo.getRcontent().replace("\r\n", "<br>"));
 			

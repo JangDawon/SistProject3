@@ -34,6 +34,15 @@ public class CartController2 {
 	}
 	
 	/**
+	 *	장바구니(지혜)
+	 */
+	@RequestMapping(value = "/cart_insert.do", method = RequestMethod.GET)
+	public ModelAndView cart_insert(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
+		return cartService2.getCartWrite(uemail, pid, opt1_qty, opt2_qty, opt3_qty);
+	}
+	
+	
+	/**
 	 * 구매하기(지혜)
 	 */
 	@RequestMapping(value = "/purchase2.do", method = RequestMethod.GET)

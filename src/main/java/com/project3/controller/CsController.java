@@ -114,7 +114,6 @@ public class CsController {
 		rvo.setUname(uname);
 		rvo.setBid(bid);
 		rvo.setRcontent(rcontent);
-		rvo.setRfile(rfile);
 		rvo.setRsfile(rsfile); 
 		return String.valueOf(boardService.getReplyWrite(rvo));
 	}

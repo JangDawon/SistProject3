@@ -114,9 +114,6 @@ public class MemberServiceImpl {
 		
 		result = memberDAO.getUpdate(svo);
 		
-		//reply테이블 프로필 바꾸기
-		boardDAO.getUpdateRsfile(svo.getPsfile(), svo.getUemail());
-		
 		if(result) {
 			File file = new File(svo.getSavepath()+svo.getPsfile());
 			try {
