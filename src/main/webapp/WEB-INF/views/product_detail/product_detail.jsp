@@ -219,7 +219,8 @@ $(document).ready(function(){
 				if(info) {
 					alert("장바구니 페이지로 이동합니다.");
 					$.ajax({
-						url:"cart_insert.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
+						//url:"cart_insert.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
+						url:"cart_ins.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
 						success:function(result){
 							
 						}

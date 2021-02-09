@@ -33,7 +33,15 @@ public class IdusCartDAO extends DBConn{
 		return (ArrayList<IdusCartVO>)list;
 	}
 	
-	
+	public int getCartInsert(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("uemail", uemail);
+		param.put("pid", pid);
+		param.put("opt1_qty", opt1_qty);
+		param.put("opt2_qty", opt2_qty);
+		param.put("opt3_qty", opt3_qty);
+		return sqlSession.insert(namespace+".cartinsert", param);
+	}
 	
 	
 } 

@@ -14,9 +14,31 @@
 		</foreach>
 	</delete>
     
-   	<insert id="cartinsert">
-		insert into idus_cart values('c_'||idus_cart_seq.nextval, #{uemail}, #{pid},
-	       #{p_name}, #{p_qty}, #{p_opt}, #{p_price}, sysdate)
+   	<insert id="cartinsert" parameterType="map">
+		insert into idus_cart values('c_'||SEQU_CART.nextval, #{uemail}, #{pid}, #{opt1_qty}
+		<choose>
+			<when test="opt2_qty != null">
+				<choose>
+					<when test="opt3_qty != null">
+						, #{opt2_qty}, #{opt3_qty}
+					</when>
+					<otherwise>
+						, #{opt2_qty}, ''
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				<choose>
+					<when test="opt3_qty != null">
+						, '', #{opt3_qty}
+					</when>
+					<otherwise>
+						, '', ''
+					</otherwise>
+				</choose>
+			</otherwise>
+		</choose>
+		, sysdate)
 	</insert>
 
 	<select id="cartlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusCartVO">

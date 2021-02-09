@@ -28,11 +28,10 @@ public class CartController {
 		return cartService.getCartList(svo.getUemail());
 	}
 	
-	/* @RequestMapping(value = "/cart_insert.do", method = RequestMethod.GET)
-	public ModelAndView cart(String uemail, String pid, String opt1_qty, String opt2_qty, String op3_qty) {
-		return cartService.getCartInsert(uemail, pid, opt1_qty, opt2_qty, op3_qty);
-	} */
-
+	@RequestMapping(value = "/cart_ins.do", method = RequestMethod.GET)
+	public ModelAndView cart_insert(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
+		return cartService.getCartInsert(uemail, pid, opt1_qty, opt2_qty, opt3_qty);
+	}
 	
 	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
 	public ModelAndView purchase(HttpSession session) {

@@ -4,13 +4,15 @@
 			var del_list = "";
 			
 			$(".cart_prod_chk:checked").each(function(index){
-				del_list += $(this).attr("value") + ", ";
+				del_list += $(this).attr("id") + ", ";
 			});
 			
 			if(del_list == ""){
 				alert("선택된 상품이 없습니다.");
 			}else{
 				confirm(del_list + "선택된 상품을 주문합니다.");
+				
+				location.href='http://localhost:9000/sistproject3/cart_order.do?uemail=${sessionScope.svo.uemail}';
 			}
 		});
 		
@@ -37,17 +39,17 @@
 			}
 		});
 		
+		$(".cart_proc_chk").click(function(){
+			
+		});
 		
 		$("button").click(function(){
 			var obj_name = $(this).attr("name");
-	        var obj_id = $(this).attr("id");
-	        var btnId = "#" + obj_id;
-	        var vname = "#" + obj_id + "_amt"; //#c_51p1_amt == vname
-	        var vprice = "#" + obj_id + "_price";
-	        var p1_value = parseInt($("#p1_amt").val());
-	        var p2_value = parseInt($("#p2_amt").val());
-	        var p3_value = parseInt($("#p3_amt").val());
-
+			var obj_id = $(this).attr("id");
+			var vname = "#" + obj_id + "_amt";
+			var p1_value = parseInt($("#p1_amt").val());
+			var p2_value = parseInt($("#p2_amt").val());
+			var p3_value = parseInt($("#p3_amt").val());
 			
 			//수량 변경 시 적립금, 가격 수정
 			var p1_price = parseInt($("#p1_price").text());
@@ -63,11 +65,21 @@
 		         
 		        if(obj_id == "p1"){
 		        	$("#"+ obj_id +"_price").text("").append(p1_price + p1_one_price);
+		        	var total = parseInt($(".sum").text());
+		        	total += p1_one_price;
+		        	$(".sum").text("").append(total+"원");
 		        }else if(obj_id == "p2"){
 		        	$("#"+ obj_id +"_price").text("").append(p2_price + p2_one_price);
+		        	var total = parseInt($(".sum").text());
+					total += p2_one_price;
+					$(".sum").text("").append(total+"원");
 		        }else if(obj_id == "p3"){
 		            $("#"+ obj_id +"_price").text("").append(p3_price + p3_one_price);
+		            var total = parseInt($(".sum").text());
+					total += p3_one_price;
+					$(".sum").text("").append(total+"원");
 		        }
+		        
 			 }else if(obj_name == "minus") {
 		        if($(vname).val() == 1) {
 					alert("최소 주문 수량은 1개입니다.");
@@ -76,17 +88,26 @@
 		            $(vname).val(count);
 		            
 		            if(obj_id == "p1"){
-		               $("#"+ obj_id +"_price").text("").append(p1_price - p1_one_price);
-		            }else if(obj_id == "p2"){
-		               $("#"+ obj_id +"_price").text("").append(p2_price - p2_one_price);
-		            }else if(obj_id == "p3"){
-		               $("#"+ obj_id +"_price").text("").append(p3_price - p3_one_price);
-		            }
+					$("#"+ obj_id +"_price").text("").append(p1_price - p1_one_price+"원");
+					var total = parseInt($(".sum").text());
+					total = total-p1_one_price;
+					$(".sum").text("").append(total+"원");
+				}else if(obj_id == "p2"){
+					$("#"+ obj_id +"_price").text("").append(p2_price - p2_one_price+"원");
+					var total = parseInt($(".sum").text());
+					total -= p2_one_price;
+					$(".sum").text("").append(total+"원");
+				}else if(obj_id == "p3"){
+					$("#"+ obj_id +"_price").text("").append(p3_price - p3_one_price+"원");
+					var total = parseInt($(".sum").text());
+					total -= p3_one_price;
+					$(".sum").text("").append(total+"원");
+				}
 				}
 			}
+			
 		});
 		
-	
 		
 	});
 	
