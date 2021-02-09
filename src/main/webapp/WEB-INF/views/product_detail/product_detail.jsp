@@ -21,7 +21,11 @@ $(document).ready(function(){
 		$.ajax({
 			url:"cart_insert.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
 			success:function(result){
+				var choice = confirm("장바구니에 성공적으로 담겼습니다. 장바구니로 이동하시겠습니까?");
 				
+				if(choice){
+					$(location).attr('href', 'cart.do');
+				}
 			}
 		});
 	});
