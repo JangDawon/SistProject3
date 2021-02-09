@@ -66,19 +66,21 @@ $(document).ready(function(){
 			//p2, p3없을때 확인해보기
 			if(obj_id == "p1"){
 				$("#"+ obj_id +"_price").text("").append(p1_price + p1_one_price+"원");
+				var total = parseInt($(".sum").text());
+				total += p1_one_price;
+				$(".sum").text("").append(total+"원");
 			}else if(obj_id == "p2"){
 				$("#"+ obj_id +"_price").text("").append(p2_price + p2_one_price+"원");
+				var total = parseInt($(".sum").text());
+				total += p2_one_price;
+				$(".sum").text("").append(total+"원");
 			}else if(obj_id == "p3"){
 				$("#"+ obj_id +"_price").text("").append(p3_price + p3_one_price+"원");
+				var total = parseInt($(".sum").text());
+				total += p3_one_price;
+				$(".sum").text("").append(total+"원");
 			}
 			
-			if(${vo.opt2 eq null}){
-	            $(".sum").text("").append(p1_one_price*$("#p1_amt").val()+"원");
-	         }else if(${vo.opt3 eq null}){
-	            $(".sum").text("").append((p1_one_price*$("#p1_amt").val())+(p2_one_price*$("#p2_amt").val())+"원");
-	         }else{
-	            $(".sum").text("").append((p1_one_price*$("#p1_amt").val())+(p2_one_price*$("#p2_amt").val())+(p3_one_price*$("#p3_amt").val())+"원");
-	         }
 			
 		}else if(obj_name == "minus") {
 			//선택한 아이디의 값만 1일 때 경고창
@@ -90,20 +92,23 @@ $(document).ready(function(){
 				
 				if(obj_id == "p1"){
 					$("#"+ obj_id +"_price").text("").append(p1_price - p1_one_price+"원");
+					var total = parseInt($(".sum").text());
+					total = total-p1_one_price;
+					$(".sum").text("").append(total+"원");
 				}else if(obj_id == "p2"){
 					$("#"+ obj_id +"_price").text("").append(p2_price - p2_one_price+"원");
+					var total = parseInt($(".sum").text());
+					total -= p2_one_price;
+					$(".sum").text("").append(total+"원");
 				}else if(obj_id == "p3"){
 					$("#"+ obj_id +"_price").text("").append(p3_price - p3_one_price+"원");
+					var total = parseInt($(".sum").text());
+					total -= p3_one_price;
+					$(".sum").text("").append(total+"원");
 				}
 			}
 			
-			if(${vo.opt2 eq null}){
-	            $(".sum").text("").append(p1_one_price*$("#p1_amt").val()+"원");
-	         }else if(${vo.opt3 eq null}){
-	            $(".sum").text("").append((p1_one_price*$("#p1_amt").val())+(p2_one_price*$("#p2_amt").val())+"원");
-	         }else{
-	            $(".sum").text("").append((p1_one_price*$("#p1_amt").val())+(p2_one_price*$("#p2_amt").val())+(p3_one_price*$("#p3_amt").val())+"원");
-	         }		}
+		}
 		
 	});
 	
@@ -133,6 +138,7 @@ $(document).ready(function(){
 				output += "</div>";
 				output += "</div>";
 				
+				sum = parseInt($(".sum").text());
 				sum += opt1_total; 
 				one++;
 				$(".product_option_div").after(output);
@@ -156,6 +162,7 @@ $(document).ready(function(){
 				output += "</div>";
 				output += "</div>";
 				
+				sum = parseInt($(".sum").text());
 				sum += opt2_total;
 				two++;
 				$(".product_option_div").after(output);
@@ -179,6 +186,7 @@ $(document).ready(function(){
 				output += "</div>";
 				output += "</div>";
 				
+				sum = parseInt($(".sum").text());
 				sum += opt3_total; 
 				
 				three++;
