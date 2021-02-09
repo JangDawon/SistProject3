@@ -102,18 +102,18 @@
 						</td>
 						<td colspan="4">
 							<div class="cart_text"><a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
-								<label>${vo.pname }</label></a>
+								<label>${vo.ptitle }</label></a>
 							</div>
 						</td>
 					</tr>
 					<tr class="cart_explain">
 						<td width=53%>
-							<div class="cart_option">${vo.popt }</div>
+							<div class="cart_option">${vo.opt1 }</div>
 						</td>
 						<td width=12%>
 							<div class="cart_num">
 								<button type="button" class="minus" name="minus" id="p1">-</button>
-								<input type="text" class="price" value="${vo.pqty }" id="p1_amt">
+								<input type="text" class="price" value="${vo.opt1_qty }" id="p1_amt">
 								<button type="button" class="plus" name="plus" id="p1">+</button>
 							</div>
 						</td>
