@@ -222,7 +222,9 @@ $(document).ready(function(){
 						//url:"cart_insert.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
 						url:"cart_ins.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
 						success:function(result){
-							
+							if(result) {
+								location.href='http://localhost:9000/sistproject3/cart.do';
+							}
 						}
 					});
 				} /* else {
@@ -252,13 +254,14 @@ $(document).ready(function(){
 		} else {
 			if(uemail !="") {
 				alert("주문페이지로 이동합니다.");
-				/* $.ajax({
-					url:"http://localhost:9000/sistproject3/purchase.do?pid=${vo.pid }",
+				$.ajax({
+					url:"cart_ins.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
 					success:function(result){
-						
+						if(result) {
+							location.href='http://localhost:9000/sistproject3/purchase.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }';
+						}
 					}
-				}); */
-				location.href='http://localhost:9000/sistproject3/purchase.do?pid=${vo.pid }';
+				});
 			}else {
 				alert("로그인을 먼저 진행해 주세요!");
 				location.href='http://localhost:9000/sistproject3/login.do';

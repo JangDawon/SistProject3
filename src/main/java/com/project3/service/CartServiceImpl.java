@@ -31,12 +31,12 @@ public class CartServiceImpl implements CartService {
 		return mv;
 	}
 
-	public ModelAndView getPurchaseList(String uemail) {
+	public ModelAndView getPurchaseList(String uemail, String pid) {
 		ModelAndView mv = new ModelAndView();
 		
-		ArrayList<IdusCartVO> list = cartDAO.getPurchaseList(uemail);
+		IdusCartVO vo = cartDAO.getPurchaseList(uemail, pid);
 		
-		mv.addObject("list", list);
+		mv.addObject("vo", vo);
 		mv.setViewName("/cart/purchase");
 		
 		return mv;

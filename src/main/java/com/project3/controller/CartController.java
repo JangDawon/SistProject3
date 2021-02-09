@@ -34,9 +34,9 @@ public class CartController {
 	}
 	
 	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
-	public ModelAndView purchase(HttpSession session) {
+	public ModelAndView purchase(HttpSession session, String pid) {
 		IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
-		return cartService.getPurchaseList(svo.getUemail());
+		return cartService.getPurchaseList(svo.getUemail(), pid);
 	}
 
 	

@@ -25,7 +25,6 @@
 			</div>
 			
 			<div class="cart_content">
-				<c:forEach var="vo" items="${list }">
 				<table>
 					<tr class="cart_product">
 						<td width=2%>
@@ -45,7 +44,7 @@
 						</td>
 					</tr>
 					
-					<c:if test="${vo.opt1_qty ne undefined}">
+					<c:if test="${vo.opt1_qty ne 'undefined'}">
 					<tr class="cart_explain">
 						<td></td>
 						<td></td>
@@ -71,7 +70,7 @@
 					</tr>
 					</c:if>
 					
-					<c:if test="${vo.opt2_qty ne undefined}">
+					<c:if test="${vo.opt2_qty ne 'undefined'}">
 					<tr class="cart_explain">
 						<td></td>
 						<td></td>
@@ -97,7 +96,7 @@
 					</tr>
 					</c:if>
 					
-					<c:if test="${vo.opt3_qty ne undefined}">
+					<c:if test="${vo.opt3_qty ne 'undefined'}">
 					<tr class="cart_explain">
 						<td></td>
 						<td></td>
@@ -134,7 +133,6 @@
 						<td colspan="4"><div class="price_content"><span id="del_price">2,600</span>원</div></td>
 					</tr>
 				</table>
-				</c:forEach>
 			</div>
 			
 			<div class="cart_prod_order">

@@ -88,17 +88,17 @@
 		            $(vname).val(count);
 		            
 		            if(obj_id == "p1"){
-					$("#"+ obj_id +"_price").text("").append(p1_price - p1_one_price+"원");
+					$("#"+ obj_id +"_price").text("").append(p1_price - p1_one_price);
 					var total = parseInt($(".sum").text());
 					total = total-p1_one_price;
 					$(".sum").text("").append(total+"원");
 				}else if(obj_id == "p2"){
-					$("#"+ obj_id +"_price").text("").append(p2_price - p2_one_price+"원");
+					$("#"+ obj_id +"_price").text("").append(p2_price - p2_one_price);
 					var total = parseInt($(".sum").text());
 					total -= p2_one_price;
 					$(".sum").text("").append(total+"원");
 				}else if(obj_id == "p3"){
-					$("#"+ obj_id +"_price").text("").append(p3_price - p3_one_price+"원");
+					$("#"+ obj_id +"_price").text("").append(p3_price - p3_one_price);
 					var total = parseInt($(".sum").text());
 					total -= p3_one_price;
 					$(".sum").text("").append(total+"원");

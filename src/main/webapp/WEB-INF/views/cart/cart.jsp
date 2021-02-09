@@ -28,6 +28,14 @@
 				}
 			});
 			
+			$(".cart_prod_del").click(function(){
+				var chk = confirm("옵션을 삭제하시겠습니까?");
+				if(chk){
+					var del_chk = $(this).attr("id"); //cid값
+				}
+				$(location).attr("href", "http://localhost:9000/sistproject3/cart/opt_del?")
+				
+			});
 			
 			$("#cart_select_del").click(function(){
 				var choice = confirm("정말로 삭제하시겠습니까?");
@@ -38,7 +46,7 @@
 					});
 					
 					//삭제할 페이지로 전송
-					$(location).attr("href", "http://localhost:9000/sistproject3/cart/cart_list_del.do?chklist="+chk_list);
+					$(location).attr("href", "http://localhost:9000/sistproject3/cart_list_del.do?chklist="+chk_list);
 				}
 			});
 			
@@ -51,36 +59,12 @@
 				}
 			});
 			
-			$(".cart_prod_chk").click(function(){
-		    	$("#cart_all_chk").prop("checked", false);
-		    });
 			
 			$(".cart_proc_chk").click(function(){
-				if($(".cart_proc_chk").is(":checked")){
-					var total = parseInt($(".cart_total").text());
-	        		$(".cart_total").text("").append(total+"원");
+				if($(".cart_prod_chk").is(":checked")){
+					
 				}
-			}); 
-			
-			/* $(".cart_proc_chk").click(function(){
-				var total = parseInt($(".cart_total").text());
-	        	$(".cart_total").text("").append(total+"원"); 
-			}); 
-			
-			function itemSum(){
-	           var str = "";
-	           var sum = 0;
-	           var count = $(".cart_prod_chk").length;
-	           for(var i=0; i < count; i++ ){
-	               if( $(".cart_prod_chk")[i].checked == true ){
-	                sum += parseInt($(".sum").text();
-	               }
-	           }
-	           $(".cart_total").html(sum+" 원");
-	        } */
-			
-			
-			
+			});
 		    
 		    
 			$("button").click(function(){
@@ -128,17 +112,17 @@
 			            $(vname).val(count);
 			            
 			            if(obj_id == "p1"){
-							$("#"+ obj_id +"_price").text("").append(p1_price - p1_one_price+"원");
+							$("#"+ obj_id +"_price").text("").append(p1_price - p1_one_price);
 							var total = parseInt($(".sum").text());
 							total = total-p1_one_price;
 							$(".sum").text("").append(total+"원");
 						}else if(obj_id == "p2"){
-							$("#"+ obj_id +"_price").text("").append(p2_price - p2_one_price+"원");
+							$("#"+ obj_id +"_price").text("").append(p2_price - p2_one_price);
 							var total = parseInt($(".sum").text());
 							total -= p2_one_price;
 							$(".sum").text("").append(total+"원");
 						}else if(obj_id == "p3"){
-							$("#"+ obj_id +"_price").text("").append(p3_price - p3_one_price+"원");
+							$("#"+ obj_id +"_price").text("").append(p3_price - p3_one_price);
 							var total = parseInt($(".sum").text());
 							total -= p3_one_price;
 							$(".sum").text("").append(total+"원");
@@ -170,7 +154,7 @@
 					<tr class="cart_product">
 						<td width=2%>
 							<div class="cart_chk">
-								<input type="checkbox" id="${vo.cid}" onClick="itemSum()" class="cart_prod_chk">
+								<input type="checkbox" id="${vo.cid}" class="cart_prod_chk">
 							</div>
 						</td>
 						<td width=10%>
@@ -185,7 +169,7 @@
 						</td>
 					</tr>
 					
-					<c:if test="${vo.opt1_qty ne undefined}">
+					<c:if test="${vo.opt1_qty ne 'undefined'}">
 					<tr class="cart_explain">
 						<td></td>
 						<td></td>
@@ -200,18 +184,18 @@
 							</div>
 						</td>
 						<td width=11%>
-							<div class="cart_price"><span id="p1_price">${pprice + vo.opt1_price}</span>원</div>
+							<div class="cart_price"><span id="p1_price">${vo.pprice + vo.opt1_price}</span>원</div>
 						</td>
 						<td>
 							<div class="cart_update">
 								<button type="submit" class="cart_prod_update" id="updateBtn">수정</button>
-								<button type="button" class="cart_prod_del">삭제</button>
+								<button type="button" class="cart_prod_del" id="${vo.cid}">삭제</button>
 							</div>
 						</td>
 					</tr>
 					</c:if>
 					
-					<c:if test="${vo.opt2_qty ne undefined}">
+					<c:if test="${vo.opt2_qty ne 'undefined'}">
 					<tr class="cart_explain">
 						<td></td>
 						<td></td>
@@ -226,7 +210,7 @@
 							</div>
 						</td>
 						<td width=11%>
-							<div class="cart_price"><span id="p2_price">${pprice + vo.opt2_price }</span>원</div>
+							<div class="cart_price"><span id="p2_price">${vo.pprice + vo.opt2_price }</span>원</div>
 						</td>
 						<td>
 							<div class="cart_update">
@@ -237,7 +221,7 @@
 					</tr>
 					</c:if>
 					
-					<c:if test="${vo.opt3_qty ne undefined}">
+					<c:if test="${vo.opt3_qty ne 'undefined'}">
 					<tr class="cart_explain">
 						<td></td>
 						<td></td>
@@ -252,7 +236,7 @@
 							</div>
 						</td>
 						<td width=11%>
-							<div class="cart_price"><span id="p3_price">${pprice + vo.opt3_price}</span></div>
+							<div class="cart_price"><span id="p3_price">${vo.pprice + vo.opt3_price}</span></div>
 						</td>
 						<td>
 							<div class="cart_update">
@@ -266,7 +250,7 @@
 					<tr class="cart_price_name">
 						<td colspan="2"><div class="price_title">작품 가격</div></td>
 						<td colspan="4">
-							<div class="price_content"><div class="sum">${vo.pprice}원</div></div>
+							<div class="price_content"><div class="sum">${vo.pprice+vo.opt1_price+vo.opt2_price+vo.opt3_price}원</div></div>
 						</td>
 					</tr>
 					<tr class="cart_price_del">
@@ -279,7 +263,7 @@
 			
 			<div class="cart_prod_order">
 				<div class="prod_choice">
-					<input type="checkbox" id="cart_all_chk" checked><span class="rchk">전체선택</span>
+					<input type="checkbox" id="cart_all_chk"><span class="rchk">전체선택</span>
 					<button type="button" id="cart_select_del">선택 삭제</button>
 				</div>
 				<div class="all_price">

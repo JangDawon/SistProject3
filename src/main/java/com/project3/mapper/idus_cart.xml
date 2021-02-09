@@ -15,7 +15,7 @@
 	</delete>
     
    	<insert id="cartinsert" parameterType="map">
-		insert into idus_cart values('c_'||SEQU_CART.nextval, #{uemail}, #{pid}, #{opt1_qty}
+		insert into idus_cart values('c_'||IDUS_CART_SEQ.nextval, #{uemail}, #{pid}, #{opt1_qty}
 		<choose>
 			<when test="opt2_qty != null">
 				<choose>
@@ -52,7 +52,7 @@
       select c.cid, c.uemail, c.pid, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty
       , p.opt2, p.opt2_price, c.opt2_qty, p.opt3, p.opt3_price, c.opt3_qty
       , c.cdate, p.psfile1 
-      from idus_cart c, idus_product p where c.pid=p.pid and uemail=#{uemail}
+      from idus_cart c, idus_product p where c.pid=p.pid and uemail=#{uemail} and p.pid=#{pid}
    </select>
 	
 	

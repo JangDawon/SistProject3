@@ -28,9 +28,12 @@ public class IdusCartDAO extends DBConn{
 		return (ArrayList<IdusCartVO>)list;
 	}
 	
-	public ArrayList<IdusCartVO> getPurchaseList(String uemail){
-		List<IdusCartVO> list = sqlSession.selectList(namespace+".purchaselist", uemail);
-		return (ArrayList<IdusCartVO>)list;
+	public IdusCartVO getPurchaseList(String uemail, String pid){
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("uemail", uemail);
+		param.put("pid", pid);
+		
+		return sqlSession.selectOne(namespace+".purchaselist", param);
 	}
 	
 	public int getCartInsert(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
