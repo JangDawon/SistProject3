@@ -201,9 +201,6 @@ $(document).ready(function(){
 			
 			$(".sum").text(sum+"원");
 			
-			
-		} else {
-			$(".sum").text("0원"); 
 		}
 			
 	});//product_option.change	
