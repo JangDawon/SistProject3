@@ -34,7 +34,7 @@ public class CartServiceImpl2 implements CartService {
 		int result = cartDAO2.getCartWrite(uemail, pid, opt1_qty, opt2_qty, opt3_qty);
 		
 		if(result > 0) {
-			mv.setViewName("redirect:/product.do");
+			mv.setViewName("redirect:/product.do?pid="+pid);
 		}else {
 			mv.setViewName("errorPage");
 		}
