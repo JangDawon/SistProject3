@@ -71,7 +71,14 @@ $(document).ready(function(){
 			}else if(obj_id == "p3"){
 				$("#"+ obj_id +"_price").text("").append(p3_price + p3_one_price+"원");
 			}
-			$(".sum").text("").append((p1_one_price*$("#p1_amt").val())+(p2_one_price*$("#p2_amt").val())+(p3_one_price*$("#p3_amt").val())+"원");
+			
+			if(${vo.opt2 eq null}){
+	            $(".sum").text("").append(p1_one_price*$("#p1_amt").val()+"원");
+	         }else if(${vo.opt3 eq null}){
+	            $(".sum").text("").append((p1_one_price*$("#p1_amt").val())+(p2_one_price*$("#p2_amt").val())+"원");
+	         }else{
+	            $(".sum").text("").append((p1_one_price*$("#p1_amt").val())+(p2_one_price*$("#p2_amt").val())+(p3_one_price*$("#p3_amt").val())+"원");
+	         }
 			
 		}else if(obj_name == "minus") {
 			//선택한 아이디의 값만 1일 때 경고창
@@ -89,8 +96,14 @@ $(document).ready(function(){
 					$("#"+ obj_id +"_price").text("").append(p3_price - p3_one_price+"원");
 				}
 			}
-			$(".sum").text("").append((p1_one_price*$("#p1_amt").val())+(p2_one_price*$("#p2_amt").val())+(p3_one_price*$("#p3_amt").val())+"원");
-		}
+			
+			if(${vo.opt2 eq null}){
+	            $(".sum").text("").append(p1_one_price*$("#p1_amt").val()+"원");
+	         }else if(${vo.opt3 eq null}){
+	            $(".sum").text("").append((p1_one_price*$("#p1_amt").val())+(p2_one_price*$("#p2_amt").val())+"원");
+	         }else{
+	            $(".sum").text("").append((p1_one_price*$("#p1_amt").val())+(p2_one_price*$("#p2_amt").val())+(p3_one_price*$("#p3_amt").val())+"원");
+	         }		}
 		
 	});
 	
@@ -217,14 +230,18 @@ $(document).ready(function(){
 								<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }"
 									width="560" height="560">
 							</div>
+							<c:if test="${vo.psfile2 ne null }">
 							<div class="carousel-item">
 								<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile2 }"
 									width="560" height="560">
 							</div>
+							</c:if>
+							<c:if test="${vo.psfile3 ne null }">
 							<div class="carousel-item">
 								<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile3 }"
 									width="560" height="560">
 							</div>
+							</c:if>
 						</div>
 
 						<!-- Left and right controls -->
