@@ -7,7 +7,7 @@
 <mapper namespace="mapper.cart">
 		
 	<delete id="deletelist" parameterType="java.lang.reflect.Array">
-		delete from idus_cart where cart_id in
+		delete from idus_cart where cid in
 		<foreach item="item" index="index" collection="array"
 			open="(" separator="," close=")">
 			#{item}
@@ -18,12 +18,13 @@
 		insert into idus_cart values('c_'||idus_cart_seq.nextval, #{uemail}, #{pid},
 	       #{p_name}, #{p_qty}, #{p_opt}, #{p_price}, sysdate)
 	</insert>
-	
+
 	<select id="cartlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusCartVO">
-		select * from idus_cart where uemail=#{uemail, jdbcType=VARCHAR} order by cdate
-	</select>
-	
-	
+      select c.cid, c.uemail, c.pid, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty
+      , p.opt2, p.opt2_price, c.opt2_qty, p.opt3, p.opt3_price, c.opt3_qty
+      , c.cdate, p.psfile1 
+      from idus_cart c, idus_product p where c.pid=p.pid and uemail=#{uemail}
+   </select>
 	
 	
 	

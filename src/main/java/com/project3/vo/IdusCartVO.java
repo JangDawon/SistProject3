@@ -1,11 +1,28 @@
 package com.project3.vo;
 
 public class IdusCartVO {
-	String cid, uemail, pid, ptitle, opt1, opt2, opt3, cdate, psfile1;
-	int pprice, opt1_price, opt2_price, opt3_price, total_price;
-	String opt1_qty, opt2_qty, opt3_qty;
+	String cid, uemail, pid, opt1_qty, opt2_qty, opt3_qty, cdate, ptitle,
+		opt1, opt2, opt3, psfile1;
+	int pprice, opt1_price, opt2_price, opt3_price;
 	
-	
+	public String getCid() {
+		return cid;
+	}
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
+	public String getUemail() {
+		return uemail;
+	}
+	public void setUemail(String uemail) {
+		this.uemail = uemail;
+	}
+	public String getPid() {
+		return pid;
+	}
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
 	public String getOpt1_qty() {
 		return opt1_qty;
 	}
@@ -24,23 +41,11 @@ public class IdusCartVO {
 	public void setOpt3_qty(String opt3_qty) {
 		this.opt3_qty = opt3_qty;
 	}
-	public String getCid() {
-		return cid;
+	public String getCdate() {
+		return cdate;
 	}
-	public void setCid(String cid) {
-		this.cid = cid;
-	}
-	public String getUemail() {
-		return uemail;
-	}
-	public void setUemail(String uemail) {
-		this.uemail = uemail;
-	}
-	public String getPid() {
-		return pid;
-	}
-	public void setPid(String pid) {
-		this.pid = pid;
+	public void setCdate(String cdate) {
+		this.cdate = cdate;
 	}
 	public String getPtitle() {
 		return ptitle;
@@ -66,12 +71,6 @@ public class IdusCartVO {
 	public void setOpt3(String opt3) {
 		this.opt3 = opt3;
 	}
-	public String getCdate() {
-		return cdate;
-	}
-	public void setCdate(String cdate) {
-		this.cdate = cdate;
-	}
 	public String getPsfile1() {
 		return psfile1;
 	}
@@ -84,14 +83,12 @@ public class IdusCartVO {
 	public void setPprice(int pprice) {
 		this.pprice = pprice;
 	}
-	
 	public int getOpt1_price() {
 		return opt1_price;
 	}
 	public void setOpt1_price(int opt1_price) {
 		this.opt1_price = opt1_price;
 	}
-	
 	public int getOpt2_price() {
 		return opt2_price;
 	}
@@ -104,13 +101,7 @@ public class IdusCartVO {
 	public void setOpt3_price(int opt3_price) {
 		this.opt3_price = opt3_price;
 	}
-	public int getTotal_price() {
-		return total_price;
-	}
-	public void setTotal_price(int total_price) {
-		this.total_price = total_price;
-	}
-	
-	
 	
 }
+	
+	
