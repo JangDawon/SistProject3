@@ -57,7 +57,6 @@ public class CartController2 {
 	@ResponseBody
 	@RequestMapping(value = "/cart_ajax_list.do", method = RequestMethod.GET)
 	public String cart_ajax_list(String uemail) {
-		System.out.println("uemail" + uemail);
 		return cartService2.getAjaxList(uemail);
 	}
 	
