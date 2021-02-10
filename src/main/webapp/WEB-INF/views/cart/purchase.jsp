@@ -8,7 +8,6 @@
 		<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>장바구니 | 아이디어스</title>
 		<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
 		<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
-		<!-- <script src="http://localhost:9000/sistproject3/js/dawon.js"></script> -->
 		<script>
 			$(document).ready(function(){
 				sum_price();
