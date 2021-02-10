@@ -535,12 +535,17 @@ table#admin_review_list td:last-child {width:120px;}
 /**
 *   리뷰 관리 : review_mng_content.jsp (지혜)
 */
-table#admin_review_content_table {text-align:center;}
 table#admin_review_content_table td>div{width:500px; margin:auto;}
+table#admin_review_content_table td:first-child {width:150px;}
 table#admin_review_content_table tr:last-child td{border:1px solid white;}
 table#admin_review_content_table tr:last-child td button{margin-top:80px;}
 table#admin_review_content_table button {padding:7px 15px; margin:0px 5px 0px 5px;}
-table#admin_review_content_table th {color:#F87E35;}
+table#admin_review_content_table th {color:#F87E35; text-align:left; text-indent:20px; width:120px;}
+table#admin_review_content_table tr:nth-child(3) td{text-align:left; text-indent:20px;}
+table#admin_review_content_table tr:nth-child(4) th{text-align:center; text-indent:0px;}
+table#admin_review_content_table tr:nth-child(4) {height:100px;}
+table#admin_review_content_table td:nth-child(3) {width:250px;}
+table#admin_review_content_table div#review_ptitle {width:250px; overflow:hidden; text-overflow: ellipsis;  white-space: nowrap;}
 
 /**
 *   상품 관리 : product_mng_list.jsp (지혜)
@@ -726,15 +731,19 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       float:right;
    }
    select#selector {
-      width:150px;
+      width:170px;
       padding:4px 4px;
+      border:1px solid #b4b4b4;
+      border-radius:3px;
+      height:30px;
    }
    section.category_content {
+   	  clear:both;
       padding:15px 0 50px 0;
    }
    div.category_content>div.product {
       display:inline-block;
-      width:23.6%;
+      width:24%;
       height:430px;
       margin:10px 5px;
    }
@@ -745,7 +754,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
    }
    div.product div.prod_img img {
       text-align:center;
-      width:258px;
+      width:263px;
       height:258px;
    }
    div.product>a {
@@ -758,6 +767,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
    }
    div.product_info>div.prod_info_name {
       font-size:13px;
+      height:16px;
       color:gray;
    }
    div.product_info>div.prod_info_title {
@@ -792,6 +802,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
    }
    div.category_content>div.product:hover {
       box-shadow:1px 1px 20px #ddd;
+      transform:scale(1.03);  
    }
    
     /** 인기작품, 최신작품 **/

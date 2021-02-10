@@ -84,7 +84,8 @@
 				
 				$(".cart_prod_chk").click(function(){
 					if($(".cart_prod_chk").is(":checked")){
-						alert("111");
+						var sum = parseInt($(".sum").text());
+						alert(sum);
 					}else{
 						alert("222");
 					}

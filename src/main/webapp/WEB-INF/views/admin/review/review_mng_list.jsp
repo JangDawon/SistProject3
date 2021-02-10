@@ -1,13 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 관리자</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/am-pagination.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sistproject3/js/jihye.js"></script>
+<script src="http://localhost:9000/sistproject3/js/am-pagination.js"></script>
+<script>
+	$(document).ready(function(){
+		var pager = jQuery("#ampaginationsm").pagination({
+			maxSize : 5,
+			totals : "${dbCount}",
+			pageSize : "${pageSize}",
+			page : "${reqPage}",
+			
+			lastText : '&raquo;&raquo;',
+			firstText : '&laquo;&laquo;',
+			prevText : '&laquo;',
+			nextText : '&raquo;',
+			
+			btnSize : 'sm'
+		});
+		
+		jQuery("#ampaginationsm").on('am.pagination.change', function(e){
+			$(location).attr('href','http://localhost:9000/sistproject3/review_mng_list.do?rpage=' + e.page);
+		});
+	});
+</script>
 </head>
 <body id="review_mng_list" class="admin">
 	
@@ -35,32 +60,25 @@
 			<th>내용</th>
 			<th>평점</th>
 		</tr>
+		<c:forEach var="vo" items="${list}" >
 		<tr class="review_row">
-			<td><input type="checkbox" class="review_chk" value="1"></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'"><div>jihye</div></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'"><img src="http://localhost:9000/sistproject3/images/content2.jpg" class="p_img"></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'"><a href="http://localhost:9000/sistproject3/food.do"><div>[시즌 한정]생딸기망개떡</div></a></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'"><div>정말 맛있어요!!👍</div></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'">⭐⭐⭐⭐⭐</td>
+			<td><input type="checkbox" class="review_chk" value="${vo.rid}"></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do?rid=${vo.rid}'"><div>${vo.uemail}</div></td>
+			<c:choose>
+				<c:when test="${vo.rsfile ne null }">
+					<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do?rid=${vo.rid}'"><img src="http://localhost:9000/sistproject3/resources/upload/${vo.rsfile }" class="p_img"></td>
+				</c:when>
+				<c:otherwise>
+					<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do?rid=${vo.rid}'"><img src="http://localhost:9000/sistproject3/images/logo.jpg" class="p_img"></td>
+				</c:otherwise>
+			</c:choose>
+			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do?rid=${vo.rid}'"><a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }"><div>${vo.ptitle }</div></a></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do?rid=${vo.rid}'"><div>${vo.rcontent}</div></td>
+			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do?rid=${vo.rid}'">${fn:replace(fn:replace(fn:replace(fn:replace(fn:replace(vo.rscore, '1', '⭐'), '2', '⭐⭐'), '3', '⭐⭐⭐'), '4', '⭐⭐⭐⭐'), '5', '⭐⭐⭐⭐⭐') }</td>
 		</tr>
-		<tr class="review_row">
-			<td><input type="checkbox" class="review_chk" value="2"></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'"><div>jihye</div></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'"><img src="http://localhost:9000/sistproject3/images/content2.jpg" class="p_img"></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'"><a href="http://localhost:9000/sistproject3/food.do"><div>[시즌 한정]생딸기망개떡</div></a></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'"><div>정말 맛있어요!!👍ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ쫀맛쫀맛ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</div></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'">⭐⭐⭐⭐⭐</td>
-		</tr>
-		<tr class="review_row">
-			<td><input type="checkbox" class="review_chk" value="3"></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'"><div>jihye</div></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'"><img src="http://localhost:9000/sistproject3/images/content2.jpg" class="p_img"></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'"><a href="http://localhost:9000/sistproject3/food.do"><div>[시즌 한정]생딸기망개떡</div></a></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'"><div>별로...</div></td>
-			<td onclick="location.href='http://localhost:9000/sistproject3/review_mng_content.do'">⭐⭐</td>
-		</tr>
+		</c:forEach>
 		<tr>
-			<td colspan="6" id="ampaginationsm"><< 1 2 3 4 5 >></td>
+			<td colspan="6"><div id="ampaginationsm"></div></td>
 		</tr>
 	</table>
 	</div>

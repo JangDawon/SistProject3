@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.service.MemberServiceImpl;
 import com.project3.service.ProductServiceImpl;
+import com.project3.service.ReviewServiceImpl;
 import com.project3.vo.IdusProductVO;
 
 @Controller
@@ -21,6 +22,9 @@ public class AdminController {
 	
 	@Autowired
 	private MemberServiceImpl memberService;
+	
+	@Autowired
+	private ReviewServiceImpl reviewService;
 	
 	@RequestMapping(value="/user_mng_list.do", method=RequestMethod.GET)
 	public ModelAndView user_mng_list(String rpage) {
@@ -55,13 +59,35 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/review_mng_list.do", method=RequestMethod.GET) 
-	public String review_mng_list() { 
-		return "/admin/review/review_mng_list"; 
+	public ModelAndView review_mng_list(String rpage) { 
+		return (ModelAndView)reviewService.getList(rpage, null);
 	}
 	
 	@RequestMapping(value="/review_mng_content.do", method=RequestMethod.GET) 
-	public String review_mng_content() { 
-		return "/admin/review/review_mng_content"; 
+	public ModelAndView review_mng_content(String rid) { 
+		return (ModelAndView)reviewService.getContent(rid); 
+	}
+	
+	@RequestMapping(value="/review_mng_list_del.do", method=RequestMethod.GET)
+	public ModelAndView review_mng_list_del(String del_list) {
+		ModelAndView mv= new ModelAndView();
+
+		StringTokenizer st = new StringTokenizer(del_list, ", ");
+		String[] dellist = new String[st.countTokens()];
+		
+		for(int i=0; i<dellist.length; i++) {
+			dellist[i] = st.nextToken();
+		}
+		
+		int result = reviewService.getResultDelete(dellist);
+		
+		if(result >0) {
+			mv.setViewName("redirect:/review_mng_list.do");
+		}else {
+			mv.setViewName("errorPage");
+		}
+		
+		return mv;
 	}
 	
 	@RequestMapping(value="/product_mng_list.do", method=RequestMethod.GET)

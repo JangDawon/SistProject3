@@ -428,7 +428,7 @@ $(document).ready(function(){
           		<div class="aside_product-info">
           			<div class="price_tag_detail">
           				<span class="price_tag_strong">
-          					<strong name="pprice">${vo.pprice }</strong>원
+          					<strong name="pprice">${vo.pprice_char }</strong>원
           				</span>
           			</div>
           			
