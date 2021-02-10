@@ -22,6 +22,12 @@ public class IdusCartDAO2 extends DBConn{
 		return (ArrayList<IdusCartVO>)list;
 	}
 	
+	/** 장바구니 리스트 **/
+	public ArrayList<IdusCartVO> getAjaxList(String uemail){
+		List<IdusCartVO> list = sqlSession.selectList(namespace+".cartlist", uemail);
+		return (ArrayList<IdusCartVO>)list;
+	}
+	
 	
 	/** 장바구니 입력 **/
 	public int getCartWrite(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
