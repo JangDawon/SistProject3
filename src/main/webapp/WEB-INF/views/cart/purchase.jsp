@@ -19,20 +19,75 @@
 					var p3_price = $("#p3_price").text();
 					var sum = 0;
 					
-					if(p1_price != ""){
-						var total = parseInt($("#p1_price").text());
-						sum += total;
-						$(".sum").text("").append(sum+"원");
-					}else if(p2_price != ""){
-						var total = parseInt($("#p2_price").text());
-						sum += total;
-						$(".sum").text("").append(sum+"원");
-					}else if(p3_price != ""){
-						var total = parseInt($("#p3_price").text());
-						sum += total;
-						$(".sum").text("").append(sum+"원");
+					if(p1_price != "" && p2_price != "" && p3_price != ""){
+						var p1 = parseInt(p1_price);
+						var p2 = parseInt(p2_price);
+						var p3 = parseInt(p3_price);
+						var total = p1+p2+p3;
+						$(".sum").text("").append(total+"원");
+						
+					}else if(p1_price != "" && p2_price != ""){
+						var p1 = parseInt(p1_price);
+						var p2 = parseInt(p2_price);
+						var total = p1+p2;
+						$(".sum").text("").append(total+"원");
+						
+					}else if(p2_price != "" && p3_price != ""){
+						var p2 = parseInt(p2_price);
+						var p3 = parseInt(p3_price);
+						var total = p2+p3;
+						$(".sum").text("").append(total+"원");
+						
+					}else if(p1_price != "" && p3_price != ""){
+						var p1 = parseInt(p1_price);
+						var p3 = parseInt(p3_price);
+						var total = p1+p3;
+						$(".sum").text("").append(total+"원");
+						
+					}else if(p1_price != ""){
+						var total = parseInt(p1_price);
+		            	$(".sum").text("").append(total+"원");
+		            	
+		            }else if(p2_price != ""){
+		            	var total = parseInt(p2_price);
+		           		$(".sum").text("").append(total+"원");
+		           		
+		            }else if(p3_price != ""){
+		            	var total = parseInt(p3_price);
+		            	$(".sum").text("").append(total+"원");
 					}
 				}
+				
+				$("#cart_all_chk").click(function(){
+					if($("#cart_all_chk").is(":checked")){
+						$(".cart_prod_chk").prop("checked", true);
+						var prod_sum = parseInt($(".sum").text());
+						var prod_del = parseInt($(".del_total").text());
+						var total = prod_sum+prod_del;
+						
+						$(".cart_total").text("").append(prod_sum+"원");
+						$(".total").text("").append(total+"원");
+					}else{
+						$(".cart_prod_chk").prop("checked", false);
+						$(".cart_total").text("").append("0원");
+						$(".total").text("").append("0원");
+					}
+				});
+				
+				
+				$(".cart_prod_chk").click(function(){
+					if($(".cart_prod_chk").is(":checked")){
+						var prod_sum = parseInt($(".sum").text());
+						var prod_del = parseInt($(".del_total").text());
+						var total = prod_sum+prod_del;
+						
+						$(".cart_total").text("").append(prod_sum+"원");
+						$(".total").text("").append(total+"원");
+					}else{
+						$(".cart_total").text("").append("0원");
+						$(".total").text("").append("0원");
+					}
+				});
 				
 				$("#cart_order").click(function(){
 					var order_list = "";
@@ -50,15 +105,6 @@
 					}
 				});
 				
-				/* $(".cart_prod_del").click(function(){
-					var chk = confirm("옵션을 삭제하시겠습니까?");
-					if(chk){
-						var del_chk = $(this).attr("id"); //cid값
-					}
-					$(location).attr("href", "http://localhost:9000/sistproject3/cart/opt_del?")
-					
-				}); */
-				
 				$("#cart_select_del").click(function(){
 					var choice = confirm("정말로 삭제하시겠습니까?");
 					if(choice) {
@@ -67,32 +113,11 @@
 							chk_list[i] = $(this).attr("id");
 						});
 						
-						//삭제할 페이지로 전송
 						$(location).attr("href", "http://localhost:9000/sistproject3/cart_list_del.do?chklist="+chk_list);
 					}
 				});
 				
 				
-				$("#cart_all_chk").click(function(){
-					if($("#cart_all_chk").is(":checked")){
-						$(".cart_prod_chk").prop("checked", true);
-					}else{
-						$(".cart_prod_chk").prop("checked", false);
-					}
-				});
-				
-				
-				$(".cart_prod_chk").click(function(){
-					if($(".cart_prod_chk").is(":checked")){
-						var sum = parseInt($(".sum").text());
-						alert(sum);
-					}else{
-						alert("222");
-					}
-				});
-				
-			    
-			    
 				$("button").click(function(){
 					var obj_name = $(this).attr("name");
 					var obj_id = $(this).attr("id");
@@ -178,7 +203,7 @@
 					<tr class="cart_product">
 						<td width=2%>
 							<div class="cart_chk">
-								<input type="checkbox" id="${vo.cid}" class="cart_prod_chk">
+								<input type="checkbox" id="${vo.cid}" class="cart_prod_chk" style="width:15px;height:15px;">
 							</div>
 						</td>
 						<td width=10%>
@@ -198,7 +223,7 @@
 						<td></td>
 						<td></td>
 						<td width=53%>
-							<div class="cart_option">${vo.opt1 }</div>
+							<div class="cart_option">${vo.opt1}</div>
 						</td>
 						<td width=12%>
 							<div class="cart_num">
@@ -224,12 +249,12 @@
 						<td></td>
 						<td></td>
 						<td width=53%>
-							<div class="cart_option">${vo.opt2 }</div>
+							<div class="cart_option">${vo.opt2}</div>
 						</td>
 						<td width=12%>
 							<div class="cart_num">
 								<button type="button" class="minus" name="minus" id="p2">-</button>
-								<input type="text" class="price" value="${vo.opt2_qty }" id="p2_amt" name="opt2_qty">
+								<input type="text" class="price" value="${vo.opt2_qty}" id="p2_amt" name="opt2_qty">
 								<button type="button" class="plus" name="plus" id="p2">+</button>
 							</div>
 						</td>
@@ -279,14 +304,14 @@
 					</tr>
 					<tr class="cart_price_del">
 						<td colspan="2"><div class="price_title">배송비</div></td>
-						<td colspan="4"><div class="price_content"><span id="del_price">2,600</span>원</div></td>
+						<td colspan="4"><div class="price_content">2600원</div></td>
 					</tr>
 				</table>
 			</div>
 			
 			<div class="cart_prod_order">
 				<div class="prod_choice">
-					<input type="checkbox" id="cart_all_chk"><span class="rchk">전체선택</span>
+					<input type="checkbox" id="cart_all_chk" style="width:15px;height:15px;"><span class="rchk">전체선택</span>
 					<button type="button" id="cart_select_del">선택 삭제</button>
 				</div>
 				<div class="all_price">
@@ -299,9 +324,9 @@
 							<td class="prod_total">결제 예정금액</td>
 						</tr>
 						<tr>
-							<td class="all_price2"><div class="cart_total"></div></td>
-							<td class="del2"><div>2,600원</div></td>
-							<td class="prod_total2"><div>0원</div></td>
+							<td class="all_price2"><div class="cart_total">0원</div></td>
+							<td class="del2"><div class="del_total">2600원</div></td>
+							<td class="prod_total2"><div class="total">0원</div></td>
 						</tr>
 					</table>
 				</div>
