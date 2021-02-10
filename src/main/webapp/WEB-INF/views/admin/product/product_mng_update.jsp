@@ -52,7 +52,7 @@
 	               <option>선택</option>
 	               <option value="음식" <c:if test="${vo.pcat eq '음식' }"><c:out value="selected" /></c:if>>음식</option>
 	               <option value="악세사리" <c:if test="${vo.pcat eq '악세사리' }"><c:out value="selected" /></c:if>>악세사리</option>
-	               <option value="패션&잡화" <c:if test="${vo.pcat eq '패션&잡화' }"><c:out value="selected" /></c:if>>패션&잡화</option>
+	               <option value="패션, 잡화" <c:if test="${vo.pcat eq '패션, 잡화' }"><c:out value="selected" /></c:if>>패션&잡화</option>
 	               <option value="인테리어 소품" <c:if test="${vo.pcat eq '인테리어 소품' }"><c:out value="selected" /></c:if>>인테리어 소품</option>
 	               <option value="기타" <c:if test="${vo.pcat eq '기타' }"><c:out value="selected" /></c:if>>기타</option>
 	            </select>
