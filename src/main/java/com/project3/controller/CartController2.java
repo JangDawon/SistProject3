@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.service.CartServiceImpl2;
@@ -49,5 +50,14 @@ public class CartController2 {
 	public String purchase2() {
 		return "/cart/purchase2";
 	}
-
+	
+	/**
+	 * 장바구니 리스트
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/cart_ajax_list.do", method = RequestMethod.GET)
+	public String cart_ajax_list(String uemail) {
+		return cartService2.getAjaxList(uemail);
+	}
+	
 }
