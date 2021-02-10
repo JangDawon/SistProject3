@@ -14,7 +14,7 @@
 	</select>
 	
 	<insert id="cartwrite" parameterType="map">
-		insert into idus_cart values('c_'||SEQU_CART.nextval, #{uemail}, #{pid}, #{opt1_qty}
+		insert into idus_cart values('c_'||IDUS_CART_SEQ.nextval, #{uemail}, #{pid}, #{opt1_qty}
 		<choose>
 			<when test="opt2_qty != null">
 				<choose>
@@ -39,6 +39,18 @@
 		</choose>
 		, sysdate)
 	</insert>
+	
+	<select id="cart_dupl" parameterType="map" resultType="java.lang.Integer">
+		select count(*) result from idus_cart where uemail=#{uemail} and pid=#{pid}
+	</select>
+	
+	<select id="cart_dupl_value" parameterType="map" resultType="com.project3.vo.IdusCartVO">
+		select opt1_qty, opt2_qty, opt3_qty from idus_cart where uemail=#{uemail} and pid=#{pid}
+	</select>
+	
+	<update id="cart_update" parameterType="map">
+		update idus_cart set opt1_qty = #{opt1}, opt2_qty = #{opt2}, opt3_qty = #{opt3} where uemail=#{uemail} and pid=#{pid}
+	</update>
 	
 </mapper>
 

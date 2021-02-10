@@ -28,6 +28,32 @@ public class IdusCartDAO2 extends DBConn{
 		return (ArrayList<IdusCartVO>)list;
 	}
 	
+	/** 장바구니 중복 체크 **/
+	public int getDupl(String uemail, String pid){
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("uemail", uemail);
+		param.put("pid", pid);
+		return sqlSession.selectOne(namespace+".cart_dupl", param);
+	}
+	
+	/** 장바구니 값 가져오기 **/
+	public IdusCartVO getDuplValue(String uemail, String pid){
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("uemail", uemail);
+		param.put("pid", pid);
+		return sqlSession.selectOne(namespace+".cart_dupl_value", param);
+	}
+	
+	/** 장바구니 업데이트 **/
+	public int getCartUpdate(String uemail, String pid, int opt1, int opt2, int opt3){
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("uemail", uemail);
+		param.put("pid", pid);
+		param.put("opt1", String.valueOf(opt1));
+		param.put("opt2", String.valueOf(opt2));
+		param.put("opt3", String.valueOf(opt3));
+		return sqlSession.update(namespace+".cart_update", param);
+	}
 	
 	/** 장바구니 입력 **/
 	public int getCartWrite(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {

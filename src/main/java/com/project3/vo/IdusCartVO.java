@@ -4,8 +4,14 @@ public class IdusCartVO {
 	String cid, uemail, pid, opt1_qty, opt2_qty, opt3_qty, cdate, ptitle,
 		opt1, opt2, opt3, psfile1;
 	int pprice, opt1_price, opt2_price, opt3_price;
+	String result;
 	
-	
+	public String getResult() {
+		return result;
+	}
+	public void setResult(String result) {
+		this.result = result;
+	}
 	public String getCid() {
 		return cid;
 	}

@@ -109,7 +109,7 @@
 			$("#cart_order").click(function(){
 				var del_fee = $("#prod_total_delivery").text();
 				var t_price = $("#prod_total2").text();
-				purchase_list += "del_price=" + del_fee +"&total_price=" + t_price + ",";
+				purchase_list += "&del_price=" + del_fee +"&total_price=" + t_price + ",";
 				$(location).attr("href","cart_order.do?purchase_list="+purchase_list);
 			});
 		});
@@ -302,7 +302,7 @@
 					</td>
 				</tr>
 				
-				<c:if test="${vo.opt1_qty ne 'undefined'}">
+				<c:if test="${vo.opt1 ne 'undefined'}">
 				<tr class="cart_explain">
 					<td></td>
 					<td></td>
@@ -328,7 +328,7 @@
 				</tr>
 				</c:if>
 				
-				<c:if test="${vo.opt2_qty ne 'undefined'}">
+				<c:if test="${vo.opt2 ne 'undefined'}">
 				<tr class="cart_explain">
 					<td></td>
 					<td></td>
@@ -354,7 +354,7 @@
 				</tr>
 				</c:if>
 				
-				<c:if test="${vo.opt3_qty ne 'undefined'}">
+				<c:if test="${vo.opt3 ne 'undefined'}">
 				<tr class="cart_explain">
 					<td></td>
 					<td></td>
