@@ -30,7 +30,30 @@ public class CartServiceImpl implements CartService {
 		
 		return mv;
 	}
+
+	public ModelAndView getPurchaseList(String uemail, String pid) {
+		ModelAndView mv = new ModelAndView();
+		
+		IdusCartVO vo = cartDAO.getPurchaseList(uemail, pid);
+		
+		mv.addObject("vo", vo);
+		mv.setViewName("/cart/purchase");
+		
+		return mv;
+	}
 	
-	
+	public ModelAndView getCartInsert(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = cartDAO.getCartInsert(uemail, pid, opt1_qty, opt2_qty, opt3_qty);
+		
+		if(result > 0) {
+			mv.setViewName("redirect:/product.do?pid="+pid);
+		}else {
+			mv.setViewName("errorPage");
+		}
+		
+		return mv;
+	}
 	
 }

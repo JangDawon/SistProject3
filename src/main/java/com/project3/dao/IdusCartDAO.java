@@ -28,28 +28,24 @@ public class IdusCartDAO extends DBConn{
 		return (ArrayList<IdusCartVO>)list;
 	}
 	
-	
-	/** 장바구니 수정 **/
-	/* public int getCartUpdate(String cid, String p_qty, String p_price) {
+	public IdusCartVO getPurchaseList(String uemail, String pid){
 		Map<String, String> param = new HashMap<String, String>();
-		param.put("cid", cid);
-		param.put("p_qty", p_qty);
-		param.put("p_price", p_price);
+		param.put("uemail", uemail);
+		param.put("pid", pid);
 		
-		return sqlSession.update(namespace+".cartupdate", param);
+		return sqlSession.selectOne(namespace+".purchaselist", param);
 	}
 	
-	public int getCartDelete(String cid) {
-		return sqlSession.delete(namespace+".cartdelete", cid);
+	public int getCartInsert(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("uemail", uemail);
+		param.put("pid", pid);
+		param.put("opt1_qty", opt1_qty);
+		param.put("opt2_qty", opt2_qty);
+		param.put("opt3_qty", opt3_qty);
+		return sqlSession.insert(namespace+".cartinsert", param);
 	}
 	
-    public int sumMoney(String uemail) {
-        return sqlSession.selectOne(namespace+".sumMoney", uemail); 
-    }
- 
-    public int countCart(String uemail, int pid) {
-        return 0;
-    } */
 	
 } 
 

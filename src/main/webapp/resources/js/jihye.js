@@ -1,5 +1,13 @@
 $(document).ready(function(){
 
+	$("#review_delete_btn").click(function(){
+		var result = confirm("정말 삭제 하시겠습니까?");
+		
+		if(result){
+			$(location).attr('href', "review_mng_list_del.do?del_list="+$("#review_delete_btn").val());
+		}
+	});
+
 	$("#product_delete_btn").click(function(){
 		var result = confirm("정말 삭제 하시겠습니까?");
 		
@@ -166,7 +174,6 @@ $(document).ready(function(){
 		}
 		
 		
-		
 	});
 	
 	$("#product_select_delete").click(function(){
@@ -196,13 +203,11 @@ $(document).ready(function(){
 	});
 	
 	$("#review_all_delete").click(function(){
-		var del_list = "";
+		var result = confirm("모든 리뷰를 삭제하시겠습니까?");
 		
-		$("input[class='review_chk']").each(function(index){
-			del_list += $(this).attr("value") + ", ";
-		});
-		
-		confirm(del_list + "정말 삭제하시겠습니까?");
+		if(result){
+			$(location).attr('href', "review_mng_list_del.do?del_list=all");
+		}
 		
 	});
 	
@@ -216,7 +221,10 @@ $(document).ready(function(){
 		if(del_list == ""){
 			alert("선택된 리뷰가 없습니다");
 		}else{
-			confirm(del_list + "정말 삭제하시겠습니까?");
+			var result = confirm("정말 삭제하시겠습니까?");
+			if(result){
+				$(location).attr("href", "http://localhost:9000/sistproject3/review_mng_list_del.do?del_list="+del_list);	
+			}
 		}
 	});
 	
