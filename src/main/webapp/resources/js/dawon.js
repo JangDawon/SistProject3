@@ -57,6 +57,7 @@
 			if(obj_name == "plus") {
 				var count = parseInt($(vname).val())+1;
 		        $(vname).val(count);
+		        
 		         
 		        if(obj_id == "p1"){
 		        	$("#"+ obj_id +"_price").text("").append(p1_price + p1_one_price);
@@ -65,6 +66,7 @@
 		        }else if(obj_id == "p3"){
 		            $("#"+ obj_id +"_price").text("").append(p3_price + p3_one_price);
 		        }
+		        
 		        $(".sum").text("").append((p1_one_price*$("#p1_amt").val())+(p2_one_price*$("#p2_amt").val())+(p3_one_price*$("#p3_amt").val())+"원");
 			 }else if(obj_name == "minus") {
 		         //선택한 아이디의 값만 1일 때 경고창

@@ -48,6 +48,7 @@ public class LoginController {
 	 */
 	@RequestMapping(value="/login_proc.do", method=RequestMethod.POST)
 	public ModelAndView login_proc(IdusMemberVO vo, HttpSession session) {
+		System.out.println(memberService.getResultLogin(vo, session));
 		return memberService.getResultLogin(vo, session);
 	}
 	
@@ -61,7 +62,7 @@ public class LoginController {
 		
 		if(svo != null) {
 			session.invalidate();
-			result = "index";
+			result = "redirect:/index.do";
 		}
 		
 		return result;
