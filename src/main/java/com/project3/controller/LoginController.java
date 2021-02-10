@@ -48,7 +48,6 @@ public class LoginController {
 	 */
 	@RequestMapping(value="/login_proc.do", method=RequestMethod.POST)
 	public ModelAndView login_proc(IdusMemberVO vo, HttpSession session) {
-		System.out.println(memberService.getResultLogin(vo, session));
 		return memberService.getResultLogin(vo, session);
 	}
 	
