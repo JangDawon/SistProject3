@@ -43,7 +43,7 @@
 						output += "<div class='product_info'>";
 						output += "<div class='prod_info_name'>"+ jdata.jlist[i].sname +"</div>";
 						output += "<div class='prod_info_title'>"+ jdata.jlist[i].ptitle +"</div>";
-						output += "<div class='prod_info_price'>"+ jdata.jlist[i].pprice_char +"</div>";
+						output += "<div class='prod_info_price'>"+ jdata.jlist[i].pprice_char +"원</div>";
 						output += "<div class='prod_info_review'>";
 						output += "<div class='rv'>후기</div>";
 						output += "<div class='rv2'>이야,,, 정말 좋네요.. 흠 뭐랄까...</div>";
