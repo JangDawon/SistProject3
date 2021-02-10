@@ -219,11 +219,11 @@ $(document).ready(function(){
 				if(info) {
 					alert("장바구니 페이지로 이동합니다.");
 					$.ajax({
-						//url:"cart_insert.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
-						url:"cart_ins.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
+						url:"cart_insert.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
+						//url:"cart_ins.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
 						success:function(result){
 							if(result) {
-								location.href='http://localhost:9000/sistproject3/cart.do';
+								location.href='http://localhost:9000/sistproject3/cart2.do';
 							}
 						}
 					});
@@ -428,7 +428,7 @@ $(document).ready(function(){
           		<div class="aside_product-info">
           			<div class="price_tag_detail">
           				<span class="price_tag_strong">
-          					<strong name="pprice">${vo.pprice_char }</strong>원
+          					<strong name="pprice">${vo.pprice }</strong>원
           				</span>
           			</div>
           			
