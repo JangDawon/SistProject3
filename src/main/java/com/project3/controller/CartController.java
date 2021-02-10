@@ -19,18 +19,35 @@ public class CartController {
 	private CartServiceImpl cartService;
 	
 	@RequestMapping(value="/cart_order.do", method=RequestMethod.GET)
-	   public String cart_order() {
+	   public String cart_order(String purchase_list, String del_price, String total_price) {
 	      return "cart/cart_order";
 	   }
 	
-	/**
-	 * 장바구니 삭제 처리
-	 */
-	@RequestMapping(value = "/cart/cart_list_del.do", method = RequestMethod.GET)
-	public ModelAndView cart_list_del(String chklist) {
+	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
+	public ModelAndView cart(HttpSession session) {
+		IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
+		return cartService.getCartList(svo.getUemail());
+	}
+	
+	
+	@RequestMapping(value = "/cart_ins.do", method = RequestMethod.GET)
+	public ModelAndView cart_insert(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
+		return cartService.getCartInsert(uemail, pid, opt1_qty, opt2_qty, opt3_qty);
+	}
+	
+	
+	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
+	public ModelAndView purchase(HttpSession session, String pid) {
+		IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
+		return cartService.getPurchaseList(svo.getUemail(), pid);
+	}
+
+	
+	@RequestMapping(value="/cart_list_del.do", method=RequestMethod.GET)
+	public ModelAndView cart_list_del(String chklist) {	
 		ModelAndView mv = new ModelAndView();
 		
-		//String chklist --> array
+		//String chklist --> Array
 		StringTokenizer st = new StringTokenizer(chklist, ",");
 		String[] dellist = new String[st.countTokens()];
 		for(int i=0;i<dellist.length;i++) {
@@ -39,23 +56,10 @@ public class CartController {
 		
 		int result = cartService.getSelectDelete(dellist);
 		
-		mv.setViewName("redirect:/cart/cart.do");
+		mv.setViewName("redirect:/cart.do");
+		
 		return mv;
 	}
-
-	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
-	public ModelAndView cart(HttpSession session) {
-		IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
-		return cartService.getCartList(svo.getUemail());
-	}
 	
 	
-	/**
-	 * 구매하기
-	 */
-	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
-	public String purchase() {
-		return "/cart/purchase";
-	}
-
 }

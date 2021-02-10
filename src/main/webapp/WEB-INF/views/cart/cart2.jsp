@@ -11,36 +11,156 @@
 <!-- <script src="http://localhost:9000/sistproject3/js/dawon.js"></script> -->
 <script>
 	$(document).ready(function(){
+		product_price();
+		
+		function product_price(){
+			$.ajax({
+				url:"cart_ajax_list.do?uemail=${sessionScope.svo.uemail}",
+				success:function(result){
+					var jdata = JSON.parse(result);
+					
+					for(var i in jdata.jlist){ 
+						var pid = jdata.jlist[i].pid;
+						var psum = 0;
+						if(!isNaN(parseInt($("#"+ pid +"_p1_price").text()))){
+				        	psum += parseInt($("#"+ pid +"_p1_price").text());
+				        }
+				        if(!isNaN(parseInt($("#"+ pid +"_p2_price").text()))){
+				        	psum += parseInt($("#"+ pid +"_p2_price").text());
+				        }
+				        if(!isNaN(parseInt($("#"+ pid +"_p3_price").text()))){
+				        	psum += parseInt($("#"+ pid +"_p3_price").text());
+				        }
+				        $("#" + pid + "_price_total").text("").append(psum);
+				        
+				        if(psum >= 50000){
+				        	$("#" + pid + "_del_price").text("").append(0);
+						}else{
+							$("#" + pid + "_del_price").text("").append(2600);
+						}
+					}
+						
+						
+				}
+			});
+		}
+		
+		$("#cart_all_chk").click(function(){
+			if($("#cart_all_chk").is(":checked")){
+				$(".cart_prod_chk").prop("checked", true);
+			}else{
+				$(".cart_prod_chk").prop("checked", false);
+			}
+		});
+		
+		function total_price_change(){
+			var total = 0;
+			$("input[class='cart_prod_chk']:checked").each(function(index){
+				var pid = $(this).val();
+				var p1 = "#"+pid+"_p1_amt";
+				var p1_price = "#"+pid+"_p1_price";
+				var p2 = "#"+pid+"_p2_amt";
+				var p2_price = "#"+pid+"_p2_price";
+				var p3 = "#"+pid+"_p3_amt";
+				var p3_price = "#"+pid+"_p3_price";
+				
+				total +=  parseInt($("#" + pid + "_price_total").text());
+			});
+
+			$("#all_price_total").text("").append(total);
+			
+			if(total >= 50000){
+				$("#prod_total2").text("").append(total);
+				$("#prod_total_delivery").text("").append(0);
+			}else{
+				$("#prod_total2").text("").append(total+2600);
+				$("#prod_total_delivery").text("").append(2600);
+			}
+		}
+		
+		$(document).on('click','input[type="checkbox"]', function(){
+			
+			var purchase_list = "";
+			var total = 0;
+			$("input[class='cart_prod_chk']:checked").each(function(index){
+				var pid = $(this).val();
+				var p1 = "#"+pid+"_p1_amt";
+				var p1_price = "#"+pid+"_p1_price";
+				var p2 = "#"+pid+"_p2_amt";
+				var p2_price = "#"+pid+"_p2_price";
+				var p3 = "#"+pid+"_p3_amt";
+				var p3_price = "#"+pid+"_p3_price";
+				
+				purchase_list += pid+"!p1_amt="+ $(p1).val() +"!p1_price="+ $(p1_price).text() +"!p2_amt="+ $(p2).val() +"!p2_price="+ $(p2_price).text() +"!p3_amt="+ $(p3).val() +"!p3_price="+ $(p3_price).text() +""+", ";
+				total +=  parseInt($("#" + pid + "_price_total").text());
+			});
+			
+			
+			$("#all_price_total").text("").append(total);
+			
+			if(total >= 50000){
+				$("#prod_total2").text("").append(total);
+				$("#prod_total_delivery").text("").append(0);
+			}else{
+				$("#prod_total2").text("").append(total+2600);
+				$("#prod_total_delivery").text("").append(2600);
+			}
+			
+			$("#cart_order").click(function(){
+				var del_fee = $("#prod_total_delivery").text();
+				var t_price = $("#prod_total2").text();
+				purchase_list += "&del_price=" + del_fee +"&total_price=" + t_price + ",";
+				$(location).attr("href","cart_order.do?purchase_list="+purchase_list);
+			});
+		});
 		
 		$("button").click(function(){
+			total =0;
+			var psum = 0;
 			var obj_name = $(this).attr("name");   //+, -구분
-			var obj_id = $(this).attr("id");      //p1, p2, p3 아이디 구분
-			var vname = "#" + obj_id + "_amt"      //p1_amt, p2_amt ...
-			var p1_value = parseInt($("#p1_amt").val());   //$(p1_amt).val()
-			var p2_value = parseInt($("#p2_amt").val());   //$(p2_amt).val()
-			var p3_value = parseInt($("#p3_amt").val());   //$(p3_amt).val()
+			var pid = $(this).val();   				//pid 값만 ex)p_1
+			var obj_id = $(this).attr("id");      //p_1_p1, p_1_p2, p_1_p3 아이디 구분
+			var vname = "#" + obj_id + "_amt"      //p_1_p1_amt, p_1_p2_amt ...
+			var select_p1_value = parseInt($("#" + pid + "_p1_amt").val());   //$(p_1_p1_amt).val()
+			var select_p2_value = parseInt($("#" + pid + "_p2_amt").val());   //$(p_1_p2_amt).val()
+			var select_p3_value = parseInt($("#" + pid + "_p3_amt").val());   //$(p_1_p3_amt).val()
 			
 			//수량 변경 시 적립금, 가격 수정
-			var p1_price = parseInt($("#p1_price").text());   //(기본가격+옵션가격)*수량
-     		var p1_one_price = p1_price/p1_value;         //(기본가격+옵션가격)
-			var p2_price = parseInt($("#p2_price").text()); //(기본가격+옵션가격)*수량
-			var p2_one_price = p2_price/p2_value;         //(기본가격+옵션가격)
-			var p3_price = parseInt($("#p3_price").text()); //(기본가격+옵션가격)*수량
-			var p3_one_price = p3_price/p3_value;         //(기본가격+옵션가격)
+			var select_p1_price = parseInt($("#" + pid + "_p1_price").text());   //(기본가격+옵션가격)*수량
+     		var select_p1_one_price = select_p1_price/select_p1_value;         //(기본가격+옵션가격)
+			var select_p2_price = parseInt($("#" + pid + "_p2_price").text()); //(기본가격+옵션가격)*수량
+			var select_p2_one_price = select_p2_price/select_p2_value;         //(기본가격+옵션가격)
+			var select_p3_price = parseInt($("#" + pid + "_p3_price").text()); //(기본가격+옵션가격)*수량
+			var select_p3_one_price = select_p3_price/select_p3_value;         //(기본가격+옵션가격)
 			
 			if(obj_name == "plus") {
 				var count = parseInt($(vname).val())+1;
 		        $(vname).val(count);
-		         
-		        if(obj_id == "p1"){
-		        	$("#"+ obj_id +"_price").text("").append(p1_price + p1_one_price);
-		        }else if(obj_id == "p2"){
-		        	$("#"+ obj_id +"_price").text("").append(p2_price + p2_one_price);
-		        }else if(obj_id == "p3"){
-		            $("#"+ obj_id +"_price").text("").append(p3_price + p3_one_price);
+
+		        if(obj_id.indexOf("p1") != -1){
+		        	$("#"+ obj_id +"_price").text("").append(select_p1_price + select_p1_one_price);
+		        }else if(obj_id.indexOf("p2") != -1){
+		        	$("#"+ obj_id +"_price").text("").append(select_p2_price + select_p2_one_price);
+		        }else if(obj_id.indexOf("p3") != -1){
+		            $("#"+ obj_id +"_price").text("").append(select_p3_price + select_p3_one_price);
 		        }
-		        $("#price_total").text("").append(parseInt($("#p2_price").text())+parseInt($("#p3_price").text()));
-		        $("#all_price_total").text("").append(parseInt($("#p2_price").text())+parseInt($("#p3_price").text()));
+		        
+		        if(!isNaN(parseInt($("#"+ pid +"_p1_price").text()))){
+		        	psum += parseInt($("#"+ pid +"_p1_price").text());
+		        }
+		        if(!isNaN(parseInt($("#"+ pid +"_p2_price").text()))){
+		        	psum += parseInt($("#"+ pid +"_p2_price").text());
+		        }
+		        if(!isNaN(parseInt($("#"+ pid +"_p3_price").text()))){
+		        	psum += parseInt($("#"+ pid +"_p3_price").text());
+		        }
+		        $("#" + pid + "_price_total").text("").append(psum);
+		        
+		        if(psum >= 50000){
+		        	$("#" + pid + "_del_price").text("").append(0);
+				}else{
+					$("#" + pid + "_del_price").text("").append(2600);
+				}
 		       
 			 }else if(obj_name == "minus") {
 		         //선택한 아이디의 값만 1일 때 경고창
@@ -49,24 +169,44 @@
 		        }else {
 		            var count = parseInt($(vname).val())-1;
 		            $(vname).val(count);
+		           
+		            if(obj_id.indexOf("p1") != -1){
+			        	$("#"+ obj_id +"_price").text("").append(select_p1_price - select_p1_one_price);
+			        }else if(obj_id.indexOf("p2") != -1){
+			        	$("#"+ obj_id +"_price").text("").append(select_p2_price - select_p2_one_price);
+			        }else if(obj_id.indexOf("p3") != -1){
+			            $("#"+ obj_id +"_price").text("").append(select_p3_price - select_p3_one_price);
+			        }
 		            
-		            if(obj_id == "p1"){
-		               $("#"+ obj_id +"_price").text("").append(p1_price - p1_one_price);
-		            }else if(obj_id == "p2"){
-		               $("#"+ obj_id +"_price").text("").append(p2_price - p2_one_price);
-		            }else if(obj_id == "p3"){
-		               $("#"+ obj_id +"_price").text("").append(p3_price - p3_one_price);
-		            }
 				}
-				$("#price_total").text("").append(parseInt($("#p2_price").text())+parseInt($("#p3_price").text()));
-				$("#all_price_total").text("").append(parseInt($("#p2_price").text())+parseInt($("#p3_price").text()));
+		        if(!isNaN(parseInt($("#"+ pid +"_p1_price").text()))){
+		        	psum += parseInt($("#"+ pid +"_p1_price").text());
+		        }
+		        if(!isNaN(parseInt($("#"+ pid +"_p2_price").text()))){
+		        	psum += parseInt($("#"+ pid +"_p2_price").text());
+		        }
+		        if(!isNaN(parseInt($("#"+ pid +"_p3_price").text()))){
+		        	psum += parseInt($("#"+ pid +"_p3_price").text());
+		        }
+		        $("#" + pid + "_price_total").text("").append(psum);
+		        if(psum >= 50000){
+		        	$("#" + pid + "_del_price").text("").append(0);
+				}else{
+					$("#" + pid + "_del_price").text("").append(2600);
+				}
 			}
 			
 		});
 		
+		$(".minus").click(function(){
+			total_price_change();
+		});
 		
+		$(".plus").click(function(){
+			total_price_change();
+		});
 		
-		cart_list();
+		//cart_list();
 		
 		function cart_list(){
 			$.ajax({
@@ -147,7 +287,7 @@
 				<tr class="cart_product">
 					<td width=2%>
 						<div class="cart_chk">
-							<input type="checkbox" id="${vo.cid}" class="cart_prod_chk">
+							<input type="checkbox" id="${vo.cid}" class="cart_prod_chk" value="${vo.pid }">
 						</div>
 					</td>
 					<td width=10%>
@@ -171,13 +311,13 @@
 					</td>
 					<td width=12%>
 						<div class="cart_num">
-							<button type="button" class="minus" name="minus" id="p1">-</button>
-							<input type="text" class="price" value="${vo.opt1_qty }" id="p1_amt">
-							<button type="button" class="plus" name="plus" id="p1">+</button>
+							<button type="button" class="minus" name="minus" id="${vo.pid }_p1" value="${vo.pid }">-</button>
+							<input type="text" class="price" value="${vo.opt1_qty }" id="${vo.pid }_p1_amt" >
+							<button type="button" class="plus" name="plus" id="${vo.pid }_p1" value="${vo.pid }">+</button>
 						</div>
 					</td>
 					<td width=11%>
-						<div class="cart_price"><span id="p1_price">${vo.pprice + vo.opt1_price }</span>원</div>
+						<div class="cart_price"><span id="${vo.pid }_p1_price">${(vo.pprice + vo.opt1_price) * vo.opt1_qty }</span>원</div>
 					</td>
 					<td>
 						<div class="cart_update">
@@ -197,13 +337,13 @@
 					</td>
 					<td width=12%>
 						<div class="cart_num">
-							<button type="button" class="minus" name="minus" id="p2">-</button>
-							<input type="text" class="price" value="${vo.opt2_qty }" id="p2_amt">
-							<button type="button" class="plus" name="plus" id="p2">+</button>
+							<button type="button" class="minus" name="minus" id="${vo.pid }_p2" value="${vo.pid }">-</button>
+							<input type="text" class="price" value="${vo.opt2_qty }" id="${vo.pid }_p2_amt">
+							<button type="button" class="plus" name="plus" id="${vo.pid }_p2" value="${vo.pid }">+</button>
 						</div>
 					</td>
 					<td width=11%>
-						<div class="cart_price"><span id="p2_price">${vo.pprice +vo.opt2_price}</span>원</div>
+						<div class="cart_price"><span id="${vo.pid }_p2_price">${(vo.pprice + vo.opt2_price) * vo.opt2_qty}</span>원</div>
 					</td>
 					<td>
 						<div class="cart_update">
@@ -223,13 +363,13 @@
 					</td>
 					<td width=12%>
 						<div class="cart_num">
-							<button type="button" class="minus" name="minus" id="p3">-</button>
-							<input type="text" class="price" value="${vo.opt3_qty }" id="p3_amt">
-							<button type="button" class="plus" name="plus" id="p3">+</button>
+							<button type="button" class="minus" name="minus" id="${vo.pid }_p3" value="${vo.pid }">-</button>
+							<input type="text" class="price" value="${vo.opt3_qty }" id="${vo.pid }_p3_amt">
+							<button type="button" class="plus" name="plus" id="${vo.pid }_p3" value="${vo.pid }">+</button>
 						</div>
 					</td>
 					<td width=11%>
-						<div class="cart_price"><span id="p3_price">${vo.pprice + vo.opt3_price }</span>원</div>
+						<div class="cart_price"><span id="${vo.pid }_p3_price">${(vo.pprice + vo.opt3_price) * vo.opt3_qty }</span>원</div>
 					</td>
 					<td>
 						<div class="cart_update">
@@ -243,12 +383,12 @@
 				<tr class="cart_price_name">
 					<td colspan="2"><div class="price_title">작품 가격</div></td>
 					<td colspan="4">
-						<div class="price_content"><span id="price_total"></span>원</div>
+						<div class="price_content"><span id="${vo.pid }_price_total"></span>원</div>
 					</td>
 				</tr>
 				<tr class="cart_price_del">
 					<td colspan="2"><div class="price_title">배송비</div></td>
-					<td colspan="4"><div class="price_content"><span id="del_price">2600</span></div></td>
+					<td colspan="4"><div class="price_content"><span id="${vo.pid }_del_price">2600</span>원</div></td>
 				</tr>
 			</table>
 			</c:forEach>
@@ -269,9 +409,9 @@
 						<td class="prod_total">결제 예정금액</td>
 					</tr>
 					<tr>
-						<td class="all_price2"><span id="all_price_total"></span>원</td>
-						<td class="del2"><span>2,600</span>원</td>
-						<td class="prod_total2"><span></span>원</td>
+						<td class="all_price2"><span id="all_price_total">0</span>원</td>
+						<td class="del2"><span id="prod_total_delivery">0</span>원</td>
+						<td class="prod_total2"><span id="prod_total2">0</span>원</td>
 					</tr>
 				</table>
 			</div>

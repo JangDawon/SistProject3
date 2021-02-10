@@ -9,15 +9,15 @@ public class IdusReviewVO {
 
    
    public String getPtitle() {
-	    return ptitle;
+       return ptitle;
    }
-	
+   
    public void setPtitle(String ptitle) {
-		this.ptitle = ptitle;
+      this.ptitle = ptitle;
    }
-	
+   
    public CommonsMultipartFile getFile1() {
-	      return file1;
+         return file1;
    }
 
    public void setFile1(CommonsMultipartFile file1) {
