@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="mapper.cart2">
+		
+	<select id="cartlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusCartVO">
+		select c.cid, c.uemail, c.pid, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty
+		, p.opt2, p.opt2_price, c.opt2_qty, p.opt3, p.opt3_price, c.opt3_qty
+		, c.cdate, p.psfile1 
+		from idus_cart c, idus_product p where c.pid=p.pid and uemail=#{uemail}
+	</select>
+	
+	<insert id="cartwrite" parameterType="map">
+		insert into idus_cart values('c_'||SEQU_CART.nextval, #{uemail}, #{pid}, #{opt1_qty}
+		<choose>
+			<when test="opt2_qty != null">
+				<choose>
+					<when test="opt3_qty != null">
+						, #{opt2_qty}, #{opt3_qty}
+					</when>
+					<otherwise>
+						, #{opt2_qty}, ''
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				<choose>
+					<when test="opt3_qty != null">
+						, '', #{opt3_qty}
+					</when>
+					<otherwise>
+						, '', ''
+					</otherwise>
+				</choose>
+			</otherwise>
+		</choose>
+		, sysdate)
+	</insert>
+	
+</mapper>
+

@@ -1,7 +1,7 @@
 package com.project3.vo;
 
 public class IdusReplyVO {
-	String rid, uemail, uname, bid, rcontent, rdate, rfile, rsfile;
+	String rid, uemail, uname, bid, rcontent, rdate, rsfile;
 
 	public String getRid() {
 		return rid;
@@ -49,14 +49,6 @@ public class IdusReplyVO {
 
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
-	}
-
-	public String getRfile() {
-		return rfile;
-	}
-
-	public void setRfile(String rfile) {
-		this.rfile = rfile;
 	}
 
 	public String getRsfile() {

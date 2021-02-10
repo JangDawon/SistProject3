@@ -4,7 +4,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class IdusReviewVO {
 	int rno;
-	String rid, pid, uemail, rfile, rsfile, rcontent, order_num, order_date, rdate, rscore, savepath;
+	String rid, pid, uemail, oid, rfile, rsfile, rcontent, rscore, rdate, savepath;
 	CommonsMultipartFile file1;
 
 	public CommonsMultipartFile getFile1() {
@@ -71,20 +71,14 @@ public class IdusReviewVO {
 		this.rcontent = rcontent;
 	}
 
-	public String getOrder_num() {
-		return order_num;
+
+
+	public String getOid() {
+		return oid;
 	}
 
-	public void setOrder_num(String order_num) {
-		this.order_num = order_num;
-	}
-
-	public String getOrder_date() {
-		return order_date;
-	}
-
-	public void setOrder_date(String order_date) {
-		this.order_date = order_date;
+	public void setOid(String oid) {
+		this.oid = oid;
 	}
 
 	public String getRdate() {

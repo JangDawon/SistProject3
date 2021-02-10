@@ -18,6 +18,11 @@ public class CsController {
 	@Autowired
 	private BoardServiceImpl boardService;
 	
+	@RequestMapping(value = "/errorPage.do", method = RequestMethod.GET)
+	public String errorPage() {
+		return "errorPage";
+	}
+	
 	@RequestMapping(value = "/cs.do", method = RequestMethod.GET)
 	public ModelAndView cs(String rpage) {
 		return (ModelAndView)boardService.getList(rpage, null);
@@ -109,7 +114,6 @@ public class CsController {
 		rvo.setUname(uname);
 		rvo.setBid(bid);
 		rvo.setRcontent(rcontent);
-		rvo.setRfile(rfile);
 		rvo.setRsfile(rsfile); 
 		return String.valueOf(boardService.getReplyWrite(rvo));
 	}

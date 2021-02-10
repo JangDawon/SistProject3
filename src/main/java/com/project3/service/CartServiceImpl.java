@@ -1,9 +1,10 @@
 package com.project3.service;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.dao.IdusCartDAO;
 import com.project3.vo.IdusCartVO;
@@ -13,23 +14,23 @@ public class CartServiceImpl implements CartService {
 	@Autowired
 	private IdusCartDAO cartDAO;
 	
-	/* public String getResultCart(IdusCartVO vo) {
-		IdusCartDAO dao = new IdusCartDAO();
-		boolean cart_result =  cartDAO.getInsert(vo);
-		String result = "";
-		
-		if(cart_result) {
-			result = "/cart/cart";
-		}else {
-			result = "";
-		}
-		
-		return result;
-	} */
-	
 	/** 선택 삭제 **/
 	public int getSelectDelete(String[] dellist) {
 		return cartDAO.getSelectDelete(dellist);
 	}
+	
+	@Override
+	public ModelAndView getCartList(String uemail) {
+		ModelAndView mv = new ModelAndView();
+		
+		ArrayList<IdusCartVO> list = cartDAO.getCartList(uemail);
+		
+		mv.addObject("list", list);
+		mv.setViewName("/cart/cart");
+		
+		return mv;
+	}
+	
+	
 	
 }

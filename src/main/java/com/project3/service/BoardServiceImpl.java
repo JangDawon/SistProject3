@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.project3.dao.IdusBoardDAO;
+import com.project3.dao.IdusMemberDAO;
 import com.project3.vo.IdusBoardVO;
 import com.project3.vo.IdusReplyVO;
 
@@ -19,6 +20,9 @@ import com.project3.vo.IdusReplyVO;
 public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private IdusBoardDAO boardDAO;
+	
+	@Autowired
+	private IdusMemberDAO memberDAO;
 	
 	public String getSearchList(String sname, String svalue, String rpage) {
 		int start = 0;
@@ -146,8 +150,6 @@ public class BoardServiceImpl implements BoardService {
 		}
 	
 		
-		
-		
 		return mv;
 	}
 	
@@ -182,6 +184,7 @@ public class BoardServiceImpl implements BoardService {
 		mv.addObject("vo", vo);
 		mv.addObject("result", result);
 		mv.addObject("reply_ok", reply_ok);
+		mv.addObject("psfile", memberDAO.getPsfile(uemail));
 		mv.setViewName("/cs/cs_content");
 		
 		return mv;
@@ -251,7 +254,6 @@ public class BoardServiceImpl implements BoardService {
 			jobj.addProperty("uemail", vo.getUemail());
 			jobj.addProperty("uname", vo.getUname());
 			jobj.addProperty("rdate", vo.getRdate());
-			jobj.addProperty("rfile", vo.getRfile());
 			jobj.addProperty("rsfile", vo.getRsfile());
 			jobj.addProperty("rcontent", vo.getRcontent().replace("\r\n", "<br>"));
 			
