@@ -1131,7 +1131,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	div.cart_img>img {
 	   	width:70px;
 	   	height:70px;
-	   	padding:0 7px;
+	   	padding:5px 7px 0 7px;
 	}
 	tr.cart_product>td:last-child {
 	   	width:100%;
@@ -1151,10 +1151,10 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	tr.cart_explain div {
 	   	display:inline-block;
 	}
-	tr.cart_explain>td:nth-child(2), tr.cart_explain>td:last-child {
+	tr.cart_explain>td:nth-child(4), tr.cart_explain>td:last-child {
 	   	text-align:center;
 	}
-	tr.cart_explain>td:nth-child(3) {
+	tr.cart_explain>td:nth-child(5) {
 	   	text-align:right;
 	   	padding-right:5px;
 	   	color:#333;
