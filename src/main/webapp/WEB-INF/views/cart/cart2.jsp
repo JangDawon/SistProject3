@@ -11,6 +11,40 @@
 <!-- <script src="http://localhost:9000/sistproject3/js/dawon.js"></script> -->
 <script>
 	$(document).ready(function(){
+		product_price();
+		
+		function product_price(){
+			$.ajax({
+				url:"cart_ajax_list.do?uemail=${sessionScope.svo.uemail}",
+				success:function(result){
+					var jdata = JSON.parse(result);
+					
+					for(var i in jdata.jlist){ 
+						var pid = jdata.jlist[i].pid;
+						var psum = 0;
+						if(!isNaN(parseInt($("#"+ pid +"_p1_price").text()))){
+				        	psum += parseInt($("#"+ pid +"_p1_price").text());
+				        }
+				        if(!isNaN(parseInt($("#"+ pid +"_p2_price").text()))){
+				        	psum += parseInt($("#"+ pid +"_p2_price").text());
+				        }
+				        if(!isNaN(parseInt($("#"+ pid +"_p3_price").text()))){
+				        	psum += parseInt($("#"+ pid +"_p3_price").text());
+				        }
+				        $("#" + pid + "_price_total").text("").append(psum);
+				        
+				        if(psum >= 50000){
+				        	$("#" + pid + "_del_price").text("").append(0);
+						}else{
+							$("#" + pid + "_del_price").text("").append(2600);
+						}
+					}
+						
+						
+				}
+			});
+		}
+		
 		$("#cart_all_chk").click(function(){
 			if($("#cart_all_chk").is(":checked")){
 				$(".cart_prod_chk").prop("checked", true);
@@ -19,8 +53,32 @@
 			}
 		});
 		
-		$(document).on('click','input[type="checkbox"]', function(){
+		function total_price_change(){
+			var total = 0;
+			$("input[class='cart_prod_chk']:checked").each(function(index){
+				var pid = $(this).val();
+				var p1 = "#"+pid+"_p1_amt";
+				var p1_price = "#"+pid+"_p1_price";
+				var p2 = "#"+pid+"_p2_amt";
+				var p2_price = "#"+pid+"_p2_price";
+				var p3 = "#"+pid+"_p3_amt";
+				var p3_price = "#"+pid+"_p3_price";
+				
+				total +=  parseInt($("#" + pid + "_price_total").text());
+			});
+
+			$("#all_price_total").text("").append(total);
 			
+			if(total >= 50000){
+				$("#prod_total2").text("").append(total);
+				$("#prod_total_delivery").text("").append(0);
+			}else{
+				$("#prod_total2").text("").append(total+2600);
+				$("#prod_total_delivery").text("").append(2600);
+			}
+		}
+		
+		$(document).on('click','input[type="checkbox"]', function(){
 			
 			var purchase_list = "";
 			var total = 0;
@@ -140,7 +198,13 @@
 			
 		});
 		
+		$(".minus").click(function(){
+			total_price_change();
+		});
 		
+		$(".plus").click(function(){
+			total_price_change();
+		});
 		
 		//cart_list();
 		
@@ -253,7 +317,7 @@
 						</div>
 					</td>
 					<td width=11%>
-						<div class="cart_price"><span id="${vo.pid }_p1_price">${vo.pprice + vo.opt1_price }</span>원</div>
+						<div class="cart_price"><span id="${vo.pid }_p1_price">${(vo.pprice + vo.opt1_price) * vo.opt1_qty }</span>원</div>
 					</td>
 					<td>
 						<div class="cart_update">
@@ -279,7 +343,7 @@
 						</div>
 					</td>
 					<td width=11%>
-						<div class="cart_price"><span id="${vo.pid }_p2_price">${vo.pprice +vo.opt2_price}</span>원</div>
+						<div class="cart_price"><span id="${vo.pid }_p2_price">${(vo.pprice + vo.opt2_price) * vo.opt2_qty}</span>원</div>
 					</td>
 					<td>
 						<div class="cart_update">
@@ -305,7 +369,7 @@
 						</div>
 					</td>
 					<td width=11%>
-						<div class="cart_price"><span id="${vo.pid }_p3_price">${vo.pprice + vo.opt3_price }</span>원</div>
+						<div class="cart_price"><span id="${vo.pid }_p3_price">${(vo.pprice + vo.opt3_price) * vo.opt3_qty }</span>원</div>
 					</td>
 					<td>
 						<div class="cart_update">
@@ -345,9 +409,9 @@
 						<td class="prod_total">결제 예정금액</td>
 					</tr>
 					<tr>
-						<td class="all_price2"><span id="all_price_total"></span>원</td>
-						<td class="del2"><span id="prod_total_delivery">2,600</span>원</td>
-						<td class="prod_total2"><span id="prod_total2"></span>원</td>
+						<td class="all_price2"><span id="all_price_total">0</span>원</td>
+						<td class="del2"><span id="prod_total_delivery">0</span>원</td>
+						<td class="prod_total2"><span id="prod_total2">0</span>원</td>
 					</tr>
 				</table>
 			</div>
