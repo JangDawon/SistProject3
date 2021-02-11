@@ -20,6 +20,9 @@ public class CartServiceImpl2 implements CartService {
 	@Autowired
 	private IdusCartDAO2 cartDAO2;
 	
+	/**
+	 * 장바구니 리스트 가져오기(지혜)
+	 */
 	@Override
 	public ModelAndView getCartList(String uemail) {
 		ModelAndView mv = new ModelAndView();
@@ -32,7 +35,10 @@ public class CartServiceImpl2 implements CartService {
 		return mv;
 	}
 	
-	public ModelAndView getCartWrite(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
+	/**
+	 * 장바구니 입력(지혜)
+	 */
+	public ModelAndView getCartWrite(String uemail, String pid, int opt1_qty, int opt2_qty, int opt3_qty) {
 		ModelAndView mv = new ModelAndView();
 		int count = cartDAO2.getDupl(uemail, pid);
 		int result = 0;
@@ -40,48 +46,10 @@ public class CartServiceImpl2 implements CartService {
 		if(count > 0) {
 			IdusCartVO vo = cartDAO2.getDuplValue(uemail, pid); 
 			int opt1=0, opt2=0, opt3=0;
-			if(vo.getOpt1_qty() != null) {
-				try {
-					opt1 = Integer.parseInt(vo.getOpt1_qty());
-					if(!opt1_qty.equals("undefined")) {
-						opt1 += Integer.parseInt(opt1_qty);
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}else {
-				if(!opt1_qty.equals("undefined")) {
-					opt1 = Integer.parseInt(opt1_qty);
-				}
-			}
-			if(vo.getOpt2_qty() != null) {
-				try {
-					opt2 = Integer.parseInt(vo.getOpt2_qty());
-					if(!opt2_qty.equals("undefined")) {
-						opt2 += Integer.parseInt(opt2_qty);
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}else {
-				if(!opt2_qty.equals("undefined")) {
-					opt2 = Integer.parseInt(opt2_qty);
-				}
-			}
-			if(vo.getOpt3_qty() != null) {
-				try {
-					opt3 = Integer.parseInt(vo.getOpt3_qty());
-					if(!opt3_qty.equals("undefined")) {
-						opt3 += Integer.parseInt(opt3_qty);
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}else {
-				if(!opt3_qty.equals("undefined")) {
-					opt3 = Integer.parseInt(opt3_qty);
-				}
-			}
+			opt1 = vo.getOpt1_qty() + opt1_qty;
+			opt2 = vo.getOpt2_qty() + opt2_qty;
+			opt3 = vo.getOpt3_qty() + opt3_qty;
+			
 			System.out.println(opt1 +", "+opt2 +", "+opt3);
 			result = cartDAO2.getCartUpdate(uemail, pid, opt1, opt2, opt3);
 		}else {
@@ -98,6 +66,9 @@ public class CartServiceImpl2 implements CartService {
 		return mv;
 	}
 	
+	/**
+	 * 장바구니 리스트 Ajax로 가져오기(지혜)
+	 */
 	public String getAjaxList(String uemail) {
 		ArrayList<IdusCartVO> list = cartDAO2.getAjaxList(uemail);
 		
@@ -134,4 +105,10 @@ public class CartServiceImpl2 implements CartService {
 		return gson.toJson(jdata);
 	}
 	
+	/**
+	 * 장바구니 선택 삭제(지혜)
+	 */
+	public int getResultDelete(String[] dellist) {
+		return cartDAO2.getResultDelete(dellist);
+	}
 }

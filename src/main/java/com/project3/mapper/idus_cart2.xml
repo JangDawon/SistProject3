@@ -5,7 +5,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="mapper.cart2">
-		
+	<!-- jihye:cart_list -->	
 	<select id="cartlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusCartVO">
 		select c.cid, c.uemail, c.pid, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty
 		, p.opt2, p.opt2_price, c.opt2_qty, p.opt3, p.opt3_price, c.opt3_qty
@@ -13,6 +13,7 @@
 		from idus_cart c, idus_product p where c.pid=p.pid and uemail=#{uemail}
 	</select>
 	
+	<!-- jihye:cart_insert -->
 	<insert id="cartwrite" parameterType="map">
 		insert into idus_cart values('c_'||IDUS_CART_SEQ.nextval, #{uemail}, #{pid}, #{opt1_qty}
 		<choose>
@@ -40,17 +41,30 @@
 		, sysdate)
 	</insert>
 	
+	<!-- jihye:cart_duplicate_check -->
 	<select id="cart_dupl" parameterType="map" resultType="java.lang.Integer">
 		select count(*) result from idus_cart where uemail=#{uemail} and pid=#{pid}
 	</select>
 	
+	<!-- jihye:cart_duplicate_value -->
 	<select id="cart_dupl_value" parameterType="map" resultType="com.project3.vo.IdusCartVO">
 		select opt1_qty, opt2_qty, opt3_qty from idus_cart where uemail=#{uemail} and pid=#{pid}
 	</select>
 	
+	<!-- jihye:cart_update -->
 	<update id="cart_update" parameterType="map">
 		update idus_cart set opt1_qty = #{opt1}, opt2_qty = #{opt2}, opt3_qty = #{opt3} where uemail=#{uemail} and pid=#{pid}
 	</update>
+	
+	<!-- jihye:cart_select_delete -->
+	<delete id="delete" parameterType="java.lang.reflect.Array">
+		delete from idus_cart where cid in
+		
+		<foreach item="item" index="index" collection="array"
+	      open="(" separator="," close=")">
+	      #{item}
+	    </foreach>
+	</delete>
 	
 </mapper>
 

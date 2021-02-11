@@ -206,63 +206,24 @@
 			total_price_change();
 		});
 		
-		//cart_list();
-		
-		function cart_list(){
-			$.ajax({
-				url:"cart_list.do?uemail=${vo.uemail}",
-				success:function(Result){
-					var jdata = JSON.parse(result);
-					
-					var output = "";
-					output += '<table class="cart_table"><tr class="cart_product">';
-					
-					for(var i in jdata.jlist){
-						output += '<td rowspan="2" width=2%>';
-						output += '<div class="cart_chk">';
-						output += '<input type="checkbox" id="" class="cart_prod_chk" value="1">';
-						output += '</div></td>';
-						output += '<td rowspan="2" width=10%>';
-						output += '<div class="cart_img">';
-						output += '<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }">';
-						output += '</div></td>';
-						output += '<td colspan="4">';
-						output += '<div class="cart_text"><a href="http://localhost:9000/sistproject3/product.do?pid="'+ jdata.jlist[i].pid +'>';
-						output += '<label>상품이름</label></a>';
-						output += '</div></td></tr>';
-						output += '<tr class="cart_explain">';
-						output += '<td width=53%><div class="cart_option">'+ jdata.jlist[i].p_opt +'</div></td>';
-						output += '<td width=12%>';
-						output += '<div class="cart_num">';
-						output += '<button type="button" class="minus" name="minus" id="p1">-</button>';
-						output += '<input type="text" class="price" value="'+ jdata.jlist[i].p_qty +'" id="p1_amt">';
-						output += '<button type="button" class="plus" name="plus" id="p1">+</button>';
-						output += '</div></td>';
-						output += '<td width=11%>';
-						output += '	<div class="cart_price"><span class="p1_price">'+ jdata.jlist[i].p_price +'</span>원</div>';
-						output += '</td>';
-						output += '<td>';
-						output += '<div class="cart_update">';
-						output += '<button type="button" class="cart_prod_update">수정</button>';
-						output += '<button type="button" class="cart_prod_del">삭제</button>';
-						output += '</div></td></tr>';
-						output += '<tr class="cart_price_name">';
-						output += '<td colspan="2"><div class="price_title">작품 가격</div></td>';
-						output += '<td colspan="4">';
-						output += '<div class="price_content"><span class="p1_price">총가격</span>원</div>';
-						output += '</td></tr>';
-						output += '<tr class="cart_price_del">';
-						output += '<td colspan="2"><div class="price_title">배송비</div></td>';
-						output += '<td colspan="4"><div class="price_content"><span>2600</span></div></td>';
-						output += '</tr>';
-					}
-					
-					output += '</table>';
-					$(".cart_table").remove();
-					$(".cart_content").append(output);
-				}
+		$("#cart_select_del").click(function(){
+			var del_list = "";
+			
+			$("input[class='cart_prod_chk']:checked").each(function(index){
+				del_list += $(this).attr("id") + ", ";
 			});
-		}
+			
+			if(del_list == ""){
+				alert("선택된 상품이 없습니다");
+			}else{
+				var result = confirm(del_list + "를 정말 삭제하시겠습니까?");
+				if(result){
+					$(location).attr("href", "cart_list_select_del.do?del_list="+del_list);
+				} 
+			}
+		});
+		
+		
 		
 	});
 </script>
@@ -302,7 +263,7 @@
 					</td>
 				</tr>
 				
-				<c:if test="${vo.opt1 ne 'undefined'}">
+				<c:if test="${vo.opt1_qty != 0}">
 				<tr class="cart_explain">
 					<td></td>
 					<td></td>
@@ -328,7 +289,7 @@
 				</tr>
 				</c:if>
 				
-				<c:if test="${vo.opt2 ne 'undefined'}">
+				<c:if test="${vo.opt2_qty != 0}">
 				<tr class="cart_explain">
 					<td></td>
 					<td></td>
@@ -353,8 +314,7 @@
 					</td>
 				</tr>
 				</c:if>
-				
-				<c:if test="${vo.opt3 ne 'undefined'}">
+				<c:if test="${vo.opt3_qty != 0}">
 				<tr class="cart_explain">
 					<td></td>
 					<td></td>
