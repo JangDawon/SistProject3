@@ -28,4 +28,21 @@ public class WishServiceImpl implements WishService {
 		return mv;
 	}
 	
+	public ModelAndView getWishDelete(String uemail, String pid) {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = wishDAO.getWishDelete(uemail, pid);
+		
+		if(result > 0) {
+			mv.setViewName("redirect:/product.do?pid="+pid);
+		}else {
+			mv.setViewName("errorPage");
+		}
+		
+		
+		return mv;
+	}
+	
+	
+	
 }

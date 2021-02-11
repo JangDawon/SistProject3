@@ -18,6 +18,13 @@ public class IdusWishDAO extends DBConn{
 		param.put("pid", pid);
 		return sqlSession.insert(namespace+".wishinsert", param);
 	}
+	
+	public int getWishDelete(String uemail, String pid) {
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("uemail", uemail);
+		param.put("pid", pid);
+		return sqlSession.insert(namespace+".wishdelete", param);
+	}
 } 
 
 

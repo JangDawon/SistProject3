@@ -18,5 +18,11 @@ public class WishController {
 		//System.out.println("uemail: "+uemail+", pid:"+pid);
 		return wishService.getWishInsert(uemail, pid);
 	}
+	
+	@RequestMapping(value = "/wish_delete.do", method = RequestMethod.GET)
+	public ModelAndView wish_delete(String uemail, String pid) {
+		//System.out.println("uemail: "+uemail+", pid:"+pid);
+		return wishService.getWishDelete(uemail, pid);
+	}
 
 }

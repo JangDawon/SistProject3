@@ -4,4 +4,5 @@ import com.project3.vo.IdusWishVO;
 
 public interface WishService {
 	Object getWishInsert(String uemail, String pid);
+	Object getWishDelete(String uemail, String pid);
 }

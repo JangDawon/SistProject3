@@ -5,9 +5,14 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="mapper.wish">
-   
+   <!-- wish insert -->
    <insert id="wishinsert" parameterType="map">
       insert into idus_wish values('w_'||IDUS_WISH_SQE.nextval, #{uemail}, #{pid}, sysdate)
    </insert>
+   
+    <!-- wish delete -->
+    <delete id="wishdelete" parameterType="map">
+    	delete from idus_wish where uemail=#{uemail} and pid=#{pid}
+    </delete>
    
 </mapper>
