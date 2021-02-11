@@ -20,6 +20,9 @@ public class CartServiceImpl2 implements CartService {
 	@Autowired
 	private IdusCartDAO2 cartDAO2;
 	
+	/**
+	 * 장바구니 리스트 가져오기(지혜)
+	 */
 	@Override
 	public ModelAndView getCartList(String uemail) {
 		ModelAndView mv = new ModelAndView();
@@ -32,10 +35,24 @@ public class CartServiceImpl2 implements CartService {
 		return mv;
 	}
 	
-	public ModelAndView getCartWrite(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
+	/**
+	 * 장바구니 입력(지혜)
+	 */
+	public ModelAndView getCartWrite(String uemail, String pid, int opt1_qty, int opt2_qty, int opt3_qty) {
 		ModelAndView mv = new ModelAndView();
-		
-		int result = cartDAO2.getCartWrite(uemail, pid, opt1_qty, opt2_qty, opt3_qty);
+		int count = cartDAO2.getDupl(uemail, pid);
+		int result = 0;
+		if(count > 0) {
+			IdusCartVO vo = cartDAO2.getDuplValue(uemail, pid); 
+			int opt1=0, opt2=0, opt3=0;
+			opt1 = vo.getOpt1_qty() + opt1_qty;
+			opt2 = vo.getOpt2_qty() + opt2_qty;
+			opt3 = vo.getOpt3_qty() + opt3_qty;
+			
+			result = cartDAO2.getCartUpdate(uemail, pid, opt1, opt2, opt3);
+		}else {
+			result = cartDAO2.getCartWrite(uemail, pid, opt1_qty, opt2_qty, opt3_qty);
+		}
 		
 		if(result > 0) {
 			mv.setViewName("redirect:/product.do?pid="+pid);
@@ -47,6 +64,9 @@ public class CartServiceImpl2 implements CartService {
 		return mv;
 	}
 	
+	/**
+	 * 장바구니 리스트 Ajax로 가져오기(지혜)
+	 */
 	public String getAjaxList(String uemail) {
 		ArrayList<IdusCartVO> list = cartDAO2.getAjaxList(uemail);
 		
@@ -83,5 +103,28 @@ public class CartServiceImpl2 implements CartService {
 		return gson.toJson(jdata);
 	}
 	
+	/**
+	 * 장바구니 선택 삭제(지혜)
+	 */
+	public int getResultDelete(String[] dellist) {
+		return cartDAO2.getResultDelete(dellist);
+	}
+	
+	/**
+	 * 장바구니 Ajax 옵션 수량 수정(지혜)
+	 */
+	public String getAjaxUpdate(String cid, String opt, String opt_qty) {
+		int result = cartDAO2.getAjaxUpdate(cid, opt, opt_qty);
+		
+		if(result>0) {
+			
+		}
+		IdusCartVO vo = cartDAO2.getDuplValue(cid);
+		if((vo.getOpt1_qty() == 0) && (vo.getOpt2_qty() == 0) && (vo.getOpt3_qty() == 0)) {
+			String[] dellist = new String[1]; dellist[0] = cid;
+			result = cartDAO2.getResultDelete(dellist);
+		}
+		return String.valueOf(result);
+	}
 	
 }

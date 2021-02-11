@@ -1,11 +1,10 @@
 package com.project3.vo;
 
 public class IdusCartVO {
-	String cid, uemail, pid, opt1_qty, opt2_qty, opt3_qty, cdate, ptitle,
+	String cid, uemail, pid, cdate, ptitle,
 		opt1, opt2, opt3, psfile1;
-	int pprice, opt1_price, opt2_price, opt3_price;
-	
-	
+	int pprice, opt1_price, opt2_price, opt3_price, opt1_qty, opt2_qty, opt3_qty;
+	String result;
 	public String getCid() {
 		return cid;
 	}
@@ -23,24 +22,6 @@ public class IdusCartVO {
 	}
 	public void setPid(String pid) {
 		this.pid = pid;
-	}
-	public String getOpt1_qty() {
-		return opt1_qty;
-	}
-	public void setOpt1_qty(String opt1_qty) {
-		this.opt1_qty = opt1_qty;
-	}
-	public String getOpt2_qty() {
-		return opt2_qty;
-	}
-	public void setOpt2_qty(String opt2_qty) {
-		this.opt2_qty = opt2_qty;
-	}
-	public String getOpt3_qty() {
-		return opt3_qty;
-	}
-	public void setOpt3_qty(String opt3_qty) {
-		this.opt3_qty = opt3_qty;
 	}
 	public String getCdate() {
 		return cdate;
@@ -102,6 +83,31 @@ public class IdusCartVO {
 	public void setOpt3_price(int opt3_price) {
 		this.opt3_price = opt3_price;
 	}
+	public int getOpt1_qty() {
+		return opt1_qty;
+	}
+	public void setOpt1_qty(int opt1_qty) {
+		this.opt1_qty = opt1_qty;
+	}
+	public int getOpt2_qty() {
+		return opt2_qty;
+	}
+	public void setOpt2_qty(int opt2_qty) {
+		this.opt2_qty = opt2_qty;
+	}
+	public int getOpt3_qty() {
+		return opt3_qty;
+	}
+	public void setOpt3_qty(int opt3_qty) {
+		this.opt3_qty = opt3_qty;
+	}
+	public String getResult() {
+		return result;
+	}
+	public void setResult(String result) {
+		this.result = result;
+	}
+	
 	
 }
 	
