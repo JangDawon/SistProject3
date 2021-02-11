@@ -1,3 +1,16 @@
+/* 아이디어스 위시리스트 테이블&SEQUENCE (현주)
+* 수정일 : 2021.02.12 오전 1시 4분
+*/
+CREATE TABLE idus_wish(
+  wid       VARCHAR2(20) primary key,
+  uemail    varchar2(30) REFERENCES idus_member(uemail) ON DELETE CASCADE,
+  pid      VARCHAR2(20) REFERENCES idus_product(PID) ON DELETE CASCADE,
+  wdate date
+); 
+CREATE SEQUENCE IDUS_WISH_SQE
+  START WITH 1
+  INCREMENT BY 1;
+
 /* 아이디어스 장바구니 테이블(지혜)
 * 수정일 : 2021.02.11 오전 11시 34분
 */

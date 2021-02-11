@@ -10,6 +10,7 @@
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 <script>
 	$(document).ready(function(){
+		var uemail = "${sessionScope.svo.uemail}";
 		ajax_list("new");
 		
 		$("#selector").on('change',function(){
@@ -32,8 +33,8 @@
 						output += "<a href='http://localhost:9000/sistproject3/product.do?pid="+ jdata.jlist[i].pid +"'>";
 						output += "<div class='prod_img'>";
 						output += "<div>";
-						output += "<button class='favorite_btn'>";
-						output += "<img src='http://localhost:9000/sistproject3/images/favorite.png'>";
+						output += "<button class='favorite_btn' value='" + jdata.jlist[i].pid + "'>";
+						output += "<img src='http://localhost:9000/sistproject3/images/favorite.png' id='"+jdata.jlist[i].pid+"_star'>";
 						output += "</button>";
 						output += "</div>";
 						output += "<div>";
@@ -57,6 +58,31 @@
 				}
 			});
 		}
+		
+		$(document).on("click",".favorite_btn",function(){
+			var btn_pid = $(this).val(); //버튼 눌러서 받아온 pid
+			var wish_img = "#"+btn_pid+"_star";
+			var status = $(wish_img).attr("src"); 
+			if(uemail !="") {
+				if(status == "http://localhost:9000/sistproject3/images/favorite.png"){
+					$(wish_img).attr('src','http://localhost:9000/sistproject3/images/star2.png');
+					$.ajax({
+						url:"wish_insert.do?uemail=${sessionScope.svo.uemail}&pid="+btn_pid,
+						success:function(result){
+							//if(result) {
+								//location.href='http://localhost:9000/sistproject3/purchase.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }';
+							//} 
+						}
+					});//ajax
+				}else{
+					$(wish_img).attr('src','http://localhost:9000/sistproject3/images/favorite.png');
+				}
+			}else {
+				alert("로그인을 먼저 진행해 주세요!");
+				location.href='http://localhost:9000/sistproject3/login.do';
+			}
+		});
+		
 	});
 </script>
 </head>
