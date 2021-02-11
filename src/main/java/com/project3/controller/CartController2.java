@@ -1,5 +1,7 @@
 package com.project3.controller;
 
+import java.util.StringTokenizer;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +41,7 @@ public class CartController2 {
 	 */
 	@RequestMapping(value = "/cart_insert.do", method = RequestMethod.GET)
 	public ModelAndView cart_insert(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
-		return cartService2.getCartWrite(uemail, pid, opt1_qty, opt2_qty, opt3_qty);
+		return cartService2.getCartWrite(uemail, pid, Integer.parseInt(opt1_qty), Integer.parseInt(opt2_qty), Integer.parseInt(opt3_qty));
 	}
 	
 	
@@ -52,12 +54,45 @@ public class CartController2 {
 	}
 	
 	/**
-	 * 장바구니 리스트
+	 * 장바구니 리스트(지혜)
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/cart_ajax_list.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/cart_ajax_list.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
 	public String cart_ajax_list(String uemail) {
 		return cartService2.getAjaxList(uemail);
 	}
 	
+	/**
+	 * 장바구니 선택 삭제(지혜)
+	 */
+	@RequestMapping(value = "/cart_list_select_del.do", method = RequestMethod.GET)
+	public ModelAndView cart_list_select_del(String del_list) {
+		ModelAndView mv = new ModelAndView();
+		
+		StringTokenizer st = new StringTokenizer(del_list, ", ");
+		String[] dellist = new String[st.countTokens()];
+		
+		for(int i=0; i<dellist.length; i++) {
+			dellist[i] = st.nextToken();
+		}
+		
+		int result = cartService2.getResultDelete(dellist);
+		
+		if(result >0) {
+			mv.setViewName("redirect:/cart2.do");
+		}else {
+			mv.setViewName("errorPage");
+		}
+		
+		return mv;
+	}
+	
+	/**
+	 * 장바구니 옵션 수량 수정(지혜)
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/cart_list_opt_update.do", method = RequestMethod.GET)
+	public String cart_list_opt_update(String cid, String opt, String opt_qty) {
+		return cartService2.getAjaxUpdate(cid, opt, opt_qty);
+	}
 }

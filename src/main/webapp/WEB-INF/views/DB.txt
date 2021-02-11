@@ -1,20 +1,21 @@
-/* 아이디어스 장바구니 테이블&SEQUENCE (다원)
-* 수정일 : 2021.02.09 오전 11시 50분
+/* 아이디어스 장바구니 테이블(지혜)
+* 수정일 : 2021.02.11 오전 11시 34분
 */
-
-drop table idus_cart; //원래꺼 삭제하고 새로 만드러주세요!
+drop table idus_cart; //자꾸 다시만들어서 죄송해요... 기존 테이블 삭제하고 새로 만들어주세요ㅠㅠ
 
 CREATE TABLE IDUS_CART(
-  CID        VARCHAR2(30) PRIMARY KEY,
+  CID    VARCHAR2(30) PRIMARY KEY,
   UEMAIL     VARCHAR2(30) REFERENCES idus_member(UEMAIL) ON DELETE CASCADE,
   PID        VARCHAR2(20) REFERENCES idus_product(PID) ON DELETE CASCADE,
-  OPT1_QTY   VARCHAR2(20) NOT NULL,
-  OPT2_QTY   VARCHAR2(20),
-  OPT3_QTY   VARCHAR2(20),
+  OPT1_QTY   number(20),
+  OPT2_QTY   number(20),
+  OPT3_QTY   number(20),
   cdate date
 );
 
-
+/* 아이디어스 장바구니 SEQUENCE (다원)
+* 수정일 : 2021.02.09 오전 11시 50분
+*/
 CREATE SEQUENCE IDUS_CART_SEQ
   START WITH 1
   INCREMENT BY 1;
