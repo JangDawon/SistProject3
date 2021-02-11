@@ -48,7 +48,17 @@
 	
 	<!-- jihye:cart_duplicate_value -->
 	<select id="cart_dupl_value" parameterType="map" resultType="com.project3.vo.IdusCartVO">
-		select opt1_qty, opt2_qty, opt3_qty from idus_cart where uemail=#{uemail} and pid=#{pid}
+		select opt1_qty, opt2_qty, opt3_qty from idus_cart 
+		
+		<choose>
+			<when test="method == 'one'">
+				where uemail=#{uemail} and pid=#{pid}
+			</when>
+			<otherwise>
+				where cid=#{cid}
+			</otherwise>
+		</choose>
+		
 	</select>
 	
 	<!-- jihye:cart_update -->
@@ -66,5 +76,15 @@
 	    </foreach>
 	</delete>
 	
+	<!-- jihye:cart_opt_update -->
+	<update id="ajax_update" parameterType="map">
+		update idus_cart set
+		
+		<if test="opt == 'p1'">opt1_qty = #{opt_qty}</if>
+		<if test="opt == 'p2'">opt2_qty = #{opt_qty}</if>
+		<if test="opt == 'p3'">opt3_qty = #{opt_qty}</if>
+		
+		where cid = #{cid}
+	</update>
 </mapper>
 

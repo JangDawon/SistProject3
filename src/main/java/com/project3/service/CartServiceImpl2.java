@@ -42,7 +42,6 @@ public class CartServiceImpl2 implements CartService {
 		ModelAndView mv = new ModelAndView();
 		int count = cartDAO2.getDupl(uemail, pid);
 		int result = 0;
-		System.out.println(opt1_qty+", "+ opt2_qty+", "+ opt3_qty);
 		if(count > 0) {
 			IdusCartVO vo = cartDAO2.getDuplValue(uemail, pid); 
 			int opt1=0, opt2=0, opt3=0;
@@ -50,7 +49,6 @@ public class CartServiceImpl2 implements CartService {
 			opt2 = vo.getOpt2_qty() + opt2_qty;
 			opt3 = vo.getOpt3_qty() + opt3_qty;
 			
-			System.out.println(opt1 +", "+opt2 +", "+opt3);
 			result = cartDAO2.getCartUpdate(uemail, pid, opt1, opt2, opt3);
 		}else {
 			result = cartDAO2.getCartWrite(uemail, pid, opt1_qty, opt2_qty, opt3_qty);
@@ -111,4 +109,22 @@ public class CartServiceImpl2 implements CartService {
 	public int getResultDelete(String[] dellist) {
 		return cartDAO2.getResultDelete(dellist);
 	}
+	
+	/**
+	 * 장바구니 Ajax 옵션 수량 수정(지혜)
+	 */
+	public String getAjaxUpdate(String cid, String opt, String opt_qty) {
+		int result = cartDAO2.getAjaxUpdate(cid, opt, opt_qty);
+		
+		if(result>0) {
+			
+		}
+		IdusCartVO vo = cartDAO2.getDuplValue(cid);
+		if((vo.getOpt1_qty() == 0) && (vo.getOpt2_qty() == 0) && (vo.getOpt3_qty() == 0)) {
+			String[] dellist = new String[1]; dellist[0] = cid;
+			result = cartDAO2.getResultDelete(dellist);
+		}
+		return String.valueOf(result);
+	}
+	
 }

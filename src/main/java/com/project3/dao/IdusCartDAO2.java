@@ -41,6 +41,15 @@ public class IdusCartDAO2 extends DBConn{
 		Map<String, String> param = new HashMap<String, String>();
 		param.put("uemail", uemail);
 		param.put("pid", pid);
+		param.put("method", "one");
+		return sqlSession.selectOne(namespace+".cart_dupl_value", param);
+	}
+	
+	/** 장바구니 값 가져오기(지혜) **/
+	public IdusCartVO getDuplValue(String cid){
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("cid", cid);
+		param.put("method", "two");
 		return sqlSession.selectOne(namespace+".cart_dupl_value", param);
 	}
 	
@@ -69,6 +78,15 @@ public class IdusCartDAO2 extends DBConn{
 	/** 장바구니 선택 삭제(지혜) **/
 	public int getResultDelete(String[] dellist) {
 		return sqlSession.delete(namespace+".delete", dellist);
+	}
+	
+	/** 장바구니 선택 삭제(지혜) **/
+	public int getAjaxUpdate(String cid, String opt, String opt_qty) {
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("cid", cid);
+		param.put("opt", opt);
+		param.put("opt_qty", opt_qty);
+		return sqlSession.update(namespace+".ajax_update", param);
 	}
 	
 } 

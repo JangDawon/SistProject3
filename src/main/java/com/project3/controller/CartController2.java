@@ -57,7 +57,7 @@ public class CartController2 {
 	 * 장바구니 리스트(지혜)
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/cart_ajax_list.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/cart_ajax_list.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
 	public String cart_ajax_list(String uemail) {
 		return cartService2.getAjaxList(uemail);
 	}
@@ -87,5 +87,12 @@ public class CartController2 {
 		return mv;
 	}
 	
-	
+	/**
+	 * 장바구니 옵션 수량 수정(지혜)
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/cart_list_opt_update.do", method = RequestMethod.GET)
+	public String cart_list_opt_update(String cid, String opt, String opt_qty) {
+		return cartService2.getAjaxUpdate(cid, opt, opt_qty);
+	}
 }

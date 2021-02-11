@@ -17,18 +17,6 @@ $(document).ready(function(){
 	var three=1;
 	var sum = 0;
 	var uemail = "${sessionScope.svo.uemail}";
-	/* $("#cartBtn").click(function(){
-		$.ajax({
-			url:"cart_insert.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
-			success:function(result){
-				var choice = confirm("장바구니에 성공적으로 담겼습니다. 장바구니로 이동하시겠습니까?");
-				
-				if(choice){
-					$(location).attr('href', 'cart.do');
-				}
-			}
-		});
-	});  */
 	
 	$(document).on("click",".optDelete",function(){
 		var id = $(this).val();
@@ -215,48 +203,37 @@ $(document).ready(function(){
 			return;
 		} else {
 			if(uemail !="") {
-				var info = confirm("장바구니 페이지로 이동할까요?");
 				var p1_amt = 0;
 				var p2_amt = 0;
 				var p3_amt = 0;
-				if(info) {
-					alert("장바구니 페이지로 이동합니다.");
-					if($("#p1_amt").val() == undefined){
-						p1_amt = 0;
-					}else{
-						p1_amt = parseInt($("#p1_amt").val());
-					}
-					if($("#p2_amt").val() == undefined){
-						p2_amt = 0;
-					}else{
-						p2_amt = parseInt($("#p2_amt").val());
-					}
-					if($("#p3_amt").val() == undefined){
-						p3_amt = 0;
-					}else{
-						p3_amt = parseInt($("#p3_amt").val());
-					}
-					$.ajax({
-						url:"cart_insert.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + p1_amt + "&opt2_qty="+ p2_amt +"&opt3_qty="+p3_amt,
-						//url:"cart_ins.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
-						success:function(result){
-							if(result) {
+				if($("#p1_amt").val() == undefined){
+					p1_amt = 0;
+				}else{
+					p1_amt = parseInt($("#p1_amt").val());
+				}
+				if($("#p2_amt").val() == undefined){
+					p2_amt = 0;
+				}else{
+					p2_amt = parseInt($("#p2_amt").val());
+				}
+				if($("#p3_amt").val() == undefined){
+					p3_amt = 0;
+				}else{
+					p3_amt = parseInt($("#p3_amt").val());
+				}
+				$.ajax({
+					url:"cart_insert.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + p1_amt + "&opt2_qty="+ p2_amt +"&opt3_qty="+p3_amt,
+					//url:"cart_ins.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
+					success:function(result){
+						if(result) {
+							var count = confirm("장바구니 페이지로 이동할까요?");
+							
+							if(count){
 								location.href='http://localhost:9000/sistproject3/cart2.do';
 							}
 						}
-					}); 
-				} /* else {
-					$.ajax({
-						url : "cart_insert.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }&opt1_qty=" + $("#p1_amt").val() + "&opt2_qty="+ $("#p2_amt").val() +"&opt3_qty="+$("#p3_amt").val(),
-						success : function(result) {
-							if(result) {
-								alert("장바구니에 상품이 등록되었습니다.");
-							} else {
-								alert("장바구니에 상품이 등록되지 않았습니다.")
-							}
-						}
-					});
-				}  */
+					}
+				}); 
 			}else {
 				alert("로그인을 먼저 진행해 주세요!");
 				location.href='http://localhost:9000/sistproject3/login.do';
