@@ -39,15 +39,6 @@
 			}
 		});
 		
-		/* $(".cart_prod_del").click(function(){
-			var chk = confirm("옵션을 삭제하시겠습니까?");
-			if(chk){
-				var del_chk = $(this).attr("id"); //cid값
-			}
-			$(location).attr("href", "http://localhost:9000/sistproject3/cart/opt_del?")
-			
-		}); */
-		
 		$("#cart_select_del").click(function(){
 			var choice = confirm("정말로 삭제하시겠습니까?");
 			if(choice) {
@@ -144,10 +135,6 @@
 				}
 			}
 		});
-		
-		function del_con(){
-			
-		}
 		
 	});
 	

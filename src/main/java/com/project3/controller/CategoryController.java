@@ -15,52 +15,11 @@ public class CategoryController {
 	private CategoryServiceImpl categoryService;
 		
 	/**
-	 * 음식
-	 */
-	@RequestMapping(value = "/food.do", method = RequestMethod.GET)
-	public String food() {
-		return "/category/food";
-	}
-	
-	/**
-	 * 악세사리
-	 */
-	@RequestMapping(value = "/accessory.do", method = RequestMethod.GET)
-	public String accessory() {
-		return "/category/accessory";
-	}
-	
-	/**
-	 * 패션&잡화
-	 */
-	@RequestMapping(value = "/living.do", method = RequestMethod.GET)
-	public String living() {
-		return "/category/living";
-	}
-	
-	/**
-	 * 인테리어
-	 */
-	@RequestMapping(value = "/interior.do", method = RequestMethod.GET)
-	public String interior() {
-		return "/category/interior";
-	}
-	
-	/**
-	 * 기타
-	 */
-	@RequestMapping(value = "/etc.do", method = RequestMethod.GET)
-	public String etc() {
-		return "/category/etc";
-	}
-	
-	/**
 	 * 인기 작품
 	 */
 	@RequestMapping(value = "/product_best.do", method = RequestMethod.GET)
-	public ModelAndView product_best(String pcat) {
-		//return categoryService.getBestList();
-		return categoryService.getBestProdList(pcat);
+	public ModelAndView product_best() {
+		return categoryService.getBestProdList();
 	}
 	
 	/**
@@ -93,7 +52,24 @@ public class CategoryController {
 		return categoryService.getAjaxList(pcat, sname); 
 	}
 	
+	/**
+	 * 검색 리스트
+	 */
+	@RequestMapping(value = "/search.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public ModelAndView search(String search) {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("search", search);
+		mv.setViewName("/category/search");
+		
+		return mv; 
+	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/search_ajax_list.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public String search_ajax_list(String search, String sname) {
+		return categoryService.getSearchList(search, sname); 
+	}
 	
 	
 }
