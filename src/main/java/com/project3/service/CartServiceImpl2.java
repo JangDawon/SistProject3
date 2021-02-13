@@ -2,6 +2,7 @@ package com.project3.service;
 
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,14 +12,63 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.project3.dao.IdusCartDAO2;
-import com.project3.vo.IdusBoardVO;
 import com.project3.vo.IdusCartVO;
+import com.project3.vo.IdusMemberVO;
+import com.project3.vo.IdusOrderVO;
 
 
 @Service("cartService2")
 public class CartServiceImpl2 implements CartService {
 	@Autowired
 	private IdusCartDAO2 cartDAO2;
+	
+	/**
+	 * 주문자 정보 가져오기(지혜)
+	 */
+	public ModelAndView getOrderSuccessList(String uemail, String del_price, String total_price, String[] cid_list, String rname, String cp, String addr) {
+		ModelAndView mv = new ModelAndView();
+		Random random = new Random();
+		String onum = String.valueOf(random.nextInt(10000000));
+		for(int i=0; i<cid_list.length; i++) {
+			IdusOrderVO vo = cartDAO2.getQty(cid_list[i]);
+			vo.setCid(cid_list[i]);
+			vo.setOnum(onum);
+			vo.setUemail(uemail);
+			vo.setRname(rname);
+			vo.setRaddr(addr);
+			vo.setRcp(cp);
+			vo.setCancel("");
+			vo.setCdate("");
+			vo.setDel_price(Integer.parseInt(del_price));
+			vo.setTotal_price(Integer.parseInt(total_price));
+			cartDAO2.getInsertOrder(vo);
+		}
+		cartDAO2.getResultDelete(cid_list);
+		
+		mv.setViewName("cart/order_success");
+		
+		return mv;
+	}
+	
+	/**
+	 * 주문자 정보 가져오기(지혜)
+	 */
+	public ModelAndView getOrderList(String uemail, String del_price, String total_price, String[] cid_list) {
+		ModelAndView mv = new ModelAndView();
+		
+		IdusMemberVO vo = cartDAO2.getUserInfo(uemail);
+		ArrayList<IdusCartVO> cart_list = cartDAO2.getCartList(cid_list);
+		
+		mv.addObject("vo", vo);
+		mv.addObject("del_price", del_price);
+		mv.addObject("total_price", total_price);
+		mv.addObject("cart_list", cart_list);
+		mv.addObject("cid_list", cid_list);
+		mv.setViewName("cart/cart_order2");
+		
+		return mv;
+	}
+	
 	
 	/**
 	 * 장바구니 리스트 가져오기(지혜)

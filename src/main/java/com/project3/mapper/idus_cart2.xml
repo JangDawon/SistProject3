@@ -5,6 +5,36 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="mapper.cart2">
+	<!-- jihye:order_insert -->
+	<insert id="order" parameterType="com.project3.vo.IdusOrderVO">
+		insert into idus_order2 values('o_'||IDUS_ORDER_SQE.nextval, to_char(sysdate, 'yyyymmdd')||to_char(#{onum}, 'FM0000000000'), #{uemail},
+		#{pid}, #{cid}, #{opt1_qty}, #{opt2_qty}, #{opt3_qty}, #{del_price}, #{total_price}, #{rname}, #{raddr}, #{rcp},
+		#{cancel}, #{cdate}, sysdate)
+	</insert>
+
+	<!-- jihye:order_qty -->
+	<select id="qty" parameterType="java.lang.String" resultType="com.project3.vo.IdusOrderVO">
+		select pid, opt1_qty, opt2_qty, opt3_qty from idus_cart where cid=#{cid} 
+	</select>
+
+	<!-- jihye:order_cart_list -->
+	<select id="order_cart_list" parameterType="java.lang.reflect.Array" resultType="com.project3.vo.IdusCartVO">
+		select c.cid, c.uemail, c.pid, p.sname, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty
+		, p.opt2, p.opt2_price, c.opt2_qty, p.opt3, p.opt3_price, c.opt3_qty
+		, c.cdate, p.psfile1 
+		from idus_cart c, idus_product p where c.pid=p.pid and cid in
+		
+		<foreach item="item" index="index" collection="array"
+	      open="(" separator="," close=")">
+	      #{item}
+	    </foreach>
+	</select>
+	
+	<!-- jihye:order_user_info -->
+	<select id="user_info" parameterType="java.lang.String" resultType="com.project3.vo.IdusMemberVO">
+		select * from idus_member where uemail = #{uemail}
+	</select>
+
 	<!-- jihye:cart_list -->	
 	<select id="cartlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusCartVO">
 		select c.cid, c.uemail, c.pid, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty
