@@ -32,7 +32,6 @@ public class CartController2 {
 		return cartService2.getOrderSuccessList(uemail, del_price, total_price, cid_list, rname, cp, addr);
 	}
 	
-	
 	/**
 	 * 주문하기(지혜)
 	 */ 
