@@ -4,128 +4,127 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class IdusReviewVO {
 
-   int rno;
-   String rid, pid, uemail, oid, rfile, rsfile, rcontent, rscore, rdate, savepath, ptitle;
-   CommonsMultipartFile file1;
+	int rno;
+	String rid, pid, uemail, oid, rfile, rsfile, rcontent, rscore, rdate, savepath, ptitle,pfile1,psfile1;
+	public String getPfile1() {
+		return pfile1;
+	}
 
-   
-   public String getPtitle() {
-       return ptitle;
-   }
-   
-   public void setPtitle(String ptitle) {
-      this.ptitle = ptitle;
-   }
-   
-   public CommonsMultipartFile getFile1() {
-         return file1;
-   }
+	public void setPfile1(String pfile1) {
+		this.pfile1 = pfile1;
+	}
 
-   public void setFile1(CommonsMultipartFile file1) {
-      this.file1 = file1;
-   }
+	public String getPsfile1() {
+		return psfile1;
+	}
 
-   public int getRno() {
-      return rno;
-   }
+	public void setPsfile1(String psfile1) {
+		this.psfile1 = psfile1;
+	}
 
-   public void setRno(int rno) {
-      this.rno = rno;
-   }
+	CommonsMultipartFile file1;
 
-   public String getRid() {
-      return rid;
-   }
+	public String getPtitle() {
+		return ptitle;
+	}
 
-   public void setRid(String rid) {
-      this.rid = rid;
-   }
+	public void setPtitle(String ptitle) {
+		this.ptitle = ptitle;
+	}
 
-   public String getPid() {
-      return pid;
-   }
+	public CommonsMultipartFile getFile1() {
+		return file1;
+	}
 
-   public void setPid(String pid) {
-      this.pid = pid;
-   }
+	public void setFile1(CommonsMultipartFile file1) {
+		this.file1 = file1;
+	}
 
-   public String getUemail() {
-      return uemail;
-   }
+	public int getRno() {
+		return rno;
+	}
 
-   public void setUemail(String uemail) {
-      this.uemail = uemail;
-   }
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
 
-   public String getRfile() {
-      return rfile;
-   }
+	public String getRid() {
+		return rid;
+	}
 
-   public void setRfile(String rfile) {
-      this.rfile = rfile;
-   }
+	public void setRid(String rid) {
+		this.rid = rid;
+	}
 
-   public String getRsfile() {
-      return rsfile;
-   }
+	public String getPid() {
+		return pid;
+	}
 
-   public void setRsfile(String rsfile) {
-      this.rsfile = rsfile;
-   }
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
 
-   public String getRcontent() {
-      return rcontent;
-   }
+	public String getUemail() {
+		return uemail;
+	}
 
-   public void setRcontent(String rcontent) {
-      this.rcontent = rcontent;
-   }
+	public void setUemail(String uemail) {
+		this.uemail = uemail;
+	}
 
-<<<<<<< HEAD
+	public String getRfile() {
+		return rfile;
+	}
 
+	public void setRfile(String rfile) {
+		this.rfile = rfile;
+	}
+
+	public String getRsfile() {
+		return rsfile;
+	}
+
+	public void setRsfile(String rsfile) {
+		this.rsfile = rsfile;
+	}
+
+	public String getRcontent() {
+		return rcontent;
+	}
+
+	public void setRcontent(String rcontent) {
+		this.rcontent = rcontent;
+	}
 
 	public String getOid() {
 		return oid;
 	}
-=======
->>>>>>> branch 'master' of https://github.com/jihye0526/SistProject3
 
-<<<<<<< HEAD
 	public void setOid(String oid) {
 		this.oid = oid;
 	}
-=======
 
-   public String getOid() {
-      return oid;
-   }
+	public String getRdate() {
+		return rdate;
+	}
 
-   public void setOid(String oid) {
-      this.oid = oid;
-   }
->>>>>>> branch 'master' of https://github.com/jihye0526/SistProject3
+	public void setRdate(String rdate) {
+		this.rdate = rdate;
+	}
 
-   public String getRdate() {
-      return rdate;
-   }
+	public String getRscore() {
+		return rscore;
+	}
 
-   public void setRdate(String rdate) {
-      this.rdate = rdate;
-   }
+	public void setRscore(String rscore) {
+		this.rscore = rscore;
+	}
 
-   public String getRscore() {
-      return rscore;
-   }
+	public String getSavepath() {
+		return savepath;
+	}
 
-   public void setRscore(String rscore) {
-      this.rscore = rscore;
-   }
-
-   public String getSavepath() {
-      return savepath;
-   }
-
-   public void setSavepath(String savepath) {
-      this.savepath = savepath;
-   }
+	public void setSavepath(String savepath) {
+		this.savepath = savepath;
+	}
 }

@@ -48,7 +48,7 @@
                   <img src="http://localhost:9000/sistproject3/images/search.png"></button>
                </div>
                <ul class="navbar_icons">
-                  <li><a href="http://localhost:9000/sistproject3/mypage.do">
+                  <li><a href="http://localhost:9000/sistproject3/my_order.do">
                   	<img src="http://localhost:9000/sistproject3/images/user.png"></a>
                   </li>
                   <li><a href="http://localhost:9000/sistproject3/cart.do">

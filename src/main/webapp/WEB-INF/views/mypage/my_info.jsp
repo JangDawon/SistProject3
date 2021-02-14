@@ -5,9 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="shortcut icon" type="image/x-icon"
-	href="http://localhost:9000/sistproject3/images/logo.jpg">
-<title>아이디어스 - 페이페이지</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 마이페이지</title>
 <link rel="stylesheet"
 	href="http://localhost:9000/sistproject3/css/woohyun.css">
 <script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
@@ -146,7 +144,7 @@ $(document).ready(function(){
 				</tr>
 
 				<tr>
-					<td colspan=2><button type="button" class="change">회원탈퇴</button></td>
+					<td colspan=2><a href = "my_info_delete.do?uemail=${vo.uemail}"><button type="button" class="change">회원탈퇴</button></a></td>
 
 				</tr>
 				<tr>

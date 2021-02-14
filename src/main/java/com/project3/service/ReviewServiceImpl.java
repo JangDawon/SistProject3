@@ -42,7 +42,7 @@ public class ReviewServiceImpl implements BoardService{
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				mv.setViewName("/mypage/my_reivew");
+				mv.setViewName("/mypage/my_review");
 			}
 		}
 		return mv;
@@ -129,6 +129,45 @@ public class ReviewServiceImpl implements BoardService{
 			count = reviewDAO.getDeleteSelect(dellist);
 		}
 		return count;
+	}
+	public Object getreviewList(String rpage, String param) {
+		ModelAndView mv = new ModelAndView();
+		
+		int start = 0;
+		int end = 0;
+		int pageSize = 10; //한 페이지당 출력되는 row
+		int pageCount = 1; //전체 페이지 수 : 전체 row / 한 페이지당 출력되는 row
+		int dbCount = reviewDAO.getCount(); //DB연동 후 전체로우수 출력
+		int reqPage = 1; //요청 페이지
+		
+		//2-2. 전체 페이지 수 구하기
+		if((dbCount%pageSize) == 0){
+			pageCount = dbCount/pageSize;
+		}else{
+			pageCount = (dbCount/pageSize)+1;
+		}
+		
+		//2-3. start, end 값 구하기
+		if(rpage != null){
+			reqPage = Integer.parseInt(rpage);
+			start = (reqPage - 1) * pageSize + 1;
+			end = reqPage*pageSize;
+		}else{
+			start = reqPage;
+			end = pageSize;
+		}
+		
+		//3. DAO 객체 연동
+		ArrayList<IdusReviewVO> list = reviewDAO.getList(start, end);
+
+		//board_list.jsp 파일로 데이터 전송
+		mv.addObject("list", list);
+		mv.addObject("dbCount", dbCount);
+		mv.addObject("pageSize", pageSize);
+		mv.addObject("reqPage", reqPage);
+		
+		mv.setViewName("/mypage/my_review");
+		return mv;
 	}
 
 }
