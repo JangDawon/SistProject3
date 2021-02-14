@@ -93,8 +93,8 @@
 	</delete>
 
 		<select id="orderList" parameterType="map" resultType="com.project3.vo.IdusOrderVO">
-		select * from (select rownum rno, o.oid, o.t_price, to_char(o.rdate, 'yyyy.mm.dd') rdate, p.ptitle, p.pid, p.psfile1  
-		from (select * from idus_order order by rdate desc) o, idus_product p where o.pid=p.pid) where rno between #{start} and #{end}
+		select * from (select rownum rno, o.oid, o.total_price, to_char(o.rdate, 'yyyy.mm.dd') rdate, p.ptitle, p.pid, p.psfile1  
+		from (select * from idus_order2 order by rdate desc) o, idus_product p where o.pid=p.pid) where rno between #{start} and #{end}
 	</select>
 	
 		<select id="orderCount" resultType="java.lang.Integer">

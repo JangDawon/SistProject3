@@ -71,7 +71,7 @@ text-align:center;}
 		</td></tr>
 		<tr>
 			<td colspan=2>${vo.rdate }</td>
-			<td colspan=1>${vo.t_price }원</td>
+			<td colspan=1>${vo.total_price }원</td>
 		</tr>
 
 		<tr>
