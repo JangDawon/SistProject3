@@ -8,7 +8,7 @@
 	<!-- jihye:order_insert -->
 	<insert id="order" parameterType="com.project3.vo.IdusOrderVO">
 		insert into idus_order2 values('o_'||IDUS_ORDER_SQE.nextval, to_char(sysdate, 'yyyymmdd')||to_char(#{onum}, 'FM0000000000'), #{uemail},
-		#{pid}, #{cid}, #{opt1_qty}, #{opt2_qty}, #{opt3_qty}, #{del_price}, #{total_price}, #{rname}, #{raddr}, #{rcp},
+		#{pid}, #{cid}, #{opt1_qty}, #{opt2_qty}, #{opt3_qty}, #{del_price}, #{total_price}, #{rname}, #{raddr_num}, #{raddr}, #{rcp},
 		#{cancel}, #{cdate}, sysdate)
 	</insert>
 

@@ -2,9 +2,15 @@ package com.project3.vo;
 
 public class IdusOrderVO {
 	String oid, uemail, pid, rname, raddr, rcp, cancel, cdate, rdate, cid, onum;
-	int opt1_qty, opt2_qty, opt3_qty, del_price, total_price;
+	int opt1_qty, opt2_qty, opt3_qty, del_price, total_price, raddr_num;
 	
 	
+	public int getRaddr_num() {
+		return raddr_num;
+	}
+	public void setRaddr_num(int raddr_num) {
+		this.raddr_num = raddr_num;
+	}
 	public String getOnum() {
 		return onum;
 	}

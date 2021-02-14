@@ -23,13 +23,13 @@ public class CartController2 {
 	 * 주문완료(지혜)
 	 */
 	@RequestMapping(value="/order_success.do", method=RequestMethod.GET)
-	public ModelAndView order_success(String clist, String del_price, String total_price, String uemail, String rname, String cp, String addr) {
+	public ModelAndView order_success(String clist, String del_price, String total_price, String uemail, String rname, String cp, String addr_num, String addr) {
 		StringTokenizer st = new StringTokenizer(clist, ",");
 		String[] cid_list = new String[st.countTokens()-1];
 		for(int i=0;i<cid_list.length;i++) {
 			cid_list[i] = st.nextToken().trim();
 		}
-		return cartService2.getOrderSuccessList(uemail, del_price, total_price, cid_list, rname, cp, addr);
+		return cartService2.getOrderSuccessList(uemail, del_price, total_price, cid_list, rname, cp, Integer.parseInt(addr_num), addr);
 	}
 	
 	/**

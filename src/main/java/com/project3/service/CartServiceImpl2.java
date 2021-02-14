@@ -25,7 +25,7 @@ public class CartServiceImpl2 implements CartService {
 	/**
 	 * 주문자 정보 가져오기(지혜)
 	 */
-	public ModelAndView getOrderSuccessList(String uemail, String del_price, String total_price, String[] cid_list, String rname, String cp, String addr) {
+	public ModelAndView getOrderSuccessList(String uemail, String del_price, String total_price, String[] cid_list, String rname, String cp, int addr_num, String addr) {
 		ModelAndView mv = new ModelAndView();
 		Random random = new Random();
 		String onum = String.valueOf(random.nextInt(10000000));
@@ -35,6 +35,7 @@ public class CartServiceImpl2 implements CartService {
 			vo.setOnum(onum);
 			vo.setUemail(uemail);
 			vo.setRname(rname);
+			vo.setRaddr_num(addr_num);
 			vo.setRaddr(addr);
 			vo.setRcp(cp);
 			vo.setCancel("");
