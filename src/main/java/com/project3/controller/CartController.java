@@ -1,5 +1,6 @@
 package com.project3.controller;
 
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpSession;
@@ -19,20 +20,24 @@ public class CartController {
 	@Autowired
 	private CartServiceImpl cartService;
 	
-	@RequestMapping(value="/cart_order.do", method=RequestMethod.GET)
-	   public ModelAndView cart_order(HttpSession session, String purchase_list, String del_price, String total_price) {
-			StringTokenizer stk = new StringTokenizer(purchase_list);
-			String[] stkarray = new String[stk.countTokens()];
-			int stkcount = stk.countTokens();
-			for(int i=0; i<stkarray.length; i++){
-				stkarray[i] = stk.nextToken();
-			}
-			
-			IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
-			
-	      return cartService.getCartCp(svo.getUemail(), stkarray, stkcount);
-	   }
-	
+//	@RequestMapping(value="/cart_order.do", method=RequestMethod.GET)
+//	   public ModelAndView cart_order(HttpSession session, String purchase_list, String del_price, String total_price) {
+//			StringTokenizer stk = new StringTokenizer(purchase_list);
+//			String[] stkarray = new String[stk.countTokens()];
+//			int stkcount = stk.countTokens();
+//			for(int i=0; i<stkarray.length; i++){
+//				stkarray[i] = stk.nextToken();
+//			}
+//			
+//			IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
+//			
+//	      return cartService.getCartCp(svo.getUemail(), stkarray, stkcount);
+//	   }
+//
+//	public String cart_order(String purchase_list, String del_price, String total_price) {
+//		return "cart/cart_order";
+//	}
+		
 	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
 	public ModelAndView cart(HttpSession session) {
 		IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
@@ -71,13 +76,13 @@ public class CartController {
 		return mv;
 	}
 	
-	/**
-	 * 搬犁 贸府
-	 * @return
-	 */
-	@RequestMapping(value="/cart_order_proc.do", method=RequestMethod.POST)
-	public ModelAndView cart_order_proc(IdusOrderVO vo) {
-		return cartService.getResultOrder(vo);
-	}
-	
+//	/**
+//	 * 搬犁 贸府
+//	 * @return
+//	 */
+//	@RequestMapping(value="/cart_order_proc.do", method=RequestMethod.POST)
+//	public ModelAndView cart_order_proc(IdusOrderVO vo) {
+//		return cartService.getResultOrder(vo);
+//	}
+//	
 }

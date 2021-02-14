@@ -47,44 +47,44 @@ public class IdusCartDAO extends DBConn{
 		return sqlSession.insert(namespace+".cartinsert", param);
 	}
 	
-	public String getCartCp(String uemail) {
-		return sqlSession.selectOne(namespace+".cartcpselect", uemail);		
-	}
-	//sname
-	public String getOrderSname(String pid){
-		return sqlSession.selectOne(namespace+".ordersname", pid);
-	}
-	//ptitle
-	public String getOrderPtitle(String pid) {
-		return sqlSession.selectOne(namespace+".orderptitle", pid);
-	}
-	//opt1
-	public String getOrderOpt1(String pid) {
-		return sqlSession.selectOne(namespace+".orderopt1", pid);
-	}
-	//opt2
-	public String getOrderOpt2(String pid) {
-		return sqlSession.selectOne(namespace+".orderopt2", pid);
-	}
-	//opt3
-	public String getOrderOpt3(String pid) {
-		return sqlSession.selectOne(namespace+".orderopt3", pid);
-	}
-	//psfile1
-	public String getOrderPsfile1(String pid) {
-		return sqlSession.selectOne(namespace+".orderpsfile1", pid);
-	}
-	public int getInsert(IdusOrderVO vo) {
-		System.out.println(vo.getIdusOrderVOList().size());
-		int[] results= new int[vo.getIdusOrderVOList().size()];
-		int result=1;
-		for(int i=0; i<vo.getIdusOrderVOList().size(); i++) {
-			System.out.println(vo.getIdusOrderVOList().get(i));
-			results[i] = sqlSession.insert(namespace+".orderinsert", vo.getIdusOrderVOList().get(i));
-			result *= results[i];
-		}
-		return result;
-	}
+//	public String getCartCp(String uemail) {
+//		return sqlSession.selectOne(namespace+".cartcpselect", uemail);		
+//	}
+//	//sname
+//	public String getOrderSname(String pid){
+//		return sqlSession.selectOne(namespace+".ordersname", pid);
+//	}
+//	//ptitle
+//	public String getOrderPtitle(String pid) {
+//		return sqlSession.selectOne(namespace+".orderptitle", pid);
+//	}
+//	//opt1
+//	public String getOrderOpt1(String pid) {
+//		return sqlSession.selectOne(namespace+".orderopt1", pid);
+//	}
+//	//opt2
+//	public String getOrderOpt2(String pid) {
+//		return sqlSession.selectOne(namespace+".orderopt2", pid);
+//	}
+//	//opt3
+//	public String getOrderOpt3(String pid) {
+//		return sqlSession.selectOne(namespace+".orderopt3", pid);
+//	}
+//	//psfile1
+//	public String getOrderPsfile1(String pid) {
+//		return sqlSession.selectOne(namespace+".orderpsfile1", pid);
+//	}
+//	public int getInsert(IdusOrderVO vo) {
+//		System.out.println(vo.getIdusOrderVOList().size());
+//		int[] results= new int[vo.getIdusOrderVOList().size()];
+//		int result=1;
+//		for(int i=0; i<vo.getIdusOrderVOList().size(); i++) {
+//			System.out.println(vo.getIdusOrderVOList().get(i));
+//			results[i] = sqlSession.insert(namespace+".orderinsert", vo.getIdusOrderVOList().get(i));
+//			result *= results[i];
+//		}
+//		return result;
+//	}
 } 
 
 

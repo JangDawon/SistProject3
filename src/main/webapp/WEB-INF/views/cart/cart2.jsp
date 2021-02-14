@@ -110,21 +110,18 @@
 			var purchase_list = "";
 			$("input[class='cart_prod_chk']:checked").each(function(index){
 				var pid = $(this).val();
-				var p1 = "#"+pid+"_p1_amt";
-				var p1_price = "#"+pid+"_p1_price";
-				var p2 = "#"+pid+"_p2_amt";
-				var p2_price = "#"+pid+"_p2_price";
-				var p3 = "#"+pid+"_p3_amt";
-				var p3_price = "#"+pid+"_p3_price";
+				var cid = $(this).attr("id");
 				count ++;
 				purchase_list += pid+"!"+ $(p1).val() +"!"+ $(p1_price).text() +"!"+ $(p2).val() +"!"+ $(p2_price).text() +"!"+ $(p3).val() +"!"+ $(p3_price).text() +""+", ";
+				purchase_list += "cid="+cid +", ";
+
 			});
 			
 			if(count != 0){
 				var del_fee = $("#prod_total_delivery").text();
 				var t_price = $("#prod_total2").text();
-				purchase_list += "&del_price=" + del_fee +"&total_price=" + t_price + ",";
-				$(location).attr("href","cart_order.do?purchase_list="+purchase_list);
+				purchase_list += "&del_price=" + del_fee +"&total_price=" + t_price + "&uemail=${sessionScope.svo.uemail}";
+				$(location).attr("href","cart_order2.do?purchase_list="+purchase_list);
 			}else{
 				alert("상품을 선택해주세요");
 			}
