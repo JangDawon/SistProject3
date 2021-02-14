@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.service.CartServiceImpl;
+import com.project3.vo.IdusOrderVO;
 import com.project3.vo.IdusSessionVO;
 
 @Controller
@@ -19,8 +20,17 @@ public class CartController {
 	private CartServiceImpl cartService;
 	
 	@RequestMapping(value="/cart_order.do", method=RequestMethod.GET)
-	   public String cart_order(String purchase_list, String del_price, String total_price) {
-	      return "cart/cart_order";
+	   public ModelAndView cart_order(HttpSession session, String purchase_list, String del_price, String total_price) {
+			StringTokenizer stk = new StringTokenizer(purchase_list);
+			String[] stkarray = new String[stk.countTokens()];
+			int stkcount = stk.countTokens();
+			for(int i=0; i<stkarray.length; i++){
+				stkarray[i] = stk.nextToken();
+			}
+			
+			IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
+			
+	      return cartService.getCartCp(svo.getUemail(), stkarray, stkcount);
 	   }
 	
 	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
@@ -61,5 +71,13 @@ public class CartController {
 		return mv;
 	}
 	
+	/**
+	 * 결재 처리
+	 * @return
+	 */
+	@RequestMapping(value="/cart_order_proc.do", method=RequestMethod.POST)
+	public ModelAndView cart_order_proc(IdusOrderVO vo) {
+		return cartService.getResultOrder(vo);
+	}
 	
 }

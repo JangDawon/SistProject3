@@ -117,7 +117,7 @@
 				var p3 = "#"+pid+"_p3_amt";
 				var p3_price = "#"+pid+"_p3_price";
 				count ++;
-				purchase_list += pid+"!p1_amt="+ $(p1).val() +"!p1_price="+ $(p1_price).text() +"!p2_amt="+ $(p2).val() +"!p2_price="+ $(p2_price).text() +"!p3_amt="+ $(p3).val() +"!p3_price="+ $(p3_price).text() +""+", ";
+				purchase_list += pid+"!"+ $(p1).val() +"!"+ $(p1_price).text() +"!"+ $(p2).val() +"!"+ $(p2_price).text() +"!"+ $(p3).val() +"!"+ $(p3_price).text() +""+", ";
 			});
 			
 			if(count != 0){
