@@ -5,7 +5,37 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="mapper.cart2">
+	<!-- jihye:order_insert -->
+	<insert id="order" parameterType="com.project3.vo.IdusOrderVO">
+		insert into idus_order2 values('o_'||IDUS_ORDER_SQE.nextval, to_char(sysdate, 'yyyymmdd')||to_char(#{onum}, 'FM0000000000'), #{uemail},
+		#{pid}, #{cid}, #{opt1_qty}, #{opt2_qty}, #{opt3_qty}, #{del_price}, #{total_price}, #{rname}, #{raddr_num}, #{raddr}, #{rcp},
+		#{cancel}, #{cdate}, sysdate)
+	</insert>
+
+	<!-- jihye:order_qty -->
+	<select id="qty" parameterType="java.lang.String" resultType="com.project3.vo.IdusOrderVO">
+		select pid, opt1_qty, opt2_qty, opt3_qty from idus_cart where cid=#{cid} 
+	</select>
+
+	<!-- jihye:order_cart_list -->
+	<select id="order_cart_list" parameterType="java.lang.reflect.Array" resultType="com.project3.vo.IdusCartVO">
+		select c.cid, c.uemail, c.pid, p.sname, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty
+		, p.opt2, p.opt2_price, c.opt2_qty, p.opt3, p.opt3_price, c.opt3_qty
+		, c.cdate, p.psfile1 
+		from idus_cart c, idus_product p where c.pid=p.pid and cid in
 		
+		<foreach item="item" index="index" collection="array"
+	      open="(" separator="," close=")">
+	      #{item}
+	    </foreach>
+	</select>
+	
+	<!-- jihye:order_user_info -->
+	<select id="user_info" parameterType="java.lang.String" resultType="com.project3.vo.IdusMemberVO">
+		select * from idus_member where uemail = #{uemail}
+	</select>
+
+	<!-- jihye:cart_list -->	
 	<select id="cartlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusCartVO">
 		select c.cid, c.uemail, c.pid, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty
 		, p.opt2, p.opt2_price, c.opt2_qty, p.opt3, p.opt3_price, c.opt3_qty
@@ -13,8 +43,9 @@
 		from idus_cart c, idus_product p where c.pid=p.pid and uemail=#{uemail}
 	</select>
 	
+	<!-- jihye:cart_insert -->
 	<insert id="cartwrite" parameterType="map">
-		insert into idus_cart values('c_'||SEQU_CART.nextval, #{uemail}, #{pid}, #{opt1_qty}
+		insert into idus_cart values('c_'||IDUS_CART_SEQ.nextval, #{uemail}, #{pid}, #{opt1_qty}
 		<choose>
 			<when test="opt2_qty != null">
 				<choose>
@@ -40,5 +71,50 @@
 		, sysdate)
 	</insert>
 	
+	<!-- jihye:cart_duplicate_check -->
+	<select id="cart_dupl" parameterType="map" resultType="java.lang.Integer">
+		select count(*) result from idus_cart where uemail=#{uemail} and pid=#{pid}
+	</select>
+	
+	<!-- jihye:cart_duplicate_value -->
+	<select id="cart_dupl_value" parameterType="map" resultType="com.project3.vo.IdusCartVO">
+		select opt1_qty, opt2_qty, opt3_qty from idus_cart 
+		
+		<choose>
+			<when test="method == 'one'">
+				where uemail=#{uemail} and pid=#{pid}
+			</when>
+			<otherwise>
+				where cid=#{cid}
+			</otherwise>
+		</choose>
+		
+	</select>
+	
+	<!-- jihye:cart_update -->
+	<update id="cart_update" parameterType="map">
+		update idus_cart set opt1_qty = #{opt1}, opt2_qty = #{opt2}, opt3_qty = #{opt3} where uemail=#{uemail} and pid=#{pid}
+	</update>
+	
+	<!-- jihye:cart_select_delete -->
+	<delete id="delete" parameterType="java.lang.reflect.Array">
+		delete from idus_cart where cid in
+		
+		<foreach item="item" index="index" collection="array"
+	      open="(" separator="," close=")">
+	      #{item}
+	    </foreach>
+	</delete>
+	
+	<!-- jihye:cart_opt_update -->
+	<update id="ajax_update" parameterType="map">
+		update idus_cart set
+		
+		<if test="opt == 'p1'">opt1_qty = #{opt_qty}</if>
+		<if test="opt == 'p2'">opt2_qty = #{opt_qty}</if>
+		<if test="opt == 'p3'">opt3_qty = #{opt_qty}</if>
+		
+		where cid = #{cid}
+	</update>
 </mapper>
 
