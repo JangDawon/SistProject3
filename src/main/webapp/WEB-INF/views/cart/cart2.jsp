@@ -415,7 +415,7 @@
 				<button type="button" id="cart_select_del">선택 삭제</button>
 			</div>
 			<div class="all_price">
-				<table class="price_total">
+				<table class="total_price">
 					<tr>
 						<td class="all_price">작품금액</td>
 						<th rowspan="2">+</th>
