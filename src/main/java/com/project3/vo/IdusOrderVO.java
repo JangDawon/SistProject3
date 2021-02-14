@@ -171,5 +171,4 @@ public class IdusOrderVO {
 	public void setTotal_price(int total_price) {
 		this.total_price = total_price;
 	}
-
 }
