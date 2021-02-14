@@ -63,6 +63,30 @@
 		where cid = #{cid}
 	</update>
 	
-	
+   <select id="cartcpselect" parameterType="java.lang.String" resultType="java.lang.String">
+   		select cp from idus_member where uemail=#{uemail}
+   
+   </select>
+	<select id="ordersname" parameterType="java.lang.String" resultType="java.lang.String">
+		select sname from idus_product where pid=#{pid}
+	</select>
+	<select id="orderptitle" parameterType="java.lang.String" resultType="java.lang.String">
+		select ptitle from idus_product where pid=#{pid}
+	</select>
+	<select id="orderopt1" parameterType="java.lang.String" resultType="java.lang.String">
+		select opt1 from idus_product where pid=#{pid}
+	</select>
+	<select id="orderopt2" parameterType="java.lang.String" resultType="java.lang.String">
+		select opt2 from idus_product where pid=#{pid}
+	</select>
+	<select id="orderopt3" parameterType="java.lang.String" resultType="java.lang.String">
+		select opt3 from idus_product where pid=#{pid}
+	</select>
+	<select id="orderpsfile1" parameterType="java.lang.String" resultType="java.lang.String">
+		select psfile1 from idus_product where pid=#{pid}
+	</select>
+	<insert id="orderinsert" parameterType="java.util.List">
+		insert into idus_order values('o_'||IDUS_ORDER_SEQ.nextval, 'order_'||IDUS_ORDER_SEQ.nextval, #{uemail}, #{pid}, #{p1_amt}, #{p2_amt}, #{p3_amt}, #{p1_price}, #{p2_price}, #{p3_price}, #{del_price}, #{t_price}, #{rname}, #{raddr}, #{rcp}, '', '', sysdate)
+	</insert>
 </mapper>
 

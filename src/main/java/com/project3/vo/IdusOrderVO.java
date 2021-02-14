@@ -108,5 +108,6 @@ public class IdusOrderVO {
 		this.total_price = total_price;
 	}
 	
+
 	
 }
