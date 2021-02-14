@@ -34,7 +34,7 @@ public class CartController {
 	
 	@RequestMapping(value = "/cart_ins.do", method = RequestMethod.GET)
 	public ModelAndView cart_insert(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
-		return cartService.getCartInsert(uemail, pid, opt1_qty, opt2_qty, opt3_qty);
+		return cartService.getCartInsert(uemail, pid, Integer.parseInt(opt1_qty), Integer.parseInt(opt2_qty), Integer.parseInt(opt3_qty));
 	}
 	
 	
@@ -45,8 +45,8 @@ public class CartController {
 	}
 
 	
-	@RequestMapping(value="/cart_list_del.do", method=RequestMethod.GET)
-	public ModelAndView cart_list_del(String chklist) {	
+	@RequestMapping(value="/pur_list_del.do", method=RequestMethod.GET)
+	public ModelAndView pur_list_del(String chklist) {	
 		ModelAndView mv = new ModelAndView();
 		
 		//String chklist --> Array
@@ -58,10 +58,14 @@ public class CartController {
 		
 		int result = cartService.getSelectDelete(dellist);
 		
-		mv.setViewName("redirect:/cart.do");
+		mv.setViewName("redirect:/purchase.do");
 		
 		return mv;
 	}
 	
+	@RequestMapping(value="/pur_list_update.do", method=RequestMethod.GET)
+	public String pur_list_update(String cid, String opt, String opt_qty) {
+		return cartService.getListUpdate(cid, opt, opt_qty);
+	}
 	
 }

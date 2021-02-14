@@ -92,13 +92,4 @@ public class IdusCategoryDAO  extends DBConn{
 		return (ArrayList<IdusProductVO>)list;
 	}
 	
-	/* public ArrayList<IdusProductVO> getSearchSelectList(String search, String sname){
-		Map<String, String> param = new HashMap<String, String>();
-		param.put("search", search);
-		param.put("sname", sname);
-		
-		List<IdusProductVO> list = sqlSession.selectList(namespace + ".searchselectlist", param);
-		return (ArrayList<IdusProductVO>)list;
-	} */
-	
 }

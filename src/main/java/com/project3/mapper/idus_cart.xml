@@ -42,19 +42,26 @@
 	</insert>
 
 	<select id="cartlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusCartVO">
-      select c.cid, c.uemail, c.pid, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty
-      , p.opt2, p.opt2_price, c.opt2_qty, p.opt3, p.opt3_price, c.opt3_qty
-      , c.cdate, p.psfile1 
-      from idus_cart c, idus_product p where c.pid=p.pid and uemail=#{uemail}
-   </select>
+		select c.cid, c.uemail, c.pid, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty,
+		p.opt2, p.opt2_price, c.opt2_qty, p.opt3, p.opt3_price, c.opt3_qty, c.cdate, p.psfile1 
+		from idus_cart c, idus_product p where c.pid=p.pid and uemail=#{uemail}
+	</select>
    
 	<select id="purchaselist" parameterType="java.lang.String" resultType="com.project3.vo.IdusCartVO">
-      select c.cid, c.uemail, c.pid, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty
-      , p.opt2, p.opt2_price, c.opt2_qty, p.opt3, p.opt3_price, c.opt3_qty
-      , c.cdate, p.psfile1 
-      from idus_cart c, idus_product p where c.pid=p.pid and uemail=#{uemail} and p.pid=#{pid}
-   </select>
+		select c.cid, c.uemail, c.pid, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty, 
+		p.opt2, p.opt2_price, c.opt2_qty, p.opt3, p.opt3_price, c.opt3_qty, c.cdate, p.psfile1 
+		from idus_cart c, idus_product p where c.pid=p.pid and uemail=#{uemail} and p.pid=#{pid}
+	</select>
 	
+	<update id="listupdate" parameterType="map">
+		update idus_cart set
+		
+		<if test="opt == 'p1'">opt1_qty = #{opt_qty}</if>
+		<if test="opt == 'p2'">opt2_qty = #{opt_qty}</if>
+		<if test="opt == 'p3'">opt3_qty = #{opt_qty}</if>
+		
+		where cid = #{cid}
+	</update>
 	
 	
 </mapper>
