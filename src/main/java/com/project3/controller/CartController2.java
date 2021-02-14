@@ -20,12 +20,46 @@ public class CartController2 {
 	private CartServiceImpl2 cartService2;
 	
 	/**
-	 *	장바구니(지혜)
+	 * 주문완료(지혜)
 	 */
-	@RequestMapping(value="/cart_order2.do", method=RequestMethod.GET)
-	   public String cart_order2() {
-	      return "cart/cart_order2";
+	@RequestMapping(value="/order_success.do", method=RequestMethod.GET)
+	public ModelAndView order_success(String clist, String del_price, String total_price, String uemail, String rname, String cp, String addr_num, String addr) {
+		StringTokenizer st = new StringTokenizer(clist, ",");
+		String[] cid_list = new String[st.countTokens()-1];
+		for(int i=0;i<cid_list.length;i++) {
+			cid_list[i] = st.nextToken().trim();
+		}
+		return cartService2.getOrderSuccessList(uemail, del_price, total_price, cid_list, rname, cp, Integer.parseInt(addr_num), addr);
 	}
+	
+	/**
+	 * 주문하기(지혜)
+	 */ 
+	@RequestMapping(value="/cart_order2.do", method=RequestMethod.GET)
+	public ModelAndView cart_order2(String purchase_list, String del_price, String total_price, String uemail) {
+		StringTokenizer st = new StringTokenizer(purchase_list, ",");
+		String[] list = new String[st.countTokens()];
+		
+		String[] cid_list = new String[list.length-1];
+		int q = 0;
+		for(int i=0;i<list.length;i++) {
+			list[i] = st.nextToken();
+			
+			StringTokenizer st2 = new StringTokenizer(list[i], "=");
+			String[] list2 = new String[st2.countTokens()];
+			for(int j=0;j<list2.length;j++) {
+				list2[j] = st2.nextToken();
+				if((j%2) == 1) {
+					if(j == 1) {
+						cid_list[q] = list2[j].trim();
+						q++;
+					}
+				}
+			}
+		}
+		return cartService2.getOrderList(uemail, del_price, total_price, cid_list);
+	}
+	
 	
 	/**
 	 *	장바구니(지혜)
