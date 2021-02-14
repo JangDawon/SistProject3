@@ -31,7 +31,6 @@
 			<div>
 				<ul>
 					<li><hr>&nbsp;&nbsp;로그인&nbsp;&nbsp;<hr></li>
-					<li><a href="#"><button type=button id=btnKakaoLogin><img src="http://localhost:9000/sistproject3/images/login_images/login_kakao.jpg"><label>카카오톡으로 로그인</label></button></a></li>
 					<li><button type=button id=btnEmailLogin>이메일로 로그인</button></li>
 				</ul>
 			</div>
