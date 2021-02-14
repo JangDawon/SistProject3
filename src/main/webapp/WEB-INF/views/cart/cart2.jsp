@@ -68,7 +68,6 @@
 				count ++;
 				total +=  parseInt($("#" + pid + "_price_total").text());
 			});
-
 			$("#all_price_total").text("").append(total);
 			
 			if(total >= 50000 && count != 0){
@@ -148,7 +147,6 @@
 			if(obj_name == "plus") {
 				var count = parseInt($(vname).val())+1;
 		        $(vname).val(count);
-
 		        if(obj_id.indexOf("p1") != -1){
 		        	$("#"+ obj_id +"_price").text("").append(select_p1_price + select_p1_one_price);
 		        }else if(obj_id.indexOf("p2") != -1){
@@ -417,7 +415,7 @@
 				<button type="button" id="cart_select_del">선택 삭제</button>
 			</div>
 			<div class="all_price">
-				<table class="price_total">
+				<table class="total_price">
 					<tr>
 						<td class="all_price">작품금액</td>
 						<th rowspan="2">+</th>

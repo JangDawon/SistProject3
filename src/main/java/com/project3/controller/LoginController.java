@@ -61,7 +61,7 @@ public class LoginController {
 		
 		if(svo != null) {
 			session.invalidate();
-			result = "index";
+			result = "redirect:/index.do";
 		}
 		
 		return result;
