@@ -1240,7 +1240,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	   	padding:10px 0;
 	   	margin:20px 0;
 	}
-	div.all_price>table.price_total {
+	div.all_price>table.total_price {
 	   	border:1px solid black;
 	   	border-radius:3px;
 	   	width:100%;
@@ -1261,7 +1261,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	tr:last-child>td.prod_total2 {
 		color:#F87E35;
 	}
-	table.price_total>tr>th {
+	table.total_price>tr>th {
 		font-weight:bold;
 		font-size:18px;
 	}
