@@ -25,7 +25,6 @@
 					<li><hr>&nbsp;&nbsp;정말 간단한 회원가입하기 &nbsp;&nbsp;<hr></li>
 					<li><div>1</div><hr><div>2</div></li>
 					<li><label>회원가입 방법 선택하기</label></li>
-					<li><a href="#"><button type=button id=btnKakaoJoin><img src="http://localhost:9000/sistproject3/images/login_images/login_kakao.jpg"><label>카카오톡으로 회원가입하기</label></button></a></li>
 					<li><a href="http://localhost:9000/sistproject3/join.do"><button type=button id=btnEmailJoin>이메일로 회원가입하기</button></a></li>
 					<li><label>이미 가입하셨다면 <a href="http://localhost:9000/sistproject3/login.do">바로 로그인하기</a></label></li>
 				</ul>

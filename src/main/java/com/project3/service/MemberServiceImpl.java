@@ -48,7 +48,7 @@ public class MemberServiceImpl {
       if(svo != null) {
          session.setAttribute("svo", svo);
          mv.addObject("vo", vo);
-         mv.setViewName("index");          
+         mv.setViewName("redirect:/index.do");          
       }else {
          mv.addObject("result", "아이디 또는 비밀번호를 확인해주세요.");
          mv.setViewName("/login/login");

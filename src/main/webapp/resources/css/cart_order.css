@@ -86,11 +86,11 @@
     body.category div.order_content_body>div.order_content:nth-child(3) input.input_info{
     	margin-bottom:10px;
     }
-    body.category div.content_hidden:first-child{
+    body.category div#content_hidden_first{
     	background-color:rgb(217,217,217);
     }
-    body.category div.content_hidden:first-child,
-    body.category div.content_hidden:last-child{
+    body.category div#content_hidden_first,
+    body.category div#content_hidden_last{
     	line-height:40px;
     	
     }
