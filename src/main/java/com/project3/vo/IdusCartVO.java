@@ -2,9 +2,18 @@ package com.project3.vo;
 
 public class IdusCartVO {
 	String cid, uemail, pid, cdate, ptitle,
-		opt1, opt2, opt3, psfile1;
+		opt1, opt2, opt3, psfile1, sname;
 	int pprice, opt1_price, opt2_price, opt3_price, opt1_qty, opt2_qty, opt3_qty;
 	String result;
+	
+	
+	
+	public String getSname() {
+		return sname;
+	}
+	public void setSname(String sname) {
+		this.sname = sname;
+	}
 	public String getCid() {
 		return cid;
 	}

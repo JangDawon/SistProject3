@@ -1,5 +1,6 @@
 package com.project3.controller;
 
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpSession;
@@ -20,7 +21,6 @@ public class CartController {
 	
 	@RequestMapping(value="/cart_order.do", method=RequestMethod.GET)
 	public String cart_order(String purchase_list, String del_price, String total_price) {
-		System.out.println(purchase_list+", "+del_price+", "+total_price);
 		return "cart/cart_order";
 	}
 	
