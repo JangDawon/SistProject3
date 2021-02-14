@@ -15,4 +15,14 @@
     	delete from idus_wish where uemail=#{uemail} and pid=#{pid}
     </delete>
    
+   <!-- wishList select  -->
+   <select id="wishlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusWishVO">
+   		select wid, uemail, pid, wdate from idus_wish where uemail =#{uemail} 
+   </select>
+   
+   <!-- wishList select  -->
+   <select id="wishlist2" resultType="com.project3.vo.IdusWishVO">
+   		select wid, uemail, pid, wdate from idus_wish
+   </select>
+   
 </mapper>

@@ -11,6 +11,7 @@
 <script>
 	$(document).ready(function(){
 		var uemail = "${sessionScope.svo.uemail}";
+		
 		ajax_list("new");
 		
 		$("#selector").on('change',function(){
@@ -22,21 +23,30 @@
 		
 		function ajax_list(sname){
 			$.ajax({
-				url:"category_ajax_list.do?pcat=${pcat}&sname="+sname,
+				url:"category_ajax_list.do?pcat=${pcat}&sname="+sname+"&uemail=${sessionScope.svo.uemail}",
 				success:function(result){
 					var jdata = JSON.parse(result);
-					
 					var output = "";
 					
 					for(var i in jdata.jlist){ 
+						
 						output += "<div class='product'>";
-						output += "<a href='http://localhost:9000/sistproject3/product.do?pid="+ jdata.jlist[i].pid +"'>";
 						output += "<div class='prod_img'>";
 						output += "<div>";
 						output += "<button class='favorite_btn' value='" + jdata.jlist[i].pid + "'>";
-						output += "<img src='http://localhost:9000/sistproject3/images/favorite.png' id='"+jdata.jlist[i].pid+"_star'>";
+						var n = 0;
+						for(var j in jdata.jlist2){
+							if(jdata.jlist[i].pid == jdata.jlist2[j].pid){
+								output += "<img src='http://localhost:9000/sistproject3/images/star2.png' id='"+jdata.jlist[i].pid+"_star'>";
+								n=1;
+							}
+						}
+						if(n!=1){
+							output += "<img src='http://localhost:9000/sistproject3/images/favorite.png' id='"+jdata.jlist[i].pid+"_star'>";
+						}
 						output += "</button>";
 						output += "</div>";
+						output += "<a href='http://localhost:9000/sistproject3/product.do?pid="+ jdata.jlist[i].pid +"'>";
 						output += "<div>";
 						output += "<img src='http://localhost:9000/sistproject3/resources/upload/"+ jdata.jlist[i].psfile1 +"'>";
 						output += "</div>";
@@ -49,10 +59,17 @@
 						output += "<div class='rv'>후기</div>";
 						output += "<div class='rv2'>이야,,, 정말 좋네요.. 흠 뭐랄까...</div>";
 						output += "</div>";
-						output += "</div>";
 						output += "</a>";
 						output += "</div>";
+						output += "</div>";
+						/*
+						<c:forEach items="${list}" var="vo">
+						<c:if test="${vo.pid == 'jdata.jlist[i].pid'}">
+						output += "<img src='http://localhost:9000/sistproject3/images/star2.png' id='"+jdata.jlist[i].pid+"_star'>";
+						</c:if>
+						</c:forEach> */
 					}
+					
 					
 					$("div.category_content").text("").append(output);
 				}
@@ -61,27 +78,26 @@
 		
 		$(document).on("click",".favorite_btn",function(){
 			var btn_pid = $(this).val(); //버튼 눌러서 받아온 pid
-			var wish_img = "#"+btn_pid+"_star";
-			var status = $(wish_img).attr("src"); 
+			var wish_img_id = "#"+btn_pid+"_star";
+			var wish_img_attr = $(wish_img_id).attr("src"); 
 			if(uemail !="") {
-				if(status == "http://localhost:9000/sistproject3/images/favorite.png"){
-					$(wish_img).attr('src','http://localhost:9000/sistproject3/images/star2.png');
+				if(wish_img_attr == "http://localhost:9000/sistproject3/images/favorite.png"){
+					$(wish_img_id).attr('src','http://localhost:9000/sistproject3/images/star2.png');
 					$.ajax({
 						url:"wish_insert.do?uemail=${sessionScope.svo.uemail}&pid="+btn_pid,
 						success:function(result){
-							//if(result) {
-								//location.href='http://localhost:9000/sistproject3/purchase.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }';
-							//} 
+							if(result == 1){
+								//$("div.category_content").text("");
+								ajax_list();
+							}		 
 						}
 					});//ajax
 				}else{
-					$(wish_img).attr('src','http://localhost:9000/sistproject3/images/favorite.png');
+					$(wish_img_id).attr('src','http://localhost:9000/sistproject3/images/favorite.png');
 					$.ajax({
 						url:"wish_delete.do?uemail=${sessionScope.svo.uemail}&pid="+btn_pid,
 						success:function(result){
-							//if(result) {
-								//location.href='http://localhost:9000/sistproject3/purchase.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid }';
-							//} 
+						 
 						}
 					});//ajax
 				}
