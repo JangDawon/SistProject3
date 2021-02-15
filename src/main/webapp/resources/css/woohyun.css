@@ -17,13 +17,30 @@ aside.mypage_info hr.h {color:#B4B4B4; width:90%;}
 *	주문내역
 **/
 table.my_order {border-collpase: collapse;width: 750px;height: 120px;}
-table.my_order tr:nth-child(2) {background-color: rgb(245, 245, 245);text-indent:10px;}
-table.my_order tr:nth-child(2)>td:nth-child(2) {text-align: right;padding-right: 10px;}
-table.my_order tr:nth-child(3)>td:nth-child(2) span {font-size: 12px;}
+table.my_order tr:nth-child(2) {background-color: rgb(213,217,223);text-indent:10px;}
+table.my_order tr:nth-child(2)>td:nth-child(2) {text-align:right;padding-right: 10px;}
 table.my_order tr:nth-child(3)>td:nth-child(3), table.my_order tr:nth-child(3)>td:nth-child(4){text-align: center;}
 table.my_order tr:nth-child(3) td {border: 1px solid lightgrey;}
-table.my_order tr:nth-child(3) td button{background-color: rgb(255, 255, 255);border:1px solid rgb(204, 204, 204);padding: 5px 12px;}
+table.my_order tr:nth-child(3) td button{background-color: rgb(255, 255, 255);border:1px solid rgb(204, 204, 204);padding: 8px 12px;font-size:13px;}
+table.my_order a{text-decoration:none;color:black;}
+table.my_order span.write_button{border:1px solid rgb(204, 204, 204);padding: 5px 12px;text-decoration:none;}
+table.my_order .p_img{width:130px;height:100px;}
+table.my_order .title_td{text-indent:10px; font-size:24px;}
+table.my_order span.prdt_option{font-size:18px;padding-left:10px;}
+div.order_paging{text-align:center;}
 
+table.my_cancel {margin-left:100px;border-collpase: collapse;width:550px;height: 120px;}
+table.my_cancel tr:nth-child(2) {background-color: rgb(213,217,223);text-indent:10px;}
+table.my_cancel tr:nth-child(2)>td:nth-child(2) {text-align:right;padding-right: 10px;}
+table.my_cancel tr:nth-child(3)>td:nth-child(3), table.my_order tr:nth-child(3)>td:nth-child(4){text-align: center;}
+table.my_cancel tr:nth-child(3) td {border: 1px solid lightgrey;}
+table.my_cancel tr:nth-child(3) td button{background-color: rgb(255, 255, 255);border:1px solid rgb(204, 204, 204);padding: 8px 12px;font-size:13px;}
+table.my_cancel a{text-decoration:none;color:black;}
+table.my_cancel span.write_button{border:1px solid rgb(204, 204, 204);padding: 5px 12px;text-decoration:none;}
+table.my_cancel .p_img{width:130px;height:100px;}
+table.my_cancel .title_td{text-indent:20px; font-size:24px;}
+table.my_cancel span.prdt_option{font-size:18px;padding-left:10px;}
+div.cancel_paging{display:inline-block;margin-left:185px;}
 /**
 *	내 정보
 **/
@@ -39,15 +56,6 @@ span.star{color: rgb(255, 200, 1);}
 dl.bookmark_list img{width: 200px;heigth: 500px;}
 dl.bookmark_list {border: 1px solid lightgrey;display: inline-block;background-color: rgb(248, 249, 251);}
 dl.bookmark_list:hover{box-shadow:1px 1px 20px #ddd;};
-/**
-*	좋아하는 작가
-**/
-table.bookmark_writer{width:750px;}
-table.bookmark_writer{border-bottom:1px solid rgb(217,217,217);}
-table.bookmark_writer tr:nth-child(2) td{background-color: rgb(245, 245, 245);}
-table.bookmark_writer tr td button.bookmark_button{border:1px solid rgb(255, 123, 48);background-color:rgb(255, 123, 48);color:rgb(255,255,255);margin-bottom:10px;}
-table.bookmark_writer tr td button.home{background-color:white;border:1px solid rgb(204, 204, 204);padding: 0px 12px;}
-table.bookmark_writer tr td button.message{background-color:white;border:1px solid rgb(204, 204, 204);padding: 5px 65px;}
 
 
 /**
@@ -77,11 +85,15 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 /**
 * 리뷰 작성
 **/
-table.review_write tr td select.rstar{height:30px;font-size:15px;}
+div.page_title{margin-left:15px;font-weight:800;font-size:24px;border-bottom:2px solid rgb(228,231,235);padding-bottom:5px;}
+table.review_write{margin-left:13px;}
+table.review_write .choice_td{font-weight:800;font-size:20px;border-top:2px solid rgb(228,231,235);}
+table.review_write .content_td{padding-top:10px;font-size:20px;font-weight:800;}
+table.review_write .star_td{border-top:2px solid rgb(228,231,235);}
+table.review_write .p_img{width:100px;height:100px;margin-left:10px;}
+table.review_write tr td select.rscore{margin-left:30px;height:30px;font-size:20px;color:rgb(255,193,7);}
+table.review_write .title_td{text-indent:22px;font-size:22px;}
 table.review_write {border-collapse: collapse;}
 table.review_write tr td {padding: 5px 0;}
-table.review_write tr:first-child td {border-bottom: 3px solid rgb(215, 215, 215);}
-table.review_write tr:nth-child(2) td, table.review_write tr:nth-child(4) td{font-size: 24px;font-weight: 900;}
-table.review_write tr:nth-child(4) td {border-bottom: 1px solid rgb(235, 235, 235);}
-table.review_write tr td.td_center {text-align: center;}
-table.review_write tr td button.writeBtn{height: 35px;padding: 5px 60px;background-color: rgb(255, 255, 255);border: 1px solid rgb(204, 204, 204);}
+table.review_write .button_td{text-align:center;}
+table.review_write tr td button.writeBtn{height: 35px;padding: 5px 80px;background-color: rgb(255, 255, 255);border: 1px solid rgb(204, 204, 204);}

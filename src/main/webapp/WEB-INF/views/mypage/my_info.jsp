@@ -57,13 +57,20 @@ table.member_info tr td span.user_email {
 </style>
 <script>
 $(document).ready(function(){
-	alert(${vo.aggrsms});
-	if($("#aggrsms").is(":checked")) {
-		$("#aggrsms_hd").val("on");
-		alert($("#aggrsms_hd").val());
-	}else{
-		$("#aggrsms_hd").val("off");
-	}
+	$("#aggrsms").change(function(){
+        if($("#aggrsms").is(":checked")) {
+           $("#aggrsms_hd").val("on");
+        }else {
+           $("#aggrsms_hd").val("off");
+        }
+     });
+	$("#aggremail").change(function(){
+        if($("#aggremail").is(":checked")) {
+           $("#aggremail_hd").val("on");
+        }else {
+           $("#aggremail_hd").val("off");
+        }
+     });
 })
 </script>
 <body>
@@ -138,8 +145,26 @@ $(document).ready(function(){
 					<td class="grey">알림설정</td>
 					<td class="alram">파격할인/이벤트/쿠폰 알림 등의 정보를 받아보시겠습니까?<br> 
 					
-					<input type="hidden" id="aggrsms_hd" name="aggrsms" value="off">
-					<input type="checkbox" id="aggrsms" name="aggr" <c:if test ="${vo.aggrsms eq 'on' }"> checked</c:if>><label>SMS</label>
+					<input type="hidden" id="aggrsms_hd" name="aggrsms" value="${vo.aggrsms }">
+					<c:choose> 
+					<c:when test="${vo.aggrsms eq 'on'}">
+					<input type="checkbox" id="aggrsms" name="aggr" checked><label>SMS</label>
+					</c:when>
+					<c:otherwise>
+						<input type="checkbox" id="aggrsms" name="aggr"><label>SMS</label>
+					</c:otherwise>
+					</c:choose>
+					
+					
+					<input type="hidden" id="aggremail_hd" name="aggremail" value="${vo.aggremail }">
+					<c:choose>
+					<c:when test = "${vo.aggremail eq 'on'}">
+					<input type="checkbox" id="aggremail" name="aggr" checked><label>email</label>
+					</c:when>
+					<c:otherwise>
+						<input type="checkbox" id="aggremail" name="aggr"><label>email</label>
+					</c:otherwise>
+					</c:choose>
 					</td>
 				</tr>
 

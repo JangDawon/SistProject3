@@ -10,6 +10,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.project3.vo.IdusOrderVO;
+import com.project3.vo.IdusProductVO;
 import com.project3.vo.IdusMemberVO;
 import com.project3.vo.IdusReviewVO;
 import com.project3.vo.IdusSessionVO;
@@ -94,16 +95,33 @@ public class IdusMemberDAO {
 			result = true;
 		return result;
 	}
-	public ArrayList<IdusOrderVO> getorderList(int start, int end){
+	public ArrayList<IdusOrderVO> getorderList(int start, int end,String uemail){
 		Map<String, String> param = new HashMap<String, String>();
 		param.put("start", String.valueOf(start));
 		param.put("end", String.valueOf(end));
+		param.put("uemail", uemail);
 		
 		List<IdusOrderVO> list = sqlSession.selectList(namespace + ".orderList", param);
 		return (ArrayList<IdusOrderVO>)list;
 	}
+	public ArrayList<IdusOrderVO> getcancelList(int start, int end,String uemail){
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("start", String.valueOf(start));
+		param.put("end", String.valueOf(end));
+		param.put("uemail", uemail);
+		
+		List<IdusOrderVO> list = sqlSession.selectList(namespace + ".cancelList", param);
+		return (ArrayList<IdusOrderVO>)list;
+	}
+	
 	public int getorderCount() {
 		return sqlSession.selectOne(namespace+".orderCount");
+	}
+	public int getorderCancel(String oid) {
+		return sqlSession.update(namespace+".orderCancel", oid);
+	}
+	public int getorderDelete(String oid) {
+		return sqlSession.delete(namespace+".orderDelete", oid);
 	}
 
 }

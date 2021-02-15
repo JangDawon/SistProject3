@@ -187,7 +187,14 @@ public class MemberServiceImpl {
 		mv.setViewName("/mypage/my_info");
 		return mv;
 	}
-
+	
+	public ModelAndView getProfile(String email) {
+		ModelAndView mv = new ModelAndView();
+		IdusMemberVO vo = memberDAO.getContent(email);
+		mv.addObject("vo", vo);
+		mv.setViewName("/mypage/mypage_aside");
+		return mv;
+	}
 	public ModelAndView getResultDelete(String uemail) {
 		ModelAndView mv = new ModelAndView();
 		boolean result = memberDAO.getDelete(uemail);
@@ -201,7 +208,7 @@ public class MemberServiceImpl {
 		return mv;
 
 	}
-	public Object getorderList(String rpage, String param) {
+	public Object getorderList(String rpage, String param,String uemail) {
 		ModelAndView mv = new ModelAndView();
 		
 		int start = 0;
@@ -229,8 +236,10 @@ public class MemberServiceImpl {
 		}
 		
 		//3. DAO 객체 연동
-		ArrayList<IdusOrderVO> list = memberDAO.getorderList(start, end);
+		ArrayList<IdusOrderVO> list = memberDAO.getorderList(start, end,uemail);
+		String psfile = memberDAO.getPsfile(uemail);
 		//board_list.jsp 파일로 데이터 전송
+		mv.addObject("psfile",psfile);
 		mv.addObject("list", list);
 		mv.addObject("dbCount", dbCount);
 		mv.addObject("pageSize", pageSize);
@@ -239,11 +248,88 @@ public class MemberServiceImpl {
 		mv.setViewName("/mypage/my_order");
 		return mv;
 	}
-	public ModelAndView getProductContent(String pid) {
+	public Object getcancelList(String rpage, String param,String uemail) {
+		ModelAndView mv = new ModelAndView();
+		
+		int start = 0;
+		int end = 0;
+		int pageSize = 10; //한 페이지당 출력되는 row
+		int pageCount = 1; //전체 페이지 수 : 전체 row / 한 페이지당 출력되는 row
+		int dbCount = memberDAO.getorderCount(); //DB연동 후 전체로우수 출력
+		int reqPage = 1; //요청 페이지
+		
+		//2-2. 전체 페이지 수 구하기
+		if((dbCount%pageSize) == 0){
+			pageCount = dbCount/pageSize;
+		}else{
+			pageCount = (dbCount/pageSize)+1;
+		}
+		
+		//2-3. start, end 값 구하기
+		if(rpage != null){
+			reqPage = Integer.parseInt(rpage);
+			start = (reqPage - 1) * pageSize + 1;
+			end = reqPage*pageSize;
+		}else{
+			start = reqPage;
+			end = pageSize;
+		}
+		
+		//3. DAO 객체 연동
+		ArrayList<IdusOrderVO> list = memberDAO.getcancelList(start, end,uemail);
+		String psfile = memberDAO.getPsfile(uemail);
+		//board_list.jsp 파일로 데이터 전송
+		mv.addObject("psfile", psfile);
+		mv.addObject("list", list);
+		mv.addObject("dbCount", dbCount);
+		mv.addObject("pageSize", pageSize);
+		mv.addObject("reqPage", reqPage);
+		
+		mv.setViewName("/mypage/my_cancel");
+		return mv;
+	}
+	public ModelAndView getProductContent(String pid,String oid) {
 		ModelAndView mv = new ModelAndView();
 		IdusProductVO vo = productDAO.getContent(pid);
+		mv.addObject("oid", oid);
 		mv.addObject("vo", vo);
 		mv.setViewName("/mypage/review_write");
+		return mv;
+	}
+	public ModelAndView getProductContent2(String pid,String oid,String rid) {
+		ModelAndView mv = new ModelAndView();
+		IdusProductVO vo = productDAO.getContent(pid);
+		mv.addObject("rid", rid);
+		mv.addObject("oid", oid);
+		mv.addObject("vo", vo);
+		mv.setViewName("/mypage/review_update");
+		return mv;
+	}
+	public ModelAndView getorderCancel(String oid) {
+		ModelAndView mv = new ModelAndView();
+		int result = memberDAO.getorderCancel(oid);
+		if(result != 0) {
+			mv.setViewName("redirect:/my_order.do");
+		}else {
+			System.out.println("error");
+		}
+		return mv;
+	}
+	public ModelAndView getorderDelete(String oid) {
+		ModelAndView mv = new ModelAndView();
+		int result = memberDAO.getorderDelete(oid);
+		if(result != 0) {
+			mv.setViewName("redirect:/my_cancel.do");
+		}else {
+			System.out.println("error");
+		}
+		return mv;
+	}
+	public ModelAndView getbookmarkList(String uemail) {
+		ModelAndView mv = new ModelAndView();
+		String psfile = memberDAO.getPsfile(uemail);
+		mv.addObject("psfile", psfile);
+		mv.setViewName("mypage/my_bookmark_item");
 		return mv;
 	}
 

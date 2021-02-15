@@ -1,8 +1,64 @@
 package com.project3.vo;
 
 public class IdusOrderVO {
-	String oid, uemail, pid, rname, raddr, rcp, cancel, cdate, rdate, cid, onum, ptitle, pfile1, psfile1;
-	int rno, opt1_qty, opt2_qty, opt3_qty, del_price, total_price, raddr_num;
+	String oid, uemail, pid, rname, raddr, rcp, cancel, cdate, rdate, cid, onum, ptitle, pfile1, psfile1,opt1, opt2, opt3;
+	public String getOpt1() {
+		return opt1;
+	}
+
+	public void setOpt1(String opt1) {
+		this.opt1 = opt1;
+	}
+
+	public String getOpt2() {
+		return opt2;
+	}
+
+	public void setOpt2(String opt2) {
+		this.opt2 = opt2;
+	}
+
+	public String getOpt3() {
+		return opt3;
+	}
+
+	public void setOpt3(String opt3) {
+		this.opt3 = opt3;
+	}
+
+	int rno, opt1_qty, opt2_qty, opt3_qty, del_price, total_price, raddr_num,opt1_price,opt2_price,opt3_price,pprice;
+
+	public int getOpt1_price() {
+		return opt1_price;
+	}
+
+	public int getPprice() {
+		return pprice;
+	}
+
+	public void setPprice(int pprice) {
+		this.pprice = pprice;
+	}
+
+	public void setOpt1_price(int opt1_price) {
+		this.opt1_price = opt1_price;
+	}
+
+	public int getOpt2_price() {
+		return opt2_price;
+	}
+
+	public void setOpt2_price(int opt2_price) {
+		this.opt2_price = opt2_price;
+	}
+
+	public int getOpt3_price() {
+		return opt3_price;
+	}
+
+	public void setOpt3_price(int opt3_price) {
+		this.opt3_price = opt3_price;
+	}
 
 	public int getRaddr_num() {
 		return raddr_num;

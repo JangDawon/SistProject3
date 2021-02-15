@@ -54,7 +54,7 @@
 	
 	<interceptors>
 		<interceptor>
-			<mapping path="/mypage*"/> <!-- 체크할 url 주소 -->
+			<mapping path="/my_*"/> <!-- 체크할 url 주소 -->
 			<beans:ref bean="authInterceptor_mypage"/> <!-- 체크를 진행할 객체 -->
 		</interceptor>
 		<interceptor>

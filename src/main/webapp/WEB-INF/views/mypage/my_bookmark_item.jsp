@@ -14,7 +14,8 @@
 
 	<div class="mypage_content">
 		<!-- aside -->
-		<jsp:include page="mypage_aside.jsp"></jsp:include>
+		<jsp:include page="mypage_aside.jsp"><jsp:param
+				name="psfile" value="${psfile }" /></jsp:include>
 		<h2>즐겨찾기</h2>
 		<dl class="bookmark_list">
 			<dt>
