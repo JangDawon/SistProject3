@@ -38,19 +38,19 @@
 					output += '</div></div></a></div>';
 						
 					<c:if test="${vo.pcat=='음식'}"> 
-						$("#food").after(output);
+						$("#food_here").before(output);
 					</c:if>
 					<c:if test="${vo.pcat=='악세사리'}">
-						$("#accessory").after(output);
+						$("#accessory_here").before(output);
 					</c:if>
 					<c:if test="${vo.pcat=='패션, 잡화'}">
-						$("#living").after(output);
+						$("#living_here").before(output);
 					</c:if>
 					<c:if test="${vo.pcat=='인테리어 소품'}">
-						$("#interior").after(output);
+						$("#interior_here").before(output);
 					</c:if>
 					<c:if test="${vo.pcat=='기타'}">
-						$("#etc").after(output);
+						$("#etc_here").before(output);
 					</c:if>
 				</c:forEach>
 			});
@@ -70,34 +70,39 @@
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">음식</a>
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">더보기<i class="idus-icon-arrow-right"></i></a>
 			</div> 
+			<span id="food_here"></span>
 		</section>
 		
 		<section class="product_content">
 			<div class="best_prod_title" id="accessory">
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=악세사리">악세사리</a>
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=악세사리">더보기<i class="idus-icon-arrow-right"></i></a>
-			</div> 
+			</div>
+			<span id="accessory_here"></span> 
 		</section>
 		
 		<section class="product_content">
 			<div class="best_prod_title" id="living">
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=패션, 잡화">패션, 잡화</a>
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=패션, 잡화">더보기<i class="idus-icon-arrow-right"></i></a>
-			</div> 
+			</div>
+			<span id="living_here"></span> 
 		</section>
 		
 		<section class="product_content">
 			<div class="best_prod_title" id="interior">
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=인테리어 소품">인테리어 소품</a>
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=인테리어 소품">더보기<i class="idus-icon-arrow-right"></i></a>
-			</div> 
+			</div>
+			<span id="interior_here"></span> 
 		</section>
 		
 		<section class="product_content">
 			<div class="best_prod_title" id="etc">
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=기타">기타</a>
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=기타">더보기<i class="idus-icon-arrow-right"></i></a>
-			</div> 
+			</div>
+			<span id="etc_here"></span> 
 		</section>
 
 		<!-- footer -->
