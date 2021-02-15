@@ -47,10 +47,10 @@ public class MypageController {
 		return memberService.getContent(svo.getUemail());
 	}
 
-	@RequestMapping(value="/my_order.do", method=RequestMethod.GET) 
-	public ModelAndView my_order(HttpSession session,String rpage) { 
+	@RequestMapping(value="/my_order.do", method=RequestMethod.GET, produces="text/plain;charset=UTF-8") 
+	public ModelAndView my_order(HttpSession session,String rpage, String result) { 
 		IdusSessionVO svo = (IdusSessionVO) session.getAttribute("svo");
-		return (ModelAndView)memberService.getorderList(rpage, null, svo.getUemail());
+		return (ModelAndView)memberService.getorderList(rpage, null, svo.getUemail(), result);
 	}
 	
 	@RequestMapping(value="/my_review.do", method=RequestMethod.GET) 
@@ -67,12 +67,11 @@ public class MypageController {
 	
 
 	@ResponseBody
-	@RequestMapping(value = "/review_write_proc.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/review_write_proc.do", method = RequestMethod.POST, produces="text/plain;charset=UTF-8")
 	public String my_review(IdusReviewVO vo, HttpServletRequest request) {
 		String path1 = request.getSession().getServletContext().getRealPath("/");
 		String path2 = "\\resources\\upload\\";
 		vo.setSavepath(path1 + path2);
-
 		return reviewService.getResultWrite(vo);
 	}
 
