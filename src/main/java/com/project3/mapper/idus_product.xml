@@ -6,6 +6,10 @@
     
 <mapper namespace="mapper.product">
 	
+	<update id="update_qty" parameterType="java.lang.String">
+		update idus_product set product_total = product_total + 1 where pid=#{pid}
+	</update>
+	
 	<select id="indexnew" resultType="com.project3.vo.IdusProductVO">
 		select * from (select rownum rno, pid, psfile1, sname, ptitle, to_char(pdate, 'yyyy/mm/dd') pdate
 			from (select * from idus_product order by pdate desc))
@@ -131,4 +135,26 @@
 		 ) where pcat =#{pcat} 
 	</select>
 	
+	<select id="searchlist" parameterType="map" resultType="com.project3.vo.IdusProductVO">
+		select pid, pcat, psfile1, sname, ptitle, to_char(pprice, '9,999,999') pprice_char, to_char(pdate, 'yy/mm/dd') pdate
+			from (select * from idus_product order by 
+		<if test="sname == 'new'">
+			pdate desc
+		</if> 
+		<if test="sname == 'purchase'">
+			product_total desc
+		</if> 
+		<if test="sname == 'low'">
+			pprice asc
+		</if> 
+		<if test="sname == 'high'">
+			pprice desc
+		</if>
+		) where ptitle like '%' || #{search} || '%'
+	</select>
+	
 </mapper>
+
+
+
+

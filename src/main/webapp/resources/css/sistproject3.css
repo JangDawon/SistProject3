@@ -688,30 +688,10 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       width:1100px; margin:auto;
    }
    
-  /** 카테고리(음식, 악세서사리, 생활소품, 인테리어소품, 기타) **/
-   section.category_menu div.filter_top {
-      margin:0px;
-   }
-   section.category_menu div.filter_top>ul {
-      list-style:none;
-      padding-left:0px;
-      border:1px solid lightgray;
-      margin-bottom:30px;
-   }
-   section.category_menu div.filter_top>ul>li:first-child {
-      border-bottom:1px solid lightgray;
-      padding:10px 10px;
-      font-size:13px;
-   }
-   section.category_menu div.filter_top>ul>li:last-child {
-      padding:10px 10px;
-      font-size:13px;
-   }
-   section.category_menu div.filter_top li>label {
-      display:inline-block;
-      width:10%;
-      color:gray;
-   }
+	/** 카테고리(음식, 악세서사리, 생활소품, 인테리어소품, 기타) **/
+	div.search_top_menu>h2 {
+  		margin-top:30px;
+	}
    div.filter_bottom>div.check_images {
       display:inline-block;
       clear:left;
@@ -737,11 +717,11 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       border-radius:3px;
       height:30px;
    }
-   section.category_content {
+   section.category_content, section.search_content {
    	  clear:both;
       padding:15px 0 50px 0;
    }
-   div.category_content>div.product {
+   div.category_content>div.product, div.search_content>div.product {
       display:inline-block;
       width:24%;
       height:430px;
@@ -800,7 +780,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       background-color:rgba(0, 0, 0, 0);
       border:1px solid rgba(0, 0, 0, 0);
    }
-   div.category_content>div.product:hover {
+   div.category_content>div.product:hover, div.search_content>div.product:hover {
       box-shadow:1px 1px 20px #ddd;
       transform:scale(1.03);  
    }
@@ -1260,7 +1240,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	   	padding:10px 0;
 	   	margin:20px 0;
 	}
-	div.all_price>table.price_total {
+	div.all_price>table.total_price {
 	   	border:1px solid black;
 	   	border-radius:3px;
 	   	width:100%;
@@ -1281,7 +1261,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 	tr:last-child>td.prod_total2 {
 		color:#F87E35;
 	}
-	table.price_total>tr>th {
+	table.total_price>tr>th {
 		font-weight:bold;
 		font-size:18px;
 	}
@@ -1672,7 +1652,13 @@ section.error ul {list-style-type:none;}
 section.error li div {font-size:20px; font-weight:bold; color:#333;}
 section.error li img {width:200px; height:200px; padding:20px 0px 20px 0px;}
 	
-	
+/**
+*	order_success(지혜)
+**/	
+div.order_success_content {margin:auto; width:1000px; text-align:center; padding:100px 0px 100px 0px;}	
+section.osucess ul {list-style-type:none;}
+section.osucess li div {font-size:20px; font-weight:bold; color:#333;}
+section.osucess li img {width:200px; height:200px; padding:20px 0px 20px 0px;}	
       
 	
 	

@@ -107,12 +107,12 @@ public class CategoryServiceImpl implements CategoryService{
 		return mv;
 	}
 	
-	
-	public ModelAndView getBestProdList(String pcat) {
+	public ModelAndView getBestProdList() {
 		ModelAndView mv = new ModelAndView();
 		
-		ArrayList<IdusProductVO> list = categoryDAO.getBestProdList(pcat);
+		ArrayList<IdusProductVO> list = categoryDAO.getBestProdList();
 		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList();
+
 		
 		mv.addObject("list", list);
 		mv.addObject("wishlist", wishlist);
@@ -120,5 +120,32 @@ public class CategoryServiceImpl implements CategoryService{
 		
 		return mv;
 	}
+	
+	public String getSearchList(String search, String sname) {
+		ArrayList<IdusProductVO> list = categoryDAO.getSearchList(search, sname);
+		
+		JsonArray jarray = new JsonArray();
+		JsonObject jdata = new JsonObject();
+		Gson gson = new Gson();
+		
+		for(IdusProductVO vo : list){
+			JsonObject jobj = new JsonObject();
+			
+			jobj.addProperty("pid", vo.getPid());
+			jobj.addProperty("pcat", vo.getPcat());
+			jobj.addProperty("psfile1", vo.getPsfile1());
+			jobj.addProperty("sname", vo.getSname());
+			jobj.addProperty("ptitle", vo.getPtitle());
+			jobj.addProperty("pprice_char", vo.getPprice_char());
+			jobj.addProperty("pdate", vo.getPdate());
+			
+			jarray.add(jobj);
+		}
+		
+		jdata.add("jlist", jarray);
+		
+		return gson.toJson(jdata);
+	}
+
 	
 }

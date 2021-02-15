@@ -68,7 +68,6 @@
 				count ++;
 				total +=  parseInt($("#" + pid + "_price_total").text());
 			});
-
 			$("#all_price_total").text("").append(total);
 			
 			if(total >= 50000 && count != 0){
@@ -103,6 +102,18 @@
 				$("#prod_total_delivery").text("").append(0);
 			}
 			
+			$("input[class='cart_prod_chk']").each(function(index){
+				var pid = $(this).val();
+				
+				if(parseInt($("#" + pid + "_price_total").text()) >= 50000){
+					$("#" + pid + "_del_price").text("0");
+				}else if(count != 0){
+					$("#" + pid + "_del_price").text("").append($("#prod_total_delivery").text());
+				}else{
+					$("#" + pid + "_del_price").text("2600");
+				}
+			});
+			
 		});
 		
 		$("#cart_order").click(function(){
@@ -110,21 +121,16 @@
 			var purchase_list = "";
 			$("input[class='cart_prod_chk']:checked").each(function(index){
 				var pid = $(this).val();
-				var p1 = "#"+pid+"_p1_amt";
-				var p1_price = "#"+pid+"_p1_price";
-				var p2 = "#"+pid+"_p2_amt";
-				var p2_price = "#"+pid+"_p2_price";
-				var p3 = "#"+pid+"_p3_amt";
-				var p3_price = "#"+pid+"_p3_price";
+				var cid = $(this).attr("id");
 				count ++;
-				purchase_list += pid+"!p1_amt="+ $(p1).val() +"!p1_price="+ $(p1_price).text() +"!p2_amt="+ $(p2).val() +"!p2_price="+ $(p2_price).text() +"!p3_amt="+ $(p3).val() +"!p3_price="+ $(p3_price).text() +""+", ";
+				purchase_list += "cid="+cid +", ";
 			});
 			
 			if(count != 0){
 				var del_fee = $("#prod_total_delivery").text();
-				var t_price = $("#prod_total2").text();
-				purchase_list += "&del_price=" + del_fee +"&total_price=" + t_price + ",";
-				$(location).attr("href","cart_order.do?purchase_list="+purchase_list);
+				var t_price = $("#all_price_total").text();
+				purchase_list += "&del_price=" + del_fee +"&total_price=" + t_price + "&uemail=${sessionScope.svo.uemail}";
+				$(location).attr("href","cart_order2.do?purchase_list="+purchase_list);
 			}else{
 				alert("상품을 선택해주세요");
 			}
@@ -153,7 +159,6 @@
 			if(obj_name == "plus") {
 				var count = parseInt($(vname).val())+1;
 		        $(vname).val(count);
-
 		        if(obj_id.indexOf("p1") != -1){
 		        	$("#"+ obj_id +"_price").text("").append(select_p1_price + select_p1_one_price);
 		        }else if(obj_id.indexOf("p2") != -1){
@@ -422,7 +427,7 @@
 				<button type="button" id="cart_select_del">선택 삭제</button>
 			</div>
 			<div class="all_price">
-				<table class="price_total">
+				<table class="total_price">
 					<tr>
 						<td class="all_price">작품금액</td>
 						<th rowspan="2">+</th>

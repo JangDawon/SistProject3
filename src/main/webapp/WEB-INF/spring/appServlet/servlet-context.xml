@@ -49,6 +49,39 @@
 	
 	
 
+	<!-- Interceptor Object -->
+	<beans:bean id="authInterceptor_mypage"  class="com.project3.interceptor.Interceptor_mypage"></beans:bean>
+	<beans:bean id="authInterceptor_admin"  class="com.project3.interceptor.Interceptor_admin"></beans:bean>
+	<beans:bean id="authInterceptor_cart"  class="com.project3.interceptor.Interceptor_cart"></beans:bean>
+	<beans:bean id="authInterceptor_cs"  class="com.project3.interceptor.Interceptor_cart"></beans:bean>
+	
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/mypage*"/> <!-- 체크할 url 주소 -->
+			<beans:ref bean="authInterceptor_mypage"/> <!-- 체크를 진행할 객체 -->
+		</interceptor>
+		<interceptor>
+			<mapping path="/user_mng_list"/> <!-- 체크할 url 주소 -->
+			<mapping path="/user_mng*"/> <!-- 체크할 url 주소 -->
+			<mapping path="/product_mng*"/> <!-- 체크할 url 주소 -->
+			<mapping path="/review_mng*"/> <!-- 체크할 url 주소 -->
+			<beans:ref bean="authInterceptor_admin"/> <!-- 체크를 진행할 객체 -->
+		</interceptor>
+		<interceptor>
+			<mapping path="/cart*"/> <!-- 체크할 url 주소 -->
+			<mapping path="/purchase*"/> <!-- 체크할 url 주소 -->
+			<beans:ref bean="authInterceptor_cart"/> <!-- 체크를 진행할 객체 -->
+		</interceptor>
+		<interceptor>
+			<mapping path="/cs_update"/> <!-- 체크할 url 주소 -->
+			<mapping path="/cs_delete"/> <!-- 체크할 url 주소 -->
+			<mapping path="/cs_write"/> <!-- 체크할 url 주소 -->
+			<beans:ref bean="authInterceptor_cs"/> <!-- 체크를 진행할 객체 -->
+		</interceptor>
+	</interceptors>
+	
+
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -57,6 +90,6 @@
 	
 	<context:component-scan base-package="com.spring.sistproject3" />
 	<context:component-scan base-package="com.project3.controller" />
-	<context:component-scan base-package="com.project.service" />
-	
+	<context:component-scan base-package="com.project3.service" />
+
 </beans:beans>
