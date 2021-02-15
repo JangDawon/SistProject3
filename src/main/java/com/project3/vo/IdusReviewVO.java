@@ -4,14 +4,22 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class IdusReviewVO {
    int rno;
-   String rid, pid, uemail, oid, rfile, rsfile, rcontent, rscore, rdate, savepath, ptitle;
+   String rid, pid, uemail, oid, rfile, rsfile, rcontent, rscore, rdate, savepath, ptitle, onum;
    CommonsMultipartFile file1;
 
    
-   public String getPtitle() {
-       return ptitle;
-   }
-   
+   public String getOnum() {
+		return onum;
+	}
+	
+	public void setOnum(String onum) {
+		this.onum = onum;
+	}
+	
+	public String getPtitle() {
+	       return ptitle;
+	   }
+	   
    public void setPtitle(String ptitle) {
       this.ptitle = ptitle;
    }

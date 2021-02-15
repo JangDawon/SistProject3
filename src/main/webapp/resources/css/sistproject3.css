@@ -535,16 +535,16 @@ table#admin_review_list td:last-child {width:120px;}
 /**
 *   리뷰 관리 : review_mng_content.jsp (지혜)
 */
+table#admin_review_content_table td {text-align:left;}
 table#admin_review_content_table td>div{width:500px; margin:auto;}
 table#admin_review_content_table td:first-child {width:150px;}
-table#admin_review_content_table tr:last-child td{border:1px solid white;}
+table#admin_review_content_table tr:last-child td{border:1px solid white; text-align:center;}
 table#admin_review_content_table tr:last-child td button{margin-top:80px;}
 table#admin_review_content_table button {padding:7px 15px; margin:0px 5px 0px 5px;}
-table#admin_review_content_table th {color:#F87E35; text-align:left; text-indent:20px; width:120px;}
-table#admin_review_content_table tr:nth-child(3) td{text-align:left; text-indent:20px;}
+table#admin_review_content_table th {color:#F87E35; text-align:left; text-indent:20px; width:100px;}
 table#admin_review_content_table tr:nth-child(4) th{text-align:center; text-indent:0px;}
 table#admin_review_content_table tr:nth-child(4) {height:100px;}
-table#admin_review_content_table td:nth-child(3) {width:250px;}
+table#admin_review_content_table td:nth-child(3) {width:250px; text-indent:10px;}
 table#admin_review_content_table div#review_ptitle {width:250px; overflow:hidden; text-overflow: ellipsis;  white-space: nowrap;}
 
 /**
