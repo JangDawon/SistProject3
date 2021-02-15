@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.project3.dao.IdusCartDAO2;
+import com.project3.dao.IdusProductDAO;
 import com.project3.vo.IdusCartVO;
 import com.project3.vo.IdusMemberVO;
 import com.project3.vo.IdusOrderVO;
@@ -22,8 +23,11 @@ public class CartServiceImpl2 implements CartService {
 	@Autowired
 	private IdusCartDAO2 cartDAO2;
 	
+	@Autowired
+	private IdusProductDAO productDAO;
+	
 	/**
-	 * 주문자 정보 가져오기(지혜)
+	 * 주문하기(지혜)
 	 */
 	public ModelAndView getOrderSuccessList(String uemail, String del_price, String total_price, String[] cid_list, String rname, String cp, int addr_num, String addr) {
 		ModelAndView mv = new ModelAndView();
@@ -43,6 +47,8 @@ public class CartServiceImpl2 implements CartService {
 			vo.setDel_price(Integer.parseInt(del_price));
 			vo.setTotal_price(Integer.parseInt(total_price));
 			cartDAO2.getInsertOrder(vo);
+			System.out.println("impl pid : " + vo.getPid());
+			productDAO.updateQty(vo.getPid());
 		}
 		cartDAO2.getResultDelete(cid_list);
 		
