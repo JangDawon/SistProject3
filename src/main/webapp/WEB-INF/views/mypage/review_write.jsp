@@ -13,7 +13,7 @@
 
 
 </style>
-<script>
+<script charset="utf-8">
 	$(document).ready(function() {
 
 		var rfileName = "";
@@ -47,11 +47,10 @@
 				       processData: false,
 				       contentType: false,
 				       data: form,      
-				         success: function (data) {
-				          var result = data
+				         success: function (result) {
 				        	 //window.close();
-				            window.opener.location.href="http://localhost:9000/sistproject3/my_order.do?result="+result;
 				            self.close();
+				            window.opener.location.href="http://localhost:9000/sistproject3/my_order.do?result="+result;
 				        }
 				}); 
 			}

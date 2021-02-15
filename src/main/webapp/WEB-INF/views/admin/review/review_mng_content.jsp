@@ -37,7 +37,7 @@
 			<th>아이디</th>
 			<td>${vo.uemail }</td>
 			<th>주문번호</th>
-			<td>${vo.oid }</td>
+			<td>${vo.onum }</td>
 		</tr>
 		<tr>
 			<th>주문상품</th>

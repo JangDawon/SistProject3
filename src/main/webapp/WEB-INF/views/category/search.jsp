@@ -34,12 +34,16 @@
 								var n = 0;
 								for(var j in jdata.jlist2){
 									if(jdata.jlist[i].pid == jdata.jlist2[j].pid){
-										output += "<img src='http://localhost:9000/sistproject3/images/star2.png' id='"+jdata.jlist[i].pid+"_star'>";
-										n=1;
+										output += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+										output += '<img src="http://localhost:9000/sistproject3/images/star2.png" id="'+jdata.jlist[i].pid+'_star">';
+										output += '</button>';
+										n = 1;
 									}
 								}
-								if(n!=1){
-									output += "<img src='http://localhost:9000/sistproject3/images/favorite.png' id='"+jdata.jlist[i].pid+"_star'>";
+								if(n != 1){
+									output += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+									output += '<img src="http://localhost:9000/sistproject3/images/favorite.png" id="'+jdata.jlist[i].pid+'_star">';
+									output += '</button>';
 								}
 								output += "</button>";
 								output += "</div>";
