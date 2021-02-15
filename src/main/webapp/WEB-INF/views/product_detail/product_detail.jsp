@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -388,6 +389,7 @@ $(document).ready(function(){
           	 	<div class="title-style-sub">
           	 		<h3>구매후기</h3>
           	 	</div>
+          	 	<c:forEach var="vo" items="${list}">
           	 	<ul class="PD_list-style-review">
           	 		<li>
           	 			<div class="PD_review_user">
@@ -396,16 +398,12 @@ $(document).ready(function(){
           	 						<img src="http://localhost:9000/sistproject3/images/icon_review_user.jpg">
           	 					</div>
           	 					<div class="PD_review_user_txtbox">
-          	 						<p>user</p>
-          	 						<p  style="color: #999;">2021년 1월 24일</p>
+          	 						<p>${vo.uemail}</p>
+          	 						<p  style="color: #999;">${vo.rdate}</p>
           	 					</div>
           	 					<div class="PD_review_rating">
           	 						<span class="span_ui_rating">
-				          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-				          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-				          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-				          				<img src="http://localhost:9000/sistproject3/images/star2.png">
-				          				<img src="http://localhost:9000/sistproject3/images/star2.png">
+				          				${fn:replace(fn:replace(fn:replace(fn:replace(fn:replace(vo.rscore, '1', '⭐'), '2', '⭐⭐'), '3', '⭐⭐⭐'), '4', '⭐⭐⭐⭐'), '5', '⭐⭐⭐⭐⭐') }
 									</span>	
           	 					</div>
           	 				</div>
@@ -413,19 +411,17 @@ $(document).ready(function(){
           	 			</div>
           	 			<div class="PD_review_txt_area">
           	 				<div class="PD_review_cell">
-          	 					<img src="http://localhost:9000/sistproject3/images/제품상세1.jpg">
+          	 					<img src="http://localhost:9000/sistproject3/resources/upload/${vo.rsfile }">
           	 				</div>
           	 				<div class="PD_review_cell_txt">
           	 					<span>
-          	 					달지 않고 크림치즈는 진짜 맛있고 초코도 달지 않고 진짜 짱이에요. 하나 더 지금 시키려구 해요.
-          	 					예쁘고 깨진곳 없이와서 좋 아요!
-								지정발송일 다음날에 바로와서
-								친구생일에 딱맞춰서 줬어요b
+          	 					${vo.rcontent }
           	 					</span>
           	 				</div>
           	 			</div>
           	 		</li>
           	 	</ul>
+          	 	</c:forEach>
           	 </section>
           </div>
           
