@@ -24,12 +24,12 @@
 					if($("#p3_price").text() != ""){
 	                  	sum += parseInt($("#p3_price").text());
 					}
-					$(".price_total").text("").append(sum+"원");
+					$(".price_total").text("").append(sum);
 					
 					if(sum >= 50000){
-						$(".del_price").text("").append(0+"원");
+						$(".del_price").text("").append(0);
 					}else {
-						$(".del_price").text("").append(2600+"원");
+						$(".del_price").text("").append(2600);
 					}
 				}
 				
@@ -39,20 +39,20 @@
 						var prod_sum = parseInt($(".price_total").text());
 						
 						if(prod_sum >= 50000){
-							$(".prod_total_delivery").text("").append(0+"원");
+							$(".prod_total_delivery").text("").append(0);
 						}else {
-							$(".prod_total_delivery").text("").append(2600+"원");
+							$(".prod_total_delivery").text("").append(2600);
 						}
 						
 						var prod_del = parseInt($(".prod_total_delivery").text());
 						var total = prod_sum+prod_del;
 						
-						$(".all_price_total").text("").append(prod_sum+"원");
-						$(".prod_total2").text("").append(total+"원");
+						$(".all_price_total").text("").append(prod_sum);
+						$("#prod_total2").text("").append(total);
 					}else{
 						$(".cart_prod_chk").prop("checked", false);
-						$(".all_price_total").text("").append("0원");
-						$(".prod_total2").text("").append("0원");
+						$(".all_price_total").text("").append(0);
+						$("#prod_total2").text("").append(0);
 					}
 				});
 				
@@ -62,35 +62,41 @@
 						var prod_sum = parseInt($(".price_total").text());
 						
 						if(prod_sum >= 50000){
-							$(".prod_total_delivery").text("").append(0+"원");
+							$(".prod_total_delivery").text("").append(0);
 						}else {
-							$(".prod_total_delivery").text("").append(2600+"원");
+							$(".prod_total_delivery").text("").append(2600);
 						}
 						
 						var prod_del = parseInt($(".prod_total_delivery").text());
 						var total = prod_sum+prod_del;
 						
-						$(".all_price_total").text("").append(prod_sum+"원");
-						$(".prod_total2").text("").append(total+"원");
+						$(".all_price_total").text("").append(prod_sum);
+						$("#prod_total2").text("").append(total);
 					}else{
-						$(".all_price_total").text("").append("0원");
-						$(".prod_total2").text("").append("0원");
+						$(".all_price_total").text("").append(0);
+						$("#prod_total2").text("").append(0);
 					}
 				});
 				
 				$("#cart_order").click(function(){
-					var order_list = "";
-					
-					$(".cart_prod_chk:checked").each(function(index){
-						order_list += $(this).attr("id") + ", ";
+					var count = 0;
+					var purchase_list = "";
+					$("input[class='cart_prod_chk']:checked").each(function(index){
+						var pid = $(this).val();
+						var cid = $(this).attr("id");
+						count ++;
+						purchase_list += "cid="+cid +", ";
 					});
 					
-					if(order_list == ""){
-						alert("선택된 상품이 없습니다.");
+					if(count != 0){
+						alert($(".prod_total_delivery").text());
+						alert($("#prod_total2").text());
+						var del_fee = $(".prod_total_delivery").text();
+						var t_price = $("#prod_total2").text();
+						purchase_list += "&del_price=" + del_fee +"&total_price=" + t_price + "&uemail=${sessionScope.svo.uemail}";
+						$(location).attr("href","cart_order2.do?purchase_list="+purchase_list);
 					}else{
-						confirm(order_list + "선택된 상품을 주문합니다.");
-						
-						$(location).attr("href", "http://localhost:9000/sistproject3/cart_order.do?uemail=${sessionScope.svo.uemail}&order_list="+order_list);
+						alert("상품을 선택해주세요");
 					}
 				});
 				
@@ -114,9 +120,7 @@
 					$.ajax({
 						url:"pur_list_update.do?cid="+cid+"&opt="+opt+"&opt_qty="+$(qty).val(),
 						success:function(result){
-							alert("수량 수정 완료");
-							
-							$(location).attr("href", "http://localhost:9000/sistproject3/purchase.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid}");
+
 						}//success
 					});//ajax
 				});//update_click
@@ -129,9 +133,7 @@
 					$.ajax({
 						url:"pur_list_update.do?cid="+cid+"&opt="+opt+"&opt_qty=0",
 						success:function(result){
-							alert("옵션 삭제 완료");
-							
-							$(location).attr("href", "http://localhost:9000/sistproject3/purchase.do?uemail=${sessionScope.svo.uemail}&pid=${vo.pid}");
+
 						}//success
 					});//ajax
 				});//del_click
@@ -161,23 +163,23 @@
 				        	$("#"+ obj_id +"_price").text("").append(p1_price + p1_one_price);
 				        	var total = parseInt($(".price_total").text());
 				        	total += p1_one_price;
-				        	$(".price_total").text("").append(total+"원");
+				        	$(".price_total").text("").append(total);
 				        }else if(obj_id == "p2"){
 				        	$("#"+ obj_id +"_price").text("").append(p2_price + p2_one_price);
 				        	var total = parseInt($(".price_total").text());
 							total += p2_one_price;
-							$(".price_total").text("").append(total+"원");
+							$(".price_total").text("").append(total);
 				        }else if(obj_id == "p3"){
 				            $("#"+ obj_id +"_price").text("").append(p3_price + p3_one_price);
 				            var total = parseInt($(".price_total").text());
 							total += p3_one_price;
-							$(".price_total").text("").append(total+"원");
+							$(".price_total").text("").append(total);
 				        }
 				        
 				        if(total >= 50000){
-							$(".del_price").text("").append(0+"원");
+							$(".del_price").text("").append(0);
 						}else {
-							$(".del_price").text("").append(2600+"원");
+							$(".del_price").text("").append(2600);
 						}
 				        
 					}else if(obj_name == "minus") {
@@ -191,23 +193,23 @@
 								$("#"+ obj_id +"_price").text("").append(p1_price - p1_one_price);
 								var total = parseInt($(".price_total").text());
 								total = total-p1_one_price;
-								$(".price_total").text("").append(total+"원");
+								$(".price_total").text("").append(total);
 							}else if(obj_id == "p2"){
 								$("#"+ obj_id +"_price").text("").append(p2_price - p2_one_price);
 								var total = parseInt($(".price_total").text());
 								total -= p2_one_price;
-								$(".price_total").text("").append(total+"원");
+								$(".price_total").text("").append(total);
 							}else if(obj_id == "p3"){
 								$("#"+ obj_id +"_price").text("").append(p3_price - p3_one_price);
 								var total = parseInt($(".price_total").text());
 								total -= p3_one_price;
-								$(".price_total").text("").append(total+"원");
+								$(".price_total").text("").append(total);
 							}
 				            
 				            if(total >= 50000){
-								$(".del_price").text("").append(0+"원");
+								$(".del_price").text("").append(0);
 							}else {
-								$(".del_price").text("").append(2600+"원");
+								$(".del_price").text("").append(2600);
 							}
 						}
 					}
@@ -236,7 +238,7 @@
 					<tr class="cart_product">
 						<td width=2%>
 							<div class="cart_chk">
-								<input type="checkbox" id="${vo.cid}" class="cart_prod_chk" style="width:15px;height:15px;">
+								<input type="checkbox" id="${vo.cid}" class="cart_prod_chk" value="${vo.pid }" style="width:15px;height:15px;">
 							</div>
 						</td>
 						<td width=10%>
@@ -332,13 +334,13 @@
 					<tr class="cart_price_name">
 						<td colspan="2"><div class="price_title">작품 가격</div></td>
 						<td colspan="4">
-							<div class="price_content"><span class="price_total">0원</span></div>
+							<div class="price_content"><span class="price_total">0</span>원</div>
 						</td>
 					</tr>
 					<tr class="cart_price_del">
 						<td colspan="2"><div class="price_title">배송비</div></td>
 						<td colspan="4">
-							<div class="price_content"><span class="del_price">0원</span></div>
+							<div class="price_content"><span class="del_price">0</span>원</div>
 						</td>
 					</tr>
 				</table>
@@ -359,9 +361,9 @@
 							<td class="prod_total">결제 예정금액</td>
 						</tr>
 						<tr>
-							<td class="all_price2"><div class="all_price_total">0원</div></td>
-							<td class="del2"><div class="prod_total_delivery">0원</div></td>
-							<td class="prod_total2"><span class="prod_total2">0원</span></td>
+							<td class="all_price2"><span class="all_price_total">0</span>원</td>
+							<td class="del2"><span class="prod_total_delivery">0</span>원</td>
+							<td class="prod_total2"><span id="prod_total2">0</span>원</td>
 						</tr>
 					</table>
 				</div>
