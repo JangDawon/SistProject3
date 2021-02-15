@@ -34,6 +34,7 @@
 	<beans:bean class="com.project3.dao.IdusCartDAO" id="cartDAO"></beans:bean>
 	<beans:bean class="com.project3.dao.IdusCartDAO2" id="cartDAO2"></beans:bean>
 	<beans:bean class="com.project3.dao.IdusCategoryDAO" id="categoryDAO"></beans:bean>
+	<beans:bean class="com.project3.dao.IdusWishDAO" id="wishDAO"></beans:bean>
 	
 	<!-- Service -->
 	<beans:bean class="com.project3.service.BoardServiceImpl" id="boardService"></beans:bean>
@@ -44,6 +45,9 @@
 	<beans:bean class="com.project3.service.CartServiceImpl" id="cartService"></beans:bean>
 	<beans:bean class="com.project3.service.CartServiceImpl2" id="cartService2"></beans:bean>
 	<beans:bean class="com.project3.service.CategoryServiceImpl" id="categoryService"></beans:bean>
+	<beans:bean class="com.project3.service.WishServiceImpl" id="wishService"></beans:bean>
+	
+	
 
 	<!-- Interceptor Object -->
 	<beans:bean id="authInterceptor_mypage"  class="com.project3.interceptor.Interceptor_mypage"></beans:bean>

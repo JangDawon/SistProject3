@@ -45,7 +45,7 @@ public class CartServiceImpl implements CartService {
 		return mv;
 	}
 	
-	public ModelAndView getCartInsert(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
+	public ModelAndView getCartInsert(String uemail, String pid, int opt1_qty, int opt2_qty, int opt3_qty) {
 		ModelAndView mv = new ModelAndView();
 		
 		int result = cartDAO.getCartInsert(uemail, pid, opt1_qty, opt2_qty, opt3_qty);
@@ -57,6 +57,12 @@ public class CartServiceImpl implements CartService {
 		}
 		
 		return mv;
+	}
+	
+	public String getListUpdate(String cid, String opt, String opt_qty) {
+		int result = cartDAO.getListUpdate(cid, opt, opt_qty);
+		
+		return String.valueOf(result);
 	}
 	
 //	public ModelAndView getCartCp(String uemail, String[] stkarray, int stkcount) {
