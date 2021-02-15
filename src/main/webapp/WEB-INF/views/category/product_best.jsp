@@ -36,10 +36,10 @@
 					output += '</button>'; */
 					output += '</div>';
 					output += '<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">';
-					output += '<div>';
+					output += '<div class="psfile_img">';
 					output += '<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">';
 					output += '</div>';
-					output += '</div>';
+					//output += '</div>';
 					output += '<div class="best_prod_info">';
 					output += '<div class="prod_info_name">${vo.sname }</div>';
 					output += '<div class="prod_info_title">${vo.ptitle }</div>';
@@ -50,7 +50,11 @@
 					output += '<span> 4.5</span>';
 					output += '</div>';
 					output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
-					output += '</div></a></div></div>';
+					output += '</div>';
+					output += '</a>';
+					output += '</div>';
+					output += '</div>';
+					output += '</div>';
 						
 					<c:if test="${vo.pcat=='음식'}"> 
 						$("#food_here").before(output);
@@ -99,9 +103,6 @@
 						location.href='http://localhost:9000/sistproject3/login.do';
 					}
 				});
-				
-				
-				
 			});
 		</script>
 	</head>
