@@ -30,19 +30,19 @@
 	
 	<select id="bestprodlist" resultType="com.project3.vo.IdusProductVO">
 		select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
-			from (select * from idus_product where pcat = '음식' order by product_total desc))
+			from (select * from idus_product where pcat = '음식' order by product_total))
 		where rno between 1 and 5 union
 		select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
-			from (select * from idus_product where pcat = '기타' order by product_total desc))
+			from (select * from idus_product where pcat = '기타' order by product_total))
 		where rno between 1 and 5 union
     	select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
-			from (select * from idus_product where pcat = '악세사리' order by product_total desc))
+			from (select * from idus_product where pcat = '악세사리' order by product_total))
 		where rno between 1 and 5 union
     	select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
-			from (select * from idus_product where pcat = '패션, 잡화' order by product_total desc))
+			from (select * from idus_product where pcat = '패션, 잡화' order by product_total))
 		where rno between 1 and 5 union
     	select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
-			from (select * from idus_product where pcat = '인테리어 소품' order by product_total desc))
+			from (select * from idus_product where pcat = '인테리어 소품' order by product_total))
 		where rno between 1 and 5
 	</select>
 	
