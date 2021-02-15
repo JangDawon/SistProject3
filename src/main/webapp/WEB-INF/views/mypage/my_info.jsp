@@ -1,76 +1,185 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 페이페이지</title>
-<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-</head>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 마이페이지</title>
+<link rel="stylesheet"
+	href="http://localhost:9000/sistproject3/css/woohyun.css">
+<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+<style>
+table.member_info tr:first-child td img {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+
+table.member_info tr td span.user_email {
+	margin-left: 6px;
+}
+
+.filebox label {
+	display: inline-block;
+	color: black;
+	font-size: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: white;
+	cursor: pointer;
+	border: 1px solid rgb(217, 217, 217);
+	border-radius: .25em;
+	-webkit-transition: background-color 0.2s;
+	transition: background-color 0.2s;
+	margin-left: 30px;
+	padding-right: 8px;
+}
+
+.filebox label:hover {
+	background-color: rgb(255, 162, 111);
+}
+
+.filebox label:active {
+	background-color: rgb(255, 92, 4);
+}
+
+.filebox input[type="file"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding-left: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+</style>
+<script>
+$(document).ready(function(){
+	$("#aggrsms").change(function(){
+        if($("#aggrsms").is(":checked")) {
+           $("#aggrsms_hd").val("on");
+        }else {
+           $("#aggrsms_hd").val("off");
+        }
+     });
+	$("#aggremail").change(function(){
+        if($("#aggremail").is(":checked")) {
+           $("#aggremail_hd").val("on");
+        }else {
+           $("#aggremail_hd").val("off");
+        }
+     });
+})
+</script>
 <body>
-<!-- aside -->
+	<!-- aside -->
 	<jsp:include page="../header.jsp" />
-	
 
-	<div class="content">
+
+	<div class="mypage_content">
 		<!-- aside -->
-		<jsp:include page="mypage_aside.jsp"></jsp:include>
-	<h2>회원 정보 관리</h2>
-	<table class="member_info">
-		<tr>
-			<td class="grey">이름</td>
-			<td><input type="text" value="홍길동"></td>
-		</tr>
-		<tr>
-			<td class="grey">이메일</td>
-			<td><input type="text" value="example.google.com"></span>
-		</tr>
-		<tr>
-			<td rowspan =3 class ="grey">배송지</td>
-			<td><input type = "text" value="13980"></td>
-		</tr>
-		<tr>
-			<td><input type = "text" value="경기 안양시 만안구 박달로507번길 57 (박달동, 한신휴플러스 타운)"></td>
-		</tr>
-		<tr>
-			<td><input type = "text" value="301동 1308호"></td>
-		</tr>
-		<tr>
-			<td class="grey">전화</td>
-			<td><input type="text" value="010-1234-5678">
-				<br><small>주문, 배송시 등록된 번호로 SMS를 발송해 드립니다</small></td>
-		</tr>
+		<jsp:include page="mypage_aside.jsp"><jsp:param
+				name="psfile" value="${vo.psfile }" /></jsp:include>
 
-		<tr>
-			<td class="grey">성별</td>
-			<td><input type="radio" name="gender" value="여성"><span
-				class="rchk">남자</span> <input type="radio" name="gender" value="남성"><span
-				class="rchk">여자</span></td>
-		</tr>
+		<h2>회원 정보 관리</h2>
+		<form name="myinfo_update_form" action="myinfo_update_proc.do"
+			method="post" enctype="multipart/form-data">
+			<input type="hidden" name="uemail" value="${vo.uemail }">
+			<table class="member_info">
 
-		<tr>
-			<td class="grey">생일</td>
-			<td><input type="text" style="width: 80px;"
-				placeholder="2020-01-01"></td>
-		</tr>
+				<tr>
+					<td class="grey">프로필 사진</td>
+					<td><div class="filebox">
+							<c:choose>
+								<c:when test="${vo.psfile eq null }">
+									<img src="http://localhost:9000/sistproject3/images/logo.jpg">
+								</c:when>
+								<c:otherwise>
+									<img
+										src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile }">
+									<br>
+								</c:otherwise>
+							</c:choose>
+							<label for="ex_file">변경</label> <input type="file" id="ex_file"
+								name="file1">
+						</div></td>
+				</tr>
 
-		<tr>
-			<td class="grey">알림설정</td>
-			<td class ="alram">파격할인/이벤트/쿠폰 알림 등의 정보를 받아보시겠습니까?<br> 
-			<input type="checkbox" name="agree" value="SMS"><span> SMS</span>
-			<input type="checkbox" name="agree" value="이메일"><span>이메일</span>
-			</td>
-		</tr>
+				<tr>
+					<td class="grey">이름</td>
+					<td><input type="text" value="${vo.uname }" id="uname"
+						name="uname"></td>
+				</tr>
 
-		<tr>
-			<td colspan=2><button type="button" class="change">회원탈퇴</button></td>
-		</tr>
-		<tr>
-			<td colspan=2><button type="button">회원 정보 수정하기</button></td>
-		</tr>
-	</table>
-			</div>
+				<tr>
+					<td class="grey">이메일</td>
+					<td><span class="user_email">${vo.uemail }</span></td>
 
-		<jsp:include page="../footer.jsp" />
+				</tr>
+
+				<tr>
+					<td rowspan=3 class="grey">배송지</td>
+					<td><input type="text" value="${vo.addr1 }" id="addr1"
+						name="addr1" placeholder="우편번호"></td>
+				</tr>
+
+				<tr>
+					<td><input type="text" value="${vo.addr2 }" id="addr2"
+						name="addr2" placeholder="기본주소"></td>
+				</tr>
+
+				<tr>
+					<td><input type="text" value="${vo.addr3 }" id="addr3"
+						name="addr3" placeholder="상세주소"></td>
+				</tr>
+
+				<tr>
+					<td class="grey">전화</td>
+					<td><input type="text" value="${vo.cp }" id="cp" name="cp"
+						placeholder="'-'없이 입력해주세요."> <br> <small>주문,
+							배송시 등록된 번호로 SMS를 발송해 드립니다</small></td>
+				</tr>
+				<tr>
+					<td class="grey">알림설정</td>
+					<td class="alram">파격할인/이벤트/쿠폰 알림 등의 정보를 받아보시겠습니까?<br> 
+					
+					<input type="hidden" id="aggrsms_hd" name="aggrsms" value="${vo.aggrsms }">
+					<c:choose> 
+					<c:when test="${vo.aggrsms eq 'on'}">
+					<input type="checkbox" id="aggrsms" name="aggr" checked><label>SMS</label>
+					</c:when>
+					<c:otherwise>
+						<input type="checkbox" id="aggrsms" name="aggr"><label>SMS</label>
+					</c:otherwise>
+					</c:choose>
+					
+					
+					<input type="hidden" id="aggremail_hd" name="aggremail" value="${vo.aggremail }">
+					<c:choose>
+					<c:when test = "${vo.aggremail eq 'on'}">
+					<input type="checkbox" id="aggremail" name="aggr" checked><label>email</label>
+					</c:when>
+					<c:otherwise>
+						<input type="checkbox" id="aggremail" name="aggr"><label>email</label>
+					</c:otherwise>
+					</c:choose>
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan=2><a href = "my_info_delete.do?uemail=${vo.uemail}"><button type="button" class="change">회원탈퇴</button></a></td>
+
+				</tr>
+				<tr>
+					<td colspan=2 class="tdlast"><button type="submit"
+							id="updateBtn">회원정보 수정하기</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<jsp:include page="../footer.jsp" />
 </body>
 </html>

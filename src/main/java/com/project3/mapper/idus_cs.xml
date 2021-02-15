@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="mapper.cs">
+	<select id="plist" parameterType="map" resultType="com.project3.vo.IdusBoardVO">
+		select * from (select rownum rno, bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd') bdate, 
+		bhits, uemail, uname, bsecret 
+		from (select * from idus_board order by rank, bdate desc)) where rno between #{start} and #{end}
+	</select>
+	
+	<select id="plistajax" parameterType="map" resultType="com.project3.vo.IdusBoardVO">
+		select * from (select rownum rno, bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd') bdate, 
+		bhits, uemail, uname, bsecret 
+		from (select * from idus_board order by rank, bdate desc)
+		<if test="sname != 'all'">
+			where ${sname} like '%' || #{svalue} || '%'
+		</if>
+		) where rno between #{start} and #{end}
+	</select>
+	
+	<insert id="insert" parameterType="com.project3.vo.IdusBoardVO">
+		insert into idus_board 
+		values('b_'||idus_board_seq.nextval, #{btitle}, #{bcontent}
+		
+		<choose>
+			<when test="bfile != null">
+				<choose>
+					<when test="bsecret != null">
+						, #{bfile}, #{bsfile}, #{bpass}, 
+						sysdate, #{bhits}, #{uemail}, #{uname}, #{bsecret}
+					</when>
+					<otherwise>
+						, #{bfile}, #{bsfile}, '', 
+						sysdate, #{bhits}, #{uemail}, #{uname}, ''
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				<choose>
+					<when test="bsecret != null">
+						, '', '', #{bpass}, 
+						sysdate, #{bhits}, #{uemail}, #{uname}, #{bsecret}
+					</when>
+					<otherwise>
+						, '', '', '', 
+						sysdate, #{bhits}, #{uemail}, #{uname}, ''
+					</otherwise>
+				</choose>
+			</otherwise>
+		</choose>
+		
+		<choose>
+		<when test="uemail == 'admin'">
+			, 1)
+		</when>
+		<otherwise>
+			,'')
+		</otherwise>
+		</choose>
+			
+	</insert>
+	
+	<select id="content" parameterType="java.lang.String" resultType="com.project3.vo.IdusBoardVO">
+		select bid, btitle, bcontent, bfile, bsfile, bpass, to_char(bdate, 'yyyy.mm.dd') bdate, bhits, 
+		uemail, uname, bsecret from idus_board where bid = #{id}
+	</select>
+	
+	<update id="update" parameterType="com.project3.vo.IdusBoardVO">
+		update idus_board set btitle=#{btitle}, bcontent=#{bcontent} 
+		
+		<if test="bfile != null">
+			, bfile=#{bfile}, bsfile=#{bsfile}
+		</if>
+		<choose>
+			<when test="bsecret != null">
+				, bsecret=#{bsecret}, bpass=#{bpass}
+			</when>
+			<otherwise>
+				, bsecret='', bpass=''
+			</otherwise>
+		</choose>
+		where bid = #{bid}
+	</update>
+	
+	<update id="updateNofile" parameterType="com.project3.vo.IdusBoardVO">
+		update idus_board set btitle=#{btitle}, bcontent=#{bcontent}, bsecret=#{bsecret} 
+		where bid = #{bid}
+	</update>
+	
+	<delete id="delete" parameterType="java.lang.String">
+		delete from idus_board where bid = #{id}
+	</delete>
+	
+	<update id="bhits" parameterType="java.lang.String">
+		update idus_board set bhits = bhits+1 where bid = #{id}
+	</update>
+	
+	<select id="count" resultType="java.lang.Integer">
+		select count(*) from idus_board
+	</select>
+	
+	<select id="countajax" parameterType="map" resultType="java.lang.Integer">
+		select count(*) from idus_board
+		
+		<if test="sname != 'all'">
+			where ${sname} like '%' || #{svalue} || '%'
+		</if>
+	</select>
+	
+	<insert id="reply_write" parameterType="com.project3.vo.IdusReplyVO">
+		insert into idus_reply values('r_'||idus_reply_seq.nextval, #{uemail}, #{uname}, #{bid}, #{rcontent}, sysdate)
+	</insert>
+	
+	<select id="reply_list" parameterType="java.lang.String" resultType="com.project3.vo.IdusReplyVO">
+		select r.rid rid, r.uemail uemail, r.uname uname, r.bid bid, r.rcontent rcontent, r.rdate rdate, m.psfile rsfile 
+		from idus_reply r, idus_member m where bid=#{bid} and r.uemail=m.uemail order by rdate
+	</select>
+	
+	<update id="reply_update" parameterType="map">
+		update idus_reply set rcontent=#{rcontent} where rid=#{rid}	
+	</update>
+	
+	<delete id="reply_delete" parameterType="java.lang.String">
+		delete idus_reply where rid=#{rid}
+	</delete>
+	
+	<select id="reply_count" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select count(*) from idus_reply where bid=#{bid}
+	</select>
+	
+	<select id="rsfile" parameterType="map">
+		update idus_reply set rsfile=#{rsfile} where uemail=#{uemail}
+	</select>
+</mapper>
+

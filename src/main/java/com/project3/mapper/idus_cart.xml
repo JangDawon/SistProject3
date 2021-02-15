@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="mapper.cart">
+		
+	<delete id="deletelist" parameterType="java.lang.reflect.Array">
+		delete from idus_cart where cid in
+		<foreach item="item" index="index" collection="array"
+			open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+    
+   	<insert id="cartinsert" parameterType="map">
+		insert into idus_cart values('c_'||IDUS_CART_SEQ.nextval, #{uemail}, #{pid}, #{opt1_qty}
+		<choose>
+			<when test="opt2_qty != null">
+				<choose>
+					<when test="opt3_qty != null">
+						, #{opt2_qty}, #{opt3_qty}
+					</when>
+					<otherwise>
+						, #{opt2_qty}, ''
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				<choose>
+					<when test="opt3_qty != null">
+						, '', #{opt3_qty}
+					</when>
+					<otherwise>
+						, '', ''
+					</otherwise>
+				</choose>
+			</otherwise>
+		</choose>
+		, sysdate)
+	</insert>
+
+	<select id="cartlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusCartVO">
+		select c.cid, c.uemail, c.pid, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty,
+		p.opt2, p.opt2_price, c.opt2_qty, p.opt3, p.opt3_price, c.opt3_qty, c.cdate, p.psfile1 
+		from idus_cart c, idus_product p where c.pid=p.pid and uemail=#{uemail}
+	</select>
+   
+	<select id="purchaselist" parameterType="java.lang.String" resultType="com.project3.vo.IdusCartVO">
+		select c.cid, c.uemail, c.pid, p.ptitle, p.pprice, p.opt1, p.opt1_price, c.opt1_qty, 
+		p.opt2, p.opt2_price, c.opt2_qty, p.opt3, p.opt3_price, c.opt3_qty, c.cdate, p.psfile1 
+		from idus_cart c, idus_product p where c.pid=p.pid and uemail=#{uemail} and p.pid=#{pid}
+	</select>
+	
+	<update id="listupdate" parameterType="map">
+		update idus_cart set
+		
+		<if test="opt == 'p1'">opt1_qty = #{opt_qty}</if>
+		<if test="opt == 'p2'">opt2_qty = #{opt_qty}</if>
+		<if test="opt == 'p3'">opt3_qty = #{opt_qty}</if>
+		
+		where cid = #{cid}
+	</update>
+	
+   <select id="cartcpselect" parameterType="java.lang.String" resultType="java.lang.String">
+   		select cp from idus_member where uemail=#{uemail}
+   
+   </select>
+	<select id="ordersname" parameterType="java.lang.String" resultType="java.lang.String">
+		select sname from idus_product where pid=#{pid}
+	</select>
+	<select id="orderptitle" parameterType="java.lang.String" resultType="java.lang.String">
+		select ptitle from idus_product where pid=#{pid}
+	</select>
+	<select id="orderopt1" parameterType="java.lang.String" resultType="java.lang.String">
+		select opt1 from idus_product where pid=#{pid}
+	</select>
+	<select id="orderopt2" parameterType="java.lang.String" resultType="java.lang.String">
+		select opt2 from idus_product where pid=#{pid}
+	</select>
+	<select id="orderopt3" parameterType="java.lang.String" resultType="java.lang.String">
+		select opt3 from idus_product where pid=#{pid}
+	</select>
+	<select id="orderpsfile1" parameterType="java.lang.String" resultType="java.lang.String">
+		select psfile1 from idus_product where pid=#{pid}
+	</select>
+	<insert id="orderinsert" parameterType="java.util.List">
+		insert into idus_order values('o_'||IDUS_ORDER_SEQ.nextval, 'order_'||IDUS_ORDER_SEQ.nextval, #{uemail}, #{pid}, #{p1_amt}, #{p2_amt}, #{p3_amt}, #{p1_price}, #{p2_price}, #{p3_price}, #{del_price}, #{t_price}, #{rname}, #{raddr}, #{rcp}, '', '', sysdate)
+	</insert>
+</mapper>
+

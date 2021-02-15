@@ -1,0 +1,222 @@
+/* 아이디어스 리뷰테이블&SEQUENCE (우현))
+* 수정일 : 2021.02.13 오후 10시 20분
+*/
+CREATE TABLE IDUS_REVIEW(
+RID VARCHAR2(30) PRIMARY KEY,
+PID VARCHAR2(30) REFERENCES IDUS_PRODUCT(PID) ON DELETE CASCADE,
+UEMAIL VARCHAR2(30) REFERENCES IDUS_MEMBER(UEMAIL) ON DELETE CASCADE,
+OID VARCHAR2(100) REFERENCES IDUS_ORDER2(OID),
+RFILE VARCHAR2(50),
+RSFILE VARCHAR2(50),
+RCONTENT VARCHAR2(300) NOT NULL,
+RSCORE NUMBER(10) NOT NULL,
+RDATE DATE);
+
+CREATE SEQUENCE IDUS_REVIEW_SEQ
+  START WITH 1
+  INCREMENT BY 1;
+/* 아이디어스 위시리스트 테이블&SEQUENCE (현주)
+* 수정일 : 2021.02.12 오전 1시 4분
+*/
+CREATE TABLE idus_wish(
+  wid       VARCHAR2(20) primary key,
+  uemail    varchar2(30) REFERENCES idus_member(uemail) ON DELETE CASCADE,
+  pid      VARCHAR2(20) REFERENCES idus_product(PID) ON DELETE CASCADE,
+  wdate date
+); 
+CREATE SEQUENCE IDUS_WISH_SQE
+  START WITH 1
+  INCREMENT BY 1;
+
+/**
+*   아이디어스 상품 테이블 pcontent 사이즈 변경(지혜)
+*   등록일 : 2021.02.15
+*/
+ALTER TABLE idus_product MODIFY(pcontent VARCHAR2(3000));    
+
+/**
+*   아이디어스 주문 테이블(지혜) -> idus_order2로 만들어서 기존 테이블 삭제 안해도 돼요! db insert에도 다 idus_order2로 해놨습니당:)
+*   등록일 : 2021.02.14 오후 2시 21분
+*/
+CREATE TABLE idus_order2(
+  oid       VARCHAR2(30) primary key, 
+  onum      varchar2(300) not null,
+  uemail    varchar2(30) REFERENCES idus_member(uemail) ON DELETE CASCADE,
+  pid      VARCHAR2(20) REFERENCES idus_product(PID) ON DELETE CASCADE,
+  cid      VARCHAR2(20),
+  opt1_qty NUMBER(10),
+  opt2_qty NUMBER(10), 
+  opt3_qty NUMBER(10), 
+  del_price number(30),
+  total_price NUMBER(30) , 
+  RNAME VARCHAR2(10) NOT NULL,
+  RADDR_NUM number(30) NOT NULL,
+  RADDR VARCHAR2(600) NOT NULL, 
+  RCP VARCHAR2(20) NOT NULL,
+  CANCEL VARCHAR2(20),
+  CDATE DATE,
+  RDATE DATE 
+);
+
+
+/* 아이디어스 장바구니 테이블(지혜)
+* 수정일 : 2021.02.11 오전 11시 34분
+*/
+drop table idus_cart; //자꾸 다시만들어서 죄송해요... 기존 테이블 삭제하고 새로 만들어주세요ㅠㅠ
+
+CREATE TABLE IDUS_CART(
+  CID    VARCHAR2(30) PRIMARY KEY,
+  UEMAIL     VARCHAR2(30) REFERENCES idus_member(UEMAIL) ON DELETE CASCADE,
+  PID        VARCHAR2(20) REFERENCES idus_product(PID) ON DELETE CASCADE,
+  OPT1_QTY   number(20),
+  OPT2_QTY   number(20),
+  OPT3_QTY   number(20),
+  cdate date
+);
+
+/* 아이디어스 장바구니 SEQUENCE (다원)
+* 수정일 : 2021.02.09 오전 11시 50분
+*/
+CREATE SEQUENCE IDUS_CART_SEQ
+  START WITH 1
+  INCREMENT BY 1;
+
+/*
+   아이디어스 댓글 테이블 생성(지혜)
+   수정일 : 2021.02.08 오후 1시 47분
+*/
+create table idus_reply(  
+  rid varchar2(30) primary key,
+  uemail varchar2(30) CONSTRAINT FK_RE_UEMAIL REFERENCES idus_member(uemail) on delete cascade,
+  uname varchar2(30),
+  bid varchar2(30) CONSTRAINT FK_RE_BID REFERENCES idus_board(bid) on delete cascade,
+  rcontent varchar2(1000) not null,
+  rdate date
+);
+
+//이 부분은 있으면 안해도 돼요!
+CREATE SEQUENCE IDUS_REPLY_SEQ
+  START WITH 1
+  INCREMENT BY 1;
+
+/*
+   아이디어스 게시판 테이블 변경(지혜)
+   수정일 : 2021.02.02 오후 3시 00분
+*/
+ALTER TABLE idus_board ADD(rank number(10));
+
+/*
+   아이디어스 게시판 테이블 변경(지혜)
+   수정일 : 2021.01.31 오후 1시 30분
+*/
+ALTER TABLE idus_board
+ADD CONSTRAINT FK_BOARD_UEMAIL
+FOREIGN KEY (uemail)
+REFERENCES idus_member(UEMAIL);
+
+
+/* 아이디어스 상품 테이블 생성(지혜) 
+*  수정일 : 2021.01.28 오후 4시 23분
+*/
+CREATE TABLE idus_product(
+  pid       VARCHAR2(20) primary key,
+  pcat      VARCHAR2(100) NOT NULL,
+  sname     VARCHAR2(30) not null,
+  semail    VARCHAR2(50) not null,
+  ptitle    VARCHAR2(100) not null,
+  pcontent  VARCHAR2(1000) NOT NULL,
+  PPRICE    NUMBER(30) NOT NULL,
+  opt1      varchar2(150) not null,
+  opt1_price number(10) not null,
+  opt2      varchar2(150),
+  opt2_price number(10),
+  opt3      varchar2(150),
+  opt3_price number(10),
+  pfile1     VARCHAR2(100) NOT NULL,
+  psfile1    VARCHAR2(100) NOT NULL,
+  pfile2     VARCHAR2(100),
+  psfile2    VARCHAR2(100),
+  pfile3     VARCHAR2(100),
+  psfile3    VARCHAR2(100),
+  pdate     DATE,
+  PRODUCT_TOTAL NUMBER(10)
+);
+
+/*
+   아이디어스 맴버 테이블 생성(준성)
+   수정일 : 2021.02.03 오전 12시 05분
+*/
+create table idus_member(
+   UEMAIL varchar2(30) Primary key,
+   UPASS varchar2(15) not null,
+   UNAME varchar2(10) not null,
+   CP varchar2(15) not null,
+   ADDR1 varchar2(100),
+   ADDR2 varchar2(100),
+   ADDR3 varchar2(100),
+   AGGRSMS varchar2(10),
+   AGREE_LIST varchar2(20),
+   AGGREMAIL varchar2(10),
+   PFILE varchar2(100),
+   PSFILE varchar2(100),
+   UDATE date
+);
+
+/* 아이디어스 공지사항 & 1대1문의 게시판 테이블 생성(지혜) 
+*  수정일 : 2021.01.25
+*/
+CREATE TABLE idus_board(
+  bid       VARCHAR2(20) primary key,
+  btitle    VARCHAR2(100) not null,
+  bcontent  VARCHAR2(1000),
+  bfile     VARCHAR2(100),
+  bsfile    VARCHAR2(100),
+  bpass     VARCHAR2(100),
+  bdate     DATE,
+  bhits     NUMBER(10),
+  uemail    VARCHAR2(50) not null,
+  uname     VARCHAR2(30) not null,
+  bsecret VARCHAR2(15),
+  rank number(10)
+);
+
+/*  아이디어스 공지사항 & 1대1문의 게시판 테이블 컬럼 추가(지혜)  
+*   수정일 : 2021.01.25 오후 10시 39분
+*/
+ALTER TABLE idus_board ADD(bsecret VARCHAR2(15));
+
+/*  아이디어스 게시판 테이블 Sequence & 상품 테이블 Sequence(지혜)  
+*   수정일 : 2021.01.25 오후 10시 39분
+*/
+CREATE SEQUENCE IDUS_BOARD_SEQ
+  START WITH 1
+  INCREMENT BY 1;
+  
+CREATE SEQUENCE IDUS_PRODUCT_SEQ
+  START WITH 1
+  INCREMENT BY 1;  
+  
+/*
+*  아이디어스 주문 테이블(현주)
+*  수정일 : 2021.02.04 오후 3시 39분
+*/
+CREATE TABLE idus_order(
+  oid       VARCHAR2(100) primary key, 
+  uemail    varchar2(30) REFERENCES idus_member(uemail) ON DELETE CASCADE,
+  pid      VARCHAR2(20) REFERENCES idus_product(PID) ON DELETE CASCADE,
+  PCNT NUMBER(10) NOT NULL, 
+  T_PRICE NUMBER(30) NOT NULL, 
+  RNAME VARCHAR2(10) NOT NULL, 
+  RADDRNUM VARCHAR2(30) NOT NULL, 
+  RADDR1 VARCHAR2(100) NOT NULL, 
+  RADDR2 VARCHAR2(100) NOT NULL,
+  RADDR3 VARCHAR2(100) NOT NULL,
+  RCP VARCHAR2(20) NOT NULL,
+  CANCEL VARCHAR2(20),
+  CDATE DATE,
+  RDATE DATE 
+);  
+
+CREATE SEQUENCE IDUS_ORDER_SQE
+  START WITH 1
+  INCREMENT BY 1;

@@ -4,6 +4,8 @@
 <html>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/login.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/join.css">
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>회원가입</title>
+
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -19,7 +21,7 @@
 			
 		<section class = join_success_section>
 			<div>
-				<div class=join_success><label>*** 님의</label></div>
+				<div class=join_success><label>${vo.uname } 님의</label></div>
 				<div class=join_success><label>가입을 축하드립니다!</label></div>
 				<div class=join_success><a href="http://localhost:9000/sistproject3/index.do"><button>메인 화면으로</button></a><a href="http://localhost:9000/sistproject3/login.do"><button>로그인하기</button></a></div>
 			</div>

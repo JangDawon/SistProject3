@@ -1,14 +1,27 @@
 package com.project3.controller;
 
+import java.util.Random;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.project3.service.MemberServiceImpl;
+import com.project3.service.certifyServiceImpl;
+import com.project3.vo.IdusMemberVO;
 
 @Controller
 public class JoinController {
+	@Autowired
+	private certifyServiceImpl certifyService;
+	
+	@Autowired
+	private MemberServiceImpl memberService;
 	/**
-	 * íšŒì›ê°€ì… ì„±ê³µ
+	 * ·Î±×ÀÎ ¼º°ø
 	 * @return
 	 */
 	@RequestMapping(value="/join_success.do", method=RequestMethod.GET)
@@ -19,7 +32,7 @@ public class JoinController {
 		return mv;
 	}
 	/**
-	 * íšŒì›ê°€ì… 
+	 * È¸¿ø°¡ÀÔ 
 	 * @return
 	 */
 	@RequestMapping(value="/join.do", method=RequestMethod.GET)
@@ -30,7 +43,15 @@ public class JoinController {
 		return mv;
 	}
 	/**
-	 * íšŒì›ê°€ì… ì„ íƒ
+	 * È¸¿ø°¡ÀÔ Ã³¸®
+	 * @return
+	 */
+	@RequestMapping(value="/join_proc.do", method=RequestMethod.POST)
+	public ModelAndView join_proc(IdusMemberVO vo) {
+		return memberService.getResultJoin(vo);
+	}
+	/**
+	 * È¸¿ø°¡ÀÔ Á¾·ù ¼±ÅÃ
 	 * @return
 	 */
 	@RequestMapping(value="/join_choice.do", method=RequestMethod.GET)
@@ -39,5 +60,36 @@ public class JoinController {
 		mv.setViewName("join/join_choice");
 		
 		return mv;
+	}
+	
+	/**
+	 * È¸¿ø°¡ÀÔ ÀÎÁõ¹øÈ£ Ã³¸®
+	 * @return
+	 */
+	@RequestMapping(value="/join_certify.do", method=RequestMethod.GET)
+	@ResponseBody
+	public String join_certify(String hp) {
+		Random rd  = new Random();
+        String numStr = "";
+        for(int i=0; i<4; i++) {
+            String random = Integer.toString(rd.nextInt(10));
+            numStr+=random;
+        }
+      
+        System.out.println("ÈŞ´ëÆù ¹øÈ£ : " + hp);
+        System.out.println("ÀÎÁõ¹øÈ£ : " + numStr);
+        certifyService.certifiedPhoneNumber(hp, numStr);
+        return numStr; 
+
+	}
+	
+	/**
+	 * ÀÌ¸ŞÀÏ Áßº¹ Ã¼Å©
+	 */
+	@RequestMapping(value="/emailCheck.do", method=RequestMethod.GET)
+	@ResponseBody
+	public String emailCheck(String email) {
+		return (String.valueOf(memberService.getResultEmailCheck(email)));
+		
 	}
 }

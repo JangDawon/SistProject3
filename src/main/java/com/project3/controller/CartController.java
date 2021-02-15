@@ -1,25 +1,71 @@
 package com.project3.controller;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.project3.service.CartServiceImpl;
+import com.project3.vo.IdusSessionVO;
 
 @Controller
 public class CartController {
-	/**
-	 * 장바구니
-	 */
+	@Autowired
+	private CartServiceImpl cartService;
+	
+	@RequestMapping(value="/cart_order.do", method=RequestMethod.GET)
+	public String cart_order(String purchase_list, String del_price, String total_price) {
+		return "cart/cart_order";
+	}
+	
+	
 	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
-	public String cart() {
-		return "/cart/cart";
+	public ModelAndView cart(HttpSession session) {
+		IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
+		return cartService.getCartList(svo.getUemail());
 	}
 	
 	
-	/**
-	 * 바로구매
-	 */
+	@RequestMapping(value = "/cart_ins.do", method = RequestMethod.GET)
+	public ModelAndView cart_insert(String uemail, String pid, String opt1_qty, String opt2_qty, String opt3_qty) {
+		return cartService.getCartInsert(uemail, pid, Integer.parseInt(opt1_qty), Integer.parseInt(opt2_qty), Integer.parseInt(opt3_qty));
+	}
+	
+	
 	@RequestMapping(value = "/purchase.do", method = RequestMethod.GET)
-	public String purchase() {
-		return "/cart/purchase";
+	public ModelAndView purchase(HttpSession session, String pid) {
+		IdusSessionVO svo = (IdusSessionVO)session.getAttribute("svo");
+		return cartService.getPurchaseList(svo.getUemail(), pid);
 	}
+
+	
+	@RequestMapping(value="/pur_list_del.do", method=RequestMethod.GET)
+	public ModelAndView pur_list_del(String chklist) {	
+		ModelAndView mv = new ModelAndView();
+		
+		//String chklist --> Array
+		StringTokenizer st = new StringTokenizer(chklist, ",");
+		String[] dellist = new String[st.countTokens()];
+		for(int i=0;i<dellist.length;i++) {
+			dellist[i] = st.nextToken();
+		}
+		
+		int result = cartService.getSelectDelete(dellist);
+		
+		mv.setViewName("redirect:/purchase.do");
+		
+		return mv;
+	}
+	
+	@RequestMapping(value="/pur_list_update.do", method=RequestMethod.GET)
+	public String pur_list_update(String cid, String opt, String opt_qty) {
+		return cartService.getListUpdate(cid, opt, opt_qty);
+	}
+	
 }

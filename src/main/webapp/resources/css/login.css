@@ -3,7 +3,7 @@
 	*/
 	
 	*{	
-		font-family:나눔바른고딕 UltraLight;
+		font-family: 'NanumBarunGothic UltraLight';
 	}
 	div.login_content{
 		width:1200px;
@@ -134,4 +134,30 @@
 		border:none;
 		background-color:#FA9354;
 		color:white;
+	}
+	
+/*
+	login_check.jsp
+*/
+	section.join_section label#login_check_head{
+	font-size:16px;
+	font-weight:bold;
+	padding:10px 0 20px 40px;
+	display:inline-block;
+	}
+/*
+	login_check_result.jsp
+*/
+	section#login_check_result button{
+		display:inline-block;
+		width:120px;
+		margin:20px;
+		border:none;
+		background-color:#FA9354;
+		color:white;
+		height:40px;
+	}
+	section#login_check_result div.join_success{
+		text-align:center;
+		padding:10px 0;
 	}

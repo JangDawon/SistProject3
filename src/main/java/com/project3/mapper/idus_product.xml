@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="mapper.product">
+	
+	<update id="update_qty" parameterType="java.lang.String">
+		update idus_product set product_total = product_total + 1 where pid=#{pid}
+	</update>
+	
+	<select id="indexnew" resultType="com.project3.vo.IdusProductVO">
+		select * from (select rownum rno, pid, psfile1, sname, ptitle, to_char(pdate, 'yyyy/mm/dd') pdate
+			from (select * from idus_product order by pdate desc))
+		where rno between 1 and 10
+	</select>
+	
+	<select id="indexbest" resultType="com.project3.vo.IdusProductVO">
+		select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
+			from (select * from idus_product order by product_total desc))
+		where rno between 1 and 10
+	</select>
+	
+	<select id="newlist" resultType="com.project3.vo.IdusProductVO">
+		select pid, psfile1, sname, ptitle, to_char(pdate, 'yyyy/mm/dd') pdate
+			from (select * from idus_product order by pdate desc)
+		where pdate between sysdate-3 and sysdate
+	</select>
+	
+	<select id="bestprodlist" resultType="com.project3.vo.IdusProductVO">
+		select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
+			from (select * from idus_product where pcat = '음식' order by product_total desc))
+		where rno between 1 and 5 union
+		select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
+			from (select * from idus_product where pcat = '기타' order by product_total desc))
+		where rno between 1 and 5 union
+    	select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
+			from (select * from idus_product where pcat = '악세사리' order by product_total desc))
+		where rno between 1 and 5 union
+    	select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
+			from (select * from idus_product where pcat = '패션, 잡화' order by product_total desc))
+		where rno between 1 and 5 union
+    	select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
+			from (select * from idus_product where pcat = '인테리어 소품' order by product_total desc))
+		where rno between 1 and 5
+	</select>
+	
+	<select id="list" resultType="com.project3.vo.IdusProductVO">
+		select rownum rno, pid, pcat, sname, semail, ptitle, pcontent, pprice, to_char(pprice, '999,999') pprice_char, opt1, opt1_price, opt2, opt2_price, opt3, opt3_price,
+		pfile1, psfile1, pfile2, psfile2, pfile3, psfile3, pdate, product_total from idus_product order by pdate desc
+	</select>
+	
+	<select id="plist" parameterType="map" resultType="com.project3.vo.IdusProductVO">
+		select * from (select rownum rno, pid, pcat, sname, semail, ptitle, pcontent, pprice, to_char(pprice, '999,999') pprice_char, opt1, opt1_price, opt2, opt2_price, opt3, opt3_price,
+		pfile1, psfile1, pfile2, psfile2, pfile3, psfile3, pdate, product_total from (select * from idus_product order by pdate desc))
+    where rno between #{start} and #{end}
+	</select>
+	
+	<delete id="deleteAll">
+		delete from idus_product
+	</delete>
+	
+	<delete id="deleteSelect" parameterType="java.lang.reflect.Array">
+		delete from idus_product where pid in
+		
+		<foreach item="item" index="index" collection="array"
+	      open="(" separator="," close=")">
+	      #{item}
+	    </foreach>
+	</delete>
+	
+	<select id="content" parameterType="java.lang.String" resultType="com.project3.vo.IdusProductVO">
+		select pid, pcat, sname, semail, ptitle, pcontent, pprice, to_char(pprice, '999,999') pprice_char, opt1, opt1_price, to_char(opt1_price, '999,999') opt1_price_char, 
+		opt2, opt2_price, to_char(opt2_price, '999,999') opt2_price_char, opt3, opt3_price, to_char(opt3_price, '999,999') opt3_price_char,
+		pfile1, psfile1, pfile2, psfile2, pfile3, psfile3, to_char(pdate, 'yyyy.mm.dd') pdate, product_total from idus_product where pid=#{id}
+	</select>
+	
+	<select id="count" resultType="java.lang.Integer">
+		select count(*) from idus_product
+	</select>
+	
+	<insert id="insert" parameterType="com.project3.vo.IdusProductVO">
+		insert into idus_product values('p_'||idus_product_seq.nextval, #{pcat}, #{sname}, #{semail}, #{ptitle}, #{pcontent}, #{pprice}, #{opt1}, #{opt1_price}, #{opt2}
+		, #{opt2_price}, #{opt3}, #{opt3_price}, #{pfile1}, #{psfile1}
+		<choose>
+			<when test="pfile2 != null">
+				<choose>
+					<when test="pfile3 != null">
+						, #{pfile2}, #{psfile2}, #{pfile3}, #{psfile3}
+					</when>
+					<otherwise>
+						, #{pfile2}, #{psfile2}, '', ''
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				,'', '', '', ''
+			</otherwise>
+		</choose>
+		,sysdate, 0)
+	</insert>
+	
+	<update id="update" parameterType="com.project3.vo.IdusProductVO">
+		update idus_product set pcat=#{pcat}, sname=#{sname}, semail=#{semail}, ptitle=#{ptitle}, pcontent=#{pcontent}, 
+		pprice=#{pprice}, opt1=#{opt1}, opt1_price=#{opt1_price}, 
+		opt2=#{opt2}, opt2_price=#{opt2_price}, opt3=#{opt3}, opt3_price=#{opt3_price}
+		<if test="pfile1 != null">
+			,pfile1=#{pfile1}, psfile1=#{psfile1}
+		</if>
+		<if test="pfile2 != null">
+			, pfile2=#{pfile2}, psfile2=#{psfile2}
+		</if>
+		<if test="pfile3 != null">
+			, pfile3=#{pfile3}, psfile3=#{psfile3}
+		</if>
+		where pid=#{pid}
+	</update>
+	
+	<select id="ajaxlist" parameterType="map" resultType="com.project3.vo.IdusProductVO">
+		select pid, pcat, psfile1, sname, ptitle, to_char(pprice, '9,999,999') pprice_char, to_char(pdate,'yy/mm/dd') pdate
+		  from (select * from idus_product order by 
+		 <if test="sname == 'new'">
+		 	pdate desc
+		 </if> 
+		 <if test="sname == 'purchase'">
+		 	product_total desc
+		 </if> 
+		 <if test="sname == 'low'">
+		 	pprice asc
+		 </if> 
+		 <if test="sname == 'high'">
+		 	pprice desc
+		 </if>
+		 ) where pcat =#{pcat} 
+	</select>
+	
+	<select id="searchlist" parameterType="map" resultType="com.project3.vo.IdusProductVO">
+		select pid, pcat, psfile1, sname, ptitle, to_char(pprice, '9,999,999') pprice_char, to_char(pdate, 'yy/mm/dd') pdate
+			from (select * from idus_product order by 
+		<if test="sname == 'new'">
+			pdate desc
+		</if> 
+		<if test="sname == 'purchase'">
+			product_total desc
+		</if> 
+		<if test="sname == 'low'">
+			pprice asc
+		</if> 
+		<if test="sname == 'high'">
+			pprice desc
+		</if>
+		) where ptitle like '%' || #{search} || '%'
+	</select>
+	
+</mapper>
+
+
+
+

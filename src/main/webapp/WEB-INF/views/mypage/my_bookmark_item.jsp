@@ -4,17 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 페이페이지</title>
-<link rel="stylesheet"href="http://localhost:9000/sistproject3/css/sistproject3.css">
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 마이페이지</title>
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/woohyun.css">
 </head>
 <body>
 	<!-- aside -->
 	<jsp:include page="../header.jsp" />
 	
 
-	<div class="content">
+	<div class="mypage_content">
 		<!-- aside -->
-		<jsp:include page="mypage_aside.jsp"></jsp:include>
+		<jsp:include page="mypage_aside.jsp"><jsp:param
+				name="psfile" value="${psfile }" /></jsp:include>
 		<h2>즐겨찾기</h2>
 		<dl class="bookmark_list">
 			<dt>

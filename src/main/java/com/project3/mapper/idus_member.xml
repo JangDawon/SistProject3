@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.member">
+	<!-- insert:join -->
+	<insert id="join" parameterType="com.project3.vo.IdusMemberVO">
+		insert into idus_member values(
+		#{uemail}, #{upass}, #{uname}, #{cp}, '', '', '', #{aggrsms},
+		#{aggremail}, '', '', sysdate
+		)
+	</insert>
+
+	<select id="login" parameterType="com.project3.vo.IdusMemberVO"
+		resultType="com.project3.vo.IdusSessionVO">
+		select count(*) result, uemail, upass, uname, cp, addr1, addr2, addr3,
+		aggrsms, aggremail, udate, pfile, psfile from idus_member
+		WHERE uemail=#{uemail} AND upass=#{upass} group by uname, uemail, upass,
+		uname, cp, addr1, addr2, addr3, aggrsms, aggremail, udate, pfile,
+		psfile
+	</select>
+
+	<update id="update" parameterType="com.project3.vo.IdusSessionVO">
+		update idus_member
+		set uname = #{uname}, cp =#{cp}, addr1=#{addr1},addr2 =#{addr2},addr3 = #{addr3},aggrsms = #{aggrsms}, aggremail = #{aggremail}
+		<if test="pfile !=null">
+			,pfile =#{pfile},psfile=#{psfile}
+		</if>
+		where uemail =#{uemail}
+	</update>
+	<!-- select:list -->
+	<select id="list" parameterType="map"
+		resultType="com.project3.vo.IdusMemberVO">
+		select * from (select rownum rno, uemail, upass, uname, cp,
+		addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile, to_char(udate,
+		'yyyy.mm.dd') udate
+		from (select * from idus_member order by udate
+		desc)) where rno between
+		#{start} and #{end}
+	</select>
+
+	<!-- select:count -->
+	<select id="count" resultType="java.lang.Integer">
+		select count(*) from idus_member
+	</select>
+
+	<!-- delete:member all -->
+	<delete id="deleteAll">
+		delete from idus_member
+	</delete>
+
+	<!-- delete:member select -->
+	<delete id="deleteSelect">
+		delete from idus_member where uemail in
+
+		<foreach item="item" index="index" collection="array" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<!-- select:emailCheck -->
+	<select id="emailCheck" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		select count(*) result from idus_member where
+		uemail=#{email}
+	</select>
+
+	<!-- select:loginCheck -->
+	<select id="checklist" parameterType="java.lang.String"
+		resultType="com.project3.vo.IdusMemberVO">
+		select uemail, upass from idus_member where cp=#{hp}
+	</select>
+	
+	<!-- select:UserContent -->
+	<select id="userContent" parameterType="java.lang.String" resultType="com.project3.vo.IdusMemberVO">
+		select uemail, upass, uname, cp, addr1, addr2, addr3, aggrsms, aggremail, pfile, psfile, to_char(udate, 'yyyy.mm.dd') udate 
+		from idus_member where uemail=#{uid} 
+	</select>
+	
+	<select id = "content" parameterType = "java.lang.String" resultType = "com.project3.vo.IdusMemberVO">
+		select uname,uemail,addr1,addr2,addr3,cp,aggrsms,aggremail,pfile,psfile from idus_member where uemail = #{email} 
+	</select>
+	
+	<select id="psfile" parameterType = "java.lang.String" resultType="java.lang.String">
+		select psfile from idus_member where uemail=#{uemail}
+	</select>
+	
+	<delete id="delete" parameterType="java.lang.String">
+		delete from idus_member where uemail= #{uemail}
+	</delete>
+
+		<select id="orderList" parameterType="map" resultType="com.project3.vo.IdusOrderVO">
+		select * from (select rownum rno, o.oid,o.total_price, to_char(o.rdate, 'yyyy.mm.dd') rdate, p.pprice,p.ptitle, p.pid, p.psfile1 ,p.opt1,o.opt1_qty,p.OPT1_PRICE,p.OPT2_PRICE,p.OPT3_PRICE
+		<if test = '"opt2 != null" and "opt2_qty eq 0"'></if>,p.opt2,o.opt2_qty 
+		<if test = '"opt3 != null" and "opt3_qty eq 0"'></if>,p.opt3,o.opt3_qty 
+		from (select * from idus_order2 order by rdate desc) o, idus_product p where o.pid=p.pid and uemail = #{uemail} and o.cancel is null) where rno between #{start} and #{end}
+	</select>
+	
+		<select id="cancelList" parameterType="map" resultType="com.project3.vo.IdusOrderVO">
+		select * from (select rownum rno, o.oid, o.total_price, to_char(o.rdate, 'yyyy.mm.dd') rdate,to_char(o.cdate, 'yyyy.mm.dd') cdate, p.ptitle, p.pid, p.psfile1  
+		from (select * from idus_order2 order by rdate desc) o, idus_product p where o.pid=p.pid and uemail = #{uemail} and o.cancel ='on') where rno between #{start} and #{end}
+	
+	</select>
+		<select id="orderCount" resultType="java.lang.Integer">
+		select count(*) from idus_order
+	</select>
+	
+	<update id = "orderCancel" parameterType = "java.lang.String">
+		update idus_order2 set cancel = 'on' , cdate =sysdate where oid = #{oid}
+	</update>
+	
+	<delete id = "orderDelete" parameterType = "java.lang.String">
+		delete from idus_order2 where oid = #{oid}
+	</delete>
+	
+	
+	
+</mapper>

@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/woohyun.css">
 </head>
 <body id="admin" class="admin">
 
@@ -11,8 +13,15 @@
 	<aside class="mypage_info">
 		<div class="mypage_menu">
 			<div class="admin_profile">
-				<img src="http://localhost:9000/sistproject3/images/logo.jpg">
-				<p>홍길동님</p>
+				<c:choose>
+					<c:when test="${param.psfile ne null }">
+						<img src="http://localhost:9000/sistproject3/resources/upload/${param.psfile}">
+					</c:when>
+					<c:otherwise>
+						<img src="http://localhost:9000/sistproject3/images/logo.jpg">
+					</c:otherwise>
+				</c:choose>	
+				<p>${sessionScope.svo.uname}</p>
 			</div>
 			<p class="am">MY MENU</p>
 			<nav>
@@ -31,7 +40,6 @@
 					<span>관심리스트</span>
 				</b>
 				<a href="my_bookmark_item.do">즐겨찾기</a><br>
-				<a href="my_bookmark_writer.do">좋아하는 작가</a>
 				<hr class="h">
 				<b>
 					<span>내 정보</span>

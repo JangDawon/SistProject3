@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 관리자</title>
-<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/jihye.css">
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/sistproject3.css">
-<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
 </head>
 <body id="admin" class="admin">
 
@@ -15,8 +14,16 @@
 	<aside class="admin_info">
 		<div class="admin_menu">
 			<div class="admin_profile">
-				<img src="http://localhost:9000/sistproject3/images/logo.jpg">
-				<p>관리자</p>
+				<c:choose>
+					<c:when test="${param.psfile ne null }">
+						<img src="http://localhost:9000/sistproject3/resources/upload/${param.psfile}">
+					</c:when>
+					<c:otherwise>
+						<img src="http://localhost:9000/sistproject3/images/logo.jpg">
+					</c:otherwise>
+				</c:choose>	
+				
+				<p>${sessionScope.svo.uname}</p>
 			</div>
 			<p class="am">Admin Menu</p>
 			<nav>
