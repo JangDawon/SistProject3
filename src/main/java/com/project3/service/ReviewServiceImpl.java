@@ -1,19 +1,17 @@
 package com.project3.service;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.UUID;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.dao.IdusMemberDAO;
+import com.project3.dao.IdusProductDAO;
 import com.project3.dao.IdusReviewDAO;
+import com.project3.vo.IdusProductVO;
 import com.project3.vo.IdusReviewVO;
 
 @Service("reviewService")
@@ -23,6 +21,9 @@ public class ReviewServiceImpl implements BoardService {
 
 	@Autowired
 	private IdusMemberDAO memberDAO;
+	
+	@Autowired
+	private IdusProductDAO productDAO;
 
 	public Object getList() {
 		// TODO Auto-generated method stub
@@ -38,6 +39,8 @@ public class ReviewServiceImpl implements BoardService {
 			rvo.setRsfile(uuid + "_" + rvo.getFile1().getOriginalFilename());
 
 			boolean result = reviewDAO.getInsert(rvo);
+			IdusProductVO pvo = reviewDAO.getAvg(rvo.getPid());	//해당 pid, product_avg 가져오기
+			productDAO.getInsertAvg(pvo);	//해당하는 pid, product_avg값만 업데이트
 			if (result) {
 				try {
 					File file = new File(rvo.getSavepath() + rvo.getRsfile());

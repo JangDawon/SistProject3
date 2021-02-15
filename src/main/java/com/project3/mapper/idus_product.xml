@@ -5,6 +5,9 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="mapper.product">
+	<update id="insert_avg" parameterType="map">
+        update idus_product set product_avg = #{product_avg} where pid = #{pid}
+	</update>
 	
 	<update id="update_qty" parameterType="java.lang.String">
 		update idus_product set product_total = product_total + 1 where pid=#{pid}
@@ -98,7 +101,7 @@
 				,'', '', '', ''
 			</otherwise>
 		</choose>
-		,sysdate, 0)
+		,sysdate, 0, 0)
 	</insert>
 	
 	<update id="update" parameterType="com.project3.vo.IdusProductVO">
