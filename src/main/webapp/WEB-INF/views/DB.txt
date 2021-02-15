@@ -1,4 +1,4 @@
-/* 아이디어스 리뷰테이블&SEQUENCE (우현))
+/* 아이디어스 리뷰테이블&SEQUENCE (우현)
 * 수정일 : 2021.02.13 오후 10시 20분
 */
 CREATE TABLE IDUS_REVIEW(
