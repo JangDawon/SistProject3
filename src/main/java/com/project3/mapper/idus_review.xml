@@ -20,8 +20,8 @@
 	</select>
 	
 	<select id="content" parameterType="java.lang.String" resultType="com.project3.vo.IdusReviewVO">
-		select r.rid, r.pid, p.ptitle, r.uemail, r.oid, r.rfile, r.rsfile, r.rcontent, r.rscore, to_char(r.rdate, 'yyyy.mm.dd') rdate 
-		from idus_review r, idus_product p where r.pid=p.pid and rid=#{id}
+		select r.rid, r.pid, p.ptitle, r.uemail, r.oid, o.onum, r.rfile, r.rsfile, r.rcontent, r.rscore, to_char(r.rdate, 'yyyy.mm.dd') rdate 
+		from idus_review r, idus_product p, idus_order2 o where r.pid=p.pid and rid=#{id} and o.oid=r.oid
 	</select>
 	
 	<delete id="deleteAll">

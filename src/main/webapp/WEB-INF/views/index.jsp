@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,29 +16,36 @@
 <script>
 	$(document).ready(function(){
 		var uemail = "${sessionScope.svo.uemail}";
+		ajax_index_best();
+		ajax_index_new();
 		
 		$(document).on("click",".favorite_btn",function(){
 			var btn_pid = $(this).val(); 
 			var wish_img_id = "#"+btn_pid+"_star";
+			var wish_new_img_id = "#"+btn_pid+"_star_new";
 			var wish_img_attr = $(wish_img_id).attr("src"); 
+			var wish_new_img_attr = $(wish_new_img_id).attr("src"); 
 			if(uemail !="") {
-				if(wish_img_attr == "http://localhost:9000/sistproject3/images/favorite.png"){
+				if(wish_img_attr == "http://localhost:9000/sistproject3/images/favorite.png" || wish_new_img_attr == "http://localhost:9000/sistproject3/images/favorite.png"){
 					$(wish_img_id).attr('src','http://localhost:9000/sistproject3/images/star2.png');
+					$(wish_new_img_id).attr('src','http://localhost:9000/sistproject3/images/star2.png');
 					$.ajax({
 						url:"wish_insert.do?uemail=${sessionScope.svo.uemail}&pid="+btn_pid,
 						success:function(result){
 							if(result == 1){
-								//$("div.category_content").text("");
-								ajax_list();
+								ajax_index_best();
+								ajax_index_new();
 							}		 
 						}
 					});//ajax
 				}else{
 					$(wish_img_id).attr('src','http://localhost:9000/sistproject3/images/favorite.png');
+					$(wish_new_img_id).attr('src','http://localhost:9000/sistproject3/images/favorite.png');
 					$.ajax({
 						url:"wish_delete.do?uemail=${sessionScope.svo.uemail}&pid="+btn_pid,
 						success:function(result){
-						 
+							ajax_index_best();
+							ajax_index_new();
 						}
 					});//ajax
 				}
@@ -47,6 +55,113 @@
 			}
 		});
 		
+		
+		function ajax_index_best(){
+			$.ajax({
+				url:"index_best_ajax.do?uemail=${sessionScope.svo.uemail}",
+				success:function(result){
+					var jdata = JSON.parse(result);
+					var output = "";
+					
+					for(var i in jdata.jlist){ 
+						output += '<div class="best_prod">';
+						output += '<div>';
+						output += '<div class="best_prod_img">';
+						output += '<div>';
+						var n = 0;
+						for(var j in jdata.jlist2){
+							if(jdata.jlist[i].pid == jdata.jlist2[j].pid){
+								output += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+								output += '<img src="http://localhost:9000/sistproject3/images/star2.png" id="'+jdata.jlist[i].pid+'_star">';
+								output += '</button>';
+								n = 1;
+							}
+						}
+						if(n != 1){
+							output += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+							output += '<img src="http://localhost:9000/sistproject3/images/favorite.png" id="'+jdata.jlist[i].pid+'_star">';
+							output += '</button>';
+						}
+						output += '</div>';
+						output += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+						output += '<div class="psfile_img">';
+						output += '<img src="http://localhost:9000/sistproject3/resources/upload/'+jdata.jlist[i].psfile1+'">';
+						output += '</div>';
+						output += '</a>';
+						output += '</div>';
+						output += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+						output += '<div class="best_prod_info">';
+						output += '<div class="prod_info_name">'+jdata.jlist[i].sname+'</div>';
+						output += '<div class="prod_info_title">'+jdata.jlist[i].ptitle+'</div>';
+						output += '</div>';
+						output += '<div class="best_prod_info_review">';
+						output += '<div class="rv">';
+						output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
+						output += '<span> 4.5</span>';
+						output += '</div>';
+						output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
+						output += '</div>';
+						output += '</a>';
+						output += '</div>';
+						output += '</div>';
+					}
+					$("#product_content_best").text("").append(output);
+				}
+			});
+		}
+		
+		function ajax_index_new(){
+			$.ajax({
+				url:"index_new_ajax.do?uemail=${sessionScope.svo.uemail}",
+				success:function(result){
+					var jdata = JSON.parse(result);
+					var output = "";
+					for(var i in jdata.jlist){ 
+						output += '<div class="new_prod">';
+						output += '<div>';
+						output += '<div class="new_prod_img">';
+						output += '<div>';
+						var n = 0;
+						for(var j in jdata.jlist2){
+							if(jdata.jlist[i].pid == jdata.jlist2[j].pid){
+								output += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+								output += '<img src="http://localhost:9000/sistproject3/images/star2.png" id="'+jdata.jlist[i].pid+'_star_new">';
+								output += '</button>';
+								n = 1;
+							}
+						}
+						if(n != 1){
+							output += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+							output += '<img src="http://localhost:9000/sistproject3/images/favorite.png" id="'+jdata.jlist[i].pid+'_star_new">';
+							output += '</button>';
+						}
+						output += '</div>';
+						output += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+						output += '<div class="psfile_img">';
+						output += '<img src="http://localhost:9000/sistproject3/resources/upload/'+jdata.jlist[i].psfile1+'">';
+						output += '</div>';
+						output += '</a>';
+						output += '</div>';
+						output += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+						output += '<div class="new_prod_info">';
+						output += '<div class="prod_info_name">'+jdata.jlist[i].sname+'</div>';
+						output += '<div class="prod_info_title">'+jdata.jlist[i].ptitle+'</div>';
+						output += '</div>';
+						output += '<div class="new_prod_info_review">';
+						output += '<div class="rv">';
+						output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
+						output += '<span> 4.5</span>';
+						output += '</div>';
+						output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
+						output += '</div>';
+						output += '</a>';
+						output += '</div>';
+						output += '</div>';
+					}
+					$("#product_content_new").text("").append(output);
+				}
+			});
+		}
 	});
 </script>
 </head>
@@ -115,49 +230,8 @@
                     <span>인기작품</span>
                 </a>
             </div>
-	        <section class="product_content">
-        		<c:forEach var="vo" items="${list2}">
-        		<div class="best_prod">
-					<div>
-						<div class="best_prod_img">
-							<div>
-							<c:forEach var="wvo" items="${wishlist}">
-								<c:choose>
-								<c:when test="${vo.pid eq wvo.pid && sessionScope.svo.uemail eq wvo.uemail}">
-									<button class="favorite_btn" value="${vo.pid }">
-										<img src="http://localhost:9000/sistproject3/images/star2.png" id="${vo.pid }_star">
-									</button>
-								</c:when>
-								<c:otherwise>
-									<button class="favorite_btn" value="${vo.pid }">
-										<img src="http://localhost:9000/sistproject3/images/favorite.png" id="${vo.pid }_star">
-									</button>
-								</c:otherwise>
-								</c:choose>
-							</c:forEach>
-							</div>
-							<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
-								<div class="psfile_img">
-									<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">
-								</div>
-							</a>
-						</div>
-						<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
-							<div class="best_prod_info">
-								<div class="prod_info_name">${vo.sname }</div>
-								<div class="prod_info_title">${vo.ptitle }</div>
-							</div>
-							<div class="best_prod_info_review">
-								<div class="rv">
-									<img src="http://localhost:9000/sistproject3/images/star2.png">
-									<span> 4.5</span>
-								</div>
-								<div class="rv2">리뷰</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				</c:forEach>
+	        <section class="product_content" id="product_content_best">
+
 			</section>
 			<a href="http://localhost:9000/sistproject3/product_best.do" class="ui_btn-large">인기작품  더보기</a>
 		</section>	
@@ -168,51 +242,9 @@
                     <span>최신작품</span>
                 </a>
             </div>
-		    <section class="product_content">
-        		<c:forEach var="vo" items="${list1}">
-        		<div class="new_prod">
-					<div>
-						<div class="new_prod_img">
-							<div>
-							<c:forEach var="wvo" items="${wishlist}">
-								<c:choose>
-								<c:when test="${vo.pid eq wvo.pid && sessionScope.svo.uemail eq wvo.uemail}">
-									<button class="favorite_btn" value="${vo.pid }">
-										<img src="http://localhost:9000/sistproject3/images/star2.png" id="${vo.pid }_star">
-									</button>
-								</c:when>
-								<c:otherwise>
-									<button class="favorite_btn" value="${vo.pid }">
-										<img src="http://localhost:9000/sistproject3/images/favorite.png" id="${vo.pid }_star">
-									</button>
-								</c:otherwise>
-								</c:choose>
-							</c:forEach>
-							</div>
-							<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
-								<div>
-									<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">
-								</div>
-							</a>
-						</div>
-						<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
-							<div class="best_prod_info">
-								<div class="prod_info_name">${vo.sname }</div>
-								<div class="prod_info_title">${vo.ptitle }</div>
-							</div>
-							<div class="best_prod_info_review">
-								<div class="rv">
-									<img src="http://localhost:9000/sistproject3/images/star2.png">
-									<span> 4.5</span>
-								</div>
-								<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				</c:forEach>
-				<a href="http://localhost:9000/sistproject3/product_new.do" class="ui_btn-large">최신작품  더보기</a>
+		    <section class="product_content" id="product_content_new">
 			</section>
+			<a href="http://localhost:9000/sistproject3/product_new.do" class="ui_btn-large">최신작품  더보기</a>
 		</section>	
 		
 		<section id="popular_artist" class="indexpage_section">
