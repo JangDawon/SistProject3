@@ -12,7 +12,43 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+<script>
+	$(document).ready(function(){
+		var uemail = "${sessionScope.svo.uemail}";
+		
+		$(document).on("click",".favorite_btn",function(){
+			var btn_pid = $(this).val(); 
+			var wish_img_id = "#"+btn_pid+"_star";
+			var wish_img_attr = $(wish_img_id).attr("src"); 
+			if(uemail !="") {
+				if(wish_img_attr == "http://localhost:9000/sistproject3/images/favorite.png"){
+					$(wish_img_id).attr('src','http://localhost:9000/sistproject3/images/star2.png');
+					$.ajax({
+						url:"wish_insert.do?uemail=${sessionScope.svo.uemail}&pid="+btn_pid,
+						success:function(result){
+							if(result == 1){
+								//$("div.category_content").text("");
+								ajax_list();
+							}		 
+						}
+					});//ajax
+				}else{
+					$(wish_img_id).attr('src','http://localhost:9000/sistproject3/images/favorite.png');
+					$.ajax({
+						url:"wish_delete.do?uemail=${sessionScope.svo.uemail}&pid="+btn_pid,
+						success:function(result){
+						 
+						}
+					});//ajax
+				}
+			}else {
+				alert("로그인을 먼저 진행해 주세요!");
+				location.href='http://localhost:9000/sistproject3/login.do';
+			}
+		});
+		
+	});
+</script>
 </head>
 <body>
 	<!-- header -->
@@ -82,18 +118,32 @@
 	        <section class="product_content">
         		<c:forEach var="vo" items="${list2}">
         		<div class="best_prod">
-					<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
+					
 						<div>
 							<div class="best_prod_img">
 								<div>
-									<button class="favorite_btn">
-										<img src="http://localhost:9000/sistproject3/images/favorite.png">
-									</button>
+								<c:forEach var="wvo" items="${wishlist}">
+									<c:choose>
+									<c:when test="${vo.pid eq wvo.pid && sessionScope.svo.uemail eq wvo.uemail}">
+										<button class="favorite_btn" value="${vo.pid }">
+											<img src="http://localhost:9000/sistproject3/images/star2.png" id="${vo.pid }_star">
+										</button>
+									</c:when>
+									<c:otherwise>
+										<button class="favorite_btn" value="${vo.pid }">
+											<img src="http://localhost:9000/sistproject3/images/favorite.png" id="${vo.pid }_star">
+										</button>
+									</c:otherwise>
+									</c:choose>
+								</c:forEach>
 								</div>
+								<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
 								<div>
 									<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">
 								</div>
+								</a>
 							</div>
+							<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
 							<div class="best_prod_info">
 								<div class="prod_info_name">${vo.sname }</div>
 								<div class="prod_info_title">${vo.ptitle }</div>
@@ -104,9 +154,10 @@
 									<span> 4.5</span>
 								</div>
 								<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
+							</div>
+							</a>
 						</div>
-						</div>
-					</a>
+					
 				</div>
 				</c:forEach>
 			</section>
@@ -122,31 +173,45 @@
 		    <section class="product_content">
         		<c:forEach var="vo" items="${list1}">
         		<div class="new_prod">
-					<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
 						<div>
 							<div class="new_prod_img">
 								<div>
-									<button class="favorite_btn">
-										<img src="http://localhost:9000/sistproject3/images/favorite.png">
-									</button>
+								<c:forEach var="wvo" items="${wishlist}">
+									<c:choose>
+									<c:when test="${vo.pid eq wvo.pid && sessionScope.svo.uemail eq wvo.uemail}">
+										<button class="favorite_btn" value="${vo.pid }">
+											<img src="http://localhost:9000/sistproject3/images/star2.png" id="${vo.pid }_star">
+										</button>
+									</c:when>
+									<c:otherwise>
+										<button class="favorite_btn" value="${vo.pid }">
+											<img src="http://localhost:9000/sistproject3/images/favorite.png" id="${vo.pid }_star">
+										</button>
+									</c:otherwise>
+									</c:choose>
+								</c:forEach>
 								</div>
+								<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
 								<div>
 									<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">
 								</div>
+								</a>
 							</div>
-							<div class="new_prod_info">
+							<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">
+							<div class="best_prod_info">
 								<div class="prod_info_name">${vo.sname }</div>
 								<div class="prod_info_title">${vo.ptitle }</div>
 							</div>
-							<div class="new_prod_info_review">
+							<div class="best_prod_info_review">
 								<div class="rv">
 									<img src="http://localhost:9000/sistproject3/images/star2.png">
 									<span> 4.5</span>
 								</div>
 								<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>
 							</div>
+							</a>
 						</div>
-					</a>
+					
 				</div>
 				</c:forEach>
 				<a href="http://localhost:9000/sistproject3/product_new.do" class="ui_btn-large">최신작품  더보기</a>
