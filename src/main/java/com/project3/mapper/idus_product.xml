@@ -26,8 +26,8 @@
 	</select>
 	
 	<select id="newlist" resultType="com.project3.vo.IdusProductVO">
-		select pid, psfile1, sname, ptitle, to_char(pdate, 'yyyy/mm/dd') pdate
-			from (select * from idus_product order by pdate desc)
+		select * from (select p.pid, p.psfile1, p.sname, p.ptitle, to_char(p.pdate, 'yyyy/mm/dd') pdate, r.rcontent
+			from idus_product p left join idus_review r on p.pid = r.pid order by pdate desc)
 		where pdate between sysdate-3 and sysdate
 	</select>
 	

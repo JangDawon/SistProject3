@@ -24,18 +24,20 @@
 								output += '<div class="new_prod">';
 								output += '<div class="new_prod_img">';
 								output += '<div>';
-								output += '<button class="favorite_btn" value="' + jdata.jlist[i].pid + '">';
 								var n = 0;
 								for(var j in jdata.jlist2){
 									if(jdata.jlist[i].pid == jdata.jlist2[j].pid){
-										output += '<img src="http://localhost:9000/sistproject3/images/star2.png" id="'+jdata.jlist[i].pid+'"_star">';
-										n=1;
+										output += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+										output += '<img src="http://localhost:9000/sistproject3/images/star2.png" id="'+jdata.jlist[i].pid+'_star">';
+										output += '</button>';
+										n = 1;
 									}
 								}
 								if(n!=1){
-									output += '<img src="http://localhost:9000/sistproject3/images/favorite.png" id="'+jdata.jlist[i].pid+'"_star">';
+									output += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+									output += '<img src="http://localhost:9000/sistproject3/images/favorite.png" id="'+jdata.jlist[i].pid+'_star">';
+									output += '</button>';
 								}
-								output += '</button>';
 								output += '</div>';
 								output += '<a href="http://localhost:9000/sistproject3/product.do?pid='+ jdata.jlist[i].pid +'">';
 								output += '<div class="psfile_img">';
@@ -48,9 +50,9 @@
 								output += '<div class="new_prod_info_review">';
 								output += '<div class="rv">';
 								output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
-								output += '<span> 4.5</span>';
+								output += '<span style="margin:0px 0px 0px 5px; font-size:14px;">'+jdata.jlist[i].product_avg+'</span>';
 								output += '</div>';
-								output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
+								output += '<div class="rv2">'+jdata.jlist[i].rcontent+'</div>';
 								output += '</div>';
 								output += '</a>';
 								output += '</div>';

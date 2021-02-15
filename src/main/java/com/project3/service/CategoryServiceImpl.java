@@ -134,6 +134,8 @@ public class CategoryServiceImpl implements CategoryService{
 			jobj.addProperty("ptitle", vo.getPtitle());
 			jobj.addProperty("pprice_char", vo.getPprice_char());
 			jobj.addProperty("pdate", vo.getPdate());
+			jobj.addProperty("product_avg", vo.getProduct_avg());
+			jobj.addProperty("rcontent", vo.getRcontent());
 			
 			jarray.add(jobj);
 		}
