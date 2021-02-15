@@ -102,6 +102,18 @@
 				$("#prod_total_delivery").text("").append(0);
 			}
 			
+			$("input[class='cart_prod_chk']").each(function(index){
+				var pid = $(this).val();
+				
+				if(parseInt($("#" + pid + "_price_total").text()) >= 50000){
+					$("#" + pid + "_del_price").text("0");
+				}else if(count != 0){
+					$("#" + pid + "_del_price").text("").append($("#prod_total_delivery").text());
+				}else{
+					$("#" + pid + "_del_price").text("2600");
+				}
+			});
+			
 		});
 		
 		$("#cart_order").click(function(){
