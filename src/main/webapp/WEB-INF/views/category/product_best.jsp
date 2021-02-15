@@ -34,7 +34,7 @@
 					output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
 					output += '<span> 4.5</span>';
 					output += '</div>';
-					output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
+					output += '<div class="rv2">...</div>';
 					output += '</div></div></a></div>';
 						
 					<c:if test="${vo.pcat=='음식'}"> 
@@ -68,35 +68,35 @@
 		<section class="product_content">
 			<div class="best_prod_title" id="food">
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">음식</a>
-				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">더보기<i class="idus-icon-arrow-right"></i></a>
+				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=음식">더보기</a>
 			</div> 
 		</section>
 		
 		<section class="product_content">
 			<div class="best_prod_title" id="accessory">
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=악세사리">악세사리</a>
-				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=악세사리">더보기<i class="idus-icon-arrow-right"></i></a>
+				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=악세사리">더보기</a>
 			</div> 
 		</section>
 		
 		<section class="product_content">
 			<div class="best_prod_title" id="living">
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=패션, 잡화">패션, 잡화</a>
-				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=패션, 잡화">더보기<i class="idus-icon-arrow-right"></i></a>
+				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=패션, 잡화">더보기</a>
 			</div> 
 		</section>
 		
 		<section class="product_content">
 			<div class="best_prod_title" id="interior">
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=인테리어 소품">인테리어 소품</a>
-				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=인테리어 소품">더보기<i class="idus-icon-arrow-right"></i></a>
+				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=인테리어 소품">더보기</a>
 			</div> 
 		</section>
 		
 		<section class="product_content">
 			<div class="best_prod_title" id="etc">
 				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=기타">기타</a>
-				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=기타">더보기<i class="idus-icon-arrow-right"></i></a>
+				<a href="http://localhost:9000/sistproject3/category_list.do?pcat=기타">더보기</a>
 			</div> 
 		</section>
 
