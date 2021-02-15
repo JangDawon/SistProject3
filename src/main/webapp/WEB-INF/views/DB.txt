@@ -1,3 +1,9 @@
+/*
+	아이디어스 상품 테이블 컬럼 추가(지혜)
+	등록일 : 2021.02.15 오후 6시 49분
+*/
+ALTER TABLE idus_product add(product_avg number);
+
 /* 아이디어스 리뷰테이블&SEQUENCE (우현))
 * 수정일 : 2021.02.13 오후 10시 20분
 */

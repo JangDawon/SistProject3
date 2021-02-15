@@ -5,18 +5,30 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 public class IdusProductVO {
 	String pid,oid, pcat, sname, semail, ptitle, pcontent, pfile1, psfile1, pfile2, psfile2
 	, pfile3, psfile3, pdate, savePath, opt1, opt2, opt3, pprice_char, opt1_price_char, opt2_price_char, opt3_price_char;
+	int rno, pprice, product_total, opt1_price, opt2_price, opt3_price;
+	CommonsMultipartFile file1, file2, file3;
+	CommonsMultipartFile[] file;
+	double product_avg;
+	String rcontent;
+	
+	public double getProduct_avg() {
+		return product_avg;
+	}
+	public void setProduct_avg(double product_avg) {
+		this.product_avg = product_avg;
+	}
+	public String getRcontent() {
+		return rcontent;
+	}
+	public void setRcontent(String rcontent) {
+		this.rcontent = rcontent;
+	}
 	public String getOid() {
 		return oid;
 	}
 	public void setOid(String oid) {
 		this.oid = oid;
 	}
-	int rno, pprice, product_total, opt1_price, opt2_price, opt3_price;
-	CommonsMultipartFile file1, file2, file3;
-	CommonsMultipartFile[] file;
-	
-	
-	
 	public String getOpt1_price_char() {
 		return opt1_price_char;
 	}
