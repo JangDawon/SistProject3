@@ -328,7 +328,9 @@ public class MemberServiceImpl {
 	public ModelAndView getbookmarkList(String uemail) {
 		ModelAndView mv = new ModelAndView();
 		String psfile = memberDAO.getPsfile(uemail);
+		ArrayList<IdusProductVO> list = memberDAO.getbookmarkList();
 		mv.addObject("psfile", psfile);
+		mv.addObject("list",list);
 		mv.setViewName("mypage/my_bookmark_item");
 		return mv;
 	}

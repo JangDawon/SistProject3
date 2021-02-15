@@ -71,7 +71,7 @@ text-align:center;}
 
 		<tr>
 			<td width = 120 class = "img_td"rowspan=2><img class = "p_img" src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }"></td>
-			<td width ="300"class = "title_td"rowspan=2><b>${vo.ptitle }</b><br><span class = "prdt_option">${result}${vo.opt1 }${vo.opt1_qty },${vo.opt2 }${vo.opt2_qty },${vo.opt3 }${vo.opt3_qty }</span></td>
+			<td width ="300"class = "title_td"rowspan=2><b>${vo.ptitle }</b><br><span class = "prdt_option">${result}${vo.opt1 },${vo.opt2 },${vo.opt3 }</span></td>
 			<td width="100"><a href="review_write.do?pid=${vo.pid}&oid=${vo.oid}" onclick = "window.open(this.href, '_blank',' width=460,height= 550,  left=800 top =150 resizeable=no'); return false"><span class = "write_button">리뷰쓰기</span></a></td>
 			<td width ="100"><a href = "orderCancelProc.do?oid=${vo.oid}"><button type  ="submit" id = "cancelBtn" class="cancelBtn" >주문취소</button></a></td>
 		</tr>

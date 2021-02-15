@@ -11,12 +11,18 @@ public class IdusProductVO {
 	public void setOid(String oid) {
 		this.oid = oid;
 	}
-	int rno, pprice, product_total, opt1_price, opt2_price, opt3_price;
+	int rno, pprice, product_total, opt1_price, opt2_price, opt3_price,rscore;
 	CommonsMultipartFile file1, file2, file3;
 	CommonsMultipartFile[] file;
 	
 	
 	
+	public int getRscore() {
+		return rscore;
+	}
+	public void setRscore(int rscore) {
+		this.rscore = rscore;
+	}
 	public String getOpt1_price_char() {
 		return opt1_price_char;
 	}
