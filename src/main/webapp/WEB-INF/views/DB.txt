@@ -1,3 +1,20 @@
+/* 아이디어스 리뷰테이블&SEQUENCE (우현))
+* 수정일 : 2021.02.13 오후 10시 20분
+*/
+CREATE TABLE IDUS_REVIEW(
+RID VARCHAR2(30) PRIMARY KEY,
+PID VARCHAR2(30) REFERENCES IDUS_PRODUCT(PID) ON DELETE CASCADE,
+UEMAIL VARCHAR2(30) REFERENCES IDUS_MEMBER(UEMAIL) ON DELETE CASCADE,
+OID VARCHAR2(100) REFERENCES IDUS_ORDER2(OID),
+RFILE VARCHAR2(50),
+RSFILE VARCHAR2(50),
+RCONTENT VARCHAR2(300) NOT NULL,
+RSCORE NUMBER(10) NOT NULL,
+RDATE DATE);
+
+CREATE SEQUENCE IDUS_REVIEW_SEQ
+  START WITH 1
+  INCREMENT BY 1;
 /* 아이디어스 위시리스트 테이블&SEQUENCE (현주)
 * 수정일 : 2021.02.12 오전 1시 4분
 */
@@ -12,21 +29,21 @@ CREATE SEQUENCE IDUS_WISH_SQE
   INCREMENT BY 1;
 
 /**
-*	아이디어스 상품 테이블 pcontent 사이즈 변경(지혜)
-*	등록일 : 2021.02.15
+*   아이디어스 상품 테이블 pcontent 사이즈 변경(지혜)
+*   등록일 : 2021.02.15
 */
 ALTER TABLE idus_product MODIFY(pcontent VARCHAR2(3000));    
 
 /**
-*	아이디어스 주문 테이블(지혜) -> idus_order2로 만들어서 기존 테이블 삭제 안해도 돼요! db insert에도 다 idus_order2로 해놨습니당:)
-*	등록일 : 2021.02.14 오후 2시 21분
+*   아이디어스 주문 테이블(지혜) -> idus_order2로 만들어서 기존 테이블 삭제 안해도 돼요! db insert에도 다 idus_order2로 해놨습니당:)
+*   등록일 : 2021.02.14 오후 2시 21분
 */
 CREATE TABLE idus_order2(
   oid       VARCHAR2(30) primary key, 
   onum      varchar2(300) not null,
   uemail    varchar2(30) REFERENCES idus_member(uemail) ON DELETE CASCADE,
-  pid		VARCHAR2(20) REFERENCES idus_product(PID) ON DELETE CASCADE,
-  cid		VARCHAR2(20),
+  pid      VARCHAR2(20) REFERENCES idus_product(PID) ON DELETE CASCADE,
+  cid      VARCHAR2(20),
   opt1_qty NUMBER(10),
   opt2_qty NUMBER(10), 
   opt3_qty NUMBER(10), 
@@ -126,23 +143,23 @@ CREATE TABLE idus_product(
 );
 
 /*
-	아이디어스 맴버 테이블 생성(준성)
-	수정일 : 2021.02.03 오전 12시 05분
+   아이디어스 맴버 테이블 생성(준성)
+   수정일 : 2021.02.03 오전 12시 05분
 */
 create table idus_member(
-	UEMAIL varchar2(30) Primary key,
-	UPASS varchar2(15) not null,
-	UNAME varchar2(10) not null,
-	CP varchar2(15) not null,
-	ADDR1 varchar2(100),
-	ADDR2 varchar2(100),
-	ADDR3 varchar2(100),
-	AGGRSMS varchar2(10),
-	AGREE_LIST varchar2(20),
-	AGGREMAIL varchar2(10),
-	PFILE varchar2(100),
-	PSFILE varchar2(100),
-	UDATE date
+   UEMAIL varchar2(30) Primary key,
+   UPASS varchar2(15) not null,
+   UNAME varchar2(10) not null,
+   CP varchar2(15) not null,
+   ADDR1 varchar2(100),
+   ADDR2 varchar2(100),
+   ADDR3 varchar2(100),
+   AGGRSMS varchar2(10),
+   AGREE_LIST varchar2(20),
+   AGGREMAIL varchar2(10),
+   PFILE varchar2(100),
+   PSFILE varchar2(100),
+   UDATE date
 );
 
 /* 아이디어스 공지사항 & 1대1문의 게시판 테이블 생성(지혜) 
@@ -186,7 +203,7 @@ CREATE SEQUENCE IDUS_PRODUCT_SEQ
 CREATE TABLE idus_order(
   oid       VARCHAR2(100) primary key, 
   uemail    varchar2(30) REFERENCES idus_member(uemail) ON DELETE CASCADE,
-  pid		VARCHAR2(20) REFERENCES idus_product(PID) ON DELETE CASCADE,
+  pid      VARCHAR2(20) REFERENCES idus_product(PID) ON DELETE CASCADE,
   PCNT NUMBER(10) NOT NULL, 
   T_PRICE NUMBER(30) NOT NULL, 
   RNAME VARCHAR2(10) NOT NULL, 
