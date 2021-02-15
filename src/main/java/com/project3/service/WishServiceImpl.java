@@ -34,11 +34,10 @@ public class WishServiceImpl implements WishService {
 		int result = wishDAO.getWishDelete(uemail, pid);
 		
 		if(result > 0) {
-			mv.setViewName("redirect:/product.do?pid="+pid);
+			mv.setViewName("redirect:/category/category_list");
 		}else {
 			mv.setViewName("errorPage");
 		}
-		
 		
 		return mv;
 	}
@@ -55,31 +54,5 @@ public class WishServiceImpl implements WishService {
 		return mv;
 	}
 	
-	/*public String getAjaxListWish(String uemail) {
-		ArrayList<IdusWishVO> wishlist = wishDAO.getAjaxListWish(uemail);
-		
-		//list객체의 데이터를 JSON 객체로 변환 --> JSON 라이브러리 설치(gson)
-		JsonArray jarray = new JsonArray();
-		JsonObject jdata = new JsonObject();
-		Gson gson = new Gson();
-		
-		for(IdusWishVO vo : wishlist){
-			JsonObject jobj = new JsonObject();
-
-			jobj.addProperty("wid", vo.getWid());
-			jobj.addProperty("uemail", vo.getUemail());
-			jobj.addProperty("pid", vo.getPid());
-			jobj.addProperty("wdate", vo.getWdate());
-			
-			jarray.add(jobj);
-		}
-		
-		jdata.add("jlist", jarray);
-		
-		return gson.toJson(jdata);
-	}*/
-
-
-
 	
 }
