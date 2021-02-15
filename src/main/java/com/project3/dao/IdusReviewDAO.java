@@ -8,7 +8,6 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.project3.vo.IdusOrderVO;
 import com.project3.vo.IdusProductVO;
 import com.project3.vo.IdusReviewVO;
 
@@ -18,6 +17,13 @@ public class IdusReviewDAO extends DBConn {
 
 	private static String namespace = "mapper.review";
 
+	/**
+	 * ∏Æ∫‰ ∆Ú¡°
+	 */
+	public IdusProductVO getAvg(String pid) {
+		return sqlSession.selectOne(namespace+".avg", pid);
+	}
+	
 	/**
 	 * ∏Æ∫‰ µÓ∑œ
 	 */

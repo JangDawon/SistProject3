@@ -67,6 +67,7 @@ public class CategoryServiceImpl implements CategoryService{
 			jobj.addProperty("ptitle", vo.getPtitle());
 			jobj.addProperty("pprice_char", vo.getPprice_char());
 			jobj.addProperty("pdate", vo.getPdate());
+			jobj.addProperty("product_avg", vo.getProduct_avg());
 			
 			jarray.add(jobj);
 		}
@@ -154,7 +155,7 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 	
 	public String getNewList_AJAX(String uemail) {
-		ArrayList<IdusProductVO> list = categoryDAO.getNewList();
+		ArrayList<IdusProductVO> list = categoryDAO.getIndexNew();
 		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList(uemail);
 
 		//list객체의 데이터를 JSON 객체로 변환 --> JSON 라이브러리 설치(gson)
@@ -173,7 +174,8 @@ public class CategoryServiceImpl implements CategoryService{
 			jobj.addProperty("ptitle", vo.getPtitle());
 			jobj.addProperty("pprice_char", vo.getPprice_char());
 			jobj.addProperty("pdate", vo.getPdate());
-			System.out.println("list pid : "+vo.getPid());
+			jobj.addProperty("product_avg", vo.getProduct_avg());
+
 			jarray.add(jobj);
 		}
 		
@@ -209,7 +211,7 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 	
 	public String getBestProdList_AJAX(String uemail) {
-		ArrayList<IdusProductVO> list = categoryDAO.getBestProdList();
+		ArrayList<IdusProductVO> list = categoryDAO.getIndexBest();
 		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList(uemail);
 
 		//list객체의 데이터를 JSON 객체로 변환 --> JSON 라이브러리 설치(gson)
@@ -228,6 +230,7 @@ public class CategoryServiceImpl implements CategoryService{
 			jobj.addProperty("ptitle", vo.getPtitle());
 			jobj.addProperty("pprice_char", vo.getPprice_char());
 			jobj.addProperty("pdate", vo.getPdate());
+			jobj.addProperty("product_avg", vo.getProduct_avg());
 			
 			jarray.add(jobj);
 		}
