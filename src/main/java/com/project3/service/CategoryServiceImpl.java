@@ -202,33 +202,6 @@ public class CategoryServiceImpl implements CategoryService{
 		return gson.toJson(jdata);
 	}
 	
-	
-	/* public String getSearchList(String search, String sname) {
-		ArrayList<IdusProductVO> list = categoryDAO.getSearchList(search, sname);
-		
-		JsonArray jarray = new JsonArray();
-		JsonObject jdata = new JsonObject();
-		Gson gson = new Gson();
-		
-		for(IdusProductVO vo : list){
-			JsonObject jobj = new JsonObject();
-			
-			jobj.addProperty("pid", vo.getPid());
-			jobj.addProperty("pcat", vo.getPcat());
-			jobj.addProperty("psfile1", vo.getPsfile1());
-			jobj.addProperty("sname", vo.getSname());
-			jobj.addProperty("ptitle", vo.getPtitle());
-			jobj.addProperty("pprice_char", vo.getPprice_char());
-			jobj.addProperty("pdate", vo.getPdate());
-			
-			jarray.add(jobj);
-		}
-		
-		jdata.add("jlist", jarray);
-		
-		return gson.toJson(jdata);
-	} */
-	
 	public String getSearchList(String search, String sname, String uemail) {
 		ArrayList<IdusProductVO> list = categoryDAO.getSearchList(search, sname);
 		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList(uemail);
@@ -269,5 +242,4 @@ public class CategoryServiceImpl implements CategoryService{
 		return gson.toJson(jdata);
 	}
 
-	
 }

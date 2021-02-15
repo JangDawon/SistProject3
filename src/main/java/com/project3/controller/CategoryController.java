@@ -65,11 +65,6 @@ public class CategoryController {
 		return mv; 
 	}
 	
-	/* @ResponseBody
-	@RequestMapping(value = "/search_ajax_list.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
-	public String search_ajax_list(String search, String sname) {
-		return categoryService.getSearchList(search, sname); 
-	} */
 	@ResponseBody
 	@RequestMapping(value = "/search_ajax_list.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
 	public String search_ajax_list(String search, String sname, String uemail) {

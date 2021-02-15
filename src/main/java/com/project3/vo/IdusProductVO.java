@@ -5,6 +5,13 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 public class IdusProductVO {
 	String pid,oid, pcat, sname, semail, ptitle, pcontent, pfile1, psfile1, pfile2, psfile2
 	, pfile3, psfile3, pdate, savePath, opt1, opt2, opt3, pprice_char, opt1_price_char, opt2_price_char, opt3_price_char;
+	String rcontent;
+	public String getRcontent() {
+		return rcontent;
+	}
+	public void setRcontent(String rcontent) {
+		this.rcontent = rcontent;
+	}
 	public String getOid() {
 		return oid;
 	}
