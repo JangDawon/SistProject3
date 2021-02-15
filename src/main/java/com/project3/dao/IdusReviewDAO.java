@@ -62,6 +62,16 @@ public class IdusReviewDAO extends DBConn {
 		List<IdusReviewVO> list = sqlSession.selectList(namespace + ".list", param);
 		return (ArrayList<IdusReviewVO>) list;
 	}
+	
+	/**
+	 * 리뷰 리스트 가져오기(현주)
+	 */
+	public ArrayList<IdusReviewVO> getProdReviewList(String pid) {
+		List<IdusReviewVO> list = sqlSession.selectList(namespace + ".prodreviewlist", pid);
+		
+		return (ArrayList<IdusReviewVO>) list;
+	}
+	
 
 	/**
 	 * 리뷰 내용 가져오기(지혜)

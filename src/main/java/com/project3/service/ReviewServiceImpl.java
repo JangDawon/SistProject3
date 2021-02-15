@@ -153,7 +153,7 @@ public class ReviewServiceImpl implements BoardService {
 		mv.setViewName("/admin/review/review_mng_list");
 		return mv;
 	}
-
+	
 	@Override
 	public int getResultDelete(String id) {
 		return 0;
