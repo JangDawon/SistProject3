@@ -62,12 +62,7 @@
 						output += "</a>";
 						output += "</div>";
 						output += "</div>";
-						/*
-						<c:forEach items="${list}" var="vo">
-						<c:if test="${vo.pid == 'jdata.jlist[i].pid'}">
-						output += "<img src='http://localhost:9000/sistproject3/images/star2.png' id='"+jdata.jlist[i].pid+"_star'>";
-						</c:if>
-						</c:forEach> */
+						
 					}
 					
 					
@@ -77,7 +72,7 @@
 		}
 		
 		$(document).on("click",".favorite_btn",function(){
-			var btn_pid = $(this).val(); //버튼 눌러서 받아온 pid
+			var btn_pid = $(this).val(); 
 			var wish_img_id = "#"+btn_pid+"_star";
 			var wish_img_attr = $(wish_img_id).attr("src"); 
 			if(uemail !="") {

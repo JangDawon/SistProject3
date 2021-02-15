@@ -112,8 +112,10 @@ public class CategoryServiceImpl implements CategoryService{
 		ModelAndView mv = new ModelAndView();
 		
 		ArrayList<IdusProductVO> list = categoryDAO.getBestProdList(pcat);
+		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList();
 		
 		mv.addObject("list", list);
+		mv.addObject("wishlist", wishlist);
 		mv.setViewName("/category/product_best");
 		
 		return mv;
