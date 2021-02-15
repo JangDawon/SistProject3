@@ -214,7 +214,7 @@ public class MemberServiceImpl {
 		
 		int start = 0;
 		int end = 0;
-		int pageSize = 10; //한 페이지당 출력되는 row
+		int pageSize = 5; //한 페이지당 출력되는 row
 		int pageCount = 1; //전체 페이지 수 : 전체 row / 한 페이지당 출력되는 row
 		int dbCount = memberDAO.getorderCount(); //DB연동 후 전체로우수 출력
 		int reqPage = 1; //요청 페이지
@@ -256,7 +256,7 @@ public class MemberServiceImpl {
 		
 		int start = 0;
 		int end = 0;
-		int pageSize = 10; //한 페이지당 출력되는 row
+		int pageSize = 5; //한 페이지당 출력되는 row
 		int pageCount = 1; //전체 페이지 수 : 전체 row / 한 페이지당 출력되는 row
 		int dbCount = memberDAO.getorderCount(); //DB연동 후 전체로우수 출력
 		int reqPage = 1; //요청 페이지
@@ -331,7 +331,9 @@ public class MemberServiceImpl {
 	public ModelAndView getbookmarkList(String uemail) {
 		ModelAndView mv = new ModelAndView();
 		String psfile = memberDAO.getPsfile(uemail);
+		ArrayList<IdusProductVO> list = memberDAO.getbookmarkList();
 		mv.addObject("psfile", psfile);
+		mv.addObject("list",list);
 		mv.setViewName("mypage/my_bookmark_item");
 		return mv;
 	}

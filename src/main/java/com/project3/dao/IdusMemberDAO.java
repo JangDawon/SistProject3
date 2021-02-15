@@ -9,10 +9,9 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.project3.vo.IdusMemberVO;
 import com.project3.vo.IdusOrderVO;
 import com.project3.vo.IdusProductVO;
-import com.project3.vo.IdusMemberVO;
-import com.project3.vo.IdusReviewVO;
 import com.project3.vo.IdusSessionVO;
 
 public class IdusMemberDAO {
@@ -122,6 +121,10 @@ public class IdusMemberDAO {
 	}
 	public int getorderDelete(String oid) {
 		return sqlSession.delete(namespace+".orderDelete", oid);
+	}
+	public ArrayList<IdusProductVO> getbookmarkList(){
+		List<IdusProductVO> list = sqlSession.selectList(namespace+".my_wishlist");
+		return (ArrayList<IdusProductVO>) list;
 	}
 
 }
