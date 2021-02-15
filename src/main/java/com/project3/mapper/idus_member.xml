@@ -116,6 +116,12 @@
 		delete from idus_order2 where oid = #{oid}
 	</delete>
 	
+	   <select id ="my_wishlist" resultType="com.project3.vo.IdusProductVO">
+   	select p.ptitle, p.pprice, round(avg(r.rscore),1) as rscore,  p.psfile1 
+	from idus_review r, idus_product p, idus_wish w
+	where  p.pid = w.pid
+	group by p.ptitle,p.pprice,p.psfile1
+   </select>
 	
 	
 </mapper>
