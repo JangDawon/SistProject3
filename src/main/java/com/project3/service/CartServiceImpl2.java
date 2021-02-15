@@ -47,7 +47,6 @@ public class CartServiceImpl2 implements CartService {
 			vo.setDel_price(Integer.parseInt(del_price));
 			vo.setTotal_price(Integer.parseInt(total_price));
 			cartDAO2.getInsertOrder(vo);
-			System.out.println("impl pid : " + vo.getPid());
 			productDAO.updateQty(vo.getPid());
 		}
 		cartDAO2.getResultDelete(cid_list);

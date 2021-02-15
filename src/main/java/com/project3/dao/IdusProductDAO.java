@@ -20,7 +20,6 @@ public class IdusProductDAO extends DBConn{
 	 * 상품 구매 후 수량 업데이트
 	 */
 	public int updateQty(String pid) {
-		System.out.println("dao qty : "+pid);
 		return sqlSession.update(namespace+".update_qty", pid);
 	}
 	
