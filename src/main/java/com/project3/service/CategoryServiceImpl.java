@@ -11,22 +11,28 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.project3.dao.IdusCategoryDAO;
-import com.project3.vo.IdusBoardVO;
+import com.project3.dao.IdusWishDAO;
 import com.project3.vo.IdusProductVO;
+import com.project3.vo.IdusWishVO;
 
 @Service("categoryService")
 public class CategoryServiceImpl implements CategoryService{
 	@Autowired
 	private IdusCategoryDAO categoryDAO;
 	
+	@Autowired
+	private IdusWishDAO wishDAO;
+	
 	public ModelAndView getIndexProd() {
 		ModelAndView mv = new ModelAndView();
 		
 		ArrayList<IdusProductVO> list1 = categoryDAO.getIndexNew();
 		ArrayList<IdusProductVO> list2 = categoryDAO.getIndexBest();
+		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList();
 		
 		mv.addObject("list1", list1);
 		mv.addObject("list2", list2);
+		mv.addObject("wishlist", wishlist);
 		mv.setViewName("/index");
 		
 		return mv;
@@ -37,12 +43,14 @@ public class CategoryServiceImpl implements CategoryService{
 		return mv;
 	}
 	
-	public String getAjaxList(String pcat, String sname) {
+	public String getAjaxList(String pcat, String sname, String uemail) {
 		ArrayList<IdusProductVO> list = categoryDAO.getAjaxList(pcat, sname);
+		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList(uemail);
 		
 		//list객체의 데이터를 JSON 객체로 변환 --> JSON 라이브러리 설치(gson)
 		JsonArray jarray = new JsonArray();
 		JsonObject jdata = new JsonObject();
+		JsonArray jarray2 = new JsonArray();
 		Gson gson = new Gson();
 		
 		for(IdusProductVO vo : list){
@@ -59,7 +67,18 @@ public class CategoryServiceImpl implements CategoryService{
 			jarray.add(jobj);
 		}
 		
+		for(IdusWishVO vo : wishlist){
+			JsonObject jobj2 = new JsonObject();
+
+			jobj2.addProperty("wid", vo.getWid());
+			jobj2.addProperty("uemail", vo.getUemail());
+			jobj2.addProperty("pid", vo.getPid());
+			jobj2.addProperty("wdate", vo.getWdate());
+			
+			jarray2.add(jobj2);
+		}
 		jdata.add("jlist", jarray);
+		jdata.add("jlist2", jarray2);
 		
 		return gson.toJson(jdata);
 	}
@@ -92,8 +111,11 @@ public class CategoryServiceImpl implements CategoryService{
 		ModelAndView mv = new ModelAndView();
 		
 		ArrayList<IdusProductVO> list = categoryDAO.getBestProdList();
+		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList();
+
 		
 		mv.addObject("list", list);
+		mv.addObject("wishlist", wishlist);
 		mv.setViewName("/category/product_best");
 		
 		return mv;

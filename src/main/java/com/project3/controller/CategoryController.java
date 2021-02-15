@@ -48,8 +48,8 @@ public class CategoryController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/category_ajax_list.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
-	public String category_ajax_list(String pcat, String sname) {
-		return categoryService.getAjaxList(pcat, sname); 
+	public String category_ajax_list(String pcat, String sname, String uemail) {
+		return categoryService.getAjaxList(pcat, sname, uemail);   
 	}
 	
 	/**
