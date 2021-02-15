@@ -5,7 +5,15 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 public class IdusReviewVO {
 
 	int rno;
-	String rid, pid, uemail, oid, rfile, rsfile, rcontent, rscore, rdate, savepath, ptitle,pfile1,psfile1;
+	String rid, pid, uemail, oid, rfile, rsfile, rcontent, rscore, rdate, savepath, ptitle,pfile1,psfile1,onum;
+	public String getOnum() {
+		return onum;
+	}
+
+	public void setOnum(String onum) {
+		this.onum = onum;
+	}
+
 	public String getPfile1() {
 		return pfile1;
 	}
