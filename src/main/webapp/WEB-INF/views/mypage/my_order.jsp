@@ -1,22 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 페이페이지</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://localhost:9000/sistproject3/images/logo.jpg"><title>아이디어스 - 마이페이지</title>
 <link rel="stylesheet" href="http://localhost:9000/sistproject3/css/woohyun.css">
+<link rel="stylesheet" href="http://localhost:9000/sistproject3/css/am-pagination.css">
+<script src="http://localhost:9000/sistproject3/js/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/sistproject3/js/am-pagination.js"></script>
+<script>
+	   
+	$(document).ready(function(){
+		
+		<c:if test="${result ne null}">
+	      alert("${result}");
+	   </c:if>
+		
+		var pager = jQuery("#ampaginationsm").pagination({
+			maxSize : 5,
+			totals : "${dbCount}",
+			pageSize : "${pageSize}",
+			page : "${reqPage}",
+			
+			lastText : '&raquo;&raquo;',
+			firstText : '&laquo;&laquo;',
+			prevText : '&laquo;',
+			nextText : '&raquo;',
+			
+			btnSize : 'sm'
+		});
+		
+		jQuery("#ampaginationsm").on('am.pagination.change', function(e){
+			$(location).attr('href','http://localhost:9000/sistproject3/my_order.do?rpage=' + e.page);
+		});
+	});
+</script>
 <style>
-span.write_button{
-border:1px solid rgb(204, 204, 204);padding: 5px 12px;
-text-decoration:none;
-}
-table.my_order a{
-text-decoration:none;
-color:black;}
 
 
+td.img_td{
+border:1px solid red;
+text-align:center;}
 </style>
+
 </head>
 <body>
 <!-- aside -->
@@ -25,22 +53,31 @@ color:black;}
 
 	<div class="mypage_content">
 		<!-- aside -->
-		<jsp:include page="mypage_aside.jsp"></jsp:include>
+		<jsp:include page="mypage_aside.jsp"><jsp:param name="psfile" value="${psfile }" /></jsp:include>
 	<h2>주문 내역</h2>
+	<c:forEach var="vo" items="${list}">
 	<table class="my_order">
+	<tr>
+	<td>
+		<input type="hidden" name="uemail" value="${vo.uemail }">
+		<input type = "hidden" name = "pid" value = "${vo.pid }">
+		<input type = "hidden" name = "oid" value = "${vo.oid}">
+		</td></tr>
 		<tr>
-			<td colspan=2>2021-01-12</td>
-			<td colspan=1>50000원</td>
+			
+			<td class = "date_td" height = "40"colspan=2>${vo.rdate }</td>
+			<td colspan=2>${(vo.pprice+vo.opt1_price)*vo.opt1_qty+(vo.pprice+vo.opt2_price)*vo.opt2_qty+(vo.pprice+vo.opt3_price)*vo.opt3_qty}원</td>
 		</tr>
 
 		<tr>
-			<td rowspan=2><img
-				src="http://localhost:9000/sistproject3/images/item_img.PNG"></td>
-			<td rowspan=2>♥<b>[입점할인]뚠뚠이 캐릭터 그림 일러스트 초상화</b><br> <span>인원
-					1명/그림게시 : 인스타/아이디어스 가능해요/매후기이벤트 : 후기 쓸께요/상세설명을 필독하였습니다.</span></td>
-			<td width="100" rowspan=2><a href="review_write.do" onclick = "window.open(this.href, '_blank',' width=460,height= 600,  left=800 top =150 resizeable=no'); return false"><span class = "write_button">리뷰쓰기</span></a>
+			<td width = 120 class = "img_td"rowspan=2><img class = "p_img" src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }"></td>
+			<td width ="300"class = "title_td"rowspan=2><b>${vo.ptitle }</b><br><span class = "prdt_option">${result}${vo.opt1 }${vo.opt1_qty },${vo.opt2 }${vo.opt2_qty },${vo.opt3 }${vo.opt3_qty }</span></td>
+			<td width="100"><a href="review_write.do?pid=${vo.pid}&oid=${vo.oid}" onclick = "window.open(this.href, '_blank',' width=460,height= 550,  left=800 top =150 resizeable=no'); return false"><span class = "write_button">리뷰쓰기</span></a></td>
+			<td width ="100"><a href = "orderCancelProc.do?oid=${vo.oid}"><button type  ="submit" id = "cancelBtn" class="cancelBtn" >주문취소</button></a></td>
 		</tr>
 	</table>
+	</c:forEach>
+	<div class = "order_paging"><div id="ampaginationsm"></div></div>
 			</div>
 
 		<jsp:include page="../footer.jsp" />

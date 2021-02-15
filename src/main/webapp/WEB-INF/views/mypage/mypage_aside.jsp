@@ -40,7 +40,6 @@
 					<span>관심리스트</span>
 				</b>
 				<a href="my_bookmark_item.do">즐겨찾기</a><br>
-				<a href="my_bookmark_writer.do">좋아하는 작가</a>
 				<hr class="h">
 				<b>
 					<span>내 정보</span>
