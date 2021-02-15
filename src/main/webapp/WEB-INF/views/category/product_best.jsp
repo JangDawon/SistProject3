@@ -12,7 +12,9 @@
 		<script>
 			$(document).ready(function(){
 				var uemail = "${sessionScope.svo.uemail}";
-				<c:forEach items="${list}" var="vo">
+				ajax_best();
+				
+				/* <c:forEach items="${list}" var="vo">
 					var output = '<div class="best_prod">';
 					output += '<div>';
 					output += '<div class="best_prod_img">';
@@ -31,15 +33,11 @@
 						</c:otherwise> 
 						</c:choose>
 					</c:forEach>
-					/* output += '<button class="favorite_btn" value="${vo.pid }">';
-					output += '<img src="http://localhost:9000/sistproject3/images/favorite.png" id="${vo.pid }_star">';
-					output += '</button>'; */
 					output += '</div>';
 					output += '<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">';
 					output += '<div class="psfile_img">';
 					output += '<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">';
 					output += '</div>';
-					//output += '</div>';
 					output += '<div class="best_prod_info">';
 					output += '<div class="prod_info_name">${vo.sname }</div>';
 					output += '<div class="prod_info_title">${vo.ptitle }</div>';
@@ -52,7 +50,7 @@
 					output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
 					output += '</div>';
 					output += '</a>';
-					output += '</div>';
+				
 					output += '</div>';
 					output += '</div>';
 						
@@ -71,7 +69,7 @@
 					<c:if test="${vo.pcat=='기타'}">
 						$("#etc_here").before(output);
 					</c:if>
-				</c:forEach>
+				</c:forEach> */
 				
 				$(document).on("click",".favorite_btn",function(){
 					var btn_pid = $(this).val(); 
@@ -94,7 +92,7 @@
 							$.ajax({
 								url:"wish_delete.do?uemail=${sessionScope.svo.uemail}&pid="+btn_pid,
 								success:function(result){
-								 
+									ajax_list();
 								}
 							});//ajax
 						}
@@ -103,6 +101,95 @@
 						location.href='http://localhost:9000/sistproject3/login.do';
 					}
 				});
+				
+				function ajax_best(){
+					$.ajax({
+						url:"best_ajax.do?uemail=${sessionScope.svo.uemail}",
+						success:function(result){
+							var jdata = JSON.parse(result);
+							var output = "";
+							
+							for(var i in jdata.jlist){ 
+								output += '<div class="best_prod">';
+								output += '<div>';
+								output += '<div class="best_prod_img">';
+								output += '<div>';
+								var n = 0;
+								for(var j in jdata.jlist2){
+									if(jdata.jlist[i].pid == jdata.jlist2[j].pid){
+										output += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+										output += '<img src="http://localhost:9000/sistproject3/images/star2.png" id="'+jdata.jlist[i].pid+'_star">';
+										output += '</button>';
+										n = 1;
+									}
+								}
+								if(n != 1){
+									output += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+									output += '<img src="http://localhost:9000/sistproject3/images/favorite.png" id="'+jdata.jlist[i].pid+'_star">';
+									output += '</button>';
+								}
+								output += '</div>';
+								output += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+								output += '<div class="psfile_img">';
+								output += '<img src="http://localhost:9000/sistproject3/resources/upload/'+jdata.jlist[i].psfile1+'">';
+								output += '</div>';
+								output += '</a>';
+								output += '</div>';
+								output += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+								output += '<div class="best_prod_info">';
+								output += '<div class="prod_info_name">'+jdata.jlist[i].sname+'</div>';
+								output += '<div class="prod_info_title">'+jdata.jlist[i].ptitle+'</div>';
+								output += '</div>';
+								output += '<div class="best_prod_info_review">';
+								output += '<div class="rv">';
+								output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
+								output += '<span> 4.5</span>';
+								output += '</div>';
+								output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
+								output += '</div>';
+								output += '</a>';
+								output += '</div>';
+								output += '</div>';
+								
+								<c:forEach items="${list}" var="vo">
+								<c:if test="${vo.pcat=='음식'}"> 
+									$("#food_here").before(output);
+								</c:if>
+								<c:if test="${vo.pcat=='악세사리'}">
+									$("#accessory_here").before(output);
+								</c:if>
+								<c:if test="${vo.pcat=='패션, 잡화'}">
+									$("#living_here").before(output);
+								</c:if>
+								<c:if test="${vo.pcat=='인테리어 소품'}">
+									$("#interior_here").before(output);
+								</c:if>
+								<c:if test="${vo.pcat=='기타'}">
+									$("#etc_here").before(output);
+								</c:if>
+								</c:forEach>
+							}
+								/* if(jdata.jlist[i].pcat == '음식'){
+									$("#food_here").before(output);
+								}else if(jdata.jlist[i].pcat == '악세사리'){
+									$("#accessory_here").before(output);
+								}else if(jdata.jlist[i].pcat == '패션, 잡화'){
+									$("#living_here").before(output);
+								}else if(jdata.jlist[i].pcat == '인테리어 소품'){
+									$("#interior_here").before(output);
+								}else if(jdata.jlist[i].pcat == '기타'){
+									$("#etc_here").before(output);
+								}  */
+							
+							
+							 
+							
+						}//success
+					}); //ajax
+				}//function ajax_best()
+				
+				
+				
 			});
 		</script>
 	</head>
