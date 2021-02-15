@@ -49,7 +49,8 @@ public class ReviewServiceImpl implements BoardService {
 					e.printStackTrace();
 				}
 			} else {
-				val = "test";
+				val = "리뷰는 상품당 하나씩 남길 수 있습니다.";
+				System.out.println("리뷰서비스");
 			}
 		} else {
 		}
