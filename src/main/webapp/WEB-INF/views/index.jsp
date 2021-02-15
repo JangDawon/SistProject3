@@ -97,7 +97,7 @@
 						output += '<div class="best_prod_info_review">';
 						output += '<div class="rv">';
 						output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
-						output += '<span> 4.5</span>';
+						output += '<span style="margin:0px 0px 0px 5px; font-size:14px;">'+jdata.jlist[i].product_avg+'</span>';
 						output += '</div>';
 						output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
 						output += '</div>';
@@ -150,7 +150,7 @@
 						output += '<div class="new_prod_info_review">';
 						output += '<div class="rv">';
 						output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
-						output += '<span> 4.5</span>';
+						output += '<span style="margin:0px 0px 0px 5px; font-size:14px;">'+jdata.jlist[i].product_avg+'</span>';
 						output += '</div>';
 						output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
 						output += '</div>';
