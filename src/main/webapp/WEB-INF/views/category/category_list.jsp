@@ -50,7 +50,6 @@
 						output += "<div>";
 						output += "<img src='http://localhost:9000/sistproject3/resources/upload/"+ jdata.jlist[i].psfile1 +"'>";
 						output += "</div>";
-						output += "</div>";
 						output += "<div class='product_info'>";
 						output += "<div class='prod_info_name'>"+ jdata.jlist[i].sname +"</div>";
 						output += "<div class='prod_info_title'>"+ jdata.jlist[i].ptitle +"</div>";
@@ -59,12 +58,11 @@
 						output += "<div class='rv'>후기</div>";
 						output += "<div class='rv2'>이야,,, 정말 좋네요.. 흠 뭐랄까...</div>";
 						output += "</div>";
+						output += "</div>";
 						output += "</a>";
 						output += "</div>";
 						output += "</div>";
-						
 					}
-					
 					
 					$("div.category_content").text("").append(output);
 				}
@@ -125,7 +123,7 @@
 					</li>
 				</ul>
 			</div>  -->
-			
+		
 			<div class="filter_bottom">
 				<div class="selector">
 					<select id="selector">
