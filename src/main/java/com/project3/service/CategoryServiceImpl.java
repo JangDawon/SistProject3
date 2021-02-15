@@ -177,6 +177,7 @@ public class CategoryServiceImpl implements CategoryService{
 			jobj.addProperty("pprice_char", vo.getPprice_char());
 			jobj.addProperty("pdate", vo.getPdate());
 			jobj.addProperty("product_avg", vo.getProduct_avg());
+			jobj.addProperty("rcontent", vo.getRcontent());
 
 			jarray.add(jobj);
 		}
@@ -233,6 +234,7 @@ public class CategoryServiceImpl implements CategoryService{
 			jobj.addProperty("pprice_char", vo.getPprice_char());
 			jobj.addProperty("pdate", vo.getPdate());
 			jobj.addProperty("product_avg", vo.getProduct_avg());
+			jobj.addProperty("rcontent", vo.getRcontent());
 			
 			jarray.add(jobj);
 		}

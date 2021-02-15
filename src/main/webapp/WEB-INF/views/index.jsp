@@ -99,7 +99,11 @@
 						output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
 						output += '<span style="margin:0px 0px 0px 5px; font-size:14px;">'+jdata.jlist[i].product_avg+'</span>';
 						output += '</div>';
-						output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
+						if(jdata.jlist[i].rcontent != null){
+							output += '<div class="rv2">'+jdata.jlist[i].rcontent+'</div>';
+						}else {
+							output += '<div class="rv2">-</div>';
+						}
 						output += '</div>';
 						output += '</a>';
 						output += '</div>';
@@ -152,7 +156,11 @@
 						output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
 						output += '<span style="margin:0px 0px 0px 5px; font-size:14px;">'+jdata.jlist[i].product_avg+'</span>';
 						output += '</div>';
-						output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
+						if(jdata.jlist[i].rcontent != null){
+							output += '<div class="rv2">'+jdata.jlist[i].rcontent+'</div>';
+						}else {
+							output += '<div class="rv2">-</div>';
+						}
 						output += '</div>';
 						output += '</a>';
 						output += '</div>';
