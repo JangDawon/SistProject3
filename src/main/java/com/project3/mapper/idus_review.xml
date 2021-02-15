@@ -19,6 +19,11 @@
 		from (select * from idus_review order by rdate desc) r, idus_product p where r.pid=p.pid) where rno between #{start} and #{end}
 	</select>
 	
+	<select id="prodreviewlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusReviewVO">
+		select rownum rno, r.rid, r.pid, p.ptitle, p.product_avg, r.uemail, r.oid, r.rfile, r.rsfile,p.psfile1, r.rcontent, r.rscore, to_char(r.rdate, 'yyyy.mm.dd') rdate 
+		from (select * from idus_review order by rdate desc) r, idus_product p where r.pid=p.pid and r.pid=#{pid}
+	</select>
+	
 		<select id="reviewList" parameterType="map" resultType="com.project3.vo.IdusReviewVO">
 		select * from (select rownum rno, r.rid, r.pid, p.ptitle, r.uemail, r.oid, r.rfile, r.rsfile,p.psfile1, r.rcontent, r.rscore, to_char(r.rdate, 'yyyy.mm.dd') rdate 
 		from (select * from idus_review order by rdate desc) r, idus_product p where r.pid=p.pid  and uemail = #{uemail}) where rno between #{start} and #{end}

@@ -6,6 +6,17 @@ public class IdusReviewVO {
 
 	int rno;
 	String rid, pid, uemail, oid, rfile, rsfile, rcontent, rscore, rdate, savepath, ptitle,pfile1,psfile1,onum;
+	double product_avg;
+	
+	
+	public double getProduct_avg() {
+		return product_avg;
+	}
+
+	public void setProduct_avg(double product_avg) {
+		this.product_avg = product_avg;
+	}
+
 	public String getOnum() {
 		return onum;
 	}

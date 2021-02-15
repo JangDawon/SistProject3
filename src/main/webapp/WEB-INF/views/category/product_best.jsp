@@ -13,64 +13,6 @@
 			$(document).ready(function(){
 				var uemail = "${sessionScope.svo.uemail}";
 				ajax_best();
-				
-				/* <c:forEach items="${list}" var="vo">
-					var output = '<div class="best_prod">';
-					output += '<div>';
-					output += '<div class="best_prod_img">';
-					output += '<div>';
-					<c:forEach var="wvo" items="${wishlist}">
-						<c:choose>
-						<c:when test="${vo.pid eq wvo.pid && sessionScope.svo.uemail eq wvo.uemail}">
-							output += '<button class="favorite_btn" value="${vo.pid }">';
-							output += '<img src="http://localhost:9000/sistproject3/images/star2.png" id="${vo.pid }_star">';
-							output += '</button>';
-						</c:when>
-						<c:otherwise>
-							output += '<button class="favorite_btn" value="${vo.pid }">';
-							output += '<img src="http://localhost:9000/sistproject3/images/favorite.png" id="${vo.pid }_star">';
-							output += '</button>';
-						</c:otherwise> 
-						</c:choose>
-					</c:forEach>
-					output += '</div>';
-					output += '<a href="http://localhost:9000/sistproject3/product.do?pid=${vo.pid }">';
-					output += '<div class="psfile_img">';
-					output += '<img src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1}">';
-					output += '</div>';
-					output += '<div class="best_prod_info">';
-					output += '<div class="prod_info_name">${vo.sname }</div>';
-					output += '<div class="prod_info_title">${vo.ptitle }</div>';
-					output += '</div>';
-					output += '<div class="best_prod_info_review">';
-					output += '<div class="rv">';
-					output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
-					output += '<span> 4.5</span>';
-					output += '</div>';
-					output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
-					output += '</div>';
-					output += '</a>';
-				
-					output += '</div>';
-					output += '</div>';
-						
-					<c:if test="${vo.pcat=='음식'}"> 
-						$("#food_here").before(output);
-					</c:if>
-					<c:if test="${vo.pcat=='악세사리'}">
-						$("#accessory_here").before(output);
-					</c:if>
-					<c:if test="${vo.pcat=='패션, 잡화'}">
-						$("#living_here").before(output);
-					</c:if>
-					<c:if test="${vo.pcat=='인테리어 소품'}">
-						$("#interior_here").before(output);
-					</c:if>
-					<c:if test="${vo.pcat=='기타'}">
-						$("#etc_here").before(output);
-					</c:if>
-				</c:forEach> */
-				
 				$(document).on("click",".favorite_btn",function(){
 					var btn_pid = $(this).val(); 
 					var wish_img_id = "#"+btn_pid+"_star";
@@ -82,7 +24,6 @@
 								url:"wish_insert.do?uemail=${sessionScope.svo.uemail}&pid="+btn_pid,
 								success:function(result){
 									if(result == 1){
-										//$("div.category_content").text("");
 										ajax_list();
 									}		 
 								}
@@ -108,82 +49,224 @@
 						success:function(result){
 							var jdata = JSON.parse(result);
 							var output = "";
+							var output1 = "";
+							var output2 = "";
+							var output3 = "";
+							var output4 = "";
 							
 							for(var i in jdata.jlist){ 
-								output += '<div class="best_prod">';
-								output += '<div>';
-								output += '<div class="best_prod_img">';
-								output += '<div>';
-								var n = 0;
-								for(var j in jdata.jlist2){
-									if(jdata.jlist[i].pid == jdata.jlist2[j].pid){
-										output += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
-										output += '<img src="http://localhost:9000/sistproject3/images/star2.png" id="'+jdata.jlist[i].pid+'_star">';
-										output += '</button>';
-										n = 1;
+								if(jdata.jlist[i].pcat == '음식'){
+									output += '<div class="best_prod">';
+									output += '<div>';
+									output += '<div class="best_prod_img">';
+									output += '<div>';
+									var n = 0;
+									for(var j in jdata.jlist2){
+										if(jdata.jlist[i].pid == jdata.jlist2[j].pid){
+											output += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+											output += '<img src="http://localhost:9000/sistproject3/images/star2.png" id="'+jdata.jlist[i].pid+'_star">';
+											output += '</button>';
+											n = 1;
+										}
 									}
-								}
-								if(n != 1){
-									output += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
-									output += '<img src="http://localhost:9000/sistproject3/images/favorite.png" id="'+jdata.jlist[i].pid+'_star">';
-									output += '</button>';
-								}
-								output += '</div>';
-								output += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
-								output += '<div class="psfile_img">';
-								output += '<img src="http://localhost:9000/sistproject3/resources/upload/'+jdata.jlist[i].psfile1+'">';
-								output += '</div>';
-								output += '</a>';
-								output += '</div>';
-								output += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
-								output += '<div class="best_prod_info">';
-								output += '<div class="prod_info_name">'+jdata.jlist[i].sname+'</div>';
-								output += '<div class="prod_info_title">'+jdata.jlist[i].ptitle+'</div>';
-								output += '</div>';
-								output += '<div class="best_prod_info_review">';
-								output += '<div class="rv">';
-								output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
-								output += '<span> 4.5</span>';
-								output += '</div>';
-								output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
-								output += '</div>';
-								output += '</a>';
-								output += '</div>';
-								output += '</div>';
-								
-								<c:forEach items="${list}" var="vo">
-								<c:if test="${vo.pcat=='음식'}"> 
-									$("#food_here").before(output);
-								</c:if>
-								<c:if test="${vo.pcat=='악세사리'}">
-									$("#accessory_here").before(output);
-								</c:if>
-								<c:if test="${vo.pcat=='패션, 잡화'}">
-									$("#living_here").before(output);
-								</c:if>
-								<c:if test="${vo.pcat=='인테리어 소품'}">
-									$("#interior_here").before(output);
-								</c:if>
-								<c:if test="${vo.pcat=='기타'}">
-									$("#etc_here").before(output);
-								</c:if>
-								</c:forEach>
-							}
-								/* if(jdata.jlist[i].pcat == '음식'){
-									$("#food_here").before(output);
+									if(n != 1){
+										output += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+										output += '<img src="http://localhost:9000/sistproject3/images/favorite.png" id="'+jdata.jlist[i].pid+'_star">';
+										output += '</button>';
+									}
+									output += '</div>';
+									output += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+									output += '<div class="psfile_img">';
+									output += '<img src="http://localhost:9000/sistproject3/resources/upload/'+jdata.jlist[i].psfile1+'">';
+									output += '</div>';
+									output += '</a>';
+									output += '</div>';
+									output += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+									output += '<div class="best_prod_info">';
+									output += '<div class="prod_info_name">'+jdata.jlist[i].sname+'</div>';
+									output += '<div class="prod_info_title">'+jdata.jlist[i].ptitle+'</div>';
+									output += '</div>';
+									output += '<div class="best_prod_info_review">';
+									output += '<div class="rv">';
+									output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
+									output += '<span> 4.5</span>';
+									output += '</div>';
+									output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
+									output += '</div>';
+									output += '</a>';
+									output += '</div>';
+									output += '</div>';
 								}else if(jdata.jlist[i].pcat == '악세사리'){
-									$("#accessory_here").before(output);
+									output1 += '<div class="best_prod">';
+									output1 += '<div>';
+									output1 += '<div class="best_prod_img">';
+									output1 += '<div>';
+									var n = 0;
+									for(var j in jdata.jlist2){
+										if(jdata.jlist[i].pid == jdata.jlist2[j].pid){
+											output1 += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+											output1 += '<img src="http://localhost:9000/sistproject3/images/star2.png" id="'+jdata.jlist[i].pid+'_star">';
+											output1 += '</button>';
+											n = 1;
+										}
+									}
+									if(n != 1){
+										output1 += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+										output1 += '<img src="http://localhost:9000/sistproject3/images/favorite.png" id="'+jdata.jlist[i].pid+'_star">';
+										output1 += '</button>';
+									}
+									output1 += '</div>';
+									output1 += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+									output1 += '<div class="psfile_img">';
+									output1 += '<img src="http://localhost:9000/sistproject3/resources/upload/'+jdata.jlist[i].psfile1+'">';
+									output1 += '</div>';
+									output1 += '</a>';
+									output1 += '</div>';
+									output1 += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+									output1 += '<div class="best_prod_info">';
+									output1 += '<div class="prod_info_name">'+jdata.jlist[i].sname+'</div>';
+									output1 += '<div class="prod_info_title">'+jdata.jlist[i].ptitle+'</div>';
+									output1 += '</div>';
+									output1 += '<div class="best_prod_info_review">';
+									output1 += '<div class="rv">';
+									output1 += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
+									output1 += '<span> 4.5</span>';
+									output1 += '</div>';
+									output1 += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
+									output1 += '</div>';
+									output1 += '</a>';
+									output1 += '</div>';
+									output1 += '</div>';
 								}else if(jdata.jlist[i].pcat == '패션, 잡화'){
-									$("#living_here").before(output);
+									output2 += '<div class="best_prod">';
+									output2 += '<div>';
+									output2 += '<div class="best_prod_img">';
+									output2 += '<div>';
+									var n = 0;
+									for(var j in jdata.jlist2){
+										if(jdata.jlist[i].pid == jdata.jlist2[j].pid){
+											output2 += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+											output2 += '<img src="http://localhost:9000/sistproject3/images/star2.png" id="'+jdata.jlist[i].pid+'_star">';
+											output2 += '</button>';
+											n = 1;
+										}
+									}
+									if(n != 1){
+										output2 += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+										output2 += '<img src="http://localhost:9000/sistproject3/images/favorite.png" id="'+jdata.jlist[i].pid+'_star">';
+										output2 += '</button>';
+									}
+									output2 += '</div>';
+									output2 += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+									output2 += '<div class="psfile_img">';
+									output2 += '<img src="http://localhost:9000/sistproject3/resources/upload/'+jdata.jlist[i].psfile1+'">';
+									output2 += '</div>';
+									output2 += '</a>';
+									output2 += '</div>';
+									output2 += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+									output2 += '<div class="best_prod_info">';
+									output2 += '<div class="prod_info_name">'+jdata.jlist[i].sname+'</div>';
+									output2 += '<div class="prod_info_title">'+jdata.jlist[i].ptitle+'</div>';
+									output2 += '</div>';
+									output2 += '<div class="best_prod_info_review">';
+									output2 += '<div class="rv">';
+									output2 += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
+									output2 += '<span> 4.5</span>';
+									output2 += '</div>';
+									output2 += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
+									output2 += '</div>';
+									output2 += '</a>';
+									output2 += '</div>';
+									output2 += '</div>';
 								}else if(jdata.jlist[i].pcat == '인테리어 소품'){
-									$("#interior_here").before(output);
+									output3 += '<div class="best_prod">';
+									output3 += '<div>';
+									output3 += '<div class="best_prod_img">';
+									output3 += '<div>';
+									var n = 0;
+									for(var j in jdata.jlist2){
+										if(jdata.jlist[i].pid == jdata.jlist2[j].pid){
+											output3 += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+											output3 += '<img src="http://localhost:9000/sistproject3/images/star2.png" id="'+jdata.jlist[i].pid+'_star">';
+											output3 += '</button>';
+											n = 1;
+										}
+									}
+									if(n != 1){
+										output3 += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+										output3 += '<img src="http://localhost:9000/sistproject3/images/favorite.png" id="'+jdata.jlist[i].pid+'_star">';
+										output3 += '</button>';
+									}
+									output3 += '</div>';
+									output3 += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+									output3 += '<div class="psfile_img">';
+									output3 += '<img src="http://localhost:9000/sistproject3/resources/upload/'+jdata.jlist[i].psfile1+'">';
+									output3 += '</div>';
+									output3 += '</a>';
+									output3 += '</div>';
+									output3 += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+									output3 += '<div class="best_prod_info">';
+									output3 += '<div class="prod_info_name">'+jdata.jlist[i].sname+'</div>';
+									output3 += '<div class="prod_info_title">'+jdata.jlist[i].ptitle+'</div>';
+									output3 += '</div>';
+									output3 += '<div class="best_prod_info_review">';
+									output3 += '<div class="rv">';
+									output3 += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
+									output3 += '<span> 4.5</span>';
+									output3 += '</div>';
+									output3 += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
+									output3 += '</div>';
+									output3 += '</a>';
+									output3 += '</div>';
+									output3 += '</div>';
 								}else if(jdata.jlist[i].pcat == '기타'){
-									$("#etc_here").before(output);
-								}  */
-							
-							
-							 
-							
+									output4 += '<div class="best_prod">';
+									output4 += '<div>';
+									output4 += '<div class="best_prod_img">';
+									output4 += '<div>';
+									var n = 0;
+									for(var j in jdata.jlist2){
+										if(jdata.jlist[i].pid == jdata.jlist2[j].pid){
+											output4 += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+											output4 += '<img src="http://localhost:9000/sistproject3/images/star2.png" id="'+jdata.jlist[i].pid+'_star">';
+											output4 += '</button>';
+											n = 1;
+										}
+									}
+									if(n != 1){
+										output4 += '<button class="favorite_btn" value="'+jdata.jlist[i].pid+'">';
+										output4 += '<img src="http://localhost:9000/sistproject3/images/favorite.png" id="'+jdata.jlist[i].pid+'_star">';
+										output4 += '</button>';
+									}
+									output4 += '</div>';
+									output4 += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+									output4 += '<div class="psfile_img">';
+									output4 += '<img src="http://localhost:9000/sistproject3/resources/upload/'+jdata.jlist[i].psfile1+'">';
+									output4 += '</div>';
+									output4 += '</a>';
+									output4 += '</div>';
+									output4 += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
+									output4 += '<div class="best_prod_info">';
+									output4 += '<div class="prod_info_name">'+jdata.jlist[i].sname+'</div>';
+									output4 += '<div class="prod_info_title">'+jdata.jlist[i].ptitle+'</div>';
+									output4 += '</div>';
+									output4 += '<div class="best_prod_info_review">';
+									output4 += '<div class="rv">';
+									output4 += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
+									output4 += '<span> 4.5</span>';
+									output4 += '</div>';
+									output4 += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
+									output4 += '</div>';
+									output4 += '</a>';
+									output4 += '</div>';
+									output4 += '</div>';
+								}
+							}
+							$("#food_here").before(output);
+							$("#accessory_here").before(output1);
+							$("#living_here").before(output2);
+							$("#interior_here").before(output3);
+							$("#etc_here").before(output4);
 						}//success
 					}); //ajax
 				}//function ajax_best()
