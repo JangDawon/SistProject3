@@ -34,7 +34,7 @@
 				$("#rcontent").focus();
 				return false;
 			} else if (rfileName == "") {
-				alert("리뷰사진을 입력해주세요,");
+				alert("리뷰사진을 입력해주세요.");
 				$("#file1").focus();
 				return false;
 			}else{
