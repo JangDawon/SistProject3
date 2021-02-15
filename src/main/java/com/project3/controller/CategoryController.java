@@ -30,6 +30,12 @@ public class CategoryController {
 		return categoryService.getNewList();
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/product_new_ajax.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public String product_new_ajax(String uemail) {
+		return categoryService.getNewListAjax(uemail); 
+	}
+	
 	/**
 	 * 카테고리 리스트
 	 */

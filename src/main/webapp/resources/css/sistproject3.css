@@ -827,7 +827,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       background-color:rgba(0, 0, 0, 0);
       border:1px solid rgba(0, 0, 0, 0);
    }
-   div.best_prod div.best_prod_img div.psfile_img>img, div.new_prod div.new_prod_img img {
+   div.best_prod div.best_prod_img div.psfile_img>img, div.new_prod div.new_prod_img div.psfile_img>img {
       text-align:center;
       border-radius:3px;
       width:203px;
@@ -861,7 +861,7 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
       margin:10px 5px;
       border-radius:5px;
    }
-   div.best_prod a, div.new_prod>a, div.artist_prod>a {
+   div.best_prod a, div.new_prod a, div.artist_prod>a {
       text-decoration:none;
       text-align:left;
       color:black;
