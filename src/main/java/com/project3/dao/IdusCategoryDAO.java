@@ -30,24 +30,6 @@ public class IdusCategoryDAO  extends DBConn{
 	}
 	
 	
-	/*public int getCount(String keyword) {
-		int result =0;
-		try {
-			String sql ="select count(*) from product where pkind like '%"+keyword +"%' or pname like '%" +keyword+ "%'";
-			getStatement();			
-			rs = stmt.executeQuery(sql);
-			
-			if(rs.next()) {
-				result = rs.getInt(1);
-
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}	
-		return result;
-	}*/
-	
-	
 	/**
 	 * 최신 차트
 	 */

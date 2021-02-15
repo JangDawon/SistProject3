@@ -102,6 +102,18 @@
 				$("#prod_total_delivery").text("").append(0);
 			}
 			
+			$("input[class='cart_prod_chk']").each(function(index){
+				var pid = $(this).val();
+				
+				if(parseInt($("#" + pid + "_price_total").text()) >= 50000){
+					$("#" + pid + "_del_price").text("0");
+				}else if(count != 0){
+					$("#" + pid + "_del_price").text("").append($("#prod_total_delivery").text());
+				}else{
+					$("#" + pid + "_del_price").text("2600");
+				}
+			});
+			
 		});
 		
 		$("#cart_order").click(function(){
@@ -116,7 +128,7 @@
 			
 			if(count != 0){
 				var del_fee = $("#prod_total_delivery").text();
-				var t_price = $("#prod_total2").text();
+				var t_price = $("#all_price_total").text();
 				purchase_list += "&del_price=" + del_fee +"&total_price=" + t_price + "&uemail=${sessionScope.svo.uemail}";
 				$(location).attr("href","cart_order2.do?purchase_list="+purchase_list);
 			}else{
