@@ -89,10 +89,8 @@
 					});
 					
 					if(count != 0){
-						alert($(".prod_total_delivery").text());
-						alert($("#prod_total2").text());
 						var del_fee = $(".prod_total_delivery").text();
-						var t_price = $("#prod_total2").text();
+						var t_price = $(".all_price_total").text();
 						purchase_list += "&del_price=" + del_fee +"&total_price=" + t_price + "&uemail=${sessionScope.svo.uemail}";
 						$(location).attr("href","cart_order2.do?purchase_list="+purchase_list);
 					}else{
