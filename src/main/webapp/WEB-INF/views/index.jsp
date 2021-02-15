@@ -84,7 +84,7 @@
 						}
 						output += '</div>';
 						output += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
-						output += '<div>';
+						output += '<div class="psfile_img">';
 						output += '<img src="http://localhost:9000/sistproject3/resources/upload/'+jdata.jlist[i].psfile1+'">';
 						output += '</div>';
 						output += '</a>';
@@ -137,7 +137,7 @@
 						}
 						output += '</div>';
 						output += '<a href="http://localhost:9000/sistproject3/product.do?pid='+jdata.jlist[i].pid+'">';
-						output += '<div>';
+						output += '<div class="psfile_img">';
 						output += '<img src="http://localhost:9000/sistproject3/resources/upload/'+jdata.jlist[i].psfile1+'">';
 						output += '</div>';
 						output += '</a>';
@@ -231,6 +231,7 @@
                 </a>
             </div>
 	        <section class="product_content" id="product_content_best">
+
 			</section>
 			<a href="http://localhost:9000/sistproject3/product_best.do" class="ui_btn-large">인기작품  더보기</a>
 		</section>	
@@ -242,9 +243,8 @@
                 </a>
             </div>
 		    <section class="product_content" id="product_content_new">
-        		
-				<a href="http://localhost:9000/sistproject3/product_new.do" class="ui_btn-large">최신작품  더보기</a>
 			</section>
+			<a href="http://localhost:9000/sistproject3/product_new.do" class="ui_btn-large">최신작품  더보기</a>
 		</section>	
 		
 		<section id="popular_artist" class="indexpage_section">
