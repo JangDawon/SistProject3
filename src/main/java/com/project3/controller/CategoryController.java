@@ -78,4 +78,17 @@ public class CategoryController {
 	}
 	
 	
+	@ResponseBody
+	@RequestMapping(value = "/best_ajax.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public String best_ajax(String uemail) {
+		return categoryService.getBestProdList_AJAX(uemail);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/new_ajax.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public String new_ajax(String uemail) {
+		return categoryService.getNewList_AJAX(uemail);
+	}
+	
+	
 }

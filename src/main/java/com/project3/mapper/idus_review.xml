@@ -5,6 +5,10 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace = "mapper.review">
+	<select id="avg" parameterType="java.lang.String" resultType="com.project3.vo.IdusProductVO">
+		select p.pid, round(avg(r.rscore),2) product_avg from idus_review r, idus_product p group by p.pid having p.pid=r.pid and r.pid=#{pid}
+	</select>
+
 	<insert id = "register" parameterType  = "com.project3.vo.IdusReviewVO">
 		INSERT INTO IDUS_REVIEW 
 		VALUES('r_'||idus_review_seq.nextval,#{pid},#{uemail},#{oid},#{rfile},#{rsfile},#{rcontent},#{rscore},sysdate)
@@ -17,6 +21,11 @@
 	<select id="list" parameterType="map" resultType="com.project3.vo.IdusReviewVO">
 		select * from (select rownum rno, r.rid, r.pid, p.ptitle, r.uemail, r.oid, r.rfile, r.rsfile,p.psfile1, r.rcontent, r.rscore, to_char(r.rdate, 'yyyy.mm.dd') rdate 
 		from (select * from idus_review order by rdate desc) r, idus_product p where r.pid=p.pid) where rno between #{start} and #{end}
+	</select>
+	
+	<select id="prodreviewlist" parameterType="java.lang.String" resultType="com.project3.vo.IdusReviewVO">
+		select rownum rno, r.rid, r.pid, p.ptitle, p.product_avg, r.uemail, r.oid, r.rfile, r.rsfile,p.psfile1, r.rcontent, r.rscore, to_char(r.rdate, 'yyyy.mm.dd') rdate 
+		from (select * from idus_review order by rdate desc) r, idus_product p where r.pid=p.pid and r.pid=#{pid}
 	</select>
 	
 		<select id="reviewList" parameterType="map" resultType="com.project3.vo.IdusReviewVO">

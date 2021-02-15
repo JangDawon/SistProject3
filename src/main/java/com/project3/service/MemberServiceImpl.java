@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -208,7 +209,7 @@ public class MemberServiceImpl {
 		return mv;
 
 	}
-	public Object getorderList(String rpage, String param,String uemail) {
+	public Object getorderList(String rpage, String param, String uemail, String result) {
 		ModelAndView mv = new ModelAndView();
 		
 		int start = 0;
@@ -239,6 +240,8 @@ public class MemberServiceImpl {
 		ArrayList<IdusOrderVO> list = memberDAO.getorderList(start, end,uemail);
 		String psfile = memberDAO.getPsfile(uemail);
 		//board_list.jsp 파일로 데이터 전송
+		
+		mv.addObject("result", result);
 		mv.addObject("psfile",psfile);
 		mv.addObject("list", list);
 		mv.addObject("dbCount", dbCount);

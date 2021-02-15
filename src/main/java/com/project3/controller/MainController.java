@@ -9,11 +9,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project3.service.CategoryServiceImpl;
 import com.project3.service.ProductServiceImpl;
+import com.project3.service.ReviewServiceImpl;
 
 @Controller
 public class MainController {
 	@Autowired
 	private CategoryServiceImpl categoryService;
+	
+	@Autowired
+	private ReviewServiceImpl reviewService;
 	
 	@RequestMapping(value = "/index.do", method = RequestMethod.GET)
 	public ModelAndView index() {

@@ -8,7 +8,6 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.project3.vo.IdusOrderVO;
 import com.project3.vo.IdusProductVO;
 import com.project3.vo.IdusReviewVO;
 
@@ -18,6 +17,13 @@ public class IdusReviewDAO extends DBConn {
 
 	private static String namespace = "mapper.review";
 
+	/**
+	 * 리뷰 평점
+	 */
+	public IdusProductVO getAvg(String pid) {
+		return sqlSession.selectOne(namespace+".avg", pid);
+	}
+	
 	/**
 	 * 리뷰 등록
 	 */
@@ -56,6 +62,16 @@ public class IdusReviewDAO extends DBConn {
 		List<IdusReviewVO> list = sqlSession.selectList(namespace + ".list", param);
 		return (ArrayList<IdusReviewVO>) list;
 	}
+	
+	/**
+	 * 리뷰 리스트 가져오기(현주)
+	 */
+	public ArrayList<IdusReviewVO> getProdReviewList(String pid) {
+		List<IdusReviewVO> list = sqlSession.selectList(namespace + ".prodreviewlist", pid);
+		
+		return (ArrayList<IdusReviewVO>) list;
+	}
+	
 
 	/**
 	 * 리뷰 내용 가져오기(지혜)

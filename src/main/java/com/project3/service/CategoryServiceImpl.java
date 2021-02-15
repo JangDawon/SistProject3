@@ -11,8 +11,10 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.project3.dao.IdusCategoryDAO;
+import com.project3.dao.IdusReviewDAO;
 import com.project3.dao.IdusWishDAO;
 import com.project3.vo.IdusProductVO;
+import com.project3.vo.IdusReviewVO;
 import com.project3.vo.IdusWishVO;
 
 @Service("categoryService")
@@ -22,6 +24,8 @@ public class CategoryServiceImpl implements CategoryService{
 	
 	@Autowired
 	private IdusWishDAO wishDAO;
+	@Autowired
+	private IdusReviewDAO reviewDAO;
 	
 	public ModelAndView getIndexProd() {
 		ModelAndView mv = new ModelAndView();
@@ -63,6 +67,7 @@ public class CategoryServiceImpl implements CategoryService{
 			jobj.addProperty("ptitle", vo.getPtitle());
 			jobj.addProperty("pprice_char", vo.getPprice_char());
 			jobj.addProperty("pdate", vo.getPdate());
+			jobj.addProperty("product_avg", vo.getProduct_avg());
 			
 			jarray.add(jobj);
 		}
@@ -87,10 +92,13 @@ public class CategoryServiceImpl implements CategoryService{
 		ModelAndView mv = new ModelAndView();
 		
 		IdusProductVO vo = categoryDAO.getContent(pid);
+		ArrayList<IdusReviewVO> list = reviewDAO.getProdReviewList(pid);
 		
 		vo.setPcontent(vo.getPcontent().replace("\r\n", "<br>"));
 		
+		
 		mv.addObject("vo", vo);
+		mv.addObject("list",list);
 		mv.setViewName("/product_detail/product_detail");
 		
 		return mv;
@@ -147,7 +155,7 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 	
 	public String getNewList_AJAX(String uemail) {
-		ArrayList<IdusProductVO> list = categoryDAO.getNewList();
+		ArrayList<IdusProductVO> list = categoryDAO.getIndexNew();
 		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList(uemail);
 
 		//list객체의 데이터를 JSON 객체로 변환 --> JSON 라이브러리 설치(gson)
@@ -166,7 +174,8 @@ public class CategoryServiceImpl implements CategoryService{
 			jobj.addProperty("ptitle", vo.getPtitle());
 			jobj.addProperty("pprice_char", vo.getPprice_char());
 			jobj.addProperty("pdate", vo.getPdate());
-			System.out.println("list pid : "+vo.getPid());
+			jobj.addProperty("product_avg", vo.getProduct_avg());
+
 			jarray.add(jobj);
 		}
 		
@@ -202,7 +211,7 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 	
 	public String getBestProdList_AJAX(String uemail) {
-		ArrayList<IdusProductVO> list = categoryDAO.getBestProdList();
+		ArrayList<IdusProductVO> list = categoryDAO.getIndexBest();
 		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList(uemail);
 
 		//list객체의 데이터를 JSON 객체로 변환 --> JSON 라이브러리 설치(gson)
@@ -221,6 +230,7 @@ public class CategoryServiceImpl implements CategoryService{
 			jobj.addProperty("ptitle", vo.getPtitle());
 			jobj.addProperty("pprice_char", vo.getPprice_char());
 			jobj.addProperty("pdate", vo.getPdate());
+			jobj.addProperty("product_avg", vo.getProduct_avg());
 			
 			jarray.add(jobj);
 		}
