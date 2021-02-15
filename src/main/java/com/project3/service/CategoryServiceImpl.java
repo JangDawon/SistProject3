@@ -107,6 +107,47 @@ public class CategoryServiceImpl implements CategoryService{
 		return mv;
 	}
 	
+	public String getNewList_AJAX(String uemail) {
+		ArrayList<IdusProductVO> list = categoryDAO.getNewList();
+		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList(uemail);
+
+		//list객체의 데이터를 JSON 객체로 변환 --> JSON 라이브러리 설치(gson)
+		JsonArray jarray = new JsonArray();
+		JsonObject jdata = new JsonObject();
+		JsonArray jarray2 = new JsonArray();
+		Gson gson = new Gson();
+		
+		for(IdusProductVO vo : list){
+			JsonObject jobj = new JsonObject();
+
+			jobj.addProperty("pid", vo.getPid());
+			jobj.addProperty("pcat", vo.getPcat());
+			jobj.addProperty("psfile1", vo.getPsfile1());
+			jobj.addProperty("sname", vo.getSname());
+			jobj.addProperty("ptitle", vo.getPtitle());
+			jobj.addProperty("pprice_char", vo.getPprice_char());
+			jobj.addProperty("pdate", vo.getPdate());
+			System.out.println("list pid : "+vo.getPid());
+			jarray.add(jobj);
+		}
+		
+		for(IdusWishVO vo : wishlist){
+			JsonObject jobj2 = new JsonObject();
+
+			jobj2.addProperty("wid", vo.getWid());
+			jobj2.addProperty("uemail", vo.getUemail());
+			jobj2.addProperty("pid", vo.getPid());
+			jobj2.addProperty("wdate", vo.getWdate());
+			
+			jarray2.add(jobj2);
+		}
+		jdata.add("jlist", jarray);
+		jdata.add("jlist2", jarray2);
+		
+		return gson.toJson(jdata);
+		
+	}
+	
 	public ModelAndView getBestProdList() {
 		ModelAndView mv = new ModelAndView();
 		
@@ -120,6 +161,47 @@ public class CategoryServiceImpl implements CategoryService{
 		
 		return mv;
 	}
+	
+	public String getBestProdList_AJAX(String uemail) {
+		ArrayList<IdusProductVO> list = categoryDAO.getBestProdList();
+		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList(uemail);
+
+		//list객체의 데이터를 JSON 객체로 변환 --> JSON 라이브러리 설치(gson)
+		JsonArray jarray = new JsonArray();
+		JsonObject jdata = new JsonObject();
+		JsonArray jarray2 = new JsonArray();
+		Gson gson = new Gson();
+		
+		for(IdusProductVO vo : list){
+			JsonObject jobj = new JsonObject();
+
+			jobj.addProperty("pid", vo.getPid());
+			jobj.addProperty("pcat", vo.getPcat());
+			jobj.addProperty("psfile1", vo.getPsfile1());
+			jobj.addProperty("sname", vo.getSname());
+			jobj.addProperty("ptitle", vo.getPtitle());
+			jobj.addProperty("pprice_char", vo.getPprice_char());
+			jobj.addProperty("pdate", vo.getPdate());
+			
+			jarray.add(jobj);
+		}
+		
+		for(IdusWishVO vo : wishlist){
+			JsonObject jobj2 = new JsonObject();
+
+			jobj2.addProperty("wid", vo.getWid());
+			jobj2.addProperty("uemail", vo.getUemail());
+			jobj2.addProperty("pid", vo.getPid());
+			jobj2.addProperty("wdate", vo.getWdate());
+			
+			jarray2.add(jobj2);
+		}
+		jdata.add("jlist", jarray);
+		jdata.add("jlist2", jarray2);
+		
+		return gson.toJson(jdata);
+	}
+	
 	
 	public String getSearchList(String search, String sname) {
 		ArrayList<IdusProductVO> list = categoryDAO.getSearchList(search, sname);
