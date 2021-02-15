@@ -5,18 +5,23 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace = "mapper.review">
-	<!-- 	<insert id = "register" parameterType  = "com.project3.vo.IdusReviewVO">
+	<insert id = "register" parameterType  = "com.project3.vo.IdusReviewVO">
 		INSERT INTO IDUS_REVIEW 
-		VALUES('r_'||idus_review_seq.nextval,"pid","uemail","","",#{rcontent},#{rscore},sysdate)
-	</insert>   -->
+		VALUES('r_'||idus_review_seq.nextval,#{pid},#{uemail},#{oid},#{rfile},#{rsfile},#{rcontent},#{rscore},sysdate)
+	</insert>  
 
 	<select id="count" resultType="java.lang.Integer">
 		select count(*) from idus_review
 	</select>
 	
 	<select id="list" parameterType="map" resultType="com.project3.vo.IdusReviewVO">
-		select * from (select rownum rno, r.rid, r.pid, p.ptitle, r.uemail, r.oid, r.rfile, r.rsfile, r.rcontent, r.rscore, to_char(r.rdate, 'yyyy.mm.dd') rdate 
+		select * from (select rownum rno, r.rid, r.pid, p.ptitle, r.uemail, r.oid, r.rfile, r.rsfile,p.psfile1, r.rcontent, r.rscore, to_char(r.rdate, 'yyyy.mm.dd') rdate 
 		from (select * from idus_review order by rdate desc) r, idus_product p where r.pid=p.pid) where rno between #{start} and #{end}
+	</select>
+	
+		<select id="reviewList" parameterType="map" resultType="com.project3.vo.IdusReviewVO">
+		select * from (select rownum rno, r.rid, r.pid, p.ptitle, r.uemail, r.oid, r.rfile, r.rsfile,p.psfile1, r.rcontent, r.rscore, to_char(r.rdate, 'yyyy.mm.dd') rdate 
+		from (select * from idus_review order by rdate desc) r, idus_product p where r.pid=p.pid  and uemail = #{uemail}) where rno between #{start} and #{end}
 	</select>
 	
 	<select id="content" parameterType="java.lang.String" resultType="com.project3.vo.IdusReviewVO">
@@ -36,4 +41,17 @@
 	      #{item}
 	    </foreach>
 	</delete>
+	
+	<delete id = "reviewDelete" parameterType = "java.lang.String">
+		delete from idus_review where rid = #{rid}
+	</delete>
+	
+	<update id = "reviewUpdate" parameterType = "com.project3.vo.IdusReviewVO">
+		update idus_review set rfile=#{rfile}, rsfile=#{rsfile}, rcontent = #{rcontent}, rscore =#{rscore} 
+		where rid = #{rid}
+	</update>
+	
+	<select id = "rcount" parameterType ="com.project3.vo.IdusReviewVO" resultType = "java.lang.Integer">
+	 	select count(*) from idus_review where uemail = #{uemail} and oid = #{oid}
+	</select>
 </mapper>

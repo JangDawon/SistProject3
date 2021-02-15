@@ -18,13 +18,12 @@
 
 		var rfileName = "";
 		
-
 	 	$("input[type=file]#file1").on('change', function() {
 			if (window.FileReader) {
 				rfileName = $(this)[0].files[0].name;
 			}
 		});
-		$("#writeBtn").click(function() {
+		$("#updateBtn").click(function() {
 			if ($("#rscore").val() == "선택") {
 				alert("별점을 선택해주세요.");
 				$("#rscore").focus();
@@ -38,19 +37,18 @@
 				$("#file1").focus();
 				return false;
 			}else{
-				var data = $("#reviewform")[0];
+				var data = $("#reviewupdateform")[0];
 				var form = new FormData(data);
  				$.ajax({
 				       type: "POST",
-				       url: "/sistproject3/review_write_proc.do",
+				       url: "/sistproject3/review_update_proc.do",
 				       enctype: 'multipart/form-data',
 				       processData: false,
 				       contentType: false,
 				       data: form,      
 				         success: function (data) {
-				          var result = data
-				        	 //window.close();
-				            window.opener.location.href="http://localhost:9000/sistproject3/my_order.do?result="+result;
+				            //window.close();
+				            window.opener.location.href="http://localhost:9000/sistproject3/my_review.do";
 				            self.close();
 				        }
 				}); 
@@ -63,9 +61,9 @@
 <body>
 	<div class="review_content">
 		<div class = "page_title">리뷰를 남겨주세요</div> 
-		<form name="review_write_form" action="review_write_proc.do" method="post" enctype="multipart/form-data" id="reviewform">
+		<form name="review_update_form" action="review_update_proc.do" method="post" enctype="multipart/form-data" id="reviewupdateform">
+			<input type = "hidden" name = "rid" value ="${rid }">
 			<input type = "hidden" name = "pid" value ="${vo.pid }">
-			<input type = "hidden" name = "oid" value ="${oid }">
 			<input type="hidden" name="uemail" value="${sessionScope.svo.uemail}">
 			
 			<table class="review_write" >
@@ -93,7 +91,7 @@
 				</tr>
 				
 				<tr>
-					<td colspan=2><textarea id="rcontent"name="rcontent" cols=55 rows=10></textarea></td>
+					<td colspan=2><textarea id="rcontent"name="rcontent"cols=55 rows=10></textarea></td>
 				</tr>
 				
 				<tr>
@@ -101,7 +99,7 @@
 				</tr>
 				
 				<tr>
-					<td  class ="button_td"colspan=2><button type="button" class="writeBtn" id="writeBtn">등록</button></td>
+					<td  class ="button_td"colspan=2><button type="button" class="writeBtn" id="updateBtn">수정</button></td>
 				</tr>
 			</table>
 		</form>
