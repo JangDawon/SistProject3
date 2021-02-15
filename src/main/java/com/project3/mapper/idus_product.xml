@@ -6,6 +6,10 @@
     
 <mapper namespace="mapper.product">
 	
+	<update id="update_qty" parameterType="java.lang.String">
+		update idus_product set product_total = product_total + 1 where pid=#{pid}
+	</update>
+	
 	<select id="indexnew" resultType="com.project3.vo.IdusProductVO">
 		select * from (select rownum rno, pid, psfile1, sname, ptitle, to_char(pdate, 'yyyy/mm/dd') pdate
 			from (select * from idus_product order by pdate desc))

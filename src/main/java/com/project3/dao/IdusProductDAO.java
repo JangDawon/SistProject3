@@ -16,6 +16,13 @@ public class IdusProductDAO extends DBConn{
 	 
 	private static String namespace = "mapper.product";
 	
+	/**
+	 * 상품 구매 후 수량 업데이트
+	 */
+	public int updateQty(String pid) {
+		return sqlSession.update(namespace+".update_qty", pid);
+	}
+	
 	
 	/**
 	 * 상품 전체 수
