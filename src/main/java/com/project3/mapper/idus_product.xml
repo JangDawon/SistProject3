@@ -14,20 +14,20 @@
 	</update>
 	
 	<select id="indexnew" resultType="com.project3.vo.IdusProductVO">
-		select * from (select rownum rno, pid, psfile1, sname, ptitle, to_char(pdate, 'yyyy/mm/dd') pdate, product_avg
-			from (select * from idus_product order by pdate desc))
+		select * from (select rownum rno, p.pid, p.psfile1, p.sname, p.ptitle, to_char(p.pdate, 'yyyy/mm/dd') pdate, product_avg, r.rcontent
+			from idus_product p left join idus_review r on p.pid = r.pid order by pdate desc)
 		where rno between 1 and 10
 	</select>
 	
 	<select id="indexbest" resultType="com.project3.vo.IdusProductVO">
-		select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total, product_avg
-			from (select * from idus_product order by product_total desc))
+		select * from (select rownum rno, p.pid, p.psfile1, p.sname, p.ptitle, to_char(p.pdate, 'yyyy/mm/dd') pdate, product_avg, r.rcontent
+			from idus_product p left join idus_review r on p.pid = r.pid order by product_total desc)
 		where rno between 1 and 10
 	</select>
 	
 	<select id="newlist" resultType="com.project3.vo.IdusProductVO">
-		select pid, psfile1, sname, ptitle, to_char(pdate, 'yyyy/mm/dd') pdate
-			from (select * from idus_product order by pdate desc)
+		select * from (select p.pid, p.psfile1, p.sname, p.ptitle, to_char(p.pdate, 'yyyy/mm/dd') pdate, p.product_avg, r.rcontent
+			from idus_product p left join idus_review r on p.pid = r.pid order by pdate desc)
 		where pdate between sysdate-3 and sysdate
 	</select>
 	

@@ -89,7 +89,7 @@
 									output += '<div class="best_prod_info_review">';
 									output += '<div class="rv">';
 									output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
-									output += '<span> 4.5</span>';
+									output += '<span style="margin:0px 0px 0px 5px; font-size:14px;">'+jdata.jlist[i].product_avg+'</span>';
 									output += '</div>';
 									output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
 									output += '</div>';
@@ -130,7 +130,7 @@
 									output1 += '<div class="best_prod_info_review">';
 									output1 += '<div class="rv">';
 									output1 += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
-									output1 += '<span> 4.5</span>';
+									output1 += '<span style="margin:0px 0px 0px 5px; font-size:14px;">'+jdata.jlist[i].product_avg+'</span>';
 									output1 += '</div>';
 									output1 += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
 									output1 += '</div>';
@@ -171,7 +171,7 @@
 									output2 += '<div class="best_prod_info_review">';
 									output2 += '<div class="rv">';
 									output2 += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
-									output2 += '<span> 4.5</span>';
+									output2 += '<span style="margin:0px 0px 0px 5px; font-size:14px;">'+jdata.jlist[i].product_avg+'</span>';
 									output2 += '</div>';
 									output2 += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
 									output2 += '</div>';
@@ -212,7 +212,7 @@
 									output3 += '<div class="best_prod_info_review">';
 									output3 += '<div class="rv">';
 									output3 += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
-									output3 += '<span> 4.5</span>';
+									output3 += '<span style="margin:0px 0px 0px 5px; font-size:14px;">'+jdata.jlist[i].product_avg+'</span>';
 									output3 += '</div>';
 									output3 += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
 									output3 += '</div>';
@@ -253,7 +253,7 @@
 									output4 += '<div class="best_prod_info_review">';
 									output4 += '<div class="rv">';
 									output4 += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
-									output4 += '<span> 4.5</span>';
+									output4 += '<span style="margin:0px 0px 0px 5px; font-size:14px;">'+jdata.jlist[i].product_avg+'</span>';
 									output4 += '</div>';
 									output4 += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
 									output4 += '</div>';
