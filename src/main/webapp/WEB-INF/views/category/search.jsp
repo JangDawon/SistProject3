@@ -20,41 +20,41 @@
 				
 				function search_list(sname){
 					$.ajax({
-		               url:"search_ajax_list.do?search=${search}&sname="+sname,
-		               success:function(result){
-		                  var jdata = JSON.parse(result);
+						url:"search_ajax_list.do?search=${search}&sname="+sname,
+						success:function(result){
+							var jdata = JSON.parse(result);
 		                  
-		                  var output = "";
+							var output = "";
 		                  
-		                  for(var i in jdata.jlist){ 
-		                     output += "<div class='product'>";
-		                     output += "<a href='http://localhost:9000/sistproject3/product.do?pid="+ jdata.jlist[i].pid +"'>";
-		                     output += "<div class='prod_img'>";
-		                     output += "<div>";
-		                     output += "<button class='favorite_btn'>";
-		                     output += "<img src='http://localhost:9000/sistproject3/images/favorite.png'>";
-		                     output += "</button>";
-		                     output += "</div>";
-		                     output += "<div>";
-		                     output += "<img src='http://localhost:9000/sistproject3/resources/upload/"+ jdata.jlist[i].psfile1 +"'>";
-		                     output += "</div>";
-		                     output += "</div>";
-		                     output += "<div class='product_info'>";
-		                     output += "<div class='prod_info_name'>"+ jdata.jlist[i].sname +"</div>";
-		                     output += "<div class='prod_info_title'>"+ jdata.jlist[i].ptitle +"</div>";
-		                     output += "<div class='prod_info_price'>"+ jdata.jlist[i].pprice_char +"원</div>";
-		                     output += "<div class='prod_info_review'>";
-		                     output += "<div class='rv'>후기</div>";
-		                     output += "<div class='rv2'>이야,,, 정말 좋네요.. 흠 뭐랄까...</div>";
-		                     output += "</div>";
-		                     output += "</div>";
-		                     output += "</a>";
-		                     output += "</div>";
-		                  }
-		                  
-		                  $("div.search_content").text("").append(output);
-		               }
-		            });
+							for(var i in jdata.jlist){ 
+								output += "<div class='product'>";
+								output += "<a href='http://localhost:9000/sistproject3/product.do?pid="+ jdata.jlist[i].pid +"'>";
+								output += "<div class='prod_img'>";
+								output += "<div>";
+								output += "<button class='favorite_btn'>";
+								output += "<img src='http://localhost:9000/sistproject3/images/favorite.png'>";
+								output += "</button>";
+								output += "</div>";
+								output += "<div>";
+								output += "<img src='http://localhost:9000/sistproject3/resources/upload/"+ jdata.jlist[i].psfile1 +"'>";
+								output += "</div>";
+								output += "</div>";
+								output += "<div class='product_info'>";
+								output += "<div class='prod_info_name'>"+ jdata.jlist[i].sname +"</div>";
+								output += "<div class='prod_info_title'>"+ jdata.jlist[i].ptitle +"</div>";
+								output += "<div class='prod_info_price'>"+ jdata.jlist[i].pprice_char +"원</div>";
+								output += "<div class='prod_info_review'>";
+								output += "<div class='rv'>후기</div>";
+								output += "<div class='rv2'>이야,,, 정말 좋네요.. 흠 뭐랄까...</div>";
+								output += "</div>";
+								output += "</div>";
+								output += "</a>";
+								output += "</div>";
+							}
+							
+							$("div.search_content").text("").append(output);
+						}
+					});
 				}
 			});
 		</script>
