@@ -107,6 +107,45 @@ public class CategoryServiceImpl implements CategoryService{
 		return mv;
 	}
 	
+	public String getNewListAjax(String uemail) {
+		ArrayList<IdusProductVO> list = categoryDAO.getNewList();
+		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList(uemail);
+
+		JsonArray jarray = new JsonArray();
+		JsonObject jdata = new JsonObject();
+		JsonArray jarray2 = new JsonArray();
+		Gson gson = new Gson();
+		
+		for(IdusProductVO vo : list){
+			JsonObject jobj = new JsonObject();
+
+			jobj.addProperty("pid", vo.getPid());
+			jobj.addProperty("pcat", vo.getPcat());
+			jobj.addProperty("psfile1", vo.getPsfile1());
+			jobj.addProperty("sname", vo.getSname());
+			jobj.addProperty("ptitle", vo.getPtitle());
+			jobj.addProperty("pprice_char", vo.getPprice_char());
+			jobj.addProperty("pdate", vo.getPdate());
+			
+			jarray.add(jobj);
+		}
+		
+		for(IdusWishVO vo : wishlist){
+			JsonObject jobj2 = new JsonObject();
+
+			jobj2.addProperty("wid", vo.getWid());
+			jobj2.addProperty("uemail", vo.getUemail());
+			jobj2.addProperty("pid", vo.getPid());
+			jobj2.addProperty("wdate", vo.getWdate());
+			
+			jarray2.add(jobj2);
+		}
+		jdata.add("jlist", jarray);
+		jdata.add("jlist2", jarray2);
+		
+		return gson.toJson(jdata);
+	}
+	
 	public String getNewList_AJAX(String uemail) {
 		ArrayList<IdusProductVO> list = categoryDAO.getIndexNew();
 		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList(uemail);
@@ -202,33 +241,6 @@ public class CategoryServiceImpl implements CategoryService{
 		return gson.toJson(jdata);
 	}
 	
-	
-	/* public String getSearchList(String search, String sname) {
-		ArrayList<IdusProductVO> list = categoryDAO.getSearchList(search, sname);
-		
-		JsonArray jarray = new JsonArray();
-		JsonObject jdata = new JsonObject();
-		Gson gson = new Gson();
-		
-		for(IdusProductVO vo : list){
-			JsonObject jobj = new JsonObject();
-			
-			jobj.addProperty("pid", vo.getPid());
-			jobj.addProperty("pcat", vo.getPcat());
-			jobj.addProperty("psfile1", vo.getPsfile1());
-			jobj.addProperty("sname", vo.getSname());
-			jobj.addProperty("ptitle", vo.getPtitle());
-			jobj.addProperty("pprice_char", vo.getPprice_char());
-			jobj.addProperty("pdate", vo.getPdate());
-			
-			jarray.add(jobj);
-		}
-		
-		jdata.add("jlist", jarray);
-		
-		return gson.toJson(jdata);
-	} */
-	
 	public String getSearchList(String search, String sname, String uemail) {
 		ArrayList<IdusProductVO> list = categoryDAO.getSearchList(search, sname);
 		ArrayList<IdusWishVO> wishlist = wishDAO.getWishList(uemail);
@@ -269,5 +281,4 @@ public class CategoryServiceImpl implements CategoryService{
 		return gson.toJson(jdata);
 	}
 
-	
 }
