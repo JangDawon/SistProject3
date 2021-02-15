@@ -25,8 +25,8 @@ table.my_order tr:nth-child(3) td button{background-color: rgb(255, 255, 255);bo
 table.my_order a{text-decoration:none;color:black;}
 table.my_order span.write_button{border:1px solid rgb(204, 204, 204);padding: 5px 12px;text-decoration:none;}
 table.my_order .p_img{width:130px;height:100px;}
-table.my_order .title_td{text-indent:10px; font-size:24px;}
-table.my_order span.prdt_option{font-size:18px;padding-left:10px;}
+table.my_order .title_td{text-indent:10px; font-size:16px;}
+table.my_order span.prdt_option{font-size:14px;padding-left:10px;}
 div.order_paging{text-align:center;}
 
 table.my_cancel {margin-left:100px;border-collpase: collapse;width:550px;height: 120px;}
@@ -38,7 +38,7 @@ table.my_cancel tr:nth-child(3) td button{background-color: rgb(255, 255, 255);b
 table.my_cancel a{text-decoration:none;color:black;}
 table.my_cancel span.write_button{border:1px solid rgb(204, 204, 204);padding: 5px 12px;text-decoration:none;}
 table.my_cancel .p_img{width:130px;height:100px;}
-table.my_cancel .title_td{text-indent:20px; font-size:24px;}
+table.my_cancel .title_td{text-indent:20px; font-size:15px;}
 table.my_cancel span.prdt_option{font-size:18px;padding-left:10px;}
 div.cancel_paging{display:inline-block;margin-left:185px;}
 /**
@@ -87,12 +87,12 @@ div.caution {background-color: rgb(250, 249, 249);display: inline-block;font-siz
 **/
 div.page_title{margin-left:15px;font-weight:800;font-size:24px;border-bottom:2px solid rgb(228,231,235);padding-bottom:5px;}
 table.review_write{margin-left:13px;}
-table.review_write .choice_td{font-weight:800;font-size:20px;border-top:2px solid rgb(228,231,235);}
-table.review_write .content_td{padding-top:10px;font-size:20px;font-weight:800;}
+table.review_write .choice_td{font-weight:800;font-size:15px;border-top:2px solid rgb(228,231,235);}
+table.review_write .content_td{padding-top:10px;font-size:15px;font-weight:800;}
 table.review_write .star_td{border-top:2px solid rgb(228,231,235);}
 table.review_write .p_img{width:100px;height:100px;margin-left:10px;}
 table.review_write tr td select.rscore{margin-left:30px;height:30px;font-size:20px;color:rgb(255,193,7);}
-table.review_write .title_td{text-indent:22px;font-size:22px;}
+table.review_write .title_td{font-size:15px;}
 table.review_write {border-collapse: collapse;}
 table.review_write tr td {padding: 5px 0;}
 table.review_write .button_td{text-align:center;}

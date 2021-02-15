@@ -70,7 +70,7 @@
 			
 			<table class="review_write" >
 				<tr>
-					<td width =190 class = "img_td"><img class = "p_img" src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }"></td>
+					<td width =145 class = "img_td"><img class = "p_img" src="http://localhost:9000/sistproject3/resources/upload/${vo.psfile1 }"></td>
 					<td class = "title_td"><b>${vo.ptitle }</b></td>
 				</tr>
 				
