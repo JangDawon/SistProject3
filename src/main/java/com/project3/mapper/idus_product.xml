@@ -15,19 +15,19 @@
 	
 	<select id="indexnew" resultType="com.project3.vo.IdusProductVO">
 		select * from (select rownum rno, p.pid, p.psfile1, p.sname, p.ptitle, to_char(p.pdate, 'yyyy/mm/dd') pdate, product_avg, r.rcontent
-			from idus_product p left join idus_review r on p.pid = r.pid order by pdate desc)
+			from idus_product p left join (select distinct pid, rcontent from idus_review) r on p.pid = r.pid order by pdate desc)
 		where rno between 1 and 10
 	</select>
 	
 	<select id="indexbest" resultType="com.project3.vo.IdusProductVO">
 		select * from (select rownum rno, p.pid, p.psfile1, p.sname, p.ptitle, to_char(p.pdate, 'yyyy/mm/dd') pdate, product_avg, r.rcontent
-			from idus_product p left join idus_review r on p.pid = r.pid order by product_total desc)
+			from idus_product p left join (select distinct pid, rcontent from idus_review) r on p.pid = r.pid order by product_total desc)
 		where rno between 1 and 10
 	</select>
 	
 	<select id="newlist" resultType="com.project3.vo.IdusProductVO">
 		select * from (select p.pid, p.psfile1, p.sname, p.ptitle, to_char(p.pdate, 'yyyy/mm/dd') pdate, p.product_avg, r.rcontent
-			from idus_product p left join idus_review r on p.pid = r.pid order by pdate desc)
+			from idus_product p left join (select distinct pid, rcontent from idus_review) r on p.pid = r.pid order by pdate desc)
 		where pdate between sysdate-3 and sysdate
 	</select>
 	
@@ -157,7 +157,3 @@
 	</select>
 	
 </mapper>
-
-
-
-
