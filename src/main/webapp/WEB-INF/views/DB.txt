@@ -183,10 +183,10 @@ CREATE TABLE idus_board(
   bpass     VARCHAR2(100),
   bdate     DATE,
   bhits     NUMBER(10),
-  uemail    VARCHAR2(50) not null,
+  uemail    VARCHAR2(50) REFERENCES idus_member(uemail) on delete cascade,
   uname     VARCHAR2(30) not null,
-  bsecret VARCHAR2(15),
-  rank number(10)
+  bsecret   varchar2(15),
+  RANK      number(10)
 );
 
 /*  아이디어스 공지사항 & 1대1문의 게시판 테이블 컬럼 추가(지혜)  
