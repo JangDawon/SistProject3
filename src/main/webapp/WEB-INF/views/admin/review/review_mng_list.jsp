@@ -44,7 +44,7 @@
 	<!-- aside -->
 	<jsp:include page="../admin.jsp"></jsp:include>
 	
-	<a href="review_mng_list.do" class="h2_user"><h2 class="txt">리뷰 관리</h2></a>
+	<a href="review_mng_list.do" class="h2_user"><h2 class="txt">리뷰 관${psfile }리</h2></a>
 	<table class="cs_table" id="admin_review_list" >
 		<tr>
 			<td colspan="6">
