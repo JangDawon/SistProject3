@@ -49,7 +49,7 @@
                output += '<img src="http://localhost:9000/sistproject3/images/star2.png">';
                output += '<span> 4.5</span>';
                output += '</div>';
-               output += '<div class="rv2">사진보다 실물이 훨씬 이쁘고...</div>';
+			   output += "<div class='rv2'>이야,,, 정말 좋네요.. 흠 뭐랄까...</div>";
                output += '</div>';
                output += '</a>';
                output += '</div>';

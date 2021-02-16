@@ -31,24 +31,24 @@
 		select pid, psfile1, sname, ptitle, pdate, product_avg, rcontent
 			from (select p.pid, p.psfile1, p.sname, p.ptitle, to_char(p.pdate, 'yyyy/mm/dd') pdate, p.product_avg, r.rcontent
 				from idus_product p left join (select distinct pid, rcontent from idus_review) r on p.pid = r.pid order by pdate desc)
-		where pdate between sysdate-3 and sysdate;
+		where pdate between sysdate-3 and sysdate
 	</select>
 	
 	<select id="bestprodlist" resultType="com.project3.vo.IdusProductVO">
 		select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
-			from (select * from idus_product where pcat = '음식' order by product_total desc))
+		   from (select * from idus_product where pcat = '음식' order by product_total desc))
 		where rno between 1 and 5 union
 		select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
-			from (select * from idus_product where pcat = '기타' order by product_total desc))
+		   from (select * from idus_product where pcat = '기타' order by product_total desc))
 		where rno between 1 and 5 union
-    	select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
-			from (select * from idus_product where pcat = '악세사리' order by product_total desc))
+		 select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
+		   from (select * from idus_product where pcat = '악세사리' order by product_total desc))
 		where rno between 1 and 5 union
-    	select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
-			from (select * from idus_product where pcat = '패션, 잡화' order by product_total desc))
+		 select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
+		   from (select * from idus_product where pcat = '패션, 잡화' order by product_total desc))
 		where rno between 1 and 5 union
-    	select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
-			from (select * from idus_product where pcat = '인테리어 소품' order by product_total desc))
+		 select * from (select rownum rno, pid, pcat, psfile1, sname, ptitle, pdate, product_total
+		   from (select * from idus_product where pcat = '인테리어 소품' order by product_total desc))
 		where rno between 1 and 5
 	</select>
 	
