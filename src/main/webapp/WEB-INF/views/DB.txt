@@ -1,4 +1,3 @@
-/* 아이디어스 리뷰테이블&SEQUENCE (우현)
 /*
 	아이디어스 상품 테이블 컬럼 추가(지혜)
 	등록일 : 2021.02.15 오후 6시 49분
@@ -6,7 +5,7 @@
 ALTER TABLE idus_product add(product_avg number);
 
 /* 아이디어스 리뷰테이블&SEQUENCE (우현))
-* 수정일 : 2021.02.13 오후 10시 20분
+* 수정일 : 2021.02.15 오후 7시 20분
 */
 CREATE TABLE IDUS_REVIEW(
 RID VARCHAR2(30) PRIMARY KEY,
@@ -184,10 +183,10 @@ CREATE TABLE idus_board(
   bpass     VARCHAR2(100),
   bdate     DATE,
   bhits     NUMBER(10),
-  uemail    VARCHAR2(50) not null,
+  uemail    VARCHAR2(50) REFERENCES idus_member(uemail) on delete cascade,
   uname     VARCHAR2(30) not null,
-  bsecret VARCHAR2(15),
-  rank number(10)
+  bsecret   varchar2(15),
+  RANK      number(10)
 );
 
 /*  아이디어스 공지사항 & 1대1문의 게시판 테이블 컬럼 추가(지혜)  
