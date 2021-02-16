@@ -7,6 +7,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.maven.shared.invoker.SystemOutHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -247,7 +248,6 @@ public class MemberServiceImpl {
 		mv.addObject("dbCount", dbCount);
 		mv.addObject("pageSize", pageSize);
 		mv.addObject("reqPage", reqPage);
-		
 		mv.setViewName("/mypage/my_order");
 		return mv;
 	}

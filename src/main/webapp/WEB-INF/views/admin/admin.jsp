@@ -15,9 +15,10 @@
 		<div class="admin_menu">
 			<div class="admin_profile">
 				<c:choose>
-					<c:when test="${param.psfile ne null }">
+					<c:when test="${param.psfile ne '' && param.psfile ne null }">
 						<img src="http://localhost:9000/sistproject3/resources/upload/${param.psfile}">
 					</c:when>
+					
 					<c:otherwise>
 						<img src="http://localhost:9000/sistproject3/images/logo.jpg">
 					</c:otherwise>
