@@ -57,6 +57,11 @@
 						output += "<div class='prod_info_review'>";
 						output += "<div class='rv'>후기</div>";
 						output += "<div class='rv2'>이야,,, 정말 좋네요.. 흠 뭐랄까...</div>";
+						/* if(jdata.jlist[i].rcontent != null){
+							output += '<div class="rv2">'+jdata.jlist[i].rcontent+'</div>';
+						}else {
+							output += '<div class="rv2">-</div>';
+						} */
 						output += "</div>";
 						output += "</div>";
 						output += "</a>";
